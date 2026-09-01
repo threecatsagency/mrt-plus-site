@@ -66,12 +66,12 @@
 
 /* Телефон – окремий вигляд: на мобільному це найчастіша дія. */
 .btn-phone {
-  background: var(--c-ink-900);
+  background: var(--c-navy-900);
   color: var(--c-white);
 }
 
 .btn-phone:hover {
-  background: var(--c-ink-800);
+  background: var(--c-navy-800);
   color: var(--c-white);
 }
 
@@ -247,13 +247,13 @@
 }
 
 .badge-mrt {
-  background: var(--c-accent-100);
-  color: var(--c-accent-700);
+  background: var(--c-gold-100);
+  color: var(--c-gold-600);
 }
 
 .badge-kt {
-  background: #e8e2f2;
-  color: #4a3a72;
+  background: var(--c-accent-100);
+  color: var(--c-accent-700);
 }
 
 .badge-contrast {
@@ -392,8 +392,9 @@
 }
 
 .logo svg {
-  width: 34px;
-  height: 34px;
+  width: auto;
+  height: 22px;
+  color: var(--c-gold-500);
 }
 
 .site-nav {
@@ -603,11 +604,78 @@
   pointer-events: none;
   background: repeating-linear-gradient(
     180deg,
-    var(--c-ink-100) 0 1px,
+    var(--c-gold-300) 0 1px,
     transparent 1px 9px
   );
+  opacity: 0.5;
   mask-image: linear-gradient(90deg, transparent, #000 45%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%, transparent);
+}
+
+/* Темний перший екран головної: тут золото в повну силу. */
+.hero-dark {
+  background: var(--c-navy-900);
+  color: var(--c-white);
+  border-bottom: 0;
+  padding-block: clamp(3rem, 2rem + 5vw, 6rem);
+}
+
+.hero-dark h1 {
+  color: var(--c-white);
+  font-size: var(--fs-display);
+  max-width: 16ch;
+}
+
+.hero-dark .lead {
+  color: var(--c-gold-100);
+}
+
+.hero-dark .scanlines {
+  opacity: 0.35;
+}
+
+.hero-dark .hero__meta {
+  color: var(--c-gold-300);
+}
+
+.hero-dark .hero__meta b {
+  color: var(--c-white);
+}
+
+.hero-dark .btn-outline {
+  background: transparent;
+  border-color: var(--c-gold-500);
+  color: var(--c-gold-300);
+}
+
+.hero-dark .btn-outline:hover {
+  border-color: var(--c-gold-300);
+  color: var(--c-white);
+}
+
+.hero-dark .logo-big {
+  display: block;
+  width: min(200px, 48%);
+  height: auto;
+  color: var(--c-gold-500);
+  margin-bottom: var(--sp-8);
+}
+
+/* Коротка золота риска під заголовком секції. */
+.rule-gold::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--c-gold-500);
+  margin-top: var(--sp-3);
+}
+
+.price-from {
+  font-size: var(--fs-caption);
+  color: var(--c-gold-600);
+  font-weight: var(--fw-semibold);
+  margin-right: var(--sp-1);
 }
 
 /* =====================================================================
@@ -680,12 +748,12 @@
 
 /* Картка групи досліджень: назва, від якої ціни, скільки позицій. */
 .card-group {
-  border-left: 3px solid var(--c-accent-100);
+  border-left: 3px solid var(--c-gold-300);
   transition: border-color var(--t-fast);
 }
 
 .card-group:hover {
-  border-left-color: var(--c-accent-600);
+  border-left-color: var(--c-gold-500);
 }
 
 .card-group .card-title {
@@ -710,8 +778,8 @@
 
 /* Апарат центру. */
 .device-card {
-  background: var(--c-ink-900);
-  color: var(--c-ink-100);
+  background: var(--c-navy-900);
+  color: var(--c-gold-100);
   border-radius: var(--r-lg);
   padding: var(--sp-6);
 }
@@ -723,7 +791,7 @@
 
 .device-card .device-kind {
   font-size: var(--fs-caption);
-  color: var(--c-ink-300);
+  color: var(--c-gold-300);
   margin-bottom: var(--sp-4);
 }
 
@@ -736,7 +804,7 @@
 }
 
 .device-card dt {
-  color: var(--c-ink-300);
+  color: var(--c-gold-300);
 }
 
 .device-card dd {
@@ -979,7 +1047,7 @@
 .stars {
   display: inline-flex;
   gap: 2px;
-  color: var(--c-warn-600);
+  color: var(--c-gold-500);
 }
 
 .stars svg {
@@ -992,7 +1060,7 @@
    ===================================================================== */
 
 .cta-band {
-  background: var(--c-accent-900);
+  background: var(--c-navy-900);
   color: var(--c-white);
   border-radius: var(--r-lg);
   padding: var(--sp-8);
@@ -1004,29 +1072,29 @@
 }
 
 .cta-band p {
-  color: var(--c-accent-100);
+  color: var(--c-gold-300);
   margin-bottom: var(--sp-6);
 }
 
 .cta-band .btn-outline {
   background: transparent;
-  border-color: rgba(255, 255, 255, 0.35);
-  color: var(--c-white);
+  border-color: var(--c-gold-500);
+  color: var(--c-gold-300);
 }
 
 .cta-band .btn-outline:hover {
-  border-color: var(--c-white);
+  border-color: var(--c-gold-300);
   color: var(--c-white);
 }
 
 .cta-band .btn-primary {
-  background: var(--c-white);
-  color: var(--c-accent-900);
+  background: var(--c-accent-600);
+  color: var(--c-white);
 }
 
 .cta-band .btn-primary:hover {
-  background: var(--c-accent-100);
-  color: var(--c-accent-900);
+  background: var(--c-accent-500);
+  color: var(--c-white);
 }
 
 /* Липка смуга дій на телефоні: подзвонити або записатися завжди під рукою. */
@@ -1067,14 +1135,14 @@
    ===================================================================== */
 
 .site-footer {
-  background: var(--c-ink-900);
-  color: var(--c-ink-300);
+  background: var(--c-navy-900);
+  color: var(--c-gold-300);
   padding-block: var(--sp-12) var(--sp-8);
   font-size: var(--fs-small);
 }
 
 .site-footer a {
-  color: var(--c-ink-100);
+  color: var(--c-gold-100);
   text-decoration: none;
 }
 
@@ -1084,7 +1152,7 @@
 }
 
 .site-footer h4 {
-  color: var(--c-white);
+  color: var(--c-gold-500);
   font-size: var(--fs-caption);
   font-weight: var(--fw-semibold);
   margin-bottom: var(--sp-3);
@@ -1117,7 +1185,7 @@
   flex-wrap: wrap;
   gap: var(--sp-3) var(--sp-6);
   padding-top: var(--sp-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(217, 198, 156, 0.25);
   font-size: var(--fs-caption);
-  color: var(--c-ink-400);
+  color: var(--c-gold-300);
 }
