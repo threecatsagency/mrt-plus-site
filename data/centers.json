@@ -1,87 +1,117 @@
 {
-  "_pro_fayl": "Заготовка даних центрів. Заповнене – те, що підтверджене прототипом системи записів або старим сайтом. null означає «ще не знаємо» і не вигадується. Поле potrebuye_perevirky перелічує, що звірити із замовником.",
+  "_pro_fayl": "Дані центрів. Джерела: друковані направлення замовника (адреси, класи апаратів), прототип системи записів (моделі апаратів Луцька), старий сайт. null означає «ще не знаємо» і не вигадується. Поле potrebuye_perevirky перелічує, що звірити із замовником.",
   "onovleno": "2026-09-01",
   "dzherela": [
-    "прототип системи записів – апарати Луцька",
-    "https://mrtplus.com.ua/ – адреси, телефон, частина апаратів"
+    "друковані направлення: Рівне/Луцьк/Ковель (одна форма) і Київ (окрема) – адреси, класи апаратів, склад прайсів",
+    "прототип системи записів – моделі апаратів Луцька",
+    "https://mrtplus.com.ua/ – модель апарата Житомира"
   ],
-  "telefon_merezhi": "0800311058",
+  "kompaniya": {
+    "nazva": "ТОВ «МРТ ПЛЮС»",
+    "litsenziya": "Наказ МОЗ України від 09.10.2019 року №2054",
+    "telefon": "0800311058",
+    "telefon_vidobrazhennya": "0 800 311 058",
+    "instagram": "https://www.instagram.com/mrt.plus.diagnostics/",
+    "facebook": "https://www.facebook.com/mrt.plus.diagnostics/"
+  },
+  "praysy": {
+    "_pro": "Друкований прайс один на Рівне, Луцьк і Ковель; Київ – окремий, дорожчий. Житомир і Шептицький – з'ясувати, до якого прайсу належать.",
+    "grupy": {
+      "zakhid": ["rivne", "lutsk", "kovel"],
+      "kyiv": ["kyiv"]
+    }
+  },
   "centry": [
     {
       "slug": "lutsk",
       "misto": "Луцьк",
-      "adresa": null,
-      "adresa_varianty": ["Пр. Молоді, 12В", "Проспект Молоді, 12", "проспект Молоді, 12"],
+      "adresa": "просп. Молоді, 12В",
+      "adresa_varianty_u_obihu": ["Пр. Молоді, 12В", "Проспект Молоді, 12", "просп. Молоді, 12В"],
+      "rozmishchennya": "Медичний центр",
       "koordynaty": null,
       "telefony": [],
       "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Altea" },
         { "klas": "mrt", "pole": "3T", "model": "Siemens Magnetom Vida" },
+        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Altea" },
         { "klas": "kt", "model": "Philips Incisive" }
       ],
-      "potrebuye_perevirky": ["канонічний рядок адреси", "графік", "прямий телефон центру"]
-    },
-    {
-      "slug": "kovel",
-      "misto": "Ковель",
-      "adresa": "вулиця Олени Пчілки, 4",
-      "koordynaty": null,
-      "telefony": [],
-      "grafik": null,
-      "aparaty": [
-        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Avanto" }
-      ],
-      "potrebuye_perevirky": ["чи є КТ", "графік", "прямий телефон центру"]
+      "prays": "zakhid",
+      "potrebuye_perevirky": ["рядок адреси звірити з карткою Google Business", "графік", "прямий телефон центру"]
     },
     {
       "slug": "rivne",
       "misto": "Рівне",
-      "adresa": "вулиця Миколи Карнаухова, 2А",
+      "adresa": "вул. Карнаухова, 2А",
+      "adresa_varianty_u_obihu": ["вул. Миколи Карнаухова, 2А"],
+      "rozmishchennya": "Діагностичний центр «МРТ+»",
       "koordynaty": null,
       "telefony": [],
       "grafik": null,
-      "aparaty": [],
-      "potrebuye_perevirky": ["апарати", "графік", "прямий телефон центру"]
+      "aparaty": [
+        { "klas": "mrt", "pole": "1.5T", "model": null },
+        { "klas": "kt", "model": null }
+      ],
+      "prays": "zakhid",
+      "potrebuye_perevirky": ["моделі апаратів", "графік", "прямий телефон центру"]
+    },
+    {
+      "slug": "kovel",
+      "misto": "Ковель",
+      "adresa": "вул. Олени Пчілки, 4",
+      "rozmishchennya": "Ковельське МТМО",
+      "koordynaty": null,
+      "telefony": [],
+      "grafik": null,
+      "aparaty": [
+        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Avanto" },
+        { "klas": "kt", "model": null }
+      ],
+      "prays": "zakhid",
+      "potrebuye_perevirky": ["модель КТ", "графік", "прямий телефон центру"]
     },
     {
       "slug": "zhytomyr",
       "misto": "Житомир",
-      "adresa": "вулиця Вокзальна, 12",
+      "adresa": "вул. Вокзальна, 12",
+      "rozmishchennya": "Діагностичний центр «МРТ+»",
       "koordynaty": null,
       "telefony": [],
       "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": null, "model": "Siemens Magnetom Sempra" }
+        { "klas": "mrt", "pole": "3T", "model": null }
       ],
-      "potrebuye_perevirky": [
-        "поле томографа: старий сайт пише 3 Тесла, Magnetom Sempra серійно 1,5 Тесла",
-        "чи є КТ – найбільший попит міста саме по КТ",
-        "графік"
-      ]
+      "prays": null,
+      "potrebuye_perevirky": ["модель томографа (старий сайт: Magnetom Sempra – звірити з паспортом)", "до якого прайсу належить", "графік", "прямий телефон центру"]
     },
     {
       "slug": "kyiv",
       "misto": "Київ",
-      "adresa": "вулиця Композитора Мейтуса, 5",
+      "adresa": "вул. Композитора Мейтуса, 5",
+      "rozmishchennya": "TOP Clinic DENIS",
       "koordynaty": null,
       "telefony": [],
       "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "3T", "model": "Siemens Magnetom Skyra" }
+        { "klas": "mrt", "pole": "3T", "model": "Siemens Magnetom Skyra", "tunel_sm": 70, "vaha_do_kg": 250 }
       ],
-      "potrebuye_perevirky": ["чи є КТ", "графік", "прямий телефон центру"]
+      "prays": "kyiv",
+      "potrebuye_perevirky": ["графік", "прямий телефон центру"]
     },
     {
       "slug": "sheptytskyi",
       "misto": "Шептицький",
       "misto_alt": "Червоноград",
-      "adresa": "вулиця Івасюка, 2",
+      "adresa": "вул. Івасюка, 2",
+      "rozmishchennya": "Діагностичний центр «МРТ+»",
       "koordynaty": null,
       "telefony": [],
       "grafik": null,
-      "aparaty": [],
-      "potrebuye_perevirky": ["апарати", "графік", "прямий телефон центру"]
+      "aparaty": [
+        { "klas": "mrt", "pole": "1.5T", "model": null }
+      ],
+      "prays": null,
+      "potrebuye_perevirky": ["модель томографа", "до якого прайсу належить", "графік", "прямий телефон центру"]
     }
   ]
 }
