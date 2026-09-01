@@ -1,0 +1,12 @@
+# Що не віддається у мережу. Pages виключав це сам, Workers – ні.
+.git
+.gitignore
+.editorconfig
+.assetsignore
+.DS_Store
+node_modules
+wrangler.jsonc
+README.md
+perevirka.py
+docs
+data

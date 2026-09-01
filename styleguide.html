@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Сторінка стилів – МРТ ПЛЮС</title>
+<meta name="description" content="Службова сторінка стилів сайту мережі діагностичних центрів МРТ ПЛЮС.">
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/styleguide.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти до змісту</a>
+
+<!-- ШАПКА: жива, не приклад. Той самий компонент, що піде на сайт. -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="styleguide.html">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <rect width="40" height="40" rx="9" fill="#0b5e7d"></rect>
+        <g stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.55">
+          <path d="M9 14h13"></path><path d="M9 20h9"></path><path d="M9 26h13"></path>
+        </g>
+        <g stroke="#ffffff" stroke-width="2.6" stroke-linecap="round">
+          <path d="M27 15v10"></path><path d="M22 20h10"></path>
+        </g>
+      </svg>
+      <span>МРТ ПЛЮС</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Головне меню">
+      <a href="#color">Колір</a>
+      <a href="#type">Шрифти</a>
+      <a href="#actions">Кнопки</a>
+      <a href="#forms">Форми</a>
+      <a href="#content">Вміст</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone tnum" href="tel:0800311058">
+        <span class="num">0 800 311 058</span>
+        <span class="cap">безкоштовно, 7:30–21:00</span>
+      </a>
+      <a class="btn btn-primary btn-sm" href="#booking">Записатися</a>
+      <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span class="visually-hidden">Меню</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#color">Колір</a>
+      <a href="#type">Шрифти і текст</a>
+      <a href="#actions">Кнопки</a>
+      <a href="#forms">Форми</a>
+      <a href="#content">Вміст сторінок</a>
+      <a href="tel:0800311058">0 800 311 058</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Перший екран сторінки стилів. -->
+  <section class="hero">
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <ol class="crumbs">
+        <li><a href="#">Головна</a></li>
+        <li>Сторінка стилів</li>
+      </ol>
+      <h1>Сторінка стилів сайту МРТ ПЛЮС</h1>
+      <p class="lead">Один набір кольорів, шрифтів і компонентів для всіх сторінок мережі. Кожен елемент нижче – робочий, звідси його беруть у верстку без правок.</p>
+      <div class="btn-row">
+        <span class="sg-build">Збірка 0.2</span>
+        <span class="badge">01.09.2026</span>
+        <span class="badge badge-contrast">Дані на сторінці демонстраційні</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container section">
+    <div class="sg-layout">
+
+      <!-- Індекс секцій -->
+      <nav class="sg-index" aria-label="Розділи сторінки стилів">
+        <ol>
+          <li><a href="#basis">Основа</a></li>
+          <li><a href="#color">Колір</a></li>
+          <li><a href="#type">Шрифти і текст</a></li>
+          <li><a href="#space">Простір і сітка</a></li>
+          <li><a href="#actions">Кнопки</a></li>
+          <li><a href="#forms">Форми</a></li>
+          <li><a href="#marks">Позначки</a></li>
+          <li><a href="#messages">Повідомлення</a></li>
+          <li><a href="#nav">Навігація</a></li>
+          <li><a href="#content">Картки вмісту</a></li>
+          <li><a href="#prices">Ціни</a></li>
+          <li><a href="#prep">Підготовка і питання</a></li>
+          <li><a href="#reviews">Відгуки</a></li>
+          <li><a href="#booking">Запис</a></li>
+          <li><a href="#footer">Підвал</a></li>
+          <li><a href="#words">Як пишемо</a></li>
+        </ol>
+      </nav>
+
+      <div>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="basis">
+  <h2>Основа</h2>
+  <p class="sg-about">Чотири рішення, з яких виводиться решта сторінки.</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3 class="card-title">Монохром плюс один колір</h3>
+      <p class="text-small text-muted">Діагностичне зображення – градації сірого, колір у ньому з'являється точково. Сайт побудований так само: холодна нейтральна база, синій акцент лише на дії й посилання. Один яскравий елемент на екрані завжди означає «натисни сюди».</p>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Спершу телефон</h3>
+      <p class="text-small text-muted">Пацієнт відкриває сайт з телефона, часто з направленням у руці. Кожен компонент верстається від 360 px, зона натискання не менша за 44 px, головні дії дублюються липкою смугою внизу екрана.</p>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Відповідь вище за оздоблення</h3>
+      <p class="text-small text-muted">Перші три питання людини: де це, скільки коштує, як підготуватися. Адреса, ціна і підготовка стоять вище за розповідь про переваги мережі.</p>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Структура несе зміст</h3>
+      <p class="text-small text-muted">Рамка, нумерація, лінія відділення з'являються тоді, коли позначають щось справжнє: послідовність кроків, межу групи цін, клас апарата. Декоративних рамок немає.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="color">
+  <h2>Колір</h2>
+  <p class="sg-about">Натисніть на зразок, щоб скопіювати значення. Кольори задані змінними в <code>assets/css/tokens.css</code> – у розмітці шістнадцяткових значень не пишемо.</p>
+
+  <div class="sg-block">
+    <h3>Нейтралі</h3>
+    <div class="sg-swatches">
+      <button class="sg-swatch" type="button" data-copy="var(--c-ink-900)" data-label="#0d1b24">
+        <span class="sg-swatch__chip" style="background:#0d1b24"></span>
+        <span class="sg-swatch__meta"><b>ink-900</b><code data-copy-hint>#0d1b24</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-ink-800)" data-label="#16242e">
+        <span class="sg-swatch__chip" style="background:#16242e"></span>
+        <span class="sg-swatch__meta"><b>ink-800</b><code data-copy-hint>#16242e</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-ink-500)" data-label="#55697a">
+        <span class="sg-swatch__chip" style="background:#55697a"></span>
+        <span class="sg-swatch__meta"><b>ink-500</b><code data-copy-hint>#55697a</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-ink-400)" data-label="#8aa0ae">
+        <span class="sg-swatch__chip" style="background:#8aa0ae"></span>
+        <span class="sg-swatch__meta"><b>ink-400</b><code data-copy-hint>#8aa0ae</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-ink-200)" data-label="#dce4e9">
+        <span class="sg-swatch__chip" style="background:#dce4e9"></span>
+        <span class="sg-swatch__meta"><b>ink-200</b><code data-copy-hint>#dce4e9</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-ink-100)" data-label="#edf1f3">
+        <span class="sg-swatch__chip" style="background:#edf1f3"></span>
+        <span class="sg-swatch__meta"><b>ink-100</b><code data-copy-hint>#edf1f3</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-ink-050)" data-label="#f7f9fa">
+        <span class="sg-swatch__chip" style="background:#f7f9fa"></span>
+        <span class="sg-swatch__meta"><b>ink-050</b><code data-copy-hint>#f7f9fa</code></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Акцент</h3>
+    <div class="sg-swatches">
+      <button class="sg-swatch" type="button" data-copy="var(--c-accent-900)" data-label="#06303f">
+        <span class="sg-swatch__chip" style="background:#06303f"></span>
+        <span class="sg-swatch__meta"><b>accent-900</b><code data-copy-hint>#06303f</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-accent-700)" data-label="#08475e">
+        <span class="sg-swatch__chip" style="background:#08475e"></span>
+        <span class="sg-swatch__meta"><b>accent-700</b><code data-copy-hint>#08475e</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-accent-600)" data-label="#0b5e7d">
+        <span class="sg-swatch__chip" style="background:#0b5e7d"></span>
+        <span class="sg-swatch__meta"><b>accent-600</b><code data-copy-hint>#0b5e7d</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-accent-100)" data-label="#dceaf1">
+        <span class="sg-swatch__chip" style="background:#dceaf1"></span>
+        <span class="sg-swatch__meta"><b>accent-100</b><code data-copy-hint>#dceaf1</code></span>
+      </button>
+    </div>
+    <p class="text-caption" style="margin-top:var(--sp-3)">accent-600 на білому дає контраст 6,2:1 – проходить для тексту й кнопок. Світліші відтінки використовуються тільки як підкладка, ніколи як колір тексту.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Сигнальні</h3>
+    <div class="sg-swatches">
+      <button class="sg-swatch" type="button" data-copy="var(--c-ok-600)" data-label="#17693f">
+        <span class="sg-swatch__chip" style="background:#17693f"></span>
+        <span class="sg-swatch__meta"><b>ok-600</b><code data-copy-hint>#17693f</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-warn-600)" data-label="#8f5600">
+        <span class="sg-swatch__chip" style="background:#8f5600"></span>
+        <span class="sg-swatch__meta"><b>warn-600</b><code data-copy-hint>#8f5600</code></span>
+      </button>
+      <button class="sg-swatch" type="button" data-copy="var(--c-danger-600)" data-label="#a32020">
+        <span class="sg-swatch__chip" style="background:#a32020"></span>
+        <span class="sg-swatch__meta"><b>danger-600</b><code data-copy-hint>#a32020</code></span>
+      </button>
+    </div>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Червоний на медичному сайті читається як протипоказання, а не як «помилка форми». Тому він лишається за протипоказаннями і помилками вводу, і більше ніде.</p>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="type">
+  <h2>Шрифти і текст</h2>
+  <p class="sg-about">Дві родини з різними ролями. Manrope – заголовки, кнопки, ціни, все інтерфейсне. Literata – довгі медичні тексти: серифний набір читається спокійніше і не схожий на бланк.</p>
+
+  <div class="sg-block">
+    <h3>Шкала</h3>
+    <div class="sg-demo sg-demo--flat">
+      <div class="sg-type-row">
+        <span class="sg-type-name">--fs-display</span>
+        <span class="sg-type-sample" style="font-size:var(--fs-display);font-weight:800;line-height:1.15;letter-spacing:-0.02em">МРТ і КТ у шести містах</span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">h1 / --fs-h1</span>
+        <span class="sg-type-sample"><span style="font-size:var(--fs-h1);font-weight:800;letter-spacing:-0.02em">МРТ хребта в Луцьку</span></span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">h2 / --fs-h2</span>
+        <span class="sg-type-sample"><span style="font-size:var(--fs-h2);font-weight:700;letter-spacing:-0.02em">Підготовка до дослідження</span></span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">h3 / --fs-h3</span>
+        <span class="sg-type-sample"><span style="font-size:var(--fs-h3);font-weight:700">Що показує дослідження</span></span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">.lead</span>
+        <span class="sg-type-sample lead" style="margin:0">Магнітно-резонансна томографія хребта показує міжхребцеві диски, спинний мозок і корінці нервів.</span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">.prose (текст)</span>
+        <span class="sg-type-sample prose" style="margin:0">Дослідження триває від 20 до 40 хвилин залежно від кількості відділів. Рухатися під час сканування не можна: розмитий знімок доводиться переробляти.</span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">--fs-small</span>
+        <span class="sg-type-sample text-small" style="margin:0">Опис лікаря-рентгенолога готовий наступного робочого дня.</span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">--fs-caption</span>
+        <span class="sg-type-sample text-caption" style="margin:0">Ціни оновлено 1 вересня 2026 року</span>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-name">--fs-price</span>
+        <span class="sg-type-sample tnum" style="font-size:var(--fs-price);font-weight:800">2 400 грн</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Абзац і перелік</h3>
+    <div class="sg-demo">
+      <div class="prose">
+        <p>Магнітно-резонансна томографія не використовує рентгенівського випромінювання. Метод побудований на магнітному полі, тому дослідження можна повторювати стільки разів, скільки потрібно лікарю.</p>
+      </div>
+      <ul class="list-check">
+        <li>Опис лікаря-рентгенолога</li>
+        <li>Знімки на диску або в електронному вигляді</li>
+        <li>Консультація щодо результату за потреби</li>
+      </ul>
+      <p class="text-caption">Довжина рядка обмежена 68 знаками – це <code>--measure</code>. Ширші абзаци читаються гірше, навіть якщо на екрані є місце.</p>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Посилання</h3>
+    <div class="sg-demo">
+      <p>Дивіться <a href="#prices">ціни на МРТ у Луцьку</a> або оберіть <a href="#content">інший центр мережі</a>. Підкреслення тонке і сіре, при наведенні набирає колір посилання.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="space">
+  <h2>Простір і сітка</h2>
+  <p class="sg-about">Крок 4 px. Контейнер 1120 px, текстова колонка 760 px. Відступи між секціями завжди більші за відступи всередині компонента.</p>
+
+  <div class="sg-block">
+    <h3>Крок відступів</h3>
+    <div class="sg-demo">
+      <div class="sg-scale">
+        <div><i style="width:4px;height:24px"></i>1</div>
+        <div><i style="width:8px;height:24px"></i>2</div>
+        <div><i style="width:12px;height:24px"></i>3</div>
+        <div><i style="width:16px;height:24px"></i>4</div>
+        <div><i style="width:24px;height:24px"></i>6</div>
+        <div><i style="width:32px;height:24px"></i>8</div>
+        <div><i style="width:48px;height:24px"></i>12</div>
+        <div><i style="width:64px;height:24px"></i>16</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Точки перелому</h3>
+    <div class="sg-demo">
+      <table class="price-table">
+        <tbody>
+          <tr><td class="name">до 640 px<span class="note-inline">телефон: одна колонка, липка смуга дій</span></td><td class="price">base</td></tr>
+          <tr><td class="name">від 640 px<span class="note-inline">великий телефон і планшет: дві колонки карток</span></td><td class="price">40em</td></tr>
+          <tr><td class="name">від 768 px<span class="note-inline">ціни стають таблицею</span></td><td class="price">48em</td></tr>
+          <tr><td class="name">від 1024 px<span class="note-inline">десктоп: меню в рядок, три колонки</span></td><td class="price">64em</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="actions">
+  <h2>Кнопки</h2>
+  <p class="sg-about">Головна дія на сторінці одна – «Записатися». Тільки вона заливається акцентом. Дзвінок – темна кнопка, бо на телефоні це друга за частотою дія. Решта дій тихі.</p>
+
+  <div class="sg-block">
+    <h3>Види</h3>
+    <div class="sg-demo">
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#booking">Записатися</a>
+        <a class="btn btn-phone" href="tel:0800311058">Подзвонити</a>
+        <button class="btn btn-outline" type="button">Обрати центр</button>
+        <button class="btn btn-ghost" type="button">Усі дослідження</button>
+        <button class="btn btn-primary" type="button" disabled>Недоступно</button>
+      </div>
+      <code class="sg-code">&lt;a class="btn btn-primary" href="/lutsk/zapys/"&gt;Записатися&lt;/a&gt;</code>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Розміри</h3>
+    <div class="sg-demo">
+      <div class="btn-row">
+        <button class="btn btn-primary btn-sm" type="button">Малий</button>
+        <button class="btn btn-primary" type="button">Основний</button>
+        <button class="btn btn-primary btn-lg" type="button">Великий</button>
+      </div>
+      <p class="text-caption" style="margin-top:var(--sp-4);margin-bottom:0">Великий розмір – лише в першому екрані й у смузі запису. Малий – у шапці й усередині карток.</p>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Правило</h3>
+    <div class="sg-do-dont">
+      <div class="sg-do">
+        <h4>Так</h4>
+        <p style="margin:0">Одна залита кнопка в блоці, поруч – контурна. Людина бачить, що робити першим.</p>
+      </div>
+      <div class="sg-dont">
+        <h4>Ні</h4>
+        <p style="margin:0">Три залиті кнопки поспіль. Головної дії не видно, і людина обирає навмання.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="forms">
+  <h2>Форми</h2>
+  <p class="sg-about">Підпис тихий, значення темне – так само, як у системі записів. Обов'язкові поля позначені зірочкою, підказка стоїть під полем, а не в плейсхолдері.</p>
+
+  <div class="sg-block">
+    <h3>Поля</h3>
+    <div class="sg-demo">
+      <div class="grid grid-2">
+        <div>
+          <label class="field">
+            <span class="field-label">Прізвище та ім'я <span class="req">*</span></span>
+            <input class="input" type="text" value="Коваленко Ірина" autocomplete="name">
+          </label>
+
+          <label class="field">
+            <span class="field-label">Телефон <span class="req">*</span></span>
+            <input class="input tnum" type="tel" placeholder="+380 __ ___ __ __" autocomplete="tel">
+            <span class="field-hint">Зателефонуємо, щоб підтвердити час</span>
+          </label>
+
+          <div class="field is-invalid">
+            <label class="field-label" for="sg-date">Бажана дата</label>
+            <input class="input" id="sg-date" type="text" value="31.02.2026">
+            <span class="field-error">Такої дати немає. Формат: 15.09.2026</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="field">
+            <span class="field-label">Центр</span>
+            <select class="select">
+              <option>Луцьк, проспект Молоді, 12</option>
+              <option>Рівне, вулиця Миколи Карнаухова, 2А</option>
+              <option>Ковель, вулиця Олени Пчілки, 4</option>
+              <option>Житомир, вулиця Вокзальна, 12</option>
+              <option>Київ, вулиця Композитора Мейтуса, 5</option>
+              <option>Шептицький, вулиця Івасюка, 2</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Що потрібно обстежити</span>
+            <textarea class="textarea" placeholder="Наприклад: МРТ поперекового відділу хребта за направленням невролога"></textarea>
+          </label>
+        </div>
+      </div>
+
+      <label class="choice">
+        <input type="checkbox" checked>
+        <span class="choice-text">У мене є направлення від лікаря</span>
+      </label>
+      <label class="choice">
+        <input type="radio" name="sg-time" checked>
+        <span class="choice-text">Перша половина дня</span>
+      </label>
+      <label class="choice">
+        <input type="radio" name="sg-time">
+        <span class="choice-text">Друга половина дня</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Форма в картці</h3>
+    <div class="sg-demo sg-demo--flat">
+      <div class="form-card" style="max-width:520px">
+        <h3 style="margin-bottom:var(--sp-2)">Передзвоніть мені</h3>
+        <p class="text-small text-muted">Запишемо на зручний час і підкажемо, як підготуватися.</p>
+        <label class="field">
+          <span class="field-label">Ім'я</span>
+          <input class="input" type="text" placeholder="Як до вас звертатися">
+        </label>
+        <label class="field">
+          <span class="field-label">Телефон <span class="req">*</span></span>
+          <input class="input tnum" type="tel" placeholder="+380 __ ___ __ __">
+        </label>
+        <label class="choice">
+          <input type="checkbox">
+          <span class="choice-text">Погоджуюся на обробку персональних даних</span>
+        </label>
+        <button class="btn btn-primary btn-block" type="button" style="margin-top:var(--sp-3)">Замовити дзвінок</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Стан після надсилання</h3>
+    <div class="sg-demo">
+      <div class="note note-ok">
+        <p class="note-title">Заявку прийнято</p>
+        <p style="margin:0" class="text-small">Реєстратор зателефонує з 7:30 до 21:00. Якщо потрібно швидше – наберіть 0 800 311 058.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="marks">
+  <h2>Позначки</h2>
+  <p class="sg-about">Бейдж несе факт про дослідження, а не прикрашає картку. Чипи – вибір міста або групи досліджень.</p>
+
+  <div class="sg-block">
+    <h3>Бейджі</h3>
+    <div class="sg-demo">
+      <div class="badge-row">
+        <span class="badge badge-mrt">МРТ 1,5 Т</span>
+        <span class="badge badge-mrt">МРТ 3 Т</span>
+        <span class="badge badge-kt">КТ</span>
+        <span class="badge badge-contrast">З контрастом</span>
+        <span class="badge badge-time">25–40 хв</span>
+        <span class="badge">За направленням</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Чипи вибору</h3>
+    <div class="sg-demo">
+      <div class="chip-row">
+        <a class="chip" href="#" aria-current="true">Луцьк</a>
+        <a class="chip" href="#">Ковель</a>
+        <a class="chip" href="#">Рівне</a>
+        <a class="chip" href="#">Житомир</a>
+        <a class="chip" href="#">Київ</a>
+        <a class="chip" href="#">Шептицький</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="messages">
+  <h2>Повідомлення</h2>
+  <p class="sg-about">Чотири типи, кожен зі своїм змістом: пояснення, увага, протипоказання, підтвердження. Більше типів не вводимо.</p>
+
+  <div class="sg-demo sg-demo--flat">
+    <div class="grid grid-2">
+      <div class="note note-info">
+        <p class="note-title">Важливо знати</p>
+        <p style="margin:0" class="text-small">Візьміть із собою направлення лікаря і попередні знімки, якщо вони є. Порівняння з попереднім дослідженням робить опис точнішим.</p>
+      </div>
+      <div class="note note-warn">
+        <p class="note-title">Потрібна підготовка</p>
+        <p style="margin:0" class="text-small">На МРТ органів черевної порожнини приходьте натще: не їсти 4–6 годин до дослідження.</p>
+      </div>
+      <div class="note note-danger">
+        <p class="note-title">Протипоказання</p>
+        <p style="margin:0" class="text-small">Кардіостимулятор, феромагнітні імпланти, металеві осколки в тканинах. Про будь-який метал у тілі скажіть реєстратору до запису.</p>
+      </div>
+      <div class="note note-ok">
+        <p class="note-title">Готово</p>
+        <p style="margin:0" class="text-small">Опис лікаря-рентгенолога можна забрати в центрі або отримати електронною поштою.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="nav">
+  <h2>Навігація</h2>
+  <p class="sg-about">Шапка сторінки – жива, вона вгорі. Тут – її складові окремо.</p>
+
+  <div class="sg-block">
+    <h3>Перемикач центру</h3>
+    <div class="sg-demo">
+      <button class="city-switch" type="button">
+        <svg class="pin" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M8 14s5-4.4 5-8A5 5 0 0 0 3 6c0 3.6 5 8 5 8z"></path>
+          <circle cx="8" cy="6" r="1.8"></circle>
+        </svg>
+        Луцьк
+      </button>
+      <p class="text-caption" style="margin-top:var(--sp-3);margin-bottom:0">Місто визначає ціни, графік і апарати, тому перемикач стоїть у шапці на всіх сторінках і не ховається в меню.</p>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Хлібні крихти</h3>
+    <div class="sg-demo">
+      <ol class="crumbs" style="padding-top:0">
+        <li><a href="#">Головна</a></li>
+        <li><a href="#">Луцьк</a></li>
+        <li><a href="#">МРТ хребта</a></li>
+        <li>МРТ поперекового відділу</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="content">
+  <h2>Картки вмісту</h2>
+  <p class="sg-about">Три типи карток: центр, група досліджень, апарат. Інших не заводимо – зайві типи роблять сторінки схожими на каталог техніки.</p>
+
+  <div class="sg-block">
+    <h3>Центр мережі</h3>
+    <div class="grid grid-2">
+      <div class="card card-center">
+        <h3 class="card-title"><a href="#">Луцьк</a></h3>
+        <p class="addr">проспект Молоді, 12</p>
+        <p class="hours">Пн–Пт 8:00–20:00 · Сб 9:00–15:00</p>
+        <ul class="devices">
+          <li>МРТ 1,5 Т Siemens Magnetom Altea</li>
+          <li>МРТ 3 Т Siemens Magnetom Vida</li>
+          <li>КТ Philips Incisive</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="#booking">Записатися</a>
+          <a class="btn btn-outline btn-sm" href="#">Ціни</a>
+        </div>
+      </div>
+
+      <div class="card card-center">
+        <h3 class="card-title"><a href="#">Ковель</a></h3>
+        <p class="addr">вулиця Олени Пчілки, 4</p>
+        <p class="hours">Пн–Пт 8:00–20:00 · Сб 9:00–15:00</p>
+        <ul class="devices">
+          <li>МРТ 1,5 Т Siemens Magnetom Avanto</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="#booking">Записатися</a>
+          <a class="btn btn-outline btn-sm" href="#">Ціни</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Група досліджень</h3>
+    <div class="grid grid-3">
+      <div class="card card-group">
+        <h3 class="card-title"><a href="#">МРТ хребта</a></h3>
+        <p class="text-small text-muted" style="margin:0">Шийний, грудний, попереково-крижовий відділи, а також усі три за один візит.</p>
+        <p class="from tnum" style="margin:0">від 1 800 грн <small>8 досліджень</small></p>
+      </div>
+      <div class="card card-group">
+        <h3 class="card-title"><a href="#">МРТ голови та шиї</a></h3>
+        <p class="text-small text-muted" style="margin:0">Головний мозок, судини, гіпофіз, орбіти, приносові пазухи.</p>
+        <p class="from tnum" style="margin:0">від 2 000 грн <small>11 досліджень</small></p>
+      </div>
+      <div class="card card-group">
+        <h3 class="card-title"><a href="#">КТ легень</a></h3>
+        <p class="text-small text-muted" style="margin:0">Органи грудної порожнини, у тому числі з внутрішньовенним контрастом.</p>
+        <p class="from tnum" style="margin:0">від 1 500 грн <small>4 дослідження</small></p>
+      </div>
+    </div>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Ціни в прикладах умовні. Живі значення приходять з прайсу, а не пишуться в розмітці.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Апарат центру</h3>
+    <div class="grid grid-2">
+      <div class="device-card">
+        <h3>Siemens Magnetom Vida</h3>
+        <p class="device-kind">Магнітно-резонансний томограф, Луцьк</p>
+        <dl>
+          <dt>Поле</dt><dd>3 Тесла</dd>
+          <dt>Тунель</dt><dd>70 см</dd>
+          <dt>Вага пацієнта</dt><dd>до 250 кг</dd>
+          <dt>Контраст</dt><dd>так</dd>
+        </dl>
+      </div>
+      <div class="device-card">
+        <h3>Philips Incisive</h3>
+        <p class="device-kind">Комп'ютерний томограф, Луцьк</p>
+        <dl>
+          <dt>Зрізи</dt><dd>128</dd>
+          <dt>Отвір</dt><dd>70 см</dd>
+          <dt>Вага пацієнта</dt><dd>до 220 кг</dd>
+          <dt>Контраст</dt><dd>так</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Характеристики в прикладі – заготовка. Кожен рядок звіряється з паспортом апарата перед публікацією.</p>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="prices">
+  <h2>Ціни</h2>
+  <p class="sg-about">Одна розмітка на всі екрани: на телефоні рядки складаються в дві колонки, від 768 px стають таблицею. Назви послуг – повні, без скорочень.</p>
+
+  <div class="sg-demo">
+    <div class="price-group">
+      <h3>МРТ хребта</h3>
+      <table class="price-table">
+        <thead>
+          <tr><th>Дослідження</th><th>Ціна</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Магнітно-резонансна томографія шийного відділу хребта<span class="note-inline">20–25 хвилин</span></td>
+            <td class="price tnum">1 800 грн</td>
+          </tr>
+          <tr>
+            <td class="name">Магнітно-резонансна томографія грудного відділу хребта<span class="note-inline">20–25 хвилин</span></td>
+            <td class="price tnum">1 800 грн</td>
+          </tr>
+          <tr>
+            <td class="name">Магнітно-резонансна томографія попереково-крижового відділу хребта<span class="note-inline">20–25 хвилин</span></td>
+            <td class="price tnum">1 800 грн</td>
+          </tr>
+          <tr>
+            <td class="name">Магнітно-резонансна томографія трьох відділів хребта<span class="note-inline">50–60 хвилин, за один візит</span></td>
+            <td class="price tnum">4 200 грн<s>5 400 грн</s></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="price-group" style="margin-bottom:0">
+      <h3>Додатково</h3>
+      <table class="price-table">
+        <thead>
+          <tr><th>Послуга</th><th>Ціна</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Внутрішньовенне контрастування<span class="note-inline">доза розраховується за вагою пацієнта</span></td>
+            <td class="price tnum">від 1 200 грн</td>
+          </tr>
+          <tr>
+            <td class="name">Запис дослідження на диск</td>
+            <td class="price tnum">100 грн</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-updated" style="margin-top:var(--sp-4)">Ціни оновлено 1 вересня 2026 року. Значення в прикладі умовні.</p>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="prep">
+  <h2>Підготовка і питання</h2>
+  <p class="sg-about">Кроки нумеруються, бо це справжня послідовність дій пацієнта. Питання складені так, як їх ставлять реєстратору.</p>
+
+  <div class="sg-block">
+    <h3>Кроки підготовки</h3>
+    <div class="sg-demo">
+      <ol class="steps prose">
+        <li><b>За добу</b> Не змінюйте звичного режиму. Ліки приймайте як завжди, якщо лікар не сказав інакше.</li>
+        <li><b>За 4–6 годин</b> Для дослідження органів черевної порожнини – не їсти. Воду пити можна.</li>
+        <li><b>За 15 хвилин до часу</b> Приходьте з направленням і паспортом. Реєстратор заповнить анкету і покаже, де перевдягнутися.</li>
+        <li><b>Перед кабінетом</b> Зніміть усе металеве: прикраси, годинник, слуховий апарат, знімні протези. Телефон і картки залишаються в шафці.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Питання</h3>
+    <div class="sg-demo">
+      <div class="faq">
+        <details open>
+          <summary>Чи можна робити МРТ вагітним</summary>
+          <div class="faq-body">
+            <p>У першому триместрі дослідження проводять лише за життєвими показаннями. З другого триместру МРТ без контрасту дозволена, якщо її призначив лікар. Контраст вагітним не вводять.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Скільки чекати опис</summary>
+          <div class="faq-body">
+            <p>Стандартно – наступного робочого дня. Термінові випадки лікар описує в день дослідження, про це треба попередити реєстратора.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Чи потрібне направлення</summary>
+          <div class="faq-body">
+            <p>Направлення не обов'язкове, але з ним дослідження точніше: лікар бачить, що саме шукати. Якщо направлення немає, опишіть скарги реєстратору.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="reviews">
+  <h2>Відгуки</h2>
+  <p class="sg-about">Текст і підпис копіюються з джерела дослівно, разом з одруками. Підпис не розгортається і не доповнюється прізвищем.</p>
+
+  <div class="grid grid-2">
+    <figure class="review" style="margin:0">
+      <blockquote>Записалася ввечері, наступного ранку вже зробили. Персонал спокійний, пояснили, що і як буде відбуватися. Опис віддали на другий день.</blockquote>
+      <figcaption>
+        <b>Оксана</b>
+        <span class="stars" aria-label="5 з 5">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.3 4.6.6-3.4 3.2.9 4.6L8 11.5 3.9 13.7l.9-4.6L1.4 5.9 6 5.3z"></path></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.3 4.6.6-3.4 3.2.9 4.6L8 11.5 3.9 13.7l.9-4.6L1.4 5.9 6 5.3z"></path></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.3 4.6.6-3.4 3.2.9 4.6L8 11.5 3.9 13.7l.9-4.6L1.4 5.9 6 5.3z"></path></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.3 4.6.6-3.4 3.2.9 4.6L8 11.5 3.9 13.7l.9-4.6L1.4 5.9 6 5.3z"></path></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2 4.3 4.6.6-3.4 3.2.9 4.6L8 11.5 3.9 13.7l.9-4.6L1.4 5.9 6 5.3z"></path></svg>
+        </span>
+        <span>Луцьк, серпень 2026</span>
+      </figcaption>
+    </figure>
+
+    <figure class="review" style="margin:0">
+      <blockquote>Робив КТ легень за направленням сімейного. Черги не було, зайшов у свій час. Диск записали одразу, опис прийшов на пошту.</blockquote>
+      <figcaption>
+        <b>Андрій М.</b>
+        <span>Ковель, липень 2026</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="booking">
+  <h2>Запис</h2>
+  <p class="sg-about">До появи бази запис веде на телефон центру і форму зворотного дзвінка. Коли з'являться вільні слоти, ця сама смуга поведе у вибір часу – розмітка не зміниться.</p>
+
+  <div class="cta-band">
+    <h2>Записатися на дослідження</h2>
+    <p>Підберемо час, порахуємо вартість і підкажемо, як підготуватися. Дзвінок безкоштовний.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href="tel:0800311058">0 800 311 058</a>
+      <button class="btn btn-outline btn-lg" type="button">Передзвоніть мені</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="footer">
+  <h2>Підвал і смуга дій</h2>
+  <p class="sg-about">Підвал сторінки – живий, він внизу. Смуга дій показується на екранах вужчих за 1024 px: перевірте на телефоні або звузьте вікно.</p>
+
+  <div class="sg-demo">
+    <p class="text-small" style="margin:0">Смуга містить рівно дві дії: подзвонити і записатися. Третьої не додаємо – вона з'їдає екран на дослідженнях з довгими описами.</p>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="words">
+  <h2>Як пишемо</h2>
+  <p class="sg-about">Слова – така сама частина стилю, як колір. Правила з брифу співпраці, зібрані там, де їх шукатимуть.</p>
+
+  <div class="sg-do-dont">
+    <div class="sg-do">
+      <h4>Пишемо</h4>
+      <ul class="list-plain" style="margin:0">
+        <li>«медичний центр»</li>
+        <li>«Записатися»</li>
+        <li>повні назви: «магнітно-резонансна томографія шийного відділу хребта»</li>
+        <li>коротке тире (–)</li>
+        <li>лапки «»</li>
+        <li>факти: «дослідження триває 20–25 хвилин»</li>
+      </ul>
+    </div>
+    <div class="sg-dont">
+      <h4>Не пишемо</h4>
+      <ul class="list-plain" style="margin:0">
+        <li>«клініка» – юридична вимога</li>
+        <li>«Submit», «Відправити заявку»</li>
+        <li>скорочення в назвах послуг</li>
+        <li>довге тире</li>
+        <li>обіцянки: «без болю», «найкращі», «назавжди»</li>
+        <li>ALL CAPS у підписах і кнопках</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sg-block" style="margin-top:var(--sp-6)">
+    <h3>Адреси сторінок</h3>
+    <div class="sg-demo">
+      <code class="sg-code">https://mrtplus.ua/lutsk/
+https://mrtplus.ua/lutsk/mrt-hrebta/
+https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
+      <p class="text-caption" style="margin-top:var(--sp-3);margin-bottom:0">Латиниця скрізь, одна схема транслітерації: kyiv, zhytomyr, rivne, lutsk, kovel, sheptytskyi. Кирилиця в адресах не допускається.</p>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ПІДВАЛ: живий компонент -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>МРТ ПЛЮС</h4>
+        <p style="margin-bottom:var(--sp-4)">Мережа центрів магнітно-резонансної та комп'ютерної томографії у шести містах України.</p>
+        <a class="btn btn-outline btn-sm" href="tel:0800311058" style="background:transparent;border-color:rgba(255,255,255,.35);color:#fff">0 800 311 058</a>
+      </div>
+      <div>
+        <h4>Центри</h4>
+        <ul class="footer-list">
+          <li><a href="#">Луцьк, проспект Молоді, 12</a></li>
+          <li><a href="#">Ковель, вулиця Олени Пчілки, 4</a></li>
+          <li><a href="#">Рівне, вулиця Миколи Карнаухова, 2А</a></li>
+          <li><a href="#">Житомир, вулиця Вокзальна, 12</a></li>
+          <li><a href="#">Київ, вулиця Композитора Мейтуса, 5</a></li>
+          <li><a href="#">Шептицький, вулиця Івасюка, 2</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Розділи</h4>
+        <ul class="footer-list">
+          <li><a href="#">Дослідження</a></li>
+          <li><a href="#">Ціни</a></li>
+          <li><a href="#">Підготовка</a></li>
+          <li><a href="#">Відгуки</a></li>
+          <li><a href="#">Контакти</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 МРТ ПЛЮС</span>
+      <a href="#">Політика конфіденційності</a>
+      <span class="tnum">Сторінка стилів, збірка 0.2</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Липка смуга дій: видно на екранах до 1024 px -->
+<div class="action-bar">
+  <a class="btn btn-phone" href="tel:0800311058">Подзвонити</a>
+  <a class="btn btn-primary" href="#booking">Записатися</a>
+</div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

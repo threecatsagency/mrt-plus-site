@@ -1,0 +1,87 @@
+{
+  "_pro_fayl": "Заготовка даних центрів. Заповнене – те, що підтверджене прототипом системи записів або старим сайтом. null означає «ще не знаємо» і не вигадується. Поле potrebuye_perevirky перелічує, що звірити із замовником.",
+  "onovleno": "2026-09-01",
+  "dzherela": [
+    "прототип системи записів – апарати Луцька",
+    "https://mrtplus.com.ua/ – адреси, телефон, частина апаратів"
+  ],
+  "telefon_merezhi": "0800311058",
+  "centry": [
+    {
+      "slug": "lutsk",
+      "misto": "Луцьк",
+      "adresa": null,
+      "adresa_varianty": ["Пр. Молоді, 12В", "Проспект Молоді, 12", "проспект Молоді, 12"],
+      "koordynaty": null,
+      "telefony": [],
+      "grafik": null,
+      "aparaty": [
+        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Altea" },
+        { "klas": "mrt", "pole": "3T", "model": "Siemens Magnetom Vida" },
+        { "klas": "kt", "model": "Philips Incisive" }
+      ],
+      "potrebuye_perevirky": ["канонічний рядок адреси", "графік", "прямий телефон центру"]
+    },
+    {
+      "slug": "kovel",
+      "misto": "Ковель",
+      "adresa": "вулиця Олени Пчілки, 4",
+      "koordynaty": null,
+      "telefony": [],
+      "grafik": null,
+      "aparaty": [
+        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Avanto" }
+      ],
+      "potrebuye_perevirky": ["чи є КТ", "графік", "прямий телефон центру"]
+    },
+    {
+      "slug": "rivne",
+      "misto": "Рівне",
+      "adresa": "вулиця Миколи Карнаухова, 2А",
+      "koordynaty": null,
+      "telefony": [],
+      "grafik": null,
+      "aparaty": [],
+      "potrebuye_perevirky": ["апарати", "графік", "прямий телефон центру"]
+    },
+    {
+      "slug": "zhytomyr",
+      "misto": "Житомир",
+      "adresa": "вулиця Вокзальна, 12",
+      "koordynaty": null,
+      "telefony": [],
+      "grafik": null,
+      "aparaty": [
+        { "klas": "mrt", "pole": null, "model": "Siemens Magnetom Sempra" }
+      ],
+      "potrebuye_perevirky": [
+        "поле томографа: старий сайт пише 3 Тесла, Magnetom Sempra серійно 1,5 Тесла",
+        "чи є КТ – найбільший попит міста саме по КТ",
+        "графік"
+      ]
+    },
+    {
+      "slug": "kyiv",
+      "misto": "Київ",
+      "adresa": "вулиця Композитора Мейтуса, 5",
+      "koordynaty": null,
+      "telefony": [],
+      "grafik": null,
+      "aparaty": [
+        { "klas": "mrt", "pole": "3T", "model": "Siemens Magnetom Skyra" }
+      ],
+      "potrebuye_perevirky": ["чи є КТ", "графік", "прямий телефон центру"]
+    },
+    {
+      "slug": "sheptytskyi",
+      "misto": "Шептицький",
+      "misto_alt": "Червоноград",
+      "adresa": "вулиця Івасюка, 2",
+      "koordynaty": null,
+      "telefony": [],
+      "grafik": null,
+      "aparaty": [],
+      "potrebuye_perevirky": ["апарати", "графік", "прямий телефон центру"]
+    }
+  ]
+}

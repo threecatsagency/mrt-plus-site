@@ -1,0 +1,17 @@
+{
+  // Сайт МРТ ПЛЮС – Worker зі статичними файлами.
+  // Коду немає: воркер тільки віддає вміст репозиторію.
+  // Динаміка (форма зворотного дзвінка, згодом вільні слоти) додається
+  // сюди ж полем "main", окремий воркер для цього не потрібен.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mrt-plus-site",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

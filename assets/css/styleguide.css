@@ -1,0 +1,254 @@
+/* Оформлення самої сторінки стилів. На бойових сторінках не потрібне. */
+
+.sg-layout {
+  display: block;
+}
+
+@media (min-width: 64em) {
+  .sg-layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: var(--sp-12);
+    align-items: start;
+  }
+}
+
+/* Індекс секцій – риски різної довжини, як мітки на шкалі. */
+.sg-index {
+  display: none;
+}
+
+@media (min-width: 64em) {
+  .sg-index {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-h) + var(--sp-6));
+    padding-block: var(--sp-4);
+  }
+}
+
+.sg-index ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: sg;
+}
+
+.sg-index li {
+  margin: 0;
+  counter-increment: sg;
+}
+
+.sg-index a {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-1) 0;
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
+  text-decoration: none;
+}
+
+.sg-index a::before {
+  content: counter(sg, decimal-leading-zero);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink-300);
+}
+
+.sg-index a:hover {
+  color: var(--c-accent-600);
+}
+
+.sg-section {
+  padding-block: var(--sp-10);
+  border-top: var(--border);
+}
+
+.sg-section:first-of-type {
+  border-top: 0;
+  padding-top: var(--sp-6);
+}
+
+.sg-section > h2 {
+  margin-bottom: var(--sp-2);
+}
+
+.sg-section > .sg-about {
+  max-width: var(--measure);
+  color: var(--c-ink-500);
+  font-size: var(--fs-small);
+  margin-bottom: var(--sp-6);
+}
+
+.sg-block {
+  margin-bottom: var(--sp-8);
+}
+
+.sg-block > h3 {
+  font-size: var(--fs-h4);
+  margin-bottom: var(--sp-3);
+}
+
+/* Рамка навколо живого прикладу. */
+.sg-demo {
+  background: var(--c-white);
+  border: var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+}
+
+.sg-demo + .sg-code {
+  margin-top: var(--sp-2);
+}
+
+.sg-demo--flat {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.sg-demo--dark {
+  background: var(--c-ink-900);
+  border-color: var(--c-ink-900);
+}
+
+.sg-code {
+  display: block;
+  overflow-x: auto;
+  background: var(--c-ink-100);
+  border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: var(--fs-caption);
+  color: var(--c-ink-600);
+  white-space: pre;
+}
+
+/* Свотчі кольору. */
+.sg-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--sp-3);
+}
+
+.sg-swatch {
+  border: var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--c-white);
+}
+
+.sg-swatch__chip {
+  height: 64px;
+}
+
+.sg-swatch__meta {
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-caption);
+  line-height: 1.4;
+}
+
+.sg-swatch__meta b {
+  display: block;
+  color: var(--c-ink-900);
+}
+
+.sg-swatch__meta code {
+  color: var(--c-ink-500);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+/* Рядки шкали шрифтів. */
+.sg-type-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-5);
+  padding: var(--sp-4) 0;
+  border-bottom: var(--border);
+}
+
+.sg-type-row:last-child {
+  border-bottom: 0;
+}
+
+.sg-type-row .sg-type-name {
+  flex: none;
+  width: 150px;
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.sg-type-row .sg-type-sample {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.sg-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: flex-end;
+}
+
+.sg-scale div {
+  text-align: center;
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
+}
+
+.sg-scale i {
+  display: block;
+  background: var(--c-accent-100);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--sp-1);
+}
+
+/* Пара «правильно / неправильно» в правилах. */
+.sg-do-dont {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+@media (min-width: 48em) {
+  .sg-do-dont {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sg-do,
+.sg-dont {
+  border: var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  background: var(--c-white);
+  font-size: var(--fs-small);
+}
+
+.sg-do {
+  border-left: 3px solid var(--c-ok-600);
+}
+
+.sg-dont {
+  border-left: 3px solid var(--c-danger-600);
+}
+
+.sg-do h4,
+.sg-dont h4 {
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-caption);
+  text-transform: none;
+}
+
+.sg-build {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 2px var(--sp-2);
+  border-radius: var(--r-sm);
+  background: var(--c-ink-100);
+  color: var(--c-ink-500);
+  font-size: var(--fs-caption);
+  font-variant-numeric: tabular-nums;
+}
