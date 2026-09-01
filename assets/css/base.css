@@ -45,7 +45,7 @@ h2,
 h3,
 h4 {
   margin: 0 0 var(--sp-4);
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   font-weight: var(--fw-bold);
   line-height: var(--lh-heading);
   letter-spacing: var(--ls-tight);
@@ -56,6 +56,7 @@ h4 {
 h1 {
   font-size: var(--fs-h1);
   font-weight: var(--fw-extra);
+  line-height: var(--lh-tight);
 }
 
 h2 {
@@ -86,14 +87,14 @@ p {
 
 .prose h2,
 .prose h3 {
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   margin-top: var(--sp-8);
 }
 
 .lead {
   font-family: var(--font-text);
   font-size: var(--fs-lead);
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--c-ink-600);
   max-width: var(--measure);
 }

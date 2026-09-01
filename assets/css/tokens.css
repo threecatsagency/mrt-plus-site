@@ -52,10 +52,11 @@
   --c-danger-100: #f6e2e2;
 
   /* ---- Шрифти ------------------------------------------------------
-     Manrope – заголовки, кнопки, числа. Literata – довгі медичні
-     тексти: серифний набір читається спокійніше і додає довіри. */
-  --font-ui: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-text: "Literata", Georgia, "Times New Roman", serif;
+     Fixel Display – заголовки й ціни, Fixel Text – інтерфейс (MacPaw,
+     українська кирилиця). Source Serif 4 – довгі медичні тексти. */
+  --font-display: "Fixel Display", "Fixel Text", system-ui, sans-serif;
+  --font-ui: "Fixel Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Source Serif 4", Georgia, "Times New Roman", serif;
 
   --fw-regular: 400;
   --fw-medium: 500;
@@ -63,24 +64,25 @@
   --fw-bold: 700;
   --fw-extra: 800;
 
-  /* Шкала. Заголовки тягнуться від мобільного до десктопного. */
-  --fs-display: clamp(2rem, 1.4rem + 3vw, 3rem);
-  --fs-h1: clamp(1.75rem, 1.35rem + 2vw, 2.5rem);
-  --fs-h2: clamp(1.375rem, 1.15rem + 1.1vw, 1.875rem);
-  --fs-h3: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
-  --fs-h4: 1.0625rem;
-  --fs-lead: 1.125rem;
-  --fs-body: 1rem;
+  /* Шкала. База 17 px на телефоні, 18 на десктопі. Заголовки масивні:
+     h1 удвічі-втричі більший за текст, щоб контраст читався одразу. */
+  --fs-display: clamp(2.75rem, 1.6rem + 5vw, 5.25rem);
+  --fs-h1: clamp(2.25rem, 1.5rem + 3.2vw, 3.75rem);
+  --fs-h2: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --fs-h4: 1.1875rem;
+  --fs-lead: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
+  --fs-body: clamp(1.0625rem, 1.02rem + 0.2vw, 1.125rem);
   --fs-small: 0.9375rem;
-  --fs-caption: 0.8125rem;
-  --fs-price: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --fs-caption: 0.875rem;
+  --fs-price: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
 
-  --lh-tight: 1.15;
-  --lh-heading: 1.25;
-  --lh-body: 1.65;
-  --lh-text: 1.75; /* серифний текст просить більше повітря */
+  --lh-tight: 1.02;
+  --lh-heading: 1.12;
+  --lh-body: 1.6;
+  --lh-text: 1.7; /* серифний текст просить більше повітря */
 
-  --ls-tight: -0.02em;
+  --ls-tight: -0.03em;
   --ls-normal: 0;
 
   /* ---- Простір -----------------------------------------------------
