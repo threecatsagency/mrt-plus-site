@@ -1,10 +1,11 @@
 {
   "_pro_fayl": "Дані центрів. Джерела: друковані направлення замовника (адреси, класи апаратів), прототип системи записів (моделі апаратів Луцька), старий сайт. null означає «ще не знаємо» і не вигадується. Поле potrebuye_perevirky перелічує, що звірити із замовником.",
-  "onovleno": "2026-09-01",
+  "onovleno": "2026-09-02",
   "dzherela": [
     "друковані направлення: Рівне/Луцьк/Ковель (одна форма) і Київ (окрема) – адреси, класи апаратів, склад прайсів",
     "прототип системи записів – моделі апаратів Луцька",
-    "https://mrtplus.com.ua/ – модель апарата Житомира"
+    "https://mrtplus.com.ua/ – модель апарата Житомира",
+    "графіки роботи – від замовника 02.09.2026, окремо для МРТ і КТ"
   ],
   "kompaniya": {
     "nazva": "ТОВ «МРТ ПЛЮС»",
@@ -17,8 +18,14 @@
   "praysy": {
     "_pro": "Друкований прайс один на Рівне, Луцьк і Ковель; Київ – окремий, дорожчий. Житомир і Шептицький – з'ясувати, до якого прайсу належать.",
     "grupy": {
-      "zakhid": ["rivne", "lutsk", "kovel"],
-      "kyiv": ["kyiv"]
+      "zakhid": [
+        "rivne",
+        "lutsk",
+        "kovel"
+      ],
+      "kyiv": [
+        "kyiv"
+      ]
     }
   },
   "centry": [
@@ -26,34 +33,88 @@
       "slug": "lutsk",
       "misto": "Луцьк",
       "adresa": "просп. Молоді, 12В",
-      "adresa_varianty_u_obihu": ["Пр. Молоді, 12В", "Проспект Молоді, 12", "просп. Молоді, 12В"],
+      "adresa_varianty_u_obihu": [
+        "Пр. Молоді, 12В",
+        "Проспект Молоді, 12",
+        "просп. Молоді, 12В"
+      ],
       "rozmishchennya": "Медичний центр",
       "koordynaty": null,
       "telefony": [],
-      "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "3T", "model": "Siemens Magnetom Vida" },
-        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Altea" },
-        { "klas": "kt", "model": "Philips Incisive" }
+        {
+          "klas": "mrt",
+          "pole": "3T",
+          "model": "Siemens Magnetom Vida"
+        },
+        {
+          "klas": "mrt",
+          "pole": "1.5T",
+          "model": "Siemens Magnetom Altea"
+        },
+        {
+          "klas": "kt",
+          "model": "Philips Incisive"
+        }
       ],
       "prays": "zakhid",
-      "potrebuye_perevirky": ["рядок адреси звірити з карткою Google Business", "графік", "прямий телефон центру"]
+      "potrebuye_perevirky": [
+        "рядок адреси звірити з карткою Google Business",
+        "прямий телефон центру",
+        "неділя: підтвердити, що вихідний"
+      ],
+      "grafik_za_klasom": {
+        "mrt": {
+          "pn_pt": "07:00-22:00",
+          "sb": "08:00-18:00",
+          "nd": null
+        },
+        "kt": {
+          "pn_pt": "07:30-21:00",
+          "sb": "09:00-18:00",
+          "nd": null
+        }
+      }
     },
     {
       "slug": "rivne",
       "misto": "Рівне",
       "adresa": "вул. Карнаухова, 2А",
-      "adresa_varianty_u_obihu": ["вул. Миколи Карнаухова, 2А"],
+      "adresa_varianty_u_obihu": [
+        "вул. Миколи Карнаухова, 2А"
+      ],
       "rozmishchennya": "Діагностичний центр «МРТ+»",
       "koordynaty": null,
       "telefony": [],
-      "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "1.5T", "model": null },
-        { "klas": "kt", "model": null }
+        {
+          "klas": "mrt",
+          "pole": "1.5T",
+          "model": null
+        },
+        {
+          "klas": "kt",
+          "model": null
+        }
       ],
       "prays": "zakhid",
-      "potrebuye_perevirky": ["моделі апаратів", "графік", "прямий телефон центру"]
+      "potrebuye_perevirky": [
+        "моделі апаратів",
+        "прямий телефон центру",
+        "неділя: підтвердити, що вихідний"
+      ],
+      "grafik_za_klasom": {
+        "mrt": {
+          "pn_pt": "07:00-23:00",
+          "sb": "08:00-18:00",
+          "nd": null
+        },
+        "kt": {
+          "pn_pt": "07:30-21:00",
+          "sb": "09:00-18:00",
+          "nd": null
+        }
+      }
     },
     {
       "slug": "kovel",
@@ -62,13 +123,35 @@
       "rozmishchennya": "Ковельське МТМО",
       "koordynaty": null,
       "telefony": [],
-      "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "1.5T", "model": "Siemens Magnetom Avanto" },
-        { "klas": "kt", "model": null }
+        {
+          "klas": "mrt",
+          "pole": "1.5T",
+          "model": "Siemens Magnetom Avanto"
+        },
+        {
+          "klas": "kt",
+          "model": null
+        }
       ],
       "prays": "zakhid",
-      "potrebuye_perevirky": ["модель КТ", "графік", "прямий телефон центру"]
+      "potrebuye_perevirky": [
+        "модель КТ",
+        "прямий телефон центру",
+        "неділя: підтвердити, що вихідний"
+      ],
+      "grafik_za_klasom": {
+        "mrt": {
+          "pn_pt": "08:00-20:00",
+          "sb": "08:00-20:00",
+          "nd": null
+        },
+        "kt": {
+          "pn_pt": "09:00-17:00",
+          "sb": "10:00-14:00",
+          "nd": null
+        }
+      }
     },
     {
       "slug": "zhytomyr",
@@ -77,12 +160,28 @@
       "rozmishchennya": "Діагностичний центр «МРТ+»",
       "koordynaty": null,
       "telefony": [],
-      "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "3T", "model": null }
+        {
+          "klas": "mrt",
+          "pole": "3T",
+          "model": null
+        }
       ],
       "prays": null,
-      "potrebuye_perevirky": ["модель томографа (старий сайт: Magnetom Sempra – звірити з паспортом)", "до якого прайсу належить", "графік", "прямий телефон центру"]
+      "potrebuye_perevirky": [
+        "модель томографа (старий сайт: Magnetom Sempra – звірити з паспортом)",
+        "до якого прайсу належить",
+        "прямий телефон центру",
+        "неділя: підтвердити, що вихідний",
+        "КТ у Житомирі немає – графік не надано, підтвердити"
+      ],
+      "grafik_za_klasom": {
+        "mrt": {
+          "pn_pt": "08:00-20:00",
+          "sb": "08:00-16:00",
+          "nd": null
+        }
+      }
     },
     {
       "slug": "kyiv",
@@ -91,12 +190,28 @@
       "rozmishchennya": "TOP Clinic DENIS",
       "koordynaty": null,
       "telefony": [],
-      "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "3T", "model": "Siemens Magnetom Skyra", "tunel_sm": 70, "vaha_do_kg": 250 }
+        {
+          "klas": "mrt",
+          "pole": "3T",
+          "model": "Siemens Magnetom Skyra",
+          "tunel_sm": 70,
+          "vaha_do_kg": 250
+        }
       ],
       "prays": "kyiv",
-      "potrebuye_perevirky": ["графік", "прямий телефон центру"]
+      "potrebuye_perevirky": [
+        "прямий телефон центру",
+        "неділя: підтвердити, що вихідний",
+        "КТ у Києві немає – графік не надано, підтвердити"
+      ],
+      "grafik_za_klasom": {
+        "mrt": {
+          "pn_pt": "07:00-21:00",
+          "sb": "08:00-20:00",
+          "nd": null
+        }
+      }
     },
     {
       "slug": "sheptytskyi",
@@ -106,12 +221,28 @@
       "rozmishchennya": "Діагностичний центр «МРТ+»",
       "koordynaty": null,
       "telefony": [],
-      "grafik": null,
       "aparaty": [
-        { "klas": "mrt", "pole": "1.5T", "model": null }
+        {
+          "klas": "mrt",
+          "pole": "1.5T",
+          "model": null
+        }
       ],
       "prays": null,
-      "potrebuye_perevirky": ["модель томографа", "до якого прайсу належить", "графік", "прямий телефон центру"]
+      "potrebuye_perevirky": [
+        "модель томографа",
+        "до якого прайсу належить",
+        "прямий телефон центру",
+        "неділя: підтвердити, що вихідний"
+      ],
+      "grafik_za_klasom": {
+        "mrt": {
+          "pn_pt": "08:00-16:00",
+          "sb": "08:00-14:00",
+          "nd": null
+        }
+      }
     }
-  ]
+  ],
+  "_pro_hrafiky": "Графік належить класу апарата, а не центру: у Луцьку, Ковелі й Рівному МРТ і КТ працюють у різні години. Це саме та модель, яка потрібна ІС: слоти рахуються по апарату. Неділя ніде не вказана – вважаємо вихідним до підтвердження. Перерви, святкові дні й нічні зміни не вказані."
 }
