@@ -13,9 +13,7 @@
   justify-content: center;
   gap: var(--sp-2);
   height: var(--tap);
-  /* Оптичне центрування: у Fixel малі літери сидять нижче геометричного центру,
-     тому знизу додається 0.16em. Виміряно по чорнилу, не на око. */
-  padding: 0 var(--sp-6) 0.16em;
+  padding: 0 var(--sp-6);
   border: 1px solid transparent;
   border-radius: var(--r-pill);
   font-family: var(--font-ui);
@@ -142,7 +140,7 @@
 .select {
   width: 100%;
   height: var(--tap);
-  padding: 0 var(--sp-4) 0.18em;
+  padding: 0 var(--sp-4);
   border: 1px solid var(--c-ink-300);
   border-radius: var(--r-md);
   background: var(--c-white);
@@ -240,7 +238,7 @@
   display: inline-flex;
   align-items: center;
   height: 28px;
-  padding: 0 var(--sp-3) 0.2em;
+  padding: 0 var(--sp-3);
   border-radius: var(--r-pill);
   background: var(--c-ink-100);
   color: var(--c-ink-600);
@@ -281,7 +279,7 @@
   display: inline-flex;
   align-items: center;
   height: 38px;
-  padding: 0 var(--sp-4) 0.16em;
+  padding: 0 var(--sp-4);
   border: 1px solid var(--c-ink-200);
   border-radius: var(--r-pill);
   background: var(--c-white);
@@ -503,7 +501,7 @@
   align-items: center;
   gap: var(--sp-2);
   height: 38px;
-  padding: 0 var(--sp-4) 0.16em;
+  padding: 0 var(--sp-4);
   border: 1px solid var(--c-ink-200);
   border-radius: var(--r-pill);
   background: var(--c-white);
