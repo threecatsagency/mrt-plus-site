@@ -1875,81 +1875,66 @@
   padding-block: clamp(3rem, 2rem + 5vw, 7rem) clamp(2.5rem, 1.5rem + 4vw, 6rem);
 }
 
-.hero-title {
-  margin: 0 0 clamp(3rem, 2rem + 4vw, 6rem);
-  max-width: 12ch;
-  font-size: clamp(2.75rem, 1.2rem + 6.4vw, 6.75rem);
-  line-height: 0.98;
+.hero-grid {
+  display: grid;
+  gap: var(--sp-10);
+}
+
+@media (min-width: 64em) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: var(--sp-16);
+    align-items: end;
+  }
+}
+
+.hero-grid h1 {
+  margin: 0;
+  max-width: 13ch;
+  font-size: clamp(2.5rem, 1.3rem + 5.2vw, 5.5rem);
+  line-height: 1;
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
-/* Каскад доказів: не сітка, а сходи. Кожен рядок – число, слово або
-   логотип золотом з підписом на базовій лінії; рядки зміщені один
-   відносно одного, щоб око йшло діагоналлю, а не таблицею. */
-.creds {
+/* Переваги праворуч від гасла: число золотом, підпис під ним,
+   золота риска зліва – як нотатки на полях. */
+.hero-facts {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5rem, 0.9rem + 2.2vw, 3rem);
+  gap: var(--sp-6);
+  max-width: 340px;
 }
 
-.cred {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--sp-2) var(--sp-6);
+.hf {
+  padding-left: var(--sp-5);
+  border-left: 2px solid var(--c-gold-500);
 }
 
-.cred b {
+.hf b {
+  display: block;
   font-family: var(--font-display);
   font-weight: var(--fw-heading);
-  font-size: clamp(4rem, 1.6rem + 9.5vw, 9rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: var(--c-gold-500);
-  white-space: nowrap;
-}
-
-.cred--word b {
-  font-size: clamp(2.25rem, 1.2rem + 4.2vw, 4.5rem);
+  font-size: clamp(2.25rem, 1.5rem + 1.6vw, 3rem);
+  line-height: 1;
   letter-spacing: -0.03em;
-  white-space: normal;
+  color: var(--c-gold-600);
+  margin-bottom: var(--sp-1);
 }
 
-.cred span {
-  font-size: var(--fs-body);
-  line-height: 1.45;
+.hf span {
+  font-size: var(--fs-small);
+  line-height: 1.5;
   color: var(--c-ink-600);
-  max-width: 34ch;
-}
-
-.cred__what {
-  white-space: nowrap;
-  max-width: none;
-}
-
-/* Логотип Siemens Healthineers – зображенням, у розмірі слова каскаду. */
-.cred--logo {
-  align-items: center;
-}
-
-.cred__logo {
   display: block;
-  width: clamp(240px, 14rem + 12vw, 460px);
-  height: auto;
+  max-width: 30ch;
 }
 
-/* Сходинки – тільки на широкому екрані. */
-@media (min-width: 64em) {
-  .cred:nth-child(2) {
-    margin-left: 30%;
-  }
-  .cred:nth-child(3) {
-    margin-left: 8%;
-  }
-  .cred:nth-child(4) {
-    margin-left: 38%;
-  }
+.hf--logo img {
+  display: block;
+  width: min(240px, 100%);
+  height: auto;
+  margin-bottom: var(--sp-2);
 }
 
 /* Телефон і подібні рядки не переносяться. */
