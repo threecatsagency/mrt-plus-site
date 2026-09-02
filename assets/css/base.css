@@ -46,7 +46,7 @@ h3,
 h4 {
   margin: 0 0 var(--sp-4);
   font-family: var(--font-display);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-heading);
   line-height: var(--lh-heading);
   letter-spacing: var(--ls-tight);
   color: var(--c-ink-900);
@@ -55,7 +55,6 @@ h4 {
 
 h1 {
   font-size: var(--fs-h1);
-  font-weight: var(--fw-extra);
   line-height: var(--lh-tight);
 }
 
@@ -69,7 +68,9 @@ h3 {
 
 h4 {
   font-size: var(--fs-h4);
+  font-family: var(--font-ui);
   font-weight: var(--fw-semibold);
+  letter-spacing: 0;
 }
 
 p {

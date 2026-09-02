@@ -386,7 +386,7 @@
   gap: var(--sp-2);
   text-decoration: none;
   color: var(--c-ink-900);
-  font-weight: var(--fw-extra);
+  font-weight: var(--fw-heading);
   font-size: 1.125rem;
   letter-spacing: var(--ls-tight);
 }
@@ -1190,4 +1190,349 @@
   border-top: 1px solid rgba(217, 198, 156, 0.25);
   font-size: var(--fs-caption);
   color: var(--c-gold-300);
+}
+
+/* =====================================================================
+   13. Панелі й плитки
+   Сторінка збирається з великих кольорових панелей із заокругленням,
+   а не з білих карток у рамках. Колір несе секцію, повітря – ритм.
+   ===================================================================== */
+
+.panel {
+  border-radius: var(--r-xl);
+  padding: clamp(1.5rem, 1rem + 3vw, 4rem);
+}
+
+.panel-sand {
+  background: var(--c-gold-100);
+}
+
+.panel-sky {
+  background: var(--c-accent-100);
+}
+
+.panel-navy {
+  background: var(--c-navy-900);
+  color: var(--c-white);
+}
+
+.panel-navy h2,
+.panel-navy h3 {
+  color: var(--c-white);
+}
+
+.panel-navy .lead,
+.panel-navy .text-muted {
+  color: var(--c-gold-300);
+}
+
+.panel-gold {
+  background: var(--c-gold-500);
+  color: var(--c-navy-900);
+}
+
+.panel-gold h2 {
+  color: var(--c-navy-900);
+}
+
+/* Перший екран: світлий, великий, з повітрям. */
+.hero-open {
+  padding-block: clamp(2rem, 1rem + 4vw, 5rem) 0;
+}
+
+.hero-open .panel {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 2rem + 6vw, 7rem);
+}
+
+.hero-open h1 {
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.03em;
+  max-width: 12ch;
+  margin-bottom: var(--sp-6);
+}
+
+.hero-open .lead {
+  max-width: 44ch;
+  margin-bottom: var(--sp-8);
+}
+
+.hero-open .logo-big {
+  width: min(180px, 40%);
+  height: auto;
+  color: var(--c-gold-500);
+  margin-bottom: var(--sp-10);
+}
+
+.hero-open .scanlines {
+  width: min(40%, 380px);
+  opacity: 0.8;
+}
+
+/* Великі факти: число і підпис. */
+.facts {
+  display: grid;
+  gap: var(--sp-6) var(--sp-8);
+  margin-top: var(--sp-12);
+}
+
+@media (min-width: 40em) {
+  .facts {
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    gap: var(--sp-6) var(--sp-16);
+  }
+}
+
+.fact b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h2);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--c-navy-900);
+  margin-bottom: var(--sp-2);
+}
+
+.fact span {
+  display: block;
+  max-width: 22ch;
+  font-size: var(--fs-small);
+  color: var(--c-ink-500);
+}
+
+.panel-navy .fact b {
+  color: var(--c-gold-500);
+}
+
+.panel-navy .fact span {
+  color: var(--c-gold-300);
+}
+
+/* Плитки центрів: без рамок, колір замість лінії. */
+.tiles {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+@media (min-width: 40em) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .tiles {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+  }
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-height: 240px;
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+
+.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3);
+  color: inherit;
+}
+
+.tile:nth-child(3n + 1) {
+  background: var(--c-gold-100);
+}
+
+.tile:nth-child(3n + 2) {
+  background: var(--c-accent-100);
+}
+
+.tile:nth-child(3n) {
+  background: var(--c-white);
+  border: var(--border);
+}
+
+.tile h3 {
+  font-size: var(--fs-h3);
+  margin: 0;
+}
+
+.tile .addr {
+  margin: 0;
+  color: var(--c-ink-600);
+}
+
+.tile .badge-row {
+  margin-top: auto;
+  padding-top: var(--sp-4);
+}
+
+.tile .arrow {
+  position: absolute;
+}
+
+/* Рядки досліджень: назва зліва, ціна справа, лінія між. */
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rows li {
+  margin: 0;
+}
+
+.rows a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-2) var(--sp-6);
+  align-items: baseline;
+  padding: var(--sp-5) 0;
+  border-top: 1px solid rgba(217, 198, 156, 0.25);
+  text-decoration: none;
+  color: inherit;
+}
+
+.rows li:last-child a {
+  border-bottom: 1px solid rgba(217, 198, 156, 0.25);
+}
+
+.rows a:hover .row-name {
+  color: var(--c-gold-500);
+}
+
+.row-name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h3);
+  letter-spacing: var(--ls-tight);
+  transition: color var(--t-fast);
+}
+
+.row-desc {
+  grid-column: 1;
+  font-size: var(--fs-small);
+  color: var(--c-gold-300);
+  max-width: 52ch;
+}
+
+.row-price {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-price);
+  letter-spacing: var(--ls-tight);
+  color: var(--c-gold-500);
+  white-space: nowrap;
+}
+
+.row-price small {
+  display: block;
+  font-family: var(--font-ui);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-caption);
+  color: var(--c-gold-300);
+  letter-spacing: 0;
+}
+
+/* Світла версія рядків – для панелі КТ. */
+.panel-sky .rows a,
+.panel-sky .rows li:last-child a {
+  border-color: rgba(35, 80, 169, 0.18);
+}
+
+.panel-sky .row-desc {
+  color: var(--c-ink-500);
+}
+
+.panel-sky .row-price {
+  color: var(--c-accent-600);
+}
+
+.panel-sky .row-price small {
+  color: var(--c-ink-500);
+}
+
+.panel-sky .rows a:hover .row-name {
+  color: var(--c-accent-600);
+}
+
+/* Золота панель дзвінка: величезний номер. */
+.panel-gold .big-phone {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: clamp(2.25rem, 1rem + 6vw, 5.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--c-navy-900);
+  text-decoration: none;
+  margin: var(--sp-4) 0 var(--sp-6);
+}
+
+.panel-gold .big-phone:hover {
+  color: var(--c-white);
+}
+
+.panel-gold p {
+  color: var(--c-navy-800);
+}
+
+.panel-gold .btn-primary {
+  background: var(--c-navy-900);
+}
+
+.panel-gold .btn-primary:hover {
+  background: var(--c-navy-800);
+}
+
+.panel-gold .btn-outline {
+  background: transparent;
+  border-color: var(--c-navy-900);
+  color: var(--c-navy-900);
+}
+
+/* Двоколонка секції: заголовок зліва, вміст справа. */
+.split {
+  display: grid;
+  gap: var(--sp-8);
+}
+
+@media (min-width: 64em) {
+  .split {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--sp-16);
+  }
+  .split > :first-child {
+    position: sticky;
+    top: calc(var(--header-h) + var(--sp-8));
+    align-self: start;
+  }
+}
+
+.section-head {
+  margin-bottom: var(--sp-10);
+}
+
+.section-head .lead {
+  margin-top: var(--sp-4);
+}
+
+/* Шапка над світлою сторінкою без рамки знизу. */
+.site-header--open {
+  background: var(--c-ink-050);
+  border-bottom: 0;
 }

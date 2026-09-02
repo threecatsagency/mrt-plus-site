@@ -62,27 +62,27 @@
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
-  --fw-extra: 800;
+  --fw-heading: 600; /* так набирає Fixel сам MacPaw: 500–600, не 800 */
 
-  /* Шкала. База 17 px на телефоні, 18 на десктопі. Заголовки масивні:
-     h1 удвічі-втричі більший за текст, щоб контраст читався одразу. */
-  --fs-display: clamp(2.75rem, 1.6rem + 5vw, 5.25rem);
-  --fs-h1: clamp(2.25rem, 1.5rem + 3.2vw, 3.75rem);
-  --fs-h2: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
-  --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
-  --fs-h4: 1.1875rem;
-  --fs-lead: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
+  /* Шкала. База 17 px на телефоні, 18 на десктопі. Заголовки масивні
+     й напівжирні: контраст дає розмір, а не вага. */
+  --fs-display: clamp(3rem, 1.5rem + 7vw, 6.5rem);
+  --fs-h1: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
+  --fs-h2: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --fs-h3: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  --fs-h4: 1.25rem;
+  --fs-lead: clamp(1.1875rem, 1.1rem + 0.45vw, 1.4375rem);
   --fs-body: clamp(1.0625rem, 1.02rem + 0.2vw, 1.125rem);
   --fs-small: 0.9375rem;
   --fs-caption: 0.875rem;
-  --fs-price: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+  --fs-price: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
 
-  --lh-tight: 1.02;
-  --lh-heading: 1.12;
+  --lh-tight: 1;
+  --lh-heading: 1.08;
   --lh-body: 1.6;
-  --lh-text: 1.7; /* серифний текст просить більше повітря */
+  --lh-text: 1.7;
 
-  --ls-tight: -0.03em;
+  --ls-tight: -0.025em;
   --ls-normal: 0;
 
   /* ---- Простір -----------------------------------------------------
@@ -99,13 +99,14 @@
   --sp-16: 4rem;
   --sp-20: 5rem;
 
-  --section-y: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  --section-y: clamp(3.5rem, 2rem + 6vw, 8rem); /* повітря між секціями */
 
   /* ---- Геометрія ---------------------------------------------------
      Радіуси різні за призначенням: поля вводу різкіші за картки. */
   --r-sm: 4px;
   --r-md: 8px;
-  --r-lg: 14px;
+  --r-lg: 16px;
+  --r-xl: 28px; /* великі кольорові панелі */
   --r-pill: 999px;
 
   --border: 1px solid var(--c-ink-200);
@@ -119,7 +120,7 @@
   --ring: 0 0 0 3px rgba(35, 80, 169, 0.28);
 
   /* ---- Розкладка ---------------------------------------------------- */
-  --container: 1120px;
+  --container: 1200px;
   --container-narrow: 760px;
   --measure: 68ch; /* довжина рядка тексту */
   --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);

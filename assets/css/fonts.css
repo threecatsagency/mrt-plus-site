@@ -13,10 +13,18 @@
 
 @font-face {
   font-family: "Fixel Display";
-  font-weight: 800;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url("../fonts/fixel-display-extrabold.woff2") format("woff2");
+  src: url("../fonts/fixel-display-medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fixel Display";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/fixel-display-semibold.woff2") format("woff2");
 }
 
 @font-face {
