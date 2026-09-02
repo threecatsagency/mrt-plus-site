@@ -39,14 +39,14 @@
 }
 
 .btn-primary {
-  background: var(--c-accent-600);
+  background: linear-gradient(170deg, #2c5bb8 0%, #2350a9 55%, #1c4392 100%);
   color: var(--c-white);
 }
 
 .btn-primary:hover {
-  background: var(--c-accent-700);
+  background: linear-gradient(170deg, #23509f 0%, #1a3f8c 55%, #153a80 100%);
   color: var(--c-white);
-  box-shadow: 0 6px 16px -8px rgba(35, 80, 169, 0.9);
+  box-shadow: 0 8px 20px -10px rgba(35, 80, 169, 1);
 }
 
 .btn-outline {
@@ -73,7 +73,7 @@
 
 /* Телефон – окремий вигляд: на мобільному це найчастіша дія. */
 .btn-phone {
-  background: var(--c-navy-900);
+  background: linear-gradient(170deg, #1a3560 0%, #0e1d3a 100%);
   color: var(--c-white);
 }
 
@@ -323,13 +323,13 @@
 }
 
 .badge-mrt {
-  background: var(--c-gold-100);
-  color: var(--c-gold-600);
+  background: rgba(140, 109, 63, 0.14);
+  color: #6f5327;
 }
 
 .badge-kt {
-  background: var(--c-accent-100);
-  color: var(--c-accent-700);
+  background: rgba(35, 80, 169, 0.14);
+  color: #17347a;
 }
 
 .badge-contrast {
@@ -934,7 +934,7 @@
 
 /* Апарат центру. */
 .device-card {
-  background: var(--c-navy-900);
+  background: var(--grad-navy);
   color: var(--c-gold-100);
   border-radius: var(--r-lg);
   padding: var(--sp-6);
@@ -1253,7 +1253,7 @@
    ===================================================================== */
 
 .cta-band {
-  background: var(--c-navy-900);
+  background: var(--grad-navy);
   color: var(--c-white);
   border-radius: var(--r-lg);
   padding: var(--sp-8);
@@ -1330,7 +1330,7 @@
    ===================================================================== */
 
 .site-footer {
-  background: var(--c-navy-900);
+  background: var(--grad-navy);
   color: var(--c-gold-300);
   padding-block: var(--sp-12) var(--sp-8);
   font-size: var(--fs-small);
@@ -1396,17 +1396,41 @@
   padding: clamp(1.5rem, 1rem + 3vw, 4rem);
 }
 
+.panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Кутове світло – окремим шаром, щоб текст лишався контрастним. */
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .panel-sand {
-  background: var(--c-gold-100);
+  background: var(--grad-sand);
+}
+
+.panel-sand::after {
+  background: var(--glow-blue);
+  opacity: 0.5;
 }
 
 .panel-sky {
-  background: var(--c-accent-100);
+  background: var(--grad-sky);
 }
 
 .panel-navy {
-  background: var(--c-navy-900);
+  background: var(--grad-navy);
   color: var(--c-white);
+}
+
+.panel-navy::after {
+  background: var(--glow-gold);
 }
 
 .panel-navy h2,
@@ -1420,7 +1444,7 @@
 }
 
 .panel-gold {
-  background: var(--c-gold-500);
+  background: var(--grad-gold);
   color: var(--c-navy-900);
 }
 
@@ -1544,16 +1568,16 @@
 }
 
 .tile:nth-child(3n + 1) {
-  background: var(--c-gold-100);
+  background: var(--grad-sand);
 }
 
 .tile:nth-child(3n + 2) {
-  background: var(--c-accent-100);
+  background: var(--grad-sky);
 }
 
 .tile:nth-child(3n) {
-  background: var(--c-white);
-  border: var(--border);
+  background: linear-gradient(150deg, #ffffff 0%, #f7f4ed 100%);
+  box-shadow: inset 0 0 0 1px var(--c-ink-200);
 }
 
 .tile h3 {
@@ -1678,6 +1702,14 @@
 }
 
 /* Золота панель дзвінка: величезний номер. */
+.panel-gold::after {
+  background: radial-gradient(
+    90% 120% at 85% 0%,
+    rgba(255, 255, 255, 0.32) 0%,
+    transparent 60%
+  );
+}
+
 .panel-gold .big-phone {
   display: block;
   font-family: var(--font-display);
