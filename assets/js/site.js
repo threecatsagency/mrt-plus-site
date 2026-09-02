@@ -40,6 +40,43 @@
   opticaCaps();
 
   /* ------------------------------------------------------------------
+     Графік центру на сьогодні
+     Замість «Пн–Пт 7:00–22:00» пишемо те, що людину цікавить зараз:
+     працює центр чи ні і до котрої. Неділя – вихідний до підтвердження.
+     ------------------------------------------------------------------ */
+
+  function hodyny(el) {
+    var den = new Date().getDay(); // 0 – неділя
+    var vikno = den === 0 ? null : den === 6 ? el.dataset.sb : el.dataset.pnPt;
+    var out = el.querySelector("[data-hours]");
+    if (!out) return;
+
+    if (!vikno) {
+      out.textContent = "Сьогодні вихідний";
+      out.classList.add("is-closed");
+      return;
+    }
+
+    var mezhi = vikno.split("-");
+    var zaraz = new Date().getHours() * 60 + new Date().getMinutes();
+    var vidkr = Number(mezhi[0].slice(0, 2)) * 60 + Number(mezhi[0].slice(3));
+    var zakr = Number(mezhi[1].slice(0, 2)) * 60 + Number(mezhi[1].slice(3));
+
+    if (zaraz < vidkr) {
+      out.textContent = "Сьогодні з " + mezhi[0];
+      out.classList.remove("is-closed");
+    } else if (zaraz < zakr) {
+      out.textContent = "Працює до " + mezhi[1];
+      out.classList.remove("is-closed");
+    } else {
+      out.textContent = "Сьогодні вже зачинено";
+      out.classList.add("is-closed");
+    }
+  }
+
+  document.querySelectorAll(".city[data-pn-pt]").forEach(hodyny);
+
+  /* ------------------------------------------------------------------
      Стан поля
      ------------------------------------------------------------------ */
 

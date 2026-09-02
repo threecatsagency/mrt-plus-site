@@ -25,7 +25,7 @@
     <a class="logo" href="/" aria-label="МРТ ПЛЮС – на головну"><svg viewBox="14 14 388 89" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></a>
 
     <nav class="site-nav" aria-label="Головне меню">
-      <a href="#centry">Центри</a>
+      <a href="#chomu">Про мережу</a>
       <a href="#mrt">МРТ</a>
       <a href="#kt">КТ</a>
       <a href="#pidhotovka">Підготовка</a>
@@ -48,7 +48,7 @@
   <div class="container">
     <div class="mobile-menu" id="mobile-menu">
       <div class="mobile-menu__inner">
-        <a href="#centry">Центри</a>
+        <a href="#chomu">Про мережу</a>
         <a href="#mrt">МРТ</a>
         <a href="#kt">КТ</a>
         <a href="#pidhotovka">Підготовка</a>
@@ -63,16 +63,54 @@
 
   <section class="hero-open">
     <div class="container">
-      <div class="panel panel-sand">
+      <div class="panel panel-sand hero-pick">
         <div class="scanlines" aria-hidden="true"></div>
-        <div class="hero__inner">
+        <div class="hero-pick__intro">
           <p class="eyebrow">Мережа діагностичних центрів «МРТ ПЛЮС»</p>
-          <h1>МРТ і КТ у шести містах</h1>
-          <p class="lead">Луцьк, Рівне, Ковель, Житомир, Київ, Шептицький. Томографи 1,5 і 3 Тесла, комп'ютерна томографія, дослідження з контрастом. Один безкоштовний номер на всі центри.</p>
+          <h1>МРТ і КТ у вашому місті</h1>
+          <p class="lead">Оберіть центр – побачите ціни, апарати й вільний час. Або зателефонуйте, ми підберемо самі.</p>
           <div class="btn-row">
-            <a class="btn btn-primary btn-lg" href="#zapys">Записатися</a>
-            <a class="btn btn-outline btn-lg" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+            <a class="btn btn-primary btn-lg" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+            <a class="btn btn-outline btn-lg" href="#zapys">Передзвоніть мені</a>
           </div>
+        </div>
+        <div class="hero-pick__cities">
+          <a class="city" href="#" data-pn-pt="07:00-22:00" data-sb="08:00-18:00">
+            <span class="city__name">Луцьк</span>
+            <span class="city__addr">просп. Молоді, 12В</span>
+            <span class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></span>
+            <span class="city__hours" data-hours>07:00–22:00</span>
+          </a>
+          <a class="city" href="#" data-pn-pt="07:00-23:00" data-sb="08:00-18:00">
+            <span class="city__name">Рівне</span>
+            <span class="city__addr">вул. Карнаухова, 2А</span>
+            <span class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></span>
+            <span class="city__hours" data-hours>07:00–23:00</span>
+          </a>
+          <a class="city" href="#" data-pn-pt="08:00-20:00" data-sb="08:00-20:00">
+            <span class="city__name">Ковель</span>
+            <span class="city__addr">вул. Олени Пчілки, 4</span>
+            <span class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></span>
+            <span class="city__hours" data-hours>08:00–20:00</span>
+          </a>
+          <a class="city" href="#" data-pn-pt="08:00-20:00" data-sb="08:00-16:00">
+            <span class="city__name">Житомир</span>
+            <span class="city__addr">вул. Вокзальна, 12</span>
+            <span class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span></span>
+            <span class="city__hours" data-hours>08:00–20:00</span>
+          </a>
+          <a class="city" href="#" data-pn-pt="07:00-21:00" data-sb="08:00-20:00">
+            <span class="city__name">Київ</span>
+            <span class="city__addr">вул. Композитора Мейтуса, 5</span>
+            <span class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span></span>
+            <span class="city__hours" data-hours>07:00–21:00</span>
+          </a>
+          <a class="city" href="#" data-pn-pt="08:00-16:00" data-sb="08:00-14:00">
+            <span class="city__name">Шептицький</span>
+            <span class="city__addr">вул. Івасюка, 2</span>
+            <span class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span></span>
+            <span class="city__hours" data-hours>08:00–16:00</span>
+          </a>
         </div>
       </div>
     </div>
@@ -104,47 +142,6 @@
           <h3>Понад 20 000 обстежень за 2025 рік</h3>
           <p>Ваш випадок для нас не перший. За цим числом – тисячі хребтів, суглобів, голів і легень, які наші лікарі вже бачили.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="centry">
-    <div class="container">
-      <div class="section-head">
-        <h2>Оберіть свій центр</h2>
-        <p class="lead">Ціни, апарати й графік у кожному місті свої. Записуємо по одному номеру.</p>
-      </div>
-      <div class="tiles">
-        <a class="tile" href="#">
-          <h3>Луцьк</h3>
-          <p class="addr">просп. Молоді, 12В</p>
-          <div class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></div>
-        </a>
-        <a class="tile" href="#">
-          <h3>Рівне</h3>
-          <p class="addr">вул. Карнаухова, 2А</p>
-          <div class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></div>
-        </a>
-        <a class="tile" href="#">
-          <h3>Ковель</h3>
-          <p class="addr">вул. Олени Пчілки, 4</p>
-          <div class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></div>
-        </a>
-        <a class="tile" href="#">
-          <h3>Житомир</h3>
-          <p class="addr">вул. Вокзальна, 12</p>
-          <div class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span></div>
-        </a>
-        <a class="tile" href="#">
-          <h3>Київ</h3>
-          <p class="addr">вул. Композитора Мейтуса, 5</p>
-          <div class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span></div>
-        </a>
-        <a class="tile" href="#">
-          <h3>Шептицький</h3>
-          <p class="addr">вул. Івасюка, 2</p>
-          <div class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span></div>
-        </a>
       </div>
     </div>
   </section>
@@ -307,7 +304,7 @@
     <div class="footer-bottom">
       <span>© 2026 ТОВ «МРТ ПЛЮС»</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Збірка 0.17</span>
+      <span class="tnum">Збірка 0.18</span>
     </div>
   </div>
 </footer>
