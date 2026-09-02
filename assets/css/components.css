@@ -1935,109 +1935,145 @@
 }
 
 /* =====================================================================
-   16. Перший екран з вибором центру
-   Людина заходить не читати, а дізнатися: чи є МРТ у моєму місті,
-   чи працює зараз, скільки коштує. Тому вибір міста – головний вміст
-   першого екрана, а не окрема секція нижче.
+   16. Перший екран
+   Один рядок: заголовок і вибір міста. Більше на цьому екрані нічого
+   немає – усе решта нижче.
    ===================================================================== */
 
-.hero-pick {
+.hero-open {
+  padding-block: clamp(3rem, 2rem + 6vw, 8rem) clamp(3rem, 2rem + 5vw, 7rem);
+}
+
+.hero-line {
   display: grid;
-  gap: var(--sp-8);
+  gap: var(--sp-10);
 }
 
 @media (min-width: 64em) {
-  .hero-pick {
-    grid-template-columns: 5fr 6fr;
-    gap: var(--sp-12);
-    align-items: center;
+  .hero-line {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--sp-16);
   }
 }
 
-.hero-pick__intro h1 {
-  font-size: var(--fs-h1);
-  max-width: 11ch;
-  margin-bottom: var(--sp-4);
+.hero-line h1 {
+  margin: 0;
+  font-size: var(--fs-display);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
 }
 
-/* На телефоні кнопки не мають відсувати міста нижче екрана:
-   спершу вибір центру, дзвінок – одразу під ним. */
-@media (max-width: 63.99em) {
-  .hero-pick__intro .btn-row {
-    display: none;
-  }
-  .hero-pick__intro .lead {
-    margin-bottom: 0;
-  }
-  .hero-pick {
-    gap: var(--sp-6);
-  }
+.hero-line__side {
+  width: min(100%, 320px);
 }
 
-.hero-pick__intro .lead {
-  max-width: 34ch;
-  margin-bottom: var(--sp-6);
+.hero-line .lead {
+  margin: 0 0 var(--sp-4);
+  font-size: var(--fs-body);
+  color: var(--c-ink-500);
 }
 
-.hero-pick__cities {
-  display: grid;
-  gap: var(--sp-2);
+/* Вибір міста – єдина дія на екрані. */
+.picker {
+  position: relative;
 }
 
-@media (min-width: 40em) {
-  .hero-pick__cities {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-3);
-  }
+.picker__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  width: 100%;
+  height: 60px;
+  padding: 0 var(--sp-5);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--c-navy-900);
+  color: var(--c-white);
+  font-family: var(--font-ui);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: background-color var(--t-base);
 }
 
-.city {
-  display: grid;
-  gap: var(--sp-1);
-  padding: var(--sp-4) var(--sp-5);
+.picker__btn:hover {
+  background: var(--c-navy-800);
+}
+
+.picker__btn svg {
+  width: 20px;
+  height: 20px;
+  color: var(--c-gold-500);
+  transition: transform var(--t-base);
+}
+
+.picker__btn[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.picker__list {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  top: calc(100% + var(--sp-2));
+  padding: var(--sp-2);
   border-radius: var(--r-lg);
-  background: rgba(255, 255, 255, 0.72);
-  text-decoration: none;
-  color: inherit;
-  transition: background-color var(--t-base), transform var(--t-base),
-    box-shadow var(--t-base);
-}
-
-.city:hover {
   background: var(--c-white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
-  color: inherit;
+  box-shadow: var(--shadow-3);
 }
 
-.city__name {
+.picker__list[hidden] {
+  display: none;
+}
+
+.picker__list a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  color: var(--c-ink-800);
+  transition: background-color var(--t-fast);
+}
+
+.picker__list a:hover {
+  background: var(--c-ink-100);
+  color: var(--c-ink-900);
+}
+
+.picker__list b {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h4);
+}
+
+.picker__list span {
+  font-size: var(--fs-caption);
+  color: var(--c-gold-600);
+  white-space: nowrap;
+}
+
+.picker__list span.is-closed {
+  color: var(--c-ink-400);
+}
+
+.hero-line__phone {
+  display: inline-block;
+  margin-top: var(--sp-5);
   font-family: var(--font-display);
   font-weight: var(--fw-heading);
   font-size: var(--fs-h3);
   letter-spacing: var(--ls-tight);
   color: var(--c-ink-900);
+  text-decoration: none;
 }
 
-.city__addr {
-  font-size: var(--fs-caption);
-  color: var(--c-ink-500);
+.hero-line__phone:hover {
+  color: var(--c-accent-600);
 }
 
-.city .badge-row {
-  margin-top: var(--sp-2);
-}
-
-/* Рядок «сьогодні до 22:00» – найкорисніше, що можна сказати одразу. */
-.city__hours {
-  margin-top: var(--sp-2);
-  padding-top: var(--sp-2);
-  border-top: 1px solid var(--c-ink-200);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  color: var(--c-gold-600);
-}
-
-.city__hours.is-closed {
-  color: var(--c-ink-500);
-  font-weight: var(--fw-regular);
-}

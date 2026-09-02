@@ -63,54 +63,25 @@
 
   <section class="hero-open">
     <div class="container">
-      <div class="panel panel-sand hero-pick">
-        <div class="scanlines" aria-hidden="true"></div>
-        <div class="hero-pick__intro">
-          <p class="eyebrow">Мережа діагностичних центрів «МРТ ПЛЮС»</p>
-          <h1>МРТ і КТ у вашому місті</h1>
-          <p class="lead">Оберіть центр – побачите ціни, апарати й вільний час. Або зателефонуйте, ми підберемо самі.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary btn-lg" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
-            <a class="btn btn-outline btn-lg" href="#zapys">Передзвоніть мені</a>
+      <div class="hero-line">
+        <h1>МРТ і КТ<br>без черги</h1>
+        <div class="hero-line__side">
+          <p class="lead">Оберіть місто – ціни, апарати, вільний час.</p>
+          <div class="picker">
+            <button class="picker__btn" type="button" data-picker-toggle aria-expanded="false" aria-controls="picker-list">
+              <span data-picker-label>Оберіть місто</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+            </button>
+            <div class="picker__list" id="picker-list" hidden>
+              <a href="#" data-pn-pt="07:00-22:00" data-sb="08:00-18:00"><b>Луцьк</b><span data-hours></span></a>
+              <a href="#" data-pn-pt="07:00-23:00" data-sb="08:00-18:00"><b>Рівне</b><span data-hours></span></a>
+              <a href="#" data-pn-pt="08:00-20:00" data-sb="08:00-20:00"><b>Ковель</b><span data-hours></span></a>
+              <a href="#" data-pn-pt="08:00-20:00" data-sb="08:00-16:00"><b>Житомир</b><span data-hours></span></a>
+              <a href="#" data-pn-pt="07:00-21:00" data-sb="08:00-20:00"><b>Київ</b><span data-hours></span></a>
+              <a href="#" data-pn-pt="08:00-16:00" data-sb="08:00-14:00"><b>Шептицький</b><span data-hours></span></a>
+            </div>
           </div>
-        </div>
-        <div class="hero-pick__cities">
-          <a class="city" href="#" data-pn-pt="07:00-22:00" data-sb="08:00-18:00">
-            <span class="city__name">Луцьк</span>
-            <span class="city__addr">просп. Молоді, 12В</span>
-            <span class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></span>
-            <span class="city__hours" data-hours>07:00–22:00</span>
-          </a>
-          <a class="city" href="#" data-pn-pt="07:00-23:00" data-sb="08:00-18:00">
-            <span class="city__name">Рівне</span>
-            <span class="city__addr">вул. Карнаухова, 2А</span>
-            <span class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></span>
-            <span class="city__hours" data-hours>07:00–23:00</span>
-          </a>
-          <a class="city" href="#" data-pn-pt="08:00-20:00" data-sb="08:00-20:00">
-            <span class="city__name">Ковель</span>
-            <span class="city__addr">вул. Олени Пчілки, 4</span>
-            <span class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span><span class="badge badge-kt">КТ</span></span>
-            <span class="city__hours" data-hours>08:00–20:00</span>
-          </a>
-          <a class="city" href="#" data-pn-pt="08:00-20:00" data-sb="08:00-16:00">
-            <span class="city__name">Житомир</span>
-            <span class="city__addr">вул. Вокзальна, 12</span>
-            <span class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span></span>
-            <span class="city__hours" data-hours>08:00–20:00</span>
-          </a>
-          <a class="city" href="#" data-pn-pt="07:00-21:00" data-sb="08:00-20:00">
-            <span class="city__name">Київ</span>
-            <span class="city__addr">вул. Композитора Мейтуса, 5</span>
-            <span class="badge-row"><span class="badge badge-mrt">МРТ 3 Т</span></span>
-            <span class="city__hours" data-hours>07:00–21:00</span>
-          </a>
-          <a class="city" href="#" data-pn-pt="08:00-16:00" data-sb="08:00-14:00">
-            <span class="city__name">Шептицький</span>
-            <span class="city__addr">вул. Івасюка, 2</span>
-            <span class="badge-row"><span class="badge badge-mrt">МРТ 1,5 Т</span></span>
-            <span class="city__hours" data-hours>08:00–16:00</span>
-          </a>
+          <a class="hero-line__phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
         </div>
       </div>
     </div>
@@ -308,7 +279,7 @@
     <div class="footer-bottom">
       <span>© 2026 ТОВ «МРТ ПЛЮС»</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Збірка 0.20</span>
+      <span class="tnum">Збірка 0.21</span>
     </div>
   </div>
 </footer>

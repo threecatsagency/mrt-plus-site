@@ -74,7 +74,26 @@
     }
   }
 
-  document.querySelectorAll(".city[data-pn-pt]").forEach(hodyny);
+  document.querySelectorAll("[data-pn-pt]").forEach(hodyny);
+
+  // Розкривання списку міст
+  var pickerBtn = document.querySelector("[data-picker-toggle]");
+  var pickerList = document.getElementById("picker-list");
+
+  if (pickerBtn && pickerList) {
+    pickerBtn.addEventListener("click", function () {
+      var open = pickerList.hasAttribute("hidden");
+      pickerList.toggleAttribute("hidden", !open);
+      pickerBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!pickerBtn.contains(event.target) && !pickerList.contains(event.target)) {
+        pickerList.setAttribute("hidden", "");
+        pickerBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 
   /* ------------------------------------------------------------------
      Стан поля
