@@ -1959,9 +1959,11 @@
 
 .hero-line h1 {
   margin: 0;
-  font-size: var(--fs-display);
-  line-height: 0.95;
+  max-width: 13ch;
+  font-size: clamp(2.5rem, 1.4rem + 5vw, 5.25rem);
+  line-height: 1;
   letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .hero-line__side {
