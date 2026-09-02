@@ -69,7 +69,7 @@
       <h1>Сторінка стилів сайту МРТ ПЛЮС</h1>
       <p class="lead">Один набір кольорів, шрифтів і компонентів для всіх сторінок мережі. <a href="index.html">Головна</a> зібрана з цих самих елементів. Кожен елемент нижче – робочий, звідси його беруть у верстку без правок.</p>
       <div class="btn-row">
-        <span class="sg-build">Збірка 0.11</span>
+        <span class="sg-build">Збірка 0.12</span>
         <span class="badge">01.09.2026</span>
         <span class="badge badge-contrast">Дані на сторінці демонстраційні</span>
       </div>
@@ -339,6 +339,21 @@
         <h4>Ні</h4>
         <p style="margin:0">Три залиті кнопки поспіль. Головної дії не видно, і людина обирає навмання.</p>
       </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Оптика центрування</h3>
+    <div class="sg-demo">
+      <div class="btn-row" style="margin-bottom:var(--sp-4)">
+        <a class="btn btn-primary" href="#">Записатися</a>
+        <a class="btn btn-primary" href="tel:0800311058">0&nbsp;800&nbsp;311&nbsp;058</a>
+        <a class="btn btn-outline" href="#">МРТ І КТ</a>
+        <span class="badge badge-mrt">МРТ 3 Т</span>
+        <span class="badge badge-time">25–40 хв</span>
+      </div>
+      <p class="text-small" style="margin:0 0 var(--sp-3)">Рядок центрується по малих літерах: їхня висота 520 з 1000, центр – на 260 над базовою лінією. Великі літери (700) і цифри (711) вищі, їхній центр стоїть на 350, тобто на 0,09em вище. Тому «0 800 311 058» або «МРТ 3 Т» без поправки злітають угору.</p>
+      <p class="text-small" style="margin:0">Поправку несе клас <code>is-caps</code>. Він ставиться сам: скрипт перевіряє, чи є в елементі хоч одна мала літера, і якщо немає – опускає рядок. Зсув заданий в em, тому однаково працює на малій кнопці й на великій. Поля телефону й дати мають поправку постійно, бо цифри в них завжди.</p>
     </div>
   </div>
 
@@ -885,7 +900,7 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
     <div class="footer-bottom">
       <span>© 2026 МРТ ПЛЮС</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Сторінка стилів, збірка 0.11</span>
+      <span class="tnum">Сторінка стилів, збірка 0.12</span>
     </div>
   </div>
 </footer>

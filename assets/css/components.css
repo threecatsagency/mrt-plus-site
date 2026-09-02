@@ -13,7 +13,7 @@
   justify-content: center;
   gap: var(--sp-2);
   height: var(--tap);
-  padding: 0 var(--sp-6);
+  padding: 0.08em var(--sp-6) 0; /* 0.08em згори: тонке доведення рядка до центру */
   border: 1px solid transparent;
   border-radius: var(--r-pill);
   font-family: var(--font-ui);
@@ -149,7 +149,7 @@
 .select {
   width: 100%;
   height: var(--tap);
-  padding: 0 var(--sp-4);
+  padding: 0 var(--sp-4) 0.09em;
   border: 1px solid var(--c-ink-300);
   border-radius: var(--r-md);
   background: var(--c-white);
@@ -176,7 +176,7 @@
 .textarea {
   height: auto;
   min-height: 120px;
-  padding-block: var(--sp-3);
+  padding-block: var(--sp-3) var(--sp-3);
   line-height: 1.5;
   resize: vertical;
 }
@@ -1793,4 +1793,34 @@
     transform, opacity, outline-color;
   transition-duration: var(--t-fast);
   transition-timing-function: var(--ease);
+}
+
+/* =====================================================================
+   14. Оптика вертикального центрування
+   Метрики шрифту центрують рядок по малих літерах: висота 520, центр 260
+   над базовою лінією. Великі літери (700) і цифри (711) вищі, їхній центр
+   стоїть на 350–355, тобто на 0,09em вище. Через це «0 800 311 058» або
+   «МРТ 3 Т» у кнопці візуально злітають угору. Опускаємо їх назад.
+
+   Клас ставиться вручну або сам, скриптом, коли в елементі немає жодної
+   малої літери. Зсув в em, тому працює на всіх кеглях.
+   ===================================================================== */
+
+.is-caps {
+  padding-top: 0.18em; /* половина йде на зсув: контент опускається на 0,09em */
+}
+
+.btn.is-caps {
+  padding-top: 0.18em; /* заміняє базові 0.08em, а не додається до них */
+}
+
+/* Поля телефону й дати завжди містять лише цифри. */
+.input[data-phone],
+.input[data-date] {
+  padding-top: 0.27em;
+}
+
+/* Великий номер на золотій панелі – окремо, бо там свій рядок. */
+.panel-gold .big-phone {
+  padding-top: 0.06em;
 }
