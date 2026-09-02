@@ -23,8 +23,14 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color var(--t-fast), border-color var(--t-fast),
-    color var(--t-fast);
+  transition: background-color var(--t-base), border-color var(--t-base),
+    color var(--t-base), box-shadow var(--t-base), transform var(--t-press);
+}
+
+/* Натискання – кнопка сідає. Помітно, що дія прийнята. */
+.btn:active {
+  transform: translateY(1px);
+  transition-duration: var(--t-press);
 }
 
 .btn:focus-visible {
@@ -40,6 +46,7 @@
 .btn-primary:hover {
   background: var(--c-accent-700);
   color: var(--c-white);
+  box-shadow: 0 6px 16px -8px rgba(35, 80, 169, 0.9);
 }
 
 .btn-outline {
@@ -49,6 +56,7 @@
 }
 
 .btn-outline:hover {
+  background: var(--c-accent-050);
   border-color: var(--c-accent-600);
   color: var(--c-accent-700);
 }
@@ -70,8 +78,9 @@
 }
 
 .btn-phone:hover {
-  background: var(--c-navy-800);
+  background: var(--c-navy-700);
   color: var(--c-white);
+  box-shadow: 0 6px 16px -8px rgba(14, 29, 58, 0.9);
 }
 
 .btn-sm {
@@ -300,10 +309,12 @@
   font-size: var(--fs-small);
   font-weight: var(--fw-medium);
   text-decoration: none;
-  transition: border-color var(--t-fast), color var(--t-fast);
+  transition: background-color var(--t-base), border-color var(--t-base),
+    color var(--t-base);
 }
 
 .chip:hover {
+  background: var(--c-accent-050);
   border-color: var(--c-accent-500);
   color: var(--c-accent-700);
 }
@@ -736,6 +747,7 @@
 }
 
 .hero-dark .btn-outline:hover {
+  background: rgba(217, 198, 156, 0.12);
   border-color: var(--c-gold-300);
   color: var(--c-white);
 }
@@ -1212,6 +1224,7 @@
 }
 
 .cta-band .btn-outline:hover {
+  background: rgba(217, 198, 156, 0.12);
   border-color: var(--c-gold-300);
   color: var(--c-white);
 }
@@ -1224,6 +1237,7 @@
 .cta-band .btn-primary:hover {
   background: var(--c-accent-500);
   color: var(--c-white);
+  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.6);
 }
 
 /* Липка смуга дій на телефоні: подзвонити або записатися завжди під рукою. */
@@ -1638,10 +1652,17 @@
 
 .panel-gold .btn-primary:hover {
   background: var(--c-navy-800);
+  box-shadow: 0 6px 18px -8px rgba(14, 29, 58, 0.8);
 }
 
 .panel-gold .btn-outline {
   background: transparent;
+  border-color: var(--c-navy-900);
+  color: var(--c-navy-900);
+}
+
+.panel-gold .btn-outline:hover {
+  background: rgba(14, 29, 58, 0.08);
   border-color: var(--c-navy-900);
   color: var(--c-navy-900);
 }
@@ -1713,10 +1734,11 @@
   transition: box-shadow var(--t-base);
 }
 
-/* Фокус з'являється м'яко, а не стрибком. */
-:where(a, button, input, select, textarea, summary, .tile, .chip) {
+/* Усе інтерактивне, чому не задано власного переходу, все одно змінюється
+   плавно. Специфічність нульова, тому власні правила компонентів мають вагу. */
+:where(a, button, input, select, textarea, summary, label, [role="button"]) {
   transition-property: color, background-color, border-color, box-shadow,
     transform, opacity, outline-color;
   transition-duration: var(--t-fast);
-  transition-timing-function: ease;
+  transition-timing-function: var(--ease);
 }
