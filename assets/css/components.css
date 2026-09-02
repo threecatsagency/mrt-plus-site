@@ -1875,43 +1875,13 @@
   padding-block: clamp(3rem, 2rem + 5vw, 7rem) clamp(2.5rem, 1.5rem + 4vw, 6rem);
 }
 
-.hero-grid {
-  display: grid;
-  gap: var(--sp-8);
-  margin-bottom: clamp(2.5rem, 1.5rem + 4vw, 5rem);
-}
-
-@media (min-width: 64em) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-    gap: var(--sp-16);
-    align-items: end;
-  }
-}
-
-.hero-grid h1 {
-  margin: 0;
-  max-width: 13ch;
-  font-size: clamp(2.5rem, 1.3rem + 5.2vw, 5.5rem);
-  line-height: 1;
+.hero-title {
+  margin: 0 0 clamp(3rem, 2rem + 4vw, 6rem);
+  max-width: 12ch;
+  font-size: clamp(2.75rem, 1.2rem + 6.4vw, 6.75rem);
+  line-height: 0.98;
   letter-spacing: -0.035em;
   text-wrap: balance;
-}
-
-/* Два факти словами: продовжують гасло, не змагаються з ним. */
-.hero-grid__notes p {
-  margin: 0 0 var(--sp-5);
-  padding-left: var(--sp-5);
-  border-left: 2px solid var(--c-gold-500);
-  font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: 1.6;
-  color: var(--c-ink-600);
-  max-width: 40ch;
-}
-
-.hero-grid__notes p:last-child {
-  margin-bottom: 0;
 }
 
 /* Каскад доказів: не сітка, а сходи. Кожен рядок – число, слово або
@@ -1920,9 +1890,7 @@
 .creds {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.75rem, 1.1rem + 2.4vw, 3.25rem);
-  padding-top: var(--sp-6);
-  border-top: 1px solid var(--c-ink-200);
+  gap: clamp(1.5rem, 0.9rem + 2.2vw, 3rem);
 }
 
 .cred {
@@ -1935,7 +1903,7 @@
 .cred b {
   font-family: var(--font-display);
   font-weight: var(--fw-heading);
-  font-size: clamp(3.5rem, 1.6rem + 8vw, 7.5rem);
+  font-size: clamp(4rem, 1.6rem + 9.5vw, 9rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--c-gold-500);
@@ -1943,7 +1911,7 @@
 }
 
 .cred--word b {
-  font-size: clamp(2rem, 1.1rem + 3.6vw, 3.75rem);
+  font-size: clamp(2.25rem, 1.2rem + 4.2vw, 4.5rem);
   letter-spacing: -0.03em;
   white-space: normal;
 }
@@ -1967,20 +1935,20 @@
 
 .cred__logo {
   display: block;
-  width: clamp(240px, 14rem + 10vw, 400px);
+  width: clamp(240px, 14rem + 12vw, 460px);
   height: auto;
 }
 
 /* Сходинки – тільки на широкому екрані. */
 @media (min-width: 64em) {
   .cred:nth-child(2) {
-    margin-left: 26%;
+    margin-left: 30%;
   }
   .cred:nth-child(3) {
-    margin-left: 6%;
+    margin-left: 8%;
   }
   .cred:nth-child(4) {
-    margin-left: 32%;
+    margin-left: 38%;
   }
 }
 
