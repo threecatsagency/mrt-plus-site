@@ -1783,6 +1783,347 @@
   border-bottom: 0;
 }
 
+/* Секція «Навіщо обстежуватись»: три плитки за схемою
+   мітка – заголовок вигодою – пояснення. Тут немає жодного слова
+   про нас: секція продає дію, а не клініку. */
+.whys {
+  display: grid;
+  gap: var(--sp-8);
+}
+
+@media (min-width: 48em) {
+  .whys {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-8);
+  }
+}
+
+.why {
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  box-shadow: var(--shadow-1);
+}
+
+.why__tag {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  color: var(--c-gold-600);
+}
+
+.why h3 {
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-h3);
+}
+
+.why p:last-child {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-ink-600);
+}
+
+/* =====================================================================
+   17. Стилістика Health Images
+   Повноекранний перший екран, шлях пацієнта колом-кроками, велика
+   темна картка з заокругленням 50 px, відгуки, акордеон питань.
+   Шрифти і гама лишаються наші.
+   ===================================================================== */
+
+.fullhero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+/* Місце під фонове фото. Поки його немає, працює піщаний градієнт
+   із затемненням знизу, щоб білий низ не зливався зі стрічкою. */
+.fullhero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--grad-sand);
+}
+
+.fullhero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(180deg, rgba(185, 151, 91, 0.16) 0 1px, transparent 1px 9px),
+    linear-gradient(180deg, transparent 55%, rgba(14, 29, 58, 0.16) 100%);
+}
+
+.fullhero__inner {
+  padding-block: var(--sp-16) clamp(3rem, 2rem + 6vh, 7rem);
+}
+
+.fullhero h1 {
+  margin: 0 0 var(--sp-8);
+  font-size: clamp(2.75rem, 1.2rem + 6.6vw, 6.75rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+/* Вертикальні соцмережі, як у зразку – ліворуч по центру. */
+.fullhero__social {
+  position: absolute;
+  left: var(--sp-6);
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+@media (min-width: 64em) {
+  .fullhero__social {
+    display: flex;
+  }
+}
+
+.fullhero__social a {
+  color: var(--c-navy-900);
+  opacity: 0.55;
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+
+.fullhero__social a:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.fullhero__social svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Стрічка фактів унизу першого екрана. */
+.fullhero__strip {
+  border-top: 1px solid rgba(14, 29, 58, 0.14);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.strip-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-10);
+  align-items: center;
+  padding-block: var(--sp-4);
+  font-size: var(--fs-small);
+  color: var(--c-ink-600);
+}
+
+.strip-facts b {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: 1.5em;
+  color: var(--c-gold-600);
+  margin-right: 0.25em;
+}
+
+.strip-facts__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.strip-facts__logo img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+/* Кнопка більшого калібру, як btn-xl у зразку. */
+.btn-xl {
+  height: 64px;
+  padding-inline: var(--sp-8);
+  font-size: var(--fs-lead);
+  border-radius: 20px;
+}
+
+/* Шлях пацієнта: кругле фото, номер у колі, текст по центру. */
+.journey {
+  display: grid;
+  gap: var(--sp-10);
+  text-align: center;
+}
+
+@media (min-width: 48em) {
+  .journey {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-8);
+  }
+}
+
+.journey__photo {
+  width: min(240px, 70%);
+  aspect-ratio: 1;
+  margin: 0 auto var(--sp-5);
+  border-radius: 50%;
+  background: var(--grad-sand);
+}
+
+.journey__photo--2 {
+  background: var(--grad-sky);
+}
+
+.journey__photo--3 {
+  background: var(--grad-gold);
+}
+
+.journey__num {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto var(--sp-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--c-accent-600);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h4);
+  color: var(--c-accent-600);
+  padding-bottom: 0.12em;
+}
+
+.journey__item h3 {
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-h3);
+}
+
+.journey__item p {
+  margin: 0 auto;
+  max-width: 34ch;
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-ink-600);
+}
+
+/* Велика темна картка з заокругленням 50 px. */
+.navycard {
+  padding: clamp(2.5rem, 1.5rem + 4vw, 6rem);
+  border-radius: 50px;
+  background: var(--grad-navy);
+  color: var(--c-white);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.navycard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--glow-gold);
+}
+
+.navycard__eyebrow {
+  margin: 0 0 var(--sp-5);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.33em;
+  text-transform: uppercase;
+  color: var(--c-gold-300);
+}
+
+.navycard h2 {
+  color: var(--c-white);
+  max-width: 20ch;
+  margin-bottom: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+}
+
+.navycard__cols {
+  display: grid;
+  gap: var(--sp-8);
+}
+
+@media (min-width: 48em) {
+  .navycard__cols {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-10);
+  }
+}
+
+.ncol__tag {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.33em;
+  text-transform: uppercase;
+  color: var(--c-gold-500);
+}
+
+.ncol h3 {
+  color: var(--c-white);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--sp-3);
+}
+
+.ncol p:last-child {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-gold-100);
+}
+
+.navycard__note {
+  margin: clamp(2rem, 1.5rem + 2.5vw, 4rem) 0 0;
+  padding-top: var(--sp-6);
+  border-top: 1px solid rgba(217, 198, 156, 0.3);
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-gold-300);
+  max-width: 64ch;
+}
+
+/* Відгуки. */
+.voices {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+@media (min-width: 48em) {
+  .voices {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.voice {
+  margin: 0;
+  padding: var(--sp-6);
+  border-radius: var(--r-xl);
+  background: var(--c-white);
+  box-shadow: var(--shadow-1);
+}
+
+.voice blockquote {
+  margin: 0 0 var(--sp-4);
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-text);
+  color: var(--c-ink-800);
+}
+
+.voice figcaption {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--c-gold-600);
+}
+
 /* Телефон і подібні рядки не переносяться. */
 .nowrap {
   white-space: nowrap;

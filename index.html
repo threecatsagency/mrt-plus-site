@@ -61,52 +61,97 @@
 
 <main id="main">
 
-  <section class="hero-open" id="chomu">
-    <div class="container">
-      <p class="eyebrow">Мережа діагностичних центрів «МРТ ПЛЮС»</p>
+  <!-- Перший екран на всю висоту, за схемою Health Images: фонове фото,
+       затемнення знизу, гасло по центру, вертикальні соцмережі, натяк
+       на прокрутку. Фото поки немає – фон тримає піщаний градієнт. -->
+  <section class="fullhero" id="chomu">
+    <div class="fullhero__bg" aria-hidden="true"></div>
 
-      <div class="hero-grid">
-        <h1>Впевненість починається з ясності</h1>
-        <div class="hero-facts">
-          <div class="hf">
-            <b>30</b>
-            <span>лікарів-рентгенологів у команді</span>
-          </div>
-          <div class="hf">
-            <b>20&#160;000</b>
-            <span>обстежень за рік</span>
-          </div>
-          <div class="hf hf--logo">
-            <img src="assets/img/siemens-healthineers.svg" alt="Siemens Healthineers" width="576" height="144">
-            <span>обладнання експертного класу – обстеження швидше, якісніше й комфортніше</span>
-          </div>
+    <div class="fullhero__social" aria-label="Соцмережі">
+      <a href="https://www.instagram.com/mrt.plus.diagnostics/" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/mrt.plus.diagnostics/" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.6l.4-3h-3V9.1c0-.9.3-1.5 1.6-1.5H16.7V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6v7h3Z"/></svg>
+      </a>
+    </div>
+
+    <div class="container fullhero__inner">
+      <p class="eyebrow">Мережа діагностичних центрів «МРТ ПЛЮС»</p>
+      <h1>Впевненість починається<br>з ясності</h1>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-xl" href="#zapys">Записатися</a>
+        <a class="btn btn-outline btn-xl" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+      </div>
+    </div>
+
+    <div class="fullhero__strip">
+      <div class="container strip-facts">
+        <span><b>30</b> лікарів-рентгенологів у команді</span>
+        <span><b>20&#160;000</b> обстежень за рік</span>
+        <span class="strip-facts__logo"><img src="assets/img/siemens-healthineers.svg" alt="Siemens Healthineers" width="576" height="144"> обладнання експертного класу</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ваш шлях: три кроки з круглими фото і нумерацією, як Your Journey. -->
+  <section class="section" id="shliakh">
+    <div class="container">
+      <div class="section-head" style="text-align:center">
+        <p class="eyebrow">Ваш шлях</p>
+        <h2>Чого очікувати</h2>
+      </div>
+
+      <div class="journey">
+        <div class="journey__item">
+          <div class="journey__photo journey__photo--1" aria-hidden="true"></div>
+          <div class="journey__num" aria-hidden="true">1</div>
+          <h3>Реєстрація</h3>
+          <p>Зареєструйтесь на рецепції – вас зустріне наша команда. Підтвердимо дані, розберемося з оплатою і відповімо на останні запитання.</p>
+        </div>
+        <div class="journey__item">
+          <div class="journey__photo journey__photo--2" aria-hidden="true"></div>
+          <div class="journey__num" aria-hidden="true">2</div>
+          <h3>Дослідження</h3>
+          <p>Лаборант пояснить, чого очікувати, і відповість на запитання. Скажемо, скільки приблизно триватиме процедура.</p>
+        </div>
+        <div class="journey__item">
+          <div class="journey__photo journey__photo--3" aria-hidden="true"></div>
+          <div class="journey__num" aria-hidden="true">3</div>
+          <h3>Наступні кроки</h3>
+          <p>Лікар-рентгенолог перегляне знімки й підготує опис. Результати передамо вам і вашому лікарю, який обговорить з вами подальші кроки.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="navishcho">
+  <!-- Величезна темна картка, як Why Get Scanned: заокруглення 50px,
+       мітки капітеллю з розрядкою, три колонки без карток. -->
+  <section class="section" id="navishcho" style="padding-top:0">
     <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Навіщо обстежуватись зараз?</p>
+      <div class="navycard">
+        <p class="navycard__eyebrow">Навіщо обстежуватись зараз?</p>
         <h2>Бо очікування не входить у план лікування</h2>
-      </div>
-      <div class="whys">
-        <div class="why">
-          <p class="why__tag">Можливості</p>
-          <h3>Виявити проблему рано</h3>
-          <p>Що раніше виявлено проблему, то кращі варіанти лікування. МРТ і КТ показують відхилення задовго до того, як симптоми стануть важкими.</p>
+
+        <div class="navycard__cols">
+          <div class="ncol">
+            <p class="ncol__tag">Можливості</p>
+            <h3>Виявити проблему рано</h3>
+            <p>Що раніше виявлено проблему, то кращі варіанти лікування. МРТ і КТ показують відхилення задовго до того, як симптоми стануть важкими.</p>
+          </div>
+          <div class="ncol">
+            <p class="ncol__tag">Ясність</p>
+            <h3>Відповіді без здогадок</h3>
+            <p>Детальні зображення високої роздільності дають вашому лікарю точну картину того, що відбувається всередині.</p>
+          </div>
+          <div class="ncol">
+            <p class="ncol__tag">Впевненість</p>
+            <h3>Спокійно рухатися далі</h3>
+            <p>Обстеження дає ясність, з якою можна йти далі зі спокоєм – і приймати рішення впевнено.</p>
+          </div>
         </div>
-        <div class="why">
-          <p class="why__tag">Ясність</p>
-          <h3>Відповіді без здогадок</h3>
-          <p>Детальні зображення високої роздільності дають вашому лікарю точну картину того, що відбувається всередині.</p>
-        </div>
-        <div class="why">
-          <p class="why__tag">Впевненість</p>
-          <h3>Спокійно рухатися далі</h3>
-          <p>Обстеження дає ясність, з якою можна йти далі зі спокоєм – і приймати рішення впевнено.</p>
-        </div>
+
+        <p class="navycard__note">Приблизно кожен десятий пацієнт переживає клаустрофобію під час МРТ. Саме тому ми робимо більше, ніж належить: спокійна атмосфера, команда, для якої ваш комфорт на першому місці, і апарати з широким тунелем.</p>
       </div>
     </div>
   </section>
@@ -118,41 +163,37 @@
           <div>
             <h2>Магнітно-резонансна томографія</h2>
             <p class="lead">Без рентгенівського випромінювання. М'які тканини, головний і спинний мозок, суглоби, судини.</p>
-            <div class="facts">
-              <div class="fact"><b>1,5 Т</b><span>усі центри</span></div>
-              <div class="fact"><b>3 Т</b><span>Луцьк, Житомир, Київ</span></div>
-            </div>
           </div>
           <ul class="rows">
           <li><a href="#">
             <span class="row-name">МРТ голови</span>
             <span class="row-desc">Головний мозок, судини, гіпофіз, орбіти, пазухи, внутрішнє вухо</span>
-            <span class="row-price"><small>від</small>3 600 грн</span>
+            <span class="row-price"><small>від</small>3&#160;600 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">МРТ хребта</span>
             <span class="row-desc">Шийний, грудний, попереково-крижовий відділи, увесь хребет за один візит</span>
-            <span class="row-price"><small>від</small>3 300 грн</span>
+            <span class="row-price"><small>від</small>3&#160;300 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">МРТ суглобів</span>
             <span class="row-desc">Колінний, плечовий, кульшовий, ліктьовий, гомілковостопний, кисть, стопа</span>
-            <span class="row-price"><small>від</small>3 600 грн</span>
+            <span class="row-price"><small>від</small>3&#160;600 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">МРТ органів черевної порожнини</span>
             <span class="row-desc">Печінка, підшлункова, селезінка, нирки, надниркові залози, жовчні протоки</span>
-            <span class="row-price"><small>від</small>6 800 грн</span>
+            <span class="row-price"><small>від</small>6&#160;800 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">МРТ органів малого таза</span>
             <span class="row-desc">Жіночий і чоловічий малий таз, пряма кишка, сечовий міхур, простата</span>
-            <span class="row-price"><small>від</small>6 800 грн</span>
+            <span class="row-price"><small>від</small>6&#160;800 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">МРТ м'яких тканин</span>
             <span class="row-desc">Шия, гомілка, стегно, плече, передпліччя, ахіллове сухожилля</span>
-            <span class="row-price"><small>від</small>5 700 грн</span>
+            <span class="row-price"><small>від</small>5&#160;700 грн</span>
           </a></li>
           </ul>
         </div>
@@ -172,22 +213,22 @@
           <li><a href="#">
             <span class="row-name">КТ голови</span>
             <span class="row-desc">Головний мозок, приносові пазухи, скроневі кістки, орбіти, лицевий скелет</span>
-            <span class="row-price"><small>від</small>2 500 грн</span>
+            <span class="row-price"><small>від</small>2&#160;500 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">КТ грудної клітки</span>
             <span class="row-desc">Органи грудної порожнини, легені, середостіння, з контрастом і без</span>
-            <span class="row-price"><small>від</small>2 500 грн</span>
+            <span class="row-price"><small>від</small>2&#160;500 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">КТ хребта і суглобів</span>
             <span class="row-desc">Відділи хребта, кістки таза, великі суглоби, стопа й кисть</span>
-            <span class="row-price"><small>від</small>2 200 грн</span>
+            <span class="row-price"><small>від</small>2&#160;200 грн</span>
           </a></li>
           <li><a href="#">
             <span class="row-name">КТ-ангіографія</span>
             <span class="row-desc">Грудна та черевна аорта, судини верхніх і нижніх кінцівок</span>
-            <span class="row-price"><small>від</small>5 800 грн</span>
+            <span class="row-price"><small>від</small>5&#160;800 грн</span>
           </a></li>
           </ul>
         </div>
@@ -195,26 +236,58 @@
     </div>
   </section>
 
-  <section class="section" id="pidhotovka" style="padding-top:0">
+  <!-- Відгуки, як Patient Voices. Тексти демонстраційні до отримання
+       справжніх – позначено в кожному. -->
+  <section class="section" id="vidhuky" style="padding-top:0">
     <div class="container">
-      <div class="split">
-        <div>
-          <h2>Як проходить дослідження</h2>
-          <p class="lead">П'ять кроків від дзвінка до опису. Підготовка потрібна не завжди – оператор скаже під час запису.</p>
-        </div>
-        <div>
-          <ol class="steps prose">
-            <li><b>Запис</b> Телефоном 0 800 311 058 або через форму. Оператор скаже, чи потрібна підготовка саме для вашого дослідження.</li>
-            <li><b>Прихід</b> За 15 хвилин до часу, з направленням і паспортом. Реєстратор заповнить анкету і покаже, де перевдягнутися.</li>
-            <li><b>Перед кабінетом</b> Зняти все металеве: прикраси, годинник, слуховий апарат, знімні протези. Телефон і картки лишаються в шафці.</li>
-            <li><b>Сканування</b> 15–40 хвилин лежачи нерухомо. Апарат стукає й гуде, це нормально – дадуть навушники.</li>
-            <li><b>Результат</b> Знімки на диск або USB, опис лікаря-рентгенолога. Термінові випадки описуються в день дослідження.</li>
-          </ol>
-          <div class="note note-danger">
-            <p class="note-title">Протипоказання до МРТ</p>
-            <p style="margin:0" class="text-small">Кардіостимулятор, феромагнітні імпланти, металеві осколки в тканинах. Про будь-який метал у тілі скажіть оператору до запису.</p>
-          </div>
-        </div>
+      <div class="section-head" style="text-align:center">
+        <p class="eyebrow">Голоси пацієнтів</p>
+        <h2>Що кажуть після обстеження</h2>
+      </div>
+      <div class="voices">
+        <figure class="voice">
+          <blockquote>Демонстраційний відгук: тут стане справжній текст пацієнта після збору відгуків.</blockquote>
+          <figcaption>Ім'я, Луцьк</figcaption>
+        </figure>
+        <figure class="voice">
+          <blockquote>Демонстраційний відгук: тут стане справжній текст пацієнта після збору відгуків.</blockquote>
+          <figcaption>Ім'я, Рівне</figcaption>
+        </figure>
+        <figure class="voice">
+          <blockquote>Демонстраційний відгук: тут стане справжній текст пацієнта після збору відгуків.</blockquote>
+          <figcaption>Ім'я, Київ</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Питання, як Have Questions: акордеон. -->
+  <section class="section" id="pytannia" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <h2>Є запитання?</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Які дослідження проводить МРТ ПЛЮС?</summary>
+          <div class="faq-body"><p>МРТ на томографах 1,5 і 3 Тесла, комп'ютерна томографія, дослідження з контрастним підсиленням, МР- і КТ-ангіографія. Перелік у кожному центрі свій – залежить від апаратів.</p></div>
+        </details>
+        <details>
+          <summary>Де розташовані центри мережі?</summary>
+          <div class="faq-body"><p>Луцьк, просп. Молоді, 12В · Рівне, вул. Карнаухова, 2А · Ковель, вул. Олени Пчілки, 4 · Житомир, вул. Вокзальна, 12 · Київ, вул. Композитора Мейтуса, 5 · Шептицький, вул. Івасюка, 2.</p></div>
+        </details>
+        <details>
+          <summary>Як записатися на дослідження?</summary>
+          <div class="faq-body"><p>Телефоном 0&#160;800&#160;311&#160;058 – безкоштовно по Україні. Оператор підбере центр і час, порахує вартість і скаже, чи потрібна підготовка саме для вашого дослідження.</p></div>
+        </details>
+        <details>
+          <summary>Чи потрібне направлення лікаря?</summary>
+          <div class="faq-body"><p>Направлення бажане: у ньому вказана ділянка обстеження і діагноз, з якими опис буде точнішим. Якщо направлення немає – зателефонуйте, оператор підкаже, як діяти.</p></div>
+        </details>
+        <details>
+          <summary>Коли буде готовий опис?</summary>
+          <div class="faq-body"><p>Знімки ви отримуєте одразу після дослідження, опис лікаря-рентгенолога – згодом; термінові випадки описуються в день дослідження.</p></div>
+        </details>
       </div>
     </div>
   </section>
@@ -223,7 +296,7 @@
     <div class="container">
       <div class="panel panel-gold">
         <h2>Записатися</h2>
-        <a class="big-phone" href="tel:0800311058">0 800 311 058</a>
+        <a class="big-phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
         <p class="lead" style="color:var(--c-navy-800)">Безкоштовно по Україні. Підберемо центр і час, порахуємо вартість, підкажемо підготовку.</p>
         <div class="btn-row">
           <a class="btn btn-primary btn-lg" href="#">Передзвоніть мені</a>
@@ -269,7 +342,7 @@
     <div class="footer-bottom">
       <span>© 2026 ТОВ «МРТ ПЛЮС»</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Збірка 0.28</span>
+      <span class="tnum">Збірка 0.29</span>
     </div>
   </div>
 </footer>
