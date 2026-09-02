@@ -1858,224 +1858,170 @@
 }
 
 /* =====================================================================
-   15. Доказ
-   Не чотири колонки дрібним текстом, а чотири великі числа на темному.
-   Число несе повідомлення, текст лише підписує його.
+   15. Перший екран
+   Гасло і докази – одна композиція. Праворуч від гасла два короткі
+   факти словами, під ними два великі числа на всю ширину. Жодних
+   панелей і кнопок: телефон у шапці, дії – в липкій смузі.
    ===================================================================== */
 
 .eyebrow {
-  margin: 0 0 var(--sp-4);
-  max-width: 30ch;
+  margin: 0 0 var(--sp-6);
   font-size: var(--fs-small);
   font-weight: var(--fw-semibold);
   color: var(--c-gold-600);
 }
 
-.proof h2 {
-  max-width: 22ch;
-  margin-bottom: var(--sp-12);
-  text-wrap: balance;
+.hero-open {
+  padding-block: clamp(3rem, 2rem + 5vw, 7rem) clamp(2.5rem, 1.5rem + 4vw, 6rem);
 }
 
-.proof__grid {
+.hero-grid {
   display: grid;
   gap: var(--sp-8);
-}
-
-@media (min-width: 48em) {
-  .proof__grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--sp-10) var(--sp-8);
-  }
-  .proof__item {
-    grid-column: span 5;
-  }
-  .proof__item--wide {
-    grid-column: span 7;
-  }
-}
-
-.proof__item {
-  border-top: 1px solid rgba(217, 198, 156, 0.3);
-  padding-top: var(--sp-5);
-}
-
-.proof__num {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: clamp(3.5rem, 2rem + 6vw, 6rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: var(--c-gold-500);
-  margin-bottom: var(--sp-3);
-}
-
-/* Слово замість числа – трохи менше, щоб не розповзалось. */
-.proof__num--word {
-  font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.5rem);
-}
-
-.proof__item h3 {
-  margin-bottom: var(--sp-3);
-  font-family: var(--font-ui);
-  font-size: var(--fs-lead);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0;
-  color: var(--c-white);
-}
-
-.proof__item p {
-  margin: 0;
-  font-family: var(--font-text);
-  font-size: var(--fs-body);
-  line-height: var(--lh-text);
-  color: var(--c-gold-300);
-  max-width: 42ch;
-}
-
-/* =====================================================================
-   16. Перший екран
-   Один рядок: заголовок і вибір міста. Більше на цьому екрані нічого
-   немає – усе решта нижче.
-   ===================================================================== */
-
-.hero-open {
-  padding-block: clamp(3rem, 2rem + 6vw, 8rem) clamp(3rem, 2rem + 5vw, 7rem);
-}
-
-.hero-line {
-  display: grid;
-  gap: var(--sp-10);
+  margin-bottom: clamp(2.5rem, 1.5rem + 4vw, 5rem);
 }
 
 @media (min-width: 64em) {
-  .hero-line {
-    grid-template-columns: 1fr auto;
-    align-items: end;
+  .hero-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
     gap: var(--sp-16);
+    align-items: end;
   }
 }
 
-.hero-line h1 {
+.hero-grid h1 {
   margin: 0;
   max-width: 13ch;
-  font-size: clamp(2.5rem, 1.4rem + 5vw, 5.25rem);
+  font-size: clamp(2.5rem, 1.3rem + 5.2vw, 5.5rem);
   line-height: 1;
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
-.hero-line__side {
-  width: min(100%, 320px);
+/* Два факти словами: продовжують гасло, не змагаються з ним. */
+.hero-grid__notes p {
+  margin: 0 0 var(--sp-5);
+  padding-left: var(--sp-5);
+  border-left: 2px solid var(--c-gold-500);
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--c-ink-600);
+  max-width: 40ch;
 }
 
-.hero-line .lead {
-  margin: 0 0 var(--sp-4);
-  font-size: var(--fs-body);
-  color: var(--c-ink-500);
+.hero-grid__notes p:last-child {
+  margin-bottom: 0;
 }
 
-/* Вибір міста – єдина дія на екрані. */
-.picker {
-  position: relative;
+/* Числа: одна лінія на всю ширину, цифри золотом. */
+.hero-stats {
+  display: grid;
+  gap: var(--sp-6);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--c-ink-200);
 }
 
-.picker__btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  width: 100%;
-  height: 60px;
-  padding: 0 var(--sp-5);
-  border: 0;
-  border-radius: var(--r-pill);
-  background: var(--c-navy-900);
-  color: var(--c-white);
-  font-family: var(--font-ui);
-  font-size: var(--fs-lead);
-  font-weight: var(--fw-semibold);
-  cursor: pointer;
-  transition: background-color var(--t-base);
+@media (min-width: 48em) {
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+  }
 }
 
-.picker__btn:hover {
-  background: var(--c-navy-800);
-}
-
-.picker__btn svg {
-  width: 20px;
-  height: 20px;
-  color: var(--c-gold-500);
-  transition: transform var(--t-base);
-}
-
-.picker__btn[aria-expanded="true"] svg {
-  transform: rotate(180deg);
-}
-
-.picker__list {
-  position: absolute;
-  z-index: 20;
-  left: 0;
-  right: 0;
-  top: calc(100% + var(--sp-2));
-  padding: var(--sp-2);
-  border-radius: var(--r-lg);
-  background: var(--c-white);
-  box-shadow: var(--shadow-3);
-}
-
-.picker__list[hidden] {
-  display: none;
-}
-
-.picker__list a {
+.hero-stat {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  padding: var(--sp-3) var(--sp-4);
-  border-radius: var(--r-md);
-  text-decoration: none;
-  color: var(--c-ink-800);
-  transition: background-color var(--t-fast);
+  gap: var(--sp-5);
 }
 
-.picker__list a:hover {
-  background: var(--c-ink-100);
-  color: var(--c-ink-900);
-}
-
-.picker__list b {
+.hero-stat b {
   font-family: var(--font-display);
   font-weight: var(--fw-heading);
-  font-size: var(--fs-h4);
-}
-
-.picker__list span {
-  font-size: var(--fs-caption);
-  color: var(--c-gold-600);
+  font-size: clamp(3rem, 1.8rem + 4.5vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--c-gold-500);
   white-space: nowrap;
 }
 
-.picker__list span.is-closed {
-  color: var(--c-ink-400);
+.hero-stat span {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--c-ink-500);
+  max-width: 26ch;
 }
 
-.hero-line__phone {
-  display: inline-block;
-  margin-top: var(--sp-5);
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: var(--fs-h3);
-  letter-spacing: var(--ls-tight);
-  color: var(--c-ink-900);
-  text-decoration: none;
+/* Телефон і подібні рядки не переносяться. */
+.nowrap {
+  white-space: nowrap;
 }
 
-.hero-line__phone:hover {
+/* Стани, які лишалися миттєвими. */
+.card,
+.review,
+.form-card {
+  transition: border-color var(--t-fast), box-shadow var(--t-base);
+}
+
+.card-center:hover,
+.card-group:hover {
+  box-shadow: var(--shadow-2);
+}
+
+.badge,
+.note {
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.header-phone .num,
+.header-phone .cap {
+  transition: color var(--t-fast);
+}
+
+.header-phone:hover .num {
   color: var(--c-accent-600);
 }
 
+.site-header {
+  transition: box-shadow var(--t-base);
+}
+
+/* Усе інтерактивне, чому не задано власного переходу, все одно змінюється
+   плавно. Специфічність нульова, тому власні правила компонентів мають вагу. */
+:where(a, button, input, select, textarea, summary, label, [role="button"]) {
+  transition-property: color, background-color, border-color, box-shadow,
+    transform, opacity, outline-color;
+  transition-duration: var(--t-fast);
+  transition-timing-function: var(--ease);
+}
+
+/* =====================================================================
+   14. Оптика вертикального центрування
+   Метрики шрифту центрують рядок по малих літерах: висота 520, центр 260
+   над базовою лінією. Великі літери (700) і цифри (711) вищі, їхній центр
+   стоїть на 350–355, тобто на 0,09em вище. Через це «0 800 311 058» або
+   «МРТ 3 Т» у кнопці візуально злітають угору. Опускаємо їх назад.
+
+   Клас ставиться вручну або сам, скриптом, коли в елементі немає жодної
+   малої літери. Зсув в em, тому працює на всіх кеглях.
+   ===================================================================== */
+
+.is-caps {
+  padding-top: 0.18em; /* половина йде на зсув: контент опускається на 0,09em */
+}
+
+.btn.is-caps {
+  padding-top: 0.18em; /* заміняє базові 0.08em, а не додається до них */
+}
+
+/* Поля телефону й дати завжди містять лише цифри. */
+.input[data-phone],
+.input[data-date] {
+  padding-top: 0.27em;
+}
+
+/* Великий номер на золотій панелі – окремо, бо там свій рядок. */
+.panel-gold .big-phone {
+  padding-top: 0.06em;
+}
