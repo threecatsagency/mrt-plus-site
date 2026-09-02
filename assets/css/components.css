@@ -2124,6 +2124,401 @@
   color: var(--c-gold-600);
 }
 
+/* =====================================================================
+   18. Синя мова Health Images
+   Глибокий синій зі світінням, двоколірні заголовки, мітка з кружечком,
+   кнопки-квитки зі стрілкою, білі картки послуг на синьому.
+   ===================================================================== */
+
+/* Двоколірний заголовок: друга частина золотом. */
+h1 em,
+h2 em {
+  font-style: normal;
+  color: var(--c-gold-500);
+}
+
+h2 em.accent {
+  color: var(--c-gold-600);
+}
+
+.bluesection h2 em,
+.bluehero h1 em {
+  color: var(--c-gold-300);
+}
+
+/* Мітка з кружечком. */
+.dot-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin: 0 0 var(--sp-5);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.dot-eyebrow--center {
+  justify-content: center;
+}
+
+.dot-eyebrow .dot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  position: relative;
+}
+
+.dot-eyebrow .dot::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: var(--c-gold-500);
+}
+
+.section .dot-eyebrow {
+  color: var(--c-ink-500);
+}
+
+/* Глибокий синій фон зі світінням – спільний для hero і секцій. */
+.bluehero,
+.bluesection {
+  position: relative;
+  isolation: isolate;
+  color: var(--c-white);
+  background:
+    radial-gradient(90% 90% at 80% 10%, rgba(74, 111, 192, 0.55) 0%, transparent 55%),
+    radial-gradient(70% 80% at 10% 100%, rgba(14, 29, 58, 0.9) 0%, transparent 60%),
+    linear-gradient(150deg, #2a4da3 0%, #1d3a86 45%, #122654 100%);
+}
+
+.bluehero .dot-eyebrow,
+.bluesection .dot-eyebrow {
+  color: var(--c-gold-300);
+}
+
+.bluehero h1,
+.bluesection h2 {
+  color: var(--c-white);
+}
+
+/* Перший екран. */
+.bluehero {
+  padding-top: var(--sp-10);
+}
+
+.bluehero__grid {
+  display: grid;
+  gap: var(--sp-10);
+  align-items: center;
+  min-height: calc(100svh - var(--header-h) - 120px);
+  padding-block: var(--sp-10);
+}
+
+@media (min-width: 64em) {
+  .bluehero__grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: var(--sp-16);
+  }
+}
+
+.bluehero h1 {
+  margin: 0 0 var(--sp-5);
+  font-size: clamp(2.5rem, 1.4rem + 4.6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.bluehero__rule {
+  width: 100%;
+  max-width: 420px;
+  height: 1px;
+  margin: 0 0 var(--sp-5);
+  border: 0;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.bluehero__lead {
+  margin: 0 0 var(--sp-8);
+  max-width: 44ch;
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Місце під фото: людина праворуч, за нею світіння. */
+.bluehero__photo {
+  min-height: min(46vh, 460px);
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(60% 55% at 50% 45%, rgba(255, 255, 255, 0.28) 0%, transparent 70%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+  outline: 1px solid rgba(255, 255, 255, 0.18);
+  outline-offset: -1px;
+}
+
+/* Кнопка-квиток: білий контур, стрілка їде вправо при наведенні. */
+.btn-ticket {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  min-width: 220px;
+  height: 56px;
+  padding: 0.12em var(--sp-5) 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  color: var(--c-white);
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition: background-color var(--t-base), border-color var(--t-base),
+    color var(--t-base);
+}
+
+.btn-ticket .i-arrow {
+  width: 26px;
+  height: 26px;
+  transition: transform var(--t-base);
+}
+
+.btn-ticket:hover {
+  background: var(--c-white);
+  border-color: var(--c-white);
+  color: var(--c-navy-900);
+}
+
+.btn-ticket:hover .i-arrow {
+  transform: translateX(4px);
+}
+
+/* Факти внизу першого екрана. */
+.bluehero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-10);
+  align-items: center;
+  padding-block: var(--sp-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--fs-small);
+}
+
+.bluehero__facts b {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: 1.6em;
+  color: var(--c-gold-300);
+  margin-right: 0.3em;
+}
+
+.bluehero__logo img {
+  width: 170px;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+/* Сині секції. */
+.bluesection {
+  padding-block: clamp(3.5rem, 2rem + 6vw, 8rem);
+}
+
+.bluesection--alt {
+  background:
+    radial-gradient(90% 90% at 15% 10%, rgba(74, 111, 192, 0.5) 0%, transparent 55%),
+    linear-gradient(150deg, #1d3a86 0%, #16305f 50%, #0e1d3a 100%);
+}
+
+.bluesection h2 {
+  max-width: 18ch;
+  margin-bottom: var(--sp-6);
+}
+
+.bluesection__split {
+  display: grid;
+  gap: var(--sp-10);
+}
+
+@media (min-width: 64em) {
+  .bluesection__split {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: var(--sp-16);
+    align-items: start;
+  }
+  .bluesection__intro {
+    position: sticky;
+    top: calc(var(--header-h) + var(--sp-8));
+  }
+}
+
+.bluesection__intro p:last-child {
+  margin: 0;
+  max-width: 38ch;
+  font-family: var(--font-text);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Колонки «навіщо». */
+.whycols {
+  display: grid;
+  gap: var(--sp-8);
+  margin-top: var(--sp-10);
+}
+
+@media (min-width: 48em) {
+  .whycols {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-10);
+  }
+}
+
+.wcol__tag {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.33em;
+  text-transform: uppercase;
+  color: var(--c-gold-500);
+}
+
+.wcol h3 {
+  color: var(--c-white);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--sp-3);
+}
+
+.wcol p:last-child {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.bluesection__note {
+  margin: clamp(2rem, 1.5rem + 2.5vw, 4rem) 0 0;
+  padding-top: var(--sp-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 64ch;
+}
+
+/* Білі картки послуг на синьому, зі стрілкою у куті. */
+.scards {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+@media (min-width: 40em) {
+  .scards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .scards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+  }
+}
+
+.scard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-height: 190px;
+  padding: var(--sp-5);
+  border-radius: 24px;
+  background: var(--c-white);
+  color: var(--c-ink-800);
+  text-decoration: none;
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+
+.scard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.45);
+  color: var(--c-ink-900);
+}
+
+.scard__top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.scard__name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h4);
+  letter-spacing: var(--ls-tight);
+  max-width: 14ch;
+}
+
+.i-upright {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--c-ink-400);
+  transition: transform var(--t-base), color var(--t-fast);
+}
+
+.scard:hover .i-upright {
+  transform: translate(3px, -3px);
+  color: var(--c-accent-600);
+}
+
+.scard__desc {
+  font-size: var(--fs-caption);
+  line-height: 1.5;
+  color: var(--c-ink-500);
+}
+
+.scard__price {
+  margin-top: auto;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h4);
+  color: var(--c-gold-600);
+}
+
+.scard__price small {
+  font-family: var(--font-ui);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
+}
+
+/* Питання з плюсом праворуч, як у зразку. */
+.faq--plus summary::after {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  transform: none;
+  background:
+    linear-gradient(currentColor, currentColor) center / 14px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 14px no-repeat;
+  color: var(--c-ink-400);
+  transition: transform var(--t-base), color var(--t-fast);
+}
+
+.faq--plus details[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--c-accent-600);
+}
+
 /* Телефон і подібні рядки не переносяться. */
 .nowrap {
   white-space: nowrap;
