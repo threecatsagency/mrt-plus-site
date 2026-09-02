@@ -153,11 +153,23 @@ li::marker {
   position: absolute;
   left: 0;
   top: 0.55em;
+  top: calc(0.5lh - 4px);
   width: 10px;
   height: 6px;
   border-left: 2px solid var(--c-accent-600);
   border-bottom: 2px solid var(--c-accent-600);
   transform: rotate(-45deg);
+}
+
+/* Код у тексті: трохи менший, без стрибка міжряддя. */
+p code,
+li code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  line-height: 1;
+  background: var(--c-ink-100);
+  border-radius: var(--r-sm);
+  padding: 0.1em 0.35em;
 }
 
 /* ---- Посилання ------------------------------------------------------ */

@@ -124,38 +124,45 @@
   white-space: pre;
 }
 
-/* Свотчі кольору. */
+/* Свотчі кольору: плашка залита кольором, підпис усередині. */
 .sg-swatches {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: var(--sp-3);
 }
 
 .sg-swatch {
-  border: var(--border);
-  border-radius: var(--r-md);
-  overflow: hidden;
-  background: var(--c-white);
-}
-
-.sg-swatch__chip {
-  height: 64px;
-}
-
-.sg-swatch__meta {
-  padding: var(--sp-2) var(--sp-3);
-  font-size: var(--fs-caption);
-  line-height: 1.4;
-}
-
-.sg-swatch__meta b {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+  min-height: 96px;
+  padding: var(--sp-3) var(--sp-4);
+  border: 0;
+  border-radius: var(--r-lg);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
   color: var(--c-ink-900);
 }
 
-.sg-swatch__meta code {
-  color: var(--c-ink-500);
+.sg-swatch--light {
+  color: var(--c-white);
+}
+
+.sg-swatch--edge {
+  box-shadow: inset 0 0 0 1px var(--c-ink-200);
+}
+
+.sg-swatch b {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+}
+
+.sg-swatch code {
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: var(--fs-caption);
+  opacity: 0.75;
 }
 
 /* Рядки шкали шрифтів. */
