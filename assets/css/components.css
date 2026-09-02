@@ -2746,3 +2746,176 @@ h2 em.accent {
 .panel-gold .big-phone {
   padding-top: 0.06em;
 }
+
+/* =====================================================================
+   19. Мобільна композиція
+   На вузькому екрані всі пари колонок схлопуються в одну стрічку, і
+   сторінка перетворюється на список однакових блоків. Тут телефон
+   отримує власний ритм: порожні місця під фото не займають екран,
+   ряди карток гортаються вбік, кроки шляху стають рядками.
+   ===================================================================== */
+
+@media (max-width: 63.99em) {
+  /* Порожній прямокутник під фото не має права займати пів екрана.
+     Повернути, коли замовник надасть знімок. */
+  .bluehero__photo {
+    display: none;
+  }
+
+  .bluehero__grid {
+    min-height: 0;
+    gap: var(--sp-6);
+    padding-block: var(--sp-8) var(--sp-10);
+  }
+
+  .bluehero {
+    padding-top: var(--sp-6);
+  }
+
+  /* Кнопки-квитки на всю ширину: палець потрапляє куди завгодно. */
+  .bluehero .btn-row {
+    display: grid;
+    gap: var(--sp-3);
+  }
+
+  .bluehero .btn-ticket {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 47.99em) {
+  /* Факти першого екрана – плакат, а не рядок дрібним. Два числа
+     поруч, логотип під ними окремим рядком. */
+  .bluehero__facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5) var(--sp-4);
+    align-items: start;
+    padding-block: var(--sp-6);
+  }
+
+  .bluehero__facts > span {
+    display: block;
+    line-height: 1.25;
+  }
+
+  .bluehero__facts b {
+    display: block;
+    margin: 0 0 var(--sp-1);
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  .bluehero__logo {
+    grid-column: 1 / -1;
+    padding-top: var(--sp-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  /* Шлях пацієнта: рядок замість трьох великих кіл одне під одним. */
+  .journey {
+    gap: var(--sp-6);
+    text-align: left;
+  }
+
+  .journey__item {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: var(--sp-4);
+    align-items: start;
+  }
+
+  .journey__item + .journey__item {
+    padding-top: var(--sp-6);
+    border-top: var(--border);
+  }
+
+  /* Кольорове коло і номер займають одну комірку: номер лягає на коло. */
+  .journey__photo {
+    grid-column: 1;
+    grid-row: 1;
+    width: 56px;
+    margin: 0;
+  }
+
+  .journey__num {
+    grid-column: 1;
+    grid-row: 1;
+    width: 56px;
+    height: 56px;
+    margin: 0;
+    border: 0;
+    color: var(--c-navy-900);
+  }
+
+  .journey__item h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0 0 var(--sp-2);
+    padding-top: 0.35em;
+  }
+
+  .journey__item p {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* Колонки «навіщо» без роздільників зливаються в суцільний текст. */
+  .whycols {
+    gap: var(--sp-6);
+    margin-top: var(--sp-8);
+  }
+
+  .wcol + .wcol {
+    padding-top: var(--sp-6);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
+@media (max-width: 39.99em) {
+  /* Дев'ять однакових білих карток одна під одною – найдовше і
+     найнудніше місце сторінки. На телефоні вони гортаються вбік:
+     видно край наступної, зрозуміло, що ряд продовжується. */
+  .scards,
+  .voices {
+    display: flex;
+    gap: var(--sp-3);
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    padding-block: 2px var(--sp-3);
+    scrollbar-width: none;
+  }
+
+  .scards::-webkit-scrollbar,
+  .voices::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scard {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    min-height: 168px;
+  }
+
+  .voice {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+
+  .scard__name {
+    max-width: none;
+  }
+
+  /* У шапці лишається логотип і меню: дія завжди в липкій смузі внизу. */
+  .header-actions .btn-primary {
+    display: none;
+  }
+}
