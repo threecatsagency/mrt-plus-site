@@ -1858,9 +1858,9 @@
 }
 
 /* =====================================================================
-   15. Причини
-   Чотири плитки під заголовком секції: мітка, заголовок про вигоду,
-   пояснення. Кожна відповідає на «а чому у вас не чекають».
+   15. Доказ
+   Не чотири колонки дрібним текстом, а чотири великі числа на темному.
+   Число несе повідомлення, текст лише підписує його.
    ===================================================================== */
 
 .eyebrow {
@@ -1871,49 +1871,67 @@
   color: var(--c-gold-600);
 }
 
-.reasons {
-  display: grid;
-  gap: var(--sp-8) var(--sp-6);
-}
-
-@media (min-width: 48em) {
-  .reasons {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 64em) {
-  .reasons {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-6);
-  }
-}
-
-.reason {
-  padding-top: var(--sp-4);
-  border-top: 2px solid var(--c-gold-500);
-}
-
-.reason__tag {
-  margin: 0 0 var(--sp-3);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  color: var(--c-gold-600);
-}
-
-.reason h3 {
-  margin-bottom: var(--sp-3);
-  font-size: var(--fs-h3);
+.proof h2 {
+  max-width: 22ch;
+  margin-bottom: var(--sp-12);
   text-wrap: balance;
 }
 
-.reason p:last-child {
+.proof__grid {
+  display: grid;
+  gap: var(--sp-8);
+}
+
+@media (min-width: 48em) {
+  .proof__grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--sp-10) var(--sp-8);
+  }
+  .proof__item {
+    grid-column: span 5;
+  }
+  .proof__item--wide {
+    grid-column: span 7;
+  }
+}
+
+.proof__item {
+  border-top: 1px solid rgba(217, 198, 156, 0.3);
+  padding-top: var(--sp-5);
+}
+
+.proof__num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: clamp(3.5rem, 2rem + 6vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--c-gold-500);
+  margin-bottom: var(--sp-3);
+}
+
+/* Слово замість числа – трохи менше, щоб не розповзалось. */
+.proof__num--word {
+  font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.5rem);
+}
+
+.proof__item h3 {
+  margin-bottom: var(--sp-3);
+  font-family: var(--font-ui);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
+  color: var(--c-white);
+}
+
+.proof__item p {
   margin: 0;
   font-family: var(--font-text);
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   line-height: var(--lh-text);
-  color: var(--c-ink-600);
-  max-width: none;
+  color: var(--c-gold-300);
+  max-width: 42ch;
 }
 
 /* =====================================================================
