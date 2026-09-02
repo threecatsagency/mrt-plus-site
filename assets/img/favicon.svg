@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="МРТ ПЛЮС">
-  <linearGradient id="z" gradientUnits="userSpaceOnUse" x1="3.0665" y1="8.978" x2="12.2822" y2="6.423">
-    <stop offset="0" stop-color="#c79b55"/>
-    <stop offset="1" stop-color="#d7b46f"/>
-  </linearGradient>
-  <path fill="url(#z)" fill-rule="evenodd" clip-rule="evenodd" d="M5,6.8l1.4-4.9h2v5.4H7.2V2.4L5.9,7.3H4.1L2.7,2.4v4.9H1.6V1.9h2.1L5,6.8z M12.7,1.9H9.8v5.4h1.1V5.3h1.8c1.1,0,1.8-0.7,1.8-1.7C14.4,2.6,13.7,1.9,12.7,1.9z M12.7,4.2h-1.8V3h1.8c0.4,0,0.7,0.2,0.7,0.6S13.1,4.2,12.7,4.2z M2.4,9.7v-1h5.1v1h-2v4.3H4.5V9.7H2.4z M12.3,10.7h2.2v1h-2.2v2.2h-1.1v-2.2H9.1v-1h2.2V8.5h1.1V10.7z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.0 -0.0 16.26 16.26" role="img" aria-label="МРТ ПЛЮС"><linearGradient id="z" gradientUnits="userSpaceOnUse" x1="3.09" y1="9.06" x2="12.31" y2="6.51"><stop offset="0" stop-color="#c79b55"/><stop offset="1" stop-color="#d7b46f"/></linearGradient><rect x="-0.0" y="-0.0" width="16.26" height="16.26" fill="#273e98"/><g transform="translate(0.13 0.13)"><path fill="url(#z)" fill-rule="evenodd" d="M5,6.82,6.36,1.93h2V7.31H7.25V2.43L5.89,7.31H4.07L2.72,2.43V7.31H1.56V1.93H3.64Zm7.66-4.89H9.76V7.31h1.08v-2h1.82a1.64,1.64,0,0,0,1.78-1.67A1.63,1.63,0,0,0,12.66,1.93Zm0,2.29H10.84V3h1.82a.63.63,0,1,1,0,1.26ZM2.45,9.74V8.69H7.52V9.74h-2v4.33H4.47V9.74Zm9.83,1.12h2.16v1H12.28v2.17H11.21V11.9H9.05v-1h2.16V8.69h1.07Z"/></g></svg>
