@@ -208,6 +208,58 @@
   border-color: var(--c-danger-600);
 }
 
+/* Поле з кнопкою праворуч: календар, а згодом – очистити чи показати. */
+.control {
+  position: relative;
+}
+
+.input--with-action {
+  padding-right: calc(var(--tap) + var(--sp-1));
+}
+
+.input-action {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--c-ink-500);
+  cursor: pointer;
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.input-action:hover {
+  background: var(--c-accent-050);
+  color: var(--c-accent-600);
+}
+
+.input-action svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Поле календаря лишається в потоці, щоб браузер прив'язав до нього
+   спливний календар, але не займає місця й не ловить фокус. */
+.control__picker {
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Прапорець і перемикач – зона натискання по всьому рядку. */
 .choice {
   display: flex;

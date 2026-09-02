@@ -69,7 +69,7 @@
       <h1>Сторінка стилів сайту МРТ ПЛЮС</h1>
       <p class="lead">Один набір кольорів, шрифтів і компонентів для всіх сторінок мережі. <a href="index.html">Головна</a> зібрана з цих самих елементів. Кожен елемент нижче – робочий, звідси його беруть у верстку без правок.</p>
       <div class="btn-row">
-        <span class="sg-build">Збірка 0.10</span>
+        <span class="sg-build">Збірка 0.11</span>
         <span class="badge">01.09.2026</span>
         <span class="badge badge-contrast">Дані на сторінці демонстраційні</span>
       </div>
@@ -368,13 +368,19 @@
 
           <label class="field">
             <span class="field-label">Телефон <span class="req">*</span></span>
-            <input class="input" type="tel" placeholder="+380 __ ___ __ __" autocomplete="tel">
-            <span class="field-hint">Зателефонуємо, щоб підтвердити час</span>
+            <input class="input" type="tel" data-phone placeholder="+380501234567">
+            <span class="field-hint">Введіть як зручно – номер сам стане повним</span>
           </label>
 
-          <div class="field is-invalid">
+          <div class="field">
             <label class="field-label" for="sg-date">Бажана дата</label>
-            <input class="input" id="sg-date" type="text" value="31.02.2026">
+            <input class="input" id="sg-date" type="text" data-date>
+            <span class="field-hint">Можна ввести з клавіатури або обрати в календарі</span>
+          </div>
+
+          <div class="field is-invalid">
+            <label class="field-label" for="sg-date-bad">Дата з помилкою</label>
+            <input class="input" id="sg-date-bad" type="text" value="31.02.2026">
             <span class="field-error">Такої дати немає. Формат: 15.09.2026</span>
           </div>
         </div>
@@ -426,7 +432,7 @@
         </label>
         <label class="field">
           <span class="field-label">Телефон <span class="req">*</span></span>
-          <input class="input" type="tel" placeholder="+380 __ ___ __ __">
+          <input class="input" type="tel" data-phone placeholder="+380501234567">
         </label>
         <label class="choice">
           <input type="checkbox">
@@ -434,6 +440,21 @@
         </label>
         <button class="btn btn-primary btn-block" type="button" style="margin-top:var(--sp-3)">Замовити дзвінок</button>
       </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Що поле робить саме</h3>
+    <div class="sg-demo">
+      <table class="price-table">
+        <tbody>
+          <tr><td class="name">Телефон<span class="note-inline">будь-який запис зводиться до одного вигляду</span></td><td class="price">0501234567 → +380501234567</td></tr>
+          <tr><td class="name"><span class="note-inline">пробіли, дужки, дефіси з буфера прибираються</span></td><td class="price">(050) 123-45-67 → +380501234567</td></tr>
+          <tr><td class="name"><span class="note-inline">код країни не дублюється</span></td><td class="price">380501234567 → +380501234567</td></tr>
+          <tr><td class="name">Дата<span class="note-inline">крапки ставляться самі, календар – кнопкою</span></td><td class="price">15092026 → 15.09.2026</td></tr>
+        </tbody>
+      </table>
+      <p class="text-caption" style="margin:var(--sp-4) 0 0">Перевірка спрацьовує, коли людина йде з поля, а не під час набору: підказувати помилку на другій цифрі – це заважати.</p>
     </div>
   </div>
 
@@ -864,7 +885,7 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
     <div class="footer-bottom">
       <span>© 2026 МРТ ПЛЮС</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Сторінка стилів, збірка 0.10</span>
+      <span class="tnum">Сторінка стилів, збірка 0.11</span>
     </div>
   </div>
 </footer>
