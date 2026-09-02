@@ -45,12 +45,14 @@
 
   <div class="container">
     <div class="mobile-menu" id="mobile-menu">
-      <a href="#color">Колір</a>
-      <a href="#type">Шрифти і текст</a>
-      <a href="#actions">Кнопки</a>
-      <a href="#forms">Форми</a>
-      <a href="#content">Вміст сторінок</a>
-      <a href="tel:0800311058">0 800 311 058</a>
+      <div class="mobile-menu__inner">
+        <a href="#color">Колір</a>
+        <a href="#type">Шрифти і текст</a>
+        <a href="#actions">Кнопки</a>
+        <a href="#forms">Форми</a>
+        <a href="#content">Вміст сторінок</a>
+        <a href="tel:0800311058">0 800 311 058</a>
+      </div>
     </div>
   </div>
 </header>
@@ -67,7 +69,7 @@
       <h1>Сторінка стилів сайту МРТ ПЛЮС</h1>
       <p class="lead">Один набір кольорів, шрифтів і компонентів для всіх сторінок мережі. <a href="index.html">Головна</a> зібрана з цих самих елементів. Кожен елемент нижче – робочий, звідси його беруть у верстку без правок.</p>
       <div class="btn-row">
-        <span class="sg-build">Збірка 0.8</span>
+        <span class="sg-build">Збірка 0.9</span>
         <span class="badge">01.09.2026</span>
         <span class="badge badge-contrast">Дані на сторінці демонстраційні</span>
       </div>
@@ -337,6 +339,14 @@
         <h4>Ні</h4>
         <p style="margin:0">Три залиті кнопки поспіль. Головної дії не видно, і людина обирає навмання.</p>
       </div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Зміна станів</h3>
+    <div class="sg-demo">
+      <p class="text-small" style="margin:0 0 var(--sp-3)">Жодна зміна вигляду не відбувається миттєво. Наведення, фокус, натискання, розкриття меню й питання – усе через перехід. Швидкість задається двома змінними: <code>--t-fast</code> 120 мс для кольору й рамки, <code>--t-base</code> 200 мс для розміру, тіні й розкриття.</p>
+      <p class="text-small" style="margin:0">Для тих, хто вимкнув анімацію в системі, обидві змінні стають 1 мс – рух зникає, стани лишаються.</p>
     </div>
   </div>
 </section>
@@ -854,7 +864,7 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
     <div class="footer-bottom">
       <span>© 2026 МРТ ПЛЮС</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Сторінка стилів, збірка 0.8</span>
+      <span class="tnum">Сторінка стилів, збірка 0.9</span>
     </div>
   </div>
 </footer>

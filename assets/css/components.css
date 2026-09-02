@@ -214,6 +214,19 @@
   margin: 2px 0 0;
   accent-color: var(--c-accent-600);
   flex: none;
+  transition: transform var(--t-fast);
+}
+
+.choice:hover input {
+  transform: scale(1.06);
+}
+
+.choice-text {
+  transition: color var(--t-fast);
+}
+
+.choice:hover .choice-text {
+  color: var(--c-ink-900);
 }
 
 .choice-text {
@@ -455,22 +468,82 @@
   cursor: pointer;
 }
 
+.burger {
+  position: relative;
+  transition: border-color var(--t-fast), background-color var(--t-fast);
+}
+
+.burger:hover {
+  border-color: var(--c-ink-300);
+}
+
 .burger span {
   display: block;
   width: 18px;
   height: 2px;
   background: var(--c-ink-800);
-  box-shadow: 0 -6px 0 var(--c-ink-800), 0 6px 0 var(--c-ink-800);
+  transition: transform var(--t-base), background-color var(--t-fast);
+}
+
+.burger span::before,
+.burger span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  margin-left: -9px;
+  background: var(--c-ink-800);
+  transition: transform var(--t-base), top var(--t-base);
+}
+
+.burger span::before {
+  top: 15px;
+}
+
+.burger span::after {
+  top: 27px;
+}
+
+/* Розкрите меню: смужки сходяться в хрестик.
+   Середня зникає кольором, а не масштабом: трансформація батька
+   стиснула б і псевдоелементи. */
+.burger[aria-expanded="true"] span {
+  background: transparent;
+}
+
+.burger[aria-expanded="true"] span::before {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.burger[aria-expanded="true"] span::after {
+  top: 21px;
+  transform: rotate(-45deg);
 }
 
 .mobile-menu {
-  display: none;
-  padding: var(--sp-4) 0 var(--sp-6);
-  border-top: var(--border);
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows var(--t-base), opacity var(--t-fast),
+    border-color var(--t-base);
+  border-top: 1px solid transparent;
+}
+
+.mobile-menu__inner {
+  overflow: hidden;
+  min-height: 0;
 }
 
 .mobile-menu.is-open {
-  display: block;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  border-top-color: var(--c-ink-200);
+}
+
+.mobile-menu.is-open .mobile-menu__inner {
+  padding-block: var(--sp-2) var(--sp-6);
 }
 
 .mobile-menu a {
@@ -491,7 +564,7 @@
   }
   .burger,
   .mobile-menu {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -512,8 +585,13 @@
   cursor: pointer;
 }
 
+.city-switch {
+  transition: border-color var(--t-fast), color var(--t-fast);
+}
+
 .city-switch:hover {
   border-color: var(--c-accent-500);
+  color: var(--c-accent-700);
 }
 
 .city-switch .pin {
@@ -1012,6 +1090,32 @@
   display: none;
 }
 
+.faq summary {
+  transition: color var(--t-fast);
+}
+
+.faq summary:hover {
+  color: var(--c-accent-600);
+}
+
+.faq summary:hover::after {
+  border-color: var(--c-accent-600);
+}
+
+/* Розкриття питання – плавне там, де браузер це вміє. */
+@supports (interpolate-size: allow-keywords) {
+  .faq details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size var(--t-base), content-visibility var(--t-base);
+    transition-behavior: allow-discrete;
+  }
+
+  .faq details[open]::details-content {
+    block-size: auto;
+  }
+}
+
 .faq summary::after {
   content: "";
   flex: none;
@@ -1020,7 +1124,7 @@
   border-right: 2px solid var(--c-ink-400);
   border-bottom: 2px solid var(--c-ink-400);
   transform: rotate(45deg) translate(-2px, -2px);
-  transition: transform var(--t-base);
+  transition: transform var(--t-base), border-color var(--t-fast);
 }
 
 .faq details[open] summary::after {
@@ -1389,6 +1493,11 @@
 .tile h3 {
   font-size: var(--fs-h3);
   margin: 0;
+  transition: color var(--t-fast);
+}
+
+.tile:hover h3 {
+  color: var(--c-accent-600);
 }
 
 .tile .addr {
@@ -1432,6 +1541,14 @@
   padding-top: 0;
 }
 
+.rows a {
+  transition: background-color var(--t-fast);
+}
+
+.rows a:hover {
+  background: rgba(217, 198, 156, 0.07);
+}
+
 .rows a:hover .row-name {
   color: var(--c-gold-500);
 }
@@ -1452,6 +1569,7 @@
 }
 
 .row-price {
+  transition: color var(--t-fast);
   grid-column: 2;
   grid-row: 1 / span 2;
   align-self: start;
@@ -1563,4 +1681,42 @@
 /* Телефон і подібні рядки не переносяться. */
 .nowrap {
   white-space: nowrap;
+}
+
+/* Стани, які лишалися миттєвими. */
+.card,
+.review,
+.form-card {
+  transition: border-color var(--t-fast), box-shadow var(--t-base);
+}
+
+.card-center:hover,
+.card-group:hover {
+  box-shadow: var(--shadow-2);
+}
+
+.badge,
+.note {
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.header-phone .num,
+.header-phone .cap {
+  transition: color var(--t-fast);
+}
+
+.header-phone:hover .num {
+  color: var(--c-accent-600);
+}
+
+.site-header {
+  transition: box-shadow var(--t-base);
+}
+
+/* Фокус з'являється м'яко, а не стрибком. */
+:where(a, button, input, select, textarea, summary, .tile, .chip) {
+  transition-property: color, background-color, border-color, box-shadow,
+    transform, opacity, outline-color;
+  transition-duration: var(--t-fast);
+  transition-timing-function: ease;
 }
