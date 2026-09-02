@@ -1856,3 +1856,61 @@
 .panel-gold .big-phone {
   padding-top: 0.06em;
 }
+
+/* =====================================================================
+   15. Причини
+   Чотири плитки під заголовком секції: мітка, заголовок про вигоду,
+   пояснення. Кожна відповідає на «а чому у вас не чекають».
+   ===================================================================== */
+
+.eyebrow {
+  margin: 0 0 var(--sp-4);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--c-gold-600);
+}
+
+.reasons {
+  display: grid;
+  gap: var(--sp-8) var(--sp-6);
+}
+
+@media (min-width: 48em) {
+  .reasons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .reasons {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-6);
+  }
+}
+
+.reason {
+  padding-top: var(--sp-4);
+  border-top: 2px solid var(--c-gold-500);
+}
+
+.reason__tag {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  color: var(--c-gold-600);
+}
+
+.reason h3 {
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-h3);
+  text-wrap: balance;
+}
+
+.reason p:last-child {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-ink-600);
+  max-width: none;
+}
