@@ -351,7 +351,7 @@
     <div class="sg-blue">
       <div class="btn-row">
         <a class="btn-ticket" href="#">Записатися <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
-        <a class="btn-ticket" href="#">0&#160;800&#160;311&#160;058 <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a class="btn-ticket phone" href="#">0&#160;800&#160;311&#160;058 <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <code class="sg-code">&lt;a class="btn-ticket"&gt;Текст &lt;svg class="i-arrow"&gt;…&lt;/svg&gt;&lt;/a&gt;</code>
@@ -409,16 +409,25 @@
   </div>
 
   <div class="sg-block">
-    <h3>Факти першого екрана</h3>
+    <h3>Тріада ясності</h3>
     <div class="sg-blue">
-      <div class="bluehero__facts" style="border-top:0;padding-top:0">
-        <span><b>30</b> лікарів-рентгенологів</span>
-        <span><b>20&#160;000</b> обстежень за рік</span>
-        <span class="bluehero__logo"><img src="assets/img/siemens-healthineers.svg" alt="Siemens Healthineers" width="576" height="144"></span>
+      <div class="triad" style="margin-top:0">
+        <div class="triad__item">
+          <p class="triad__name">Якість діагностики</p>
+          <p>Томографи Siemens експертного класу. Що детальніший знімок, то менше місця для здогадок.</p>
+        </div>
+        <div class="triad__item">
+          <p class="triad__name">Повнота опису</p>
+          <p>Не просто підтверджуємо підозру лікаря – описуємо все, що видно на знімку.</p>
+        </div>
+        <div class="triad__item">
+          <p class="triad__name">Досвід команди</p>
+          <p>Понад 60&#160;000 описаних досліджень за рік. Складні знімки дивляться колегіально.</p>
+        </div>
       </div>
     </div>
-    <code class="sg-code">&lt;div class="bluehero__facts"&gt;&lt;span&gt;&lt;b&gt;30&lt;/b&gt; підпис&lt;/span&gt;…&lt;/div&gt;</code>
-    <p class="text-caption" style="margin-top:var(--sp-3)">Числа – Fixel Display золотом. Логотип виробника інвертується в білий. На телефоні числа стають у два стовпці, логотип іде під ними окремим рядком.</p>
+    <code class="sg-code">&lt;div class="triad"&gt; &lt;div class="triad__item"&gt;&lt;p class="triad__name"&gt;…&lt;/p&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt; &lt;/div&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Три позиції під гаслом першого екрана: апарат, підхід, команда. Назва – золотий кап, текст – серифом, до двох речень. На телефоні позиції стають стовпчиком з роздільниками. Рівно три: дві виглядають дірою, чотири не тримають екран.</p>
   </div>
 
   <div class="sg-block">
@@ -492,14 +501,14 @@
     <h3>Золота панель запису</h3>
     <div class="panel panel-gold">
       <h2>Записатися</h2>
-      <a class="big-phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+      <a class="phone phone--big" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
       <p class="lead" style="color:var(--c-navy-800)">Безкоштовно по Україні. Підберемо центр і час, порахуємо вартість.</p>
       <div class="btn-row">
         <a class="btn btn-primary btn-lg" href="#">Передзвоніть мені</a>
         <a class="btn btn-outline btn-lg" href="#">Instagram</a>
       </div>
     </div>
-    <code class="sg-code">&lt;div class="panel panel-gold"&gt;…&lt;a class="big-phone"&gt;…&lt;/a&gt;…&lt;/div&gt;</code>
+    <code class="sg-code">&lt;div class="panel panel-gold"&gt;…&lt;a class="phone phone--big"&gt;…&lt;/a&gt;…&lt;/div&gt;</code>
     <p class="text-caption" style="margin-top:var(--sp-3)">Одна на сторінку, завжди перед підвалом. Золото тут – матеріал, а не попередження, тому текст на ній темно-синій.</p>
   </div>
 </section>
@@ -554,12 +563,12 @@
     <div class="sg-demo">
       <div class="btn-row" style="margin-bottom:var(--sp-4)">
         <a class="btn btn-primary" href="#">Записатися</a>
-        <a class="btn btn-primary" href="tel:0800311058">0&nbsp;800&nbsp;311&nbsp;058</a>
+        <a class="btn btn-primary phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
         <a class="btn btn-outline" href="#">МРТ І КТ</a>
         <span class="badge badge-mrt">МРТ 3 Т</span>
         <span class="badge badge-time">25–40 хв</span>
       </div>
-      <p class="text-small" style="margin:0 0 var(--sp-3)">Рядок центрується по малих літерах: їхня висота 520 з 1000, центр – на 260 над базовою лінією. Великі літери (700) і цифри (711) вищі, їхній центр стоїть на 350, тобто на 0,09em вище. Тому «0 800 311 058» або «МРТ 3 Т» без поправки злітають угору.</p>
+      <p class="text-small" style="margin:0 0 var(--sp-3)">Рядок центрується по малих літерах: їхня висота 520 з 1000, центр – на 260 над базовою лінією. Великі літери (700) і цифри (711) вищі, їхній центр стоїть на 350, тобто на 0,09em вище. Тому «<span class="phone">0&#160;800&#160;311&#160;058</span>» або «МРТ 3 Т» без поправки злітають угору.</p>
       <p class="text-small" style="margin:0">Поправку несе клас <code>is-caps</code>. Він ставиться сам: скрипт перевіряє, чи є в елементі хоч одна мала літера, і якщо немає – опускає рядок. Зсув заданий в em, тому однаково працює на малій кнопці й на великій. Поля телефону й дати мають поправку постійно, бо цифри в них завжди.</p>
     </div>
   </div>
@@ -879,6 +888,16 @@
   <p class="sg-about">Таблиця цін лишається світлою: це довгий перелік для читання, синя площина під ним стомлює. Одна розмітка на всі екрани: на телефоні рядки складаються в дві колонки, від 768 px стають таблицею. Назви послуг – повні, без скорочень.</p>
 
   <div class="sg-block">
+    <h3>Номер телефону</h3>
+    <div class="sg-demo">
+      <p style="margin:0 0 var(--sp-4)"><a class="phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a> <span class="text-caption">у тексті, кнопці, шапці</span></p>
+      <p style="margin:0"><span class="text-caption">великий номер – у розділі «Синя мова», на золотій панелі</span></p>
+    </div>
+    <code class="sg-code">&lt;a class="phone" href="tel:0800311058"&gt;0&amp;#160;800&amp;#160;311&amp;#160;058&lt;/a&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Номер мережі один: <span class="phone">0&#160;800&#160;311&#160;058</span>. Пробіли між групами цифр – завжди `&amp;#160;`, інакше номер розривається між рядками. Клас `phone` дає табличні цифри й забороняє перенос; `phone--big` – великий номер на панелі запису. У `href` – без пробілів і без плюса: `tel:0800311058`.</p>
+  </div>
+
+  <div class="sg-block">
     <h3>Число ціни</h3>
     <div class="sg-demo">
       <p style="margin:0 0 var(--sp-4)"><span class="price price--lg price--gold"><small>від</small> 3&#160;600 грн</span> <span class="text-caption">картка дослідження</span></p>
@@ -1054,6 +1073,12 @@
         <li>коротке тире (–)</li>
         <li>лапки «»</li>
         <li>факти: «дослідження триває 20–25 хвилин»</li>
+        <li>тривалість у тексті словом: «20–25 хвилин»</li>
+        <li>тривалість у бейджі скорочено: «25–40 хв»</li>
+        <li>дата в тексті словами: «1 вересня 2026 року»</li>
+        <li>дата в полі вводу цифрами: «15.09.2026»</li>
+        <li>години роботи через коротке тире: «7:30–21:00»</li>
+        <li>центри завжди в одному порядку: Луцьк, Рівне, Ковель, Житомир, Київ, Шептицький</li>
       </ul>
     </div>
     <div class="sg-dont">
@@ -1065,6 +1090,9 @@
         <li>довге тире</li>
         <li>обіцянки: «без болю», «найкращі», «назавжди»</li>
         <li>ALL CAPS у підписах і кнопках</li>
+        <li>«хв.» з крапкою, «хвил.», «год.»</li>
+        <li>дата цифрами в тексті: «01.09.2026»</li>
+        <li>інший порядок центрів на окремій сторінці</li>
       </ul>
     </div>
   </div>
@@ -1092,14 +1120,14 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
       <div>
         <h4>МРТ ПЛЮС</h4>
         <p style="margin-bottom:var(--sp-4)">Мережа центрів магнітно-резонансної та комп'ютерної томографії у шести містах України.</p>
-        <a class="btn btn-outline btn-sm" href="tel:0800311058" style="background:transparent;border-color:rgba(255,255,255,.35);color:#fff">0 800 311 058</a>
+        <a class="btn btn-outline btn-sm btn-onnavy phone" href="tel:0800311058">0 800 311 058</a>
       </div>
       <div>
         <h4>Центри</h4>
         <ul class="footer-list">
           <li><a href="#">Луцьк, просп. Молоді, 12В</a></li>
-          <li><a href="#">Ковель, вул. Олени Пчілки, 4</a></li>
           <li><a href="#">Рівне, вул. Карнаухова, 2А</a></li>
+          <li><a href="#">Ковель, вул. Олени Пчілки, 4</a></li>
           <li><a href="#">Житомир, вул. Вокзальна, 12</a></li>
           <li><a href="#">Київ, вул. Композитора Мейтуса, 5</a></li>
           <li><a href="#">Шептицький, вул. Івасюка, 2</a></li>
@@ -1119,7 +1147,7 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
     <div class="footer-bottom">
       <span>© 2026 МРТ ПЛЮС</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Сторінка стилів, збірка 0.33</span>
+      <span class="tnum">Сторінка стилів, збірка 0.34</span>
     </div>
   </div>
 </footer>

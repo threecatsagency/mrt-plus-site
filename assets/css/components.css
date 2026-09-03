@@ -1674,6 +1674,39 @@ h2 em.accent {
   background: rgba(255, 255, 255, 0.35);
 }
 
+/* Тріада ясності: три позиції під гаслом – апарат, підхід, команда.
+   Назва позиції – золотий кап, текст – серифом, як медичні тексти. */
+.triad {
+  display: grid;
+  gap: var(--sp-6);
+  margin-top: var(--sp-8);
+}
+
+.triad__name {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-gold-300);
+}
+
+.triad__item p:not(.triad__name) {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 44ch;
+}
+
+@media (min-width: 64em) {
+  .triad {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-8);
+  }
+}
+
 .bluehero__lead {
   margin: 0 0 var(--sp-8);
   max-width: 44ch;
@@ -1717,34 +1750,6 @@ h2 em.accent {
 
 .btn-ticket:hover .i-arrow {
   transform: translateX(4px);
-}
-
-/* Факти внизу першого екрана. */
-.bluehero__facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-3) var(--sp-10);
-  align-items: center;
-  padding-block: var(--sp-5);
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: var(--fs-small);
-}
-
-.bluehero__facts b {
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: 1.6em;
-  color: var(--c-gold-300);
-  margin-right: 0.3em;
-}
-
-.bluehero__logo img {
-  width: 170px;
-  height: auto;
-  display: block;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
 }
 
 /* Сині секції. */
@@ -2025,48 +2030,12 @@ h2 em.accent {
     padding-top: var(--sp-6);
   }
 
-  /* Кнопки-квитки на всю ширину: палець потрапляє куди завгодно. */
-  .bluehero .btn-row {
-    display: grid;
-    gap: var(--sp-3);
   }
-
-  .bluehero .btn-ticket {
-    min-width: 0;
-    width: 100%;
-  }
-}
 
 @media (max-width: 47.99em) {
   /* Факти першого екрана – плакат, а не рядок дрібним. Два числа
      поруч, логотип під ними окремим рядком. */
-  .bluehero__facts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-5) var(--sp-4);
-    align-items: start;
-    padding-block: var(--sp-6);
-  }
-
-  .bluehero__facts > span {
-    display: block;
-    line-height: 1.25;
-  }
-
-  .bluehero__facts b {
-    display: block;
-    margin: 0 0 var(--sp-1);
-    font-size: 2.25rem;
-    line-height: 1;
-  }
-
-  .bluehero__logo {
-    grid-column: 1 / -1;
-    padding-top: var(--sp-4);
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  /* Шлях пацієнта: рядок замість трьох великих кіл одне під одним. */
+          /* Шлях пацієнта: рядок замість трьох великих кіл одне під одним. */
   .journey {
     gap: var(--sp-6);
     text-align: left;
@@ -2122,7 +2091,8 @@ h2 em.accent {
     margin-top: var(--sp-8);
   }
 
-  .wcol + .wcol {
+  .wcol + .wcol,
+  .triad__item + .triad__item {
     padding-top: var(--sp-6);
     border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
