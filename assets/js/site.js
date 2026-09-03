@@ -44,36 +44,70 @@
 
   /* ------------------------------------------------------------------
      Графік центру на сьогодні
-     Замість «Пн–Пт 7:00–22:00» пишемо те, що людину цікавить зараз:
-     працює центр чи ні і до котрої. Неділя – вихідний до підтвердження.
+     Замість «Пн–Пт 8:00–22:00» пишемо те, що людину цікавить зараз:
+     працює центр чи ні і до котрої. Час рахується за Києвом, а не за
+     годинником пристрою: людина може дивитися сайт із будь-якого поясу,
+     а центр працює за місцевим.
      ------------------------------------------------------------------ */
 
+  // Хвилини від півночі за київським часом і номер дня тижня (0 – неділя).
+  function kyivZaraz() {
+    var parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Kyiv",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }).formatToParts(new Date());
+
+    var val = {};
+    parts.forEach(function (p) {
+      val[p.type] = p.value;
+    });
+
+    var dni = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    return {
+      den: dni[val.weekday],
+      hv: Number(val.hour) * 60 + Number(val.minute)
+    };
+  }
+
+  // «8:00» і «08:00» однаково перетворюються на хвилини.
+  function uHvylyny(text) {
+    var m = /^\s*(\d{1,2})[:.](\d{2})\s*$/.exec(text || "");
+    return m ? Number(m[1]) * 60 + Number(m[2]) : null;
+  }
+
   function hodyny(el) {
-    var den = new Date().getDay(); // 0 – неділя
-    var vikno = den === 0 ? null : den === 6 ? el.dataset.sb : el.dataset.pnPt;
-    var out = el.querySelector("[data-hours]");
-    if (!out) return;
+    var teper = kyivZaraz();
+    var vikno =
+      teper.den === 0 ? el.dataset.nd : teper.den === 6 ? el.dataset.sb : el.dataset.pnPt;
 
     if (!vikno) {
-      out.textContent = "Сьогодні вихідний";
-      out.classList.add("is-closed");
+      el.textContent = "Сьогодні вихідний";
+      el.classList.add("is-shut");
       return;
     }
 
     var mezhi = vikno.split("-");
-    var zaraz = new Date().getHours() * 60 + new Date().getMinutes();
-    var vidkr = Number(mezhi[0].slice(0, 2)) * 60 + Number(mezhi[0].slice(3));
-    var zakr = Number(mezhi[1].slice(0, 2)) * 60 + Number(mezhi[1].slice(3));
+    var vidkr = uHvylyny(mezhi[0]);
+    var zakr = uHvylyny(mezhi[1]);
 
-    if (zaraz < vidkr) {
-      out.textContent = "Сьогодні з " + mezhi[0];
-      out.classList.remove("is-closed");
-    } else if (zaraz < zakr) {
-      out.textContent = "Працює до " + mezhi[1];
-      out.classList.remove("is-closed");
+    // Зіпсовані дані краще не показувати зовсім, ніж показати дурницю.
+    if (vidkr === null || zakr === null) {
+      el.textContent = "";
+      return;
+    }
+
+    if (teper.hv < vidkr) {
+      el.textContent = "Сьогодні з " + mezhi[0].trim();
+      el.classList.add("is-shut");
+    } else if (teper.hv < zakr) {
+      el.textContent = "Зараз працює, до " + mezhi[1].trim();
+      el.classList.remove("is-shut");
     } else {
-      out.textContent = "Сьогодні вже зачинено";
-      out.classList.add("is-closed");
+      el.textContent = "Сьогодні вже зачинено";
+      el.classList.add("is-shut");
     }
   }
 
