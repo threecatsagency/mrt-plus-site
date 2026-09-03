@@ -343,7 +343,7 @@
       <p class="dot-eyebrow" style="margin:0"><span class="dot" aria-hidden="true"></span>Ваш шлях</p>
     </div>
     <code class="sg-code">&lt;p class="dot-eyebrow"&gt;&lt;span class="dot"&gt;&lt;/span&gt;Ваш шлях&lt;/p&gt; · dot-eyebrow--center</code>
-    <p class="text-caption" style="margin-top:var(--sp-3)">Стоїть над кожним заголовком секції. Великі літери, розрядка 0,18em. Кружечок золотий у кільці.</p>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Стоїть над кожним заголовком секції. Великі літери, розрядка 0,18em. Кружечок золотий у кільці, піднятий на 0,08em – капс сидить вище оптичного центру рядка. Мітка – флекс-контейнер, тому `text-align: center` її не центрує: для цього є `dot-eyebrow--center`.</p>
   </div>
 
   <div class="sg-block">
@@ -406,21 +406,7 @@
       <p class="bluesection__note">Примітка секції: дрібніший текст під роздільною лінією. Сюди йде застереження або пояснення, яке не вміщається в колонку.</p>
     </div>
     <code class="sg-code">&lt;div class="whycols"&gt; &lt;div class="wcol"&gt;&lt;p class="wcol__tag"&gt;…&lt;/p&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt; &lt;/div&gt;</code>
-    <div class="sg-demo" style="margin-top:var(--sp-4)">
-      <div class="whycols whycols--light" style="margin-top:0">
-        <div class="wcol">
-          <p class="wcol__tag">Можливості</p>
-          <h3>Виявити проблему рано</h3>
-          <p>Світлий варіант тих самих колонок – на тлі сторінки, з темним текстом.</p>
-        </div>
-        <div class="wcol">
-          <p class="wcol__tag">Ясність</p>
-          <h3>Відповіді без здогадок</h3>
-          <p>Модифікатор whycols--light перемикає лише кольори, сітка спільна.</p>
-        </div>
-      </div>
-    </div>
-    <code class="sg-code">&lt;div class="whycols whycols--light"&gt;…&lt;/div&gt; · &lt;p class="section-note"&gt;…&lt;/p&gt;</code>
+
   </div>
 
   <div class="sg-block">
@@ -1052,18 +1038,21 @@
 <section class="sg-section" id="booking">
   <h2>Запис</h2>
   <div class="sg-block">
-    <h3>Способи запису</h3>
+    <h3>Центральне рівняння</h3>
     <div class="sg-demo">
-      <div class="signup-ways" style="margin-top:0">
-        <p>Записатися можна так, як зручно вам: онлайн на сайті, за телефоном кол-центру або на рецепції будь-якого центру мережі.</p>
+      <div class="statement__inner">
+        <p class="statement__q">Навіщо обстежуватись зараз?</p>
+        <p class="statement__a">Бо очікування <em class="accent">не входить у план лікування</em></p>
+        <p class="statement__d"><b>Можливість</b> виявити відхилення задовго до того, як симптоми стануть важкими, дозволяє <b>впевнено</b> приймати рішення і <b>спокійно</b> рухатися далі.</p>
         <div class="btn-row">
           <a class="btn btn-primary btn-lg" href="#">Записатися онлайн</a>
           <a class="btn btn-outline btn-lg phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
         </div>
+        <p class="statement__note">Онлайн на сайті, за телефоном кол-центру або на рецепції будь-якого центру мережі.</p>
       </div>
     </div>
-    <code class="sg-code">&lt;div class="signup-ways"&gt;&lt;p&gt;…&lt;/p&gt;&lt;div class="btn-row"&gt;…&lt;/div&gt;&lt;/div&gt;</code>
-    <p class="text-caption" style="margin-top:var(--sp-3)">Стоїть після доводів у світлій секції: пояснення трьох способів і дві дії. Це не заміна золотій панелі – панель лишається фінальним акордом сторінки.</p>
+    <code class="sg-code">&lt;section class="statement"&gt;&lt;div class="container statement__inner"&gt;…&lt;/div&gt;&lt;/section&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Світла секція на весь екран, на тлі сторінки. Питання – золотий кап, відповідь великим кеглем у дві фарби (друга частина синім, як дія), розшифровка серифом з трьома словами-опорами золотом, дві кнопки і рядок способів запису. Більше в секції не буває нічого – у цьому весь прийом.</p>
   </div>
 
   <p class="sg-about">Основний блок запису – золота панель, вона в розділі «Синя мова» і стоїть на головній перед підвалом. Нижче – компактний варіант для внутрішніх сторінок, де золота панель була б завелика. До появи бази обидва ведуть на телефон і форму зворотного дзвінка; коли з'являться вільні слоти, розмітка не зміниться.</p>

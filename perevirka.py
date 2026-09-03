@@ -29,6 +29,11 @@ VOID = {
 }
 
 
+# Прототипи – чернетки для показу варіантів. Вони мають власні стилі
+# в <style> і не є частиною сайту, тому в перевірку не входять.
+CHERNETKY = ("proto-",)
+
+
 def files(exts=None):
     for path in sorted(ROOT.rglob("*")):
         if not path.is_file():
@@ -36,6 +41,8 @@ def files(exts=None):
         if any(part in SKIP_DIRS for part in path.parts):
             continue
         if exts and path.suffix not in exts:
+            continue
+        if path.name.startswith(CHERNETKY):
             continue
         yield path
 
@@ -166,6 +173,54 @@ def perevirka_tsin():
             problem(path, f"сума в гривнях без класу price у рядку {row}")
 
 
+def perevirka_telefonu():
+    """Номер мережі пишеться однаково скрізь: нерозривні пробіли між
+    групами цифр і клас phone на елементі. Інакше номер рветься між
+    рядками або набирається іншим шрифтом."""
+    nomer = "0&#160;800&#160;311&#160;058"
+    element = re.compile(
+        r'<(?P<tag>span|a|b|p|td)\b(?P<attrs>[^>]*)>(?P<body>(?:(?!</?(?:span|a|b|p|td)\b).)*0&#160;800)',
+        re.S,
+    )
+    for path in files({".html"}):
+        text = path.read_text(encoding="utf-8")
+        for match in re.finditer(r"0[\s ]800[\s ]311[\s ]058", text):
+            if text[match.start():match.end()] != nomer.replace("&#160;", "\u00a0"):
+                row = text[: match.start()].count("\n") + 1
+                problem(path, f"номер без нерозривних пробілів у рядку {row}")
+        for match in element.finditer(text):
+            klasy = re.search(r'class="([^"]*)"', match.group("attrs"))
+            if klasy and "phone" in klasy.group(1).split():
+                continue
+            row = text[: match.start()].count("\n") + 1
+            problem(path, f"номер без класу phone у рядку {row}")
+
+
+CENTRY = [
+    "Луцьк, просп. Молоді, 12В",
+    "Рівне, вул. Карнаухова, 2А",
+    "Ковель, вул. Олени Пчілки, 4",
+    "Житомир, вул. Вокзальна, 12",
+    "Київ, вул. Композитора Мейтуса, 5",
+    "Шептицький, вул. Івасюка, 2",
+]
+
+
+def perevirka_tsentriv():
+    """Шість центрів мережі перелічуються в одному порядку на всіх
+    сторінках: із заходу на схід, столиця передостання. Різні порядки
+    в підвалах двох сторінок читаються як різні мережі."""
+    spysok = re.compile(r"<h4>Центри</h4>.*?</ul>", re.S)
+    for path in files({".html"}):
+        text = path.read_text(encoding="utf-8")
+        match = spysok.search(text)
+        if not match:
+            continue
+        znaydeni = re.findall(r"<li><a[^>]*>([^<]+)</a></li>", match.group(0))
+        if znaydeni != CENTRY:
+            problem(path, "перелік центрів у підвалі не збігається з еталонним")
+
+
 def main():
     perevirka_tekstu()
     perevirka_zminnyh()
@@ -174,6 +229,8 @@ def main():
     perevirka_rozmitky()
     perevirka_klasiv()
     perevirka_tsin()
+    perevirka_telefonu()
+    perevirka_tsentriv()
 
     if PROBLEMS:
         print(f"Знайдено проблем: {len(PROBLEMS)}\n")

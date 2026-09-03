@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Прототип меню А</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<style>
+/* --- Варіант А: мега-меню на всю ширину --- */
+.mega {
+  border-top: var(--border);
+  background: var(--c-white);
+  box-shadow: 0 24px 48px rgba(14, 29, 58, 0.1);
+}
+.mega__inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 280px;
+  gap: var(--sp-8);
+  padding-block: var(--sp-8);
+}
+.mega__col h4 {
+  margin: 0 0 var(--sp-4);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-gold-600);
+}
+.mega__col a {
+  display: block;
+  padding: 7px 0;
+  color: var(--c-ink-800);
+  font-size: var(--fs-small);
+  text-decoration: none;
+}
+.mega__col a:hover { color: var(--c-accent-600); }
+.mega__side {
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--grad-sand);
+}
+.mega__side h4 { color: var(--c-navy-900); }
+.mega__side p {
+  margin: 0 0 var(--sp-5);
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-ink-800);
+}
+.site-nav { display: flex !important; }
+.burger { display: none !important; }
+.site-nav a.is-open { color: var(--c-accent-600); }
+
+/* мобільний акордеон */
+.acc summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: var(--border);
+  font-weight: var(--fw-medium);
+  color: var(--c-ink-900);
+}
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary::after { content: "+"; color: var(--c-gold-600); font-size: 1.25rem; }
+.acc[open] summary::after { content: "–"; }
+.acc__body { padding: var(--sp-3) 0 var(--sp-4) var(--sp-4); }
+.acc__body a {
+  display: block;
+  padding: 7px 0;
+  font-size: var(--fs-small);
+  color: var(--c-ink-800);
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header site-header--open">
+  <div class="container site-header__inner">
+    <a class="logo" href="/" aria-label="МРТ ПЛЮС"><svg viewBox="14 14 388 89" aria-hidden="true"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></a>
+
+    <nav class="site-nav" aria-label="Головне меню">
+      <a href="#" class="is-open">Дослідження</a>
+      <a href="#">Центри</a>
+      <a href="#">Ціни</a>
+      <a href="#">Підготовка</a>
+      <a href="#">Про нас</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone phone" href="tel:0800311058"><span class="num">0 800 311 058</span></a>
+      <a class="btn btn-primary btn-sm" href="#">Результати</a>
+      <button class="burger" type="button"><span></span></button>
+    </div>
+  </div>
+
+  <div class="mega">
+    <div class="container mega__inner">
+      <div class="mega__col">
+        <h4>МРТ</h4>
+        <a href="#">Голови і шиї</a>
+        <a href="#">Хребта</a>
+        <a href="#">Суглобів</a>
+        <a href="#">Черевної порожнини</a>
+        <a href="#">Малого таза</a>
+        <a href="#">М'яких тканин</a>
+      </div>
+      <div class="mega__col">
+        <h4>КТ</h4>
+        <a href="#">Голови</a>
+        <a href="#">Грудної клітки</a>
+        <a href="#">Хребта і суглобів</a>
+        <a href="#">Ангіографія</a>
+      </div>
+      <div class="mega__col">
+        <h4>Окремі випадки</h4>
+        <a href="#">З контрастуванням</a>
+        <a href="#">Дітям</a>
+        <a href="#">Із седацією</a>
+        <a href="#">Широкий тунель</a>
+      </div>
+      <div class="mega__side">
+        <h4>Не знаєте, що саме?</h4>
+        <p>Підкажемо за направленням: назвіть діагноз або ділянку – підберемо дослідження і центр.</p>
+        <a class="btn btn-primary" href="#">Записатися</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section"><div class="container"><p class="text-caption">Варіант А – мега-меню на всю ширину, розкрите на «Дослідження».</p></div></section>
+
+<div class="container">
+  <div class="mobile-menu" id="mm" style="grid-template-rows:1fr;opacity:1;border-top-color:var(--c-ink-200)">
+    <div class="mobile-menu__inner" style="padding-block:var(--sp-4)">
+      <details class="acc" open>
+        <summary>Дослідження</summary>
+        <div class="acc__body">
+          <a href="#">МРТ голови і шиї</a>
+          <a href="#">МРТ хребта</a>
+          <a href="#">МРТ суглобів</a>
+          <a href="#">КТ голови</a>
+          <a href="#">КТ грудної клітки</a>
+          <a href="#">Усі дослідження</a>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Центри</summary>
+      </details>
+      <details class="acc">
+        <summary>Ціни</summary>
+      </details>
+      <details class="acc">
+        <summary>Підготовка</summary>
+      </details>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

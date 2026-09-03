@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Прототип меню Б</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<style>
+/* --- Варіант Б: компактна панель під пунктом --- */
+.site-header__inner { position: relative; }
+.site-nav { display: flex !important; }
+.burger { display: none !important; }
+.site-nav a.is-open { color: var(--c-accent-600); }
+
+.drop {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  translate: -50% 0;
+  min-width: 340px;
+  padding: var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  border: var(--border);
+  box-shadow: 0 20px 44px rgba(14, 29, 58, 0.14);
+}
+.drop::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  translate: -50% 0;
+  width: 12px;
+  height: 12px;
+  rotate: 45deg;
+  background: var(--c-white);
+  border-left: var(--border);
+  border-top: var(--border);
+}
+.drop a {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: 9px 0;
+  color: var(--c-ink-900);
+  font-size: var(--fs-small);
+  text-decoration: none;
+}
+.drop a + a { border-top: var(--border); }
+.drop a span { color: var(--c-ink-500); }
+.drop a:hover { color: var(--c-accent-600); }
+.drop__all {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: var(--border);
+  font-size: var(--fs-caption);
+  color: var(--c-gold-600);
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* мобільний: другий рівень заїжджає на місце першого */
+.lvl2__head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 12px 0;
+  border-bottom: var(--border);
+  color: var(--c-gold-600);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.lvl2 a.item {
+  display: block;
+  padding: 13px 0;
+  border-bottom: var(--border);
+  color: var(--c-ink-900);
+  text-decoration: none;
+}
+.lvl2 a.item small { display: block; color: var(--c-ink-500); font-size: var(--fs-caption); }
+</style>
+</head>
+<body>
+
+<header class="site-header site-header--open">
+  <div class="container site-header__inner">
+    <a class="logo" href="/" aria-label="МРТ ПЛЮС"><svg viewBox="14 14 388 89" aria-hidden="true"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></a>
+
+    <nav class="site-nav" aria-label="Головне меню">
+      <a href="#">МРТ</a>
+      <a href="#" class="is-open">КТ</a>
+      <a href="#">Центри</a>
+      <a href="#">Ціни</a>
+      <a href="#">Підготовка</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone phone" href="tel:0800311058"><span class="num">0 800 311 058</span></a>
+      <a class="btn btn-primary btn-sm" href="#">Результати</a>
+      <button class="burger" type="button"><span></span></button>
+    </div>
+
+    <div class="drop">
+      <a href="#">КТ голови <span class="price">від 2 500 грн</span></a>
+      <a href="#">КТ грудної клітки <span class="price">від 2 500 грн</span></a>
+      <a href="#">КТ хребта і суглобів <span class="price">від 2 200 грн</span></a>
+      <a href="#">КТ-ангіографія <span class="price">від 5 800 грн</span></a>
+      <a class="drop__all" href="#">Усі дослідження КТ →</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" style="padding-top:200px"><div class="container"><p class="text-caption">Варіант Б – компактна панель під пунктом, розкрита на «КТ».</p></div></section>
+
+<div class="container">
+  <div class="mobile-menu" id="mm" style="grid-template-rows:1fr;opacity:1;border-top-color:var(--c-ink-200)">
+    <div class="mobile-menu__inner lvl2" style="padding-block:var(--sp-4)">
+      <div class="lvl2__head">← Назад · КТ</div>
+      <a class="item" href="#">КТ голови <small>Головний мозок, приносові пазухи, скроневі кістки</small></a>
+      <a class="item" href="#">КТ грудної клітки <small>Легені, середостіння, з контрастом і без</small></a>
+      <a class="item" href="#">КТ хребта і суглобів <small>Відділи хребта, кістки таза, великі суглоби</small></a>
+      <a class="item" href="#">КТ-ангіографія <small>Грудна та черевна аорта, судини кінцівок</small></a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

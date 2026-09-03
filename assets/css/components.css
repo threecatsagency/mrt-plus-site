@@ -1863,43 +1863,82 @@ h2 em.accent {
   color: rgba(255, 255, 255, 0.82);
 }
 
-/* Світлий варіант колонок: та сама сітка на тлі сторінки. */
-.whycols--light .wcol__tag {
+/* Центральне рівняння: питання – відповідь – розшифровка – дія.
+   Одна секція на весь екран, нічого більше. */
+.statement {
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: var(--section-y);
+}
+
+.statement__inner {
+  text-align: center;
+}
+
+.statement__q {
+  margin: 0 auto var(--sp-6);
+  max-width: none;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--c-gold-600);
 }
 
-.whycols--light .wcol h3 {
+.statement__a em {
+  font-style: normal;
+  color: var(--c-accent-600);
+}
+
+.statement__a {
+  margin: 0 auto;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: clamp(2.25rem, 1.2rem + 4.4vw, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
   color: var(--c-ink-900);
+  text-wrap: balance;
 }
 
-.whycols--light .wcol p:last-child {
-  color: var(--c-ink-800);
-}
-
-/* Примітка світлої секції – сестра bluesection__note. */
-.section-note {
-  margin: clamp(2rem, 1.5rem + 2.5vw, 4rem) 0 0;
-  padding-top: var(--sp-6);
-  border-top: var(--border);
-  font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: var(--lh-text);
-  color: var(--c-ink-800);
-  max-width: 64ch;
-}
-
-/* Способи запису: пояснення і дві кнопки після доводів. */
-.signup-ways {
-  margin-top: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
-}
-
-.signup-ways p {
-  margin: 0 0 var(--sp-5);
-  font-family: var(--font-text);
-  font-size: var(--fs-body);
-  line-height: var(--lh-text);
-  color: var(--c-ink-900);
+.statement__d {
+  margin: clamp(1.75rem, 1.2rem + 2vw, 3rem) auto 0;
   max-width: 52ch;
+  font-family: var(--font-text);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-text);
+  color: var(--c-ink-800);
+}
+
+/* Три слова-опори в розшифровці – капсом кольору матеріалу. */
+.statement__d b {
+  font-family: var(--font-ui);
+  font-weight: var(--fw-semibold);
+  font-size: 0.86em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-gold-600);
+}
+
+.statement .btn-row {
+  justify-content: center;
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+.statement__note {
+  margin: var(--sp-5) auto 0;
+  max-width: 52ch;
+  font-size: var(--fs-small);
+  color: var(--c-ink-800);
+}
+
+@media (max-width: 39.99em) {
+  .statement .btn-row {
+    display: grid;
+    gap: var(--sp-3);
+  }
 }
 
 .bluesection__note {
@@ -2171,16 +2210,7 @@ h2 em.accent {
     border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
 
-  .whycols--light .wcol + .wcol {
-    border-top-color: var(--c-ink-200);
   }
-
-  /* Кнопки способів запису – на всю ширину, як усі дії на телефоні. */
-  .signup-ways .btn-row {
-    display: grid;
-    gap: var(--sp-3);
-  }
-}
 
 @media (max-width: 39.99em) {
   /* Дев'ять однакових білих карток одна під одною – найдовше і
