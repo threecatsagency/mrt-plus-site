@@ -48,16 +48,11 @@
   --grad-navy: linear-gradient(150deg, #16305f 0%, #0e1d3a 55%, #071227 100%);
   --grad-sky: linear-gradient(150deg, #f2f6fd 0%, #e0e9f8 55%, #cfddf3 100%);
   --grad-gold: linear-gradient(150deg, #dcbb7c 0%, #c1a163 48%, #a3854a 100%);
-  --grad-page: linear-gradient(180deg, #faf8f3 0%, #f5f2ea 100%);
 
-  /* Синя площина – основа мови сайту. Світіння вгорі праворуч, тінь у
-     лівому нижньому куті. Варіант alt темніший: сусідні сині секції не
-     мають зливатися в одну масу. */
-  --grad-blue: radial-gradient(90% 90% at 80% 10%, rgba(74, 111, 192, 0.55) 0%, transparent 55%),
-    radial-gradient(70% 80% at 10% 100%, rgba(14, 29, 58, 0.9) 0%, transparent 60%),
-    linear-gradient(150deg, #2a4da3 0%, #1d3a86 45%, #122654 100%);
-  --grad-blue-alt: radial-gradient(90% 90% at 15% 10%, rgba(74, 111, 192, 0.5) 0%, transparent 55%),
-    linear-gradient(150deg, #1d3a86 0%, #16305f 50%, #0e1d3a 100%);
+  /* Темно-синя площина – основа мови сайту. Рівний колір без градієнта:
+     фонові знімки лягають на нього чисто, секції не ламаються.
+     Сусідні сині секції розділяє золота лінія, а не інший тон. */
+  --c-blue-panel: #0e1d3a;
 
   /* Тепле світло в куті темної панелі – ефект підсвітки, не пляма. */
   --glow-gold: radial-gradient(

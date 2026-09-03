@@ -1634,7 +1634,7 @@ h2 em.accent {
   position: relative;
   isolation: isolate;
   color: var(--c-white);
-  background: var(--grad-blue);
+  background: var(--c-blue-panel);
 }
 
 .bluehero .dot-eyebrow,
@@ -1792,8 +1792,9 @@ h2 em.accent {
   padding-block: clamp(3.5rem, 2rem + 6vw, 8rem);
 }
 
+/* Друга синя секція поспіль: той самий колір, межу тримає золота лінія. */
 .bluesection--alt {
-  background: var(--grad-blue-alt);
+  border-top: 1px solid rgba(185, 151, 91, 0.35);
 }
 
 .bluesection h2 {
@@ -2087,6 +2088,278 @@ h2 em.accent {
     transform, opacity, outline-color;
   transition-duration: var(--t-fast);
   transition-timing-function: var(--ease);
+}
+
+/* =====================================================================
+   16. Блакитна площина
+   Третій тон між темно-синім і піском. Великі площини градієнта не
+   беруть, тому це рівний колір; текст на ній темний, картки білі.
+   ===================================================================== */
+
+.skysection {
+  padding-block: clamp(3.5rem, 2rem + 6vw, 8rem);
+  background: var(--c-accent-100);
+  color: var(--c-ink-900);
+}
+
+.skysection h2 {
+  color: var(--c-ink-900);
+}
+
+.skysection h2 em {
+  color: var(--c-accent-600);
+  font-style: normal;
+}
+
+.skysection p.rubric {
+  color: var(--c-gold-600);
+}
+
+.skysection .bluehero__rule {
+  border-color: rgba(14, 29, 58, 0.16);
+}
+
+.skysection .scard {
+  box-shadow: 0 12px 28px rgba(14, 29, 58, 0.08);
+}
+
+/* =====================================================================
+   17. Рубрика
+   Єдина форма надзаголовка секції: золотий капс і лінія до краю.
+   Великий двоколірний h2 лишається лише змістовим секціям.
+   ===================================================================== */
+
+h2.rubric,
+p.rubric {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  max-width: none;
+  margin: 0 0 var(--sp-6);
+  font-family: var(--font-ui);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-gold-600);
+}
+
+.bluesection h2.rubric,
+.bluesection p.rubric,
+.bluehero p.rubric {
+  color: var(--c-gold-300);
+}
+
+.rubric span {
+  white-space: nowrap;
+}
+
+.rubric::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+/* =====================================================================
+   18. Центри: табки міст і панель одного центру
+   Інформація про шість центрів одночасно нікому не потрібна – людині
+   потрібен її власний. Табка обирає місто, панель показує адресу,
+   обладнання, графік і живий рядок «зараз працює».
+   ===================================================================== */
+
+.ctabs {
+  display: flex;
+  gap: var(--sp-2);
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.ctabs::-webkit-scrollbar {
+  display: none;
+}
+
+.ctab {
+  flex: none;
+  scroll-snap-align: start;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 29, 58, 0.2);
+  background: transparent;
+  color: var(--c-ink-800);
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+
+.ctab:hover {
+  border-color: var(--c-gold-500);
+  color: var(--c-ink-900);
+}
+
+.ctab[aria-selected="true"] {
+  background: var(--c-navy-900);
+  border-color: var(--c-navy-900);
+  color: var(--c-white);
+}
+
+.cpanel {
+  display: none;
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-6);
+  border-top: 1px solid rgba(14, 29, 58, 0.14);
+}
+
+.cpanel.is-on {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-8);
+  align-items: start;
+}
+
+.cpanel__city {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--c-ink-900);
+}
+
+.cpanel__addr {
+  margin: var(--sp-3) 0 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--c-ink-800);
+}
+
+/* Живий рядок графіка: рахується зі значень центру, не пишеться руками. */
+.cpanel__now {
+  display: inline-block;
+  margin-top: var(--sp-4);
+  font-size: var(--fs-caption);
+  color: var(--c-accent-600);
+}
+
+.cpanel__now.is-shut {
+  color: var(--c-ink-500);
+}
+
+.cpanel__label {
+  display: block;
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-gold-600);
+}
+
+.cpanel__kit {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.75;
+  color: var(--c-ink-900);
+}
+
+.cpanel__hours {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px var(--sp-4);
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--c-ink-900);
+}
+
+.cpanel__hours dt {
+  color: var(--c-ink-500);
+}
+
+.cpanel__hours dd {
+  margin: 0;
+}
+
+.cpanel__go {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-top: var(--sp-4);
+}
+
+@media (max-width: 63.99em) {
+  .cpanel.is-on {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+
+  .cpanel__go {
+    display: grid;
+  }
+}
+
+/* =====================================================================
+   19. Група послуг
+   МРТ і КТ живуть в одній секції під спільним заголовком: підзаголовок
+   групи з описом, під ним картки досліджень.
+   ===================================================================== */
+
+.svcgroup:first-of-type {
+  margin-top: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+}
+
+.svcgroup + .svcgroup {
+  margin-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+  padding-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+  border-top: 1px solid rgba(14, 29, 58, 0.14);
+}
+
+.svcgroup__head {
+  display: grid;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+.svcgroup__head h3 {
+  margin: 0;
+  font-size: var(--fs-h3);
+  color: var(--c-ink-900);
+}
+
+.svcgroup__head p {
+  margin: 0;
+  max-width: 62ch;
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-ink-800);
+}
+
+@media (min-width: 64em) {
+  /* Голова групи стоїть на сітці карток: підзаголовок у першій колонці,
+     опис – з другої, тому текст не тисне до лівого краю. */
+  .svcgroup__head {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-4);
+    align-items: baseline;
+  }
+
+  .svcgroup__head h3 {
+    grid-column: 1;
+  }
+
+  .svcgroup__head p {
+    grid-column: 2 / -1;
+    max-width: none;
+  }
 }
 
 /* =====================================================================

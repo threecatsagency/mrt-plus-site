@@ -184,14 +184,13 @@
   <div class="sg-block">
     <h3>Градієнти</h3>
     <div class="sg-swatches" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
-      <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--grad-blue)" data-label="синя площина" style="background:var(--grad-blue)"><b>grad-blue</b><code data-copy-hint>сині секції сторінки</code></button>
-      <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--grad-blue-alt)" data-label="синя площина, варіант" style="background:var(--grad-blue-alt)"><b>grad-blue-alt</b><code data-copy-hint>сусідня синя секція</code></button>
+      <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--c-blue-panel)" data-label="синя площина" style="background:var(--c-blue-panel)"><b>c-blue-panel</b><code data-copy-hint>усі сині секції</code></button>
       <button class="sg-swatch" type="button" data-copy="var(--grad-gold)" data-label="золото" style="background:var(--grad-gold)"><b>grad-gold</b><code data-copy-hint>панель запису</code></button>
       <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--grad-navy)" data-label="темно-синій" style="background:var(--grad-navy)"><b>grad-navy</b><code data-copy-hint>підвал</code></button>
       <button class="sg-swatch" type="button" data-copy="var(--grad-sand)" data-label="пісок" style="background:var(--grad-sand)"><b>grad-sand</b><code data-copy-hint>крок шляху 1</code></button>
       <button class="sg-swatch" type="button" data-copy="var(--grad-sky)" data-label="небо" style="background:var(--grad-sky)"><b>grad-sky</b><code data-copy-hint>крок шляху 2</code></button>
     </div>
-    <p class="text-caption" style="margin-top:var(--sp-3)">Кут один на весь сайт – 150 градусів, світло падає зверху зліва. `grad-blue` несе всі сині секції; коли дві такі секції стоять поруч, друга бере `grad-blue-alt` – він темніший і світиться з іншого боку. Градієнт застосовується тільки до великих площин; кнопки, бейджі й поля лишаються рівними, інакше сторінка починає мерехтіти.</p>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Кут один на весь сайт – 150 градусів, світло падає зверху зліва. Великі площини градієнта більше не беруть: сині секції несе рівний `c-blue-panel`, тло сторінки – рівний `ink-050`. Так фонові знімки лягають чисто, а межі секцій не ламаються. Градієнти лишились на золотій панелі й малих плямах – кроках шляху.</p>
   </div>
 
   <div class="sg-block">
@@ -329,12 +328,32 @@
   </div>
 
   <div class="sg-block">
+    <h3>Блакитна площина</h3>
+    <div class="skysection" style="padding:clamp(1.5rem,1rem+3vw,3rem);border-radius:var(--r-xl)">
+      <p class="rubric"><span>Службова секція</span></p>
+      <h2>Заголовок <em>другою фарбою</em></h2>
+      <p style="margin:var(--sp-4) 0 0;max-width:52ch;font-family:var(--font-text);line-height:1.6;color:var(--c-ink-800)">Третій тон між темно-синім і піском. На ньому живуть центри й послуги: текст темний, картки лишаються білими, друга фарба заголовка – синя, а не золота.</p>
+    </div>
+    <code class="sg-code">&lt;section class="skysection"&gt;…&lt;/section&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Порядок площин на головній: темна, пісочна, блакитна, блакитна, пісочна. Дві однакові поспіль допускаються лише коли між ними змінюється тип вмісту; три – ніколи.</p>
+  </div>
+
+  <div class="sg-block">
     <h3>Заголовок у дві фарби</h3>
     <div class="sg-demo">
       <h2 style="margin:0">Магнітно-резонансна <em class="accent">томографія</em></h2>
     </div>
     <code class="sg-code">&lt;h2&gt;Магнітно-резонансна &lt;em class="accent"&gt;томографія&lt;/em&gt;&lt;/h2&gt;</code>
     <p class="text-caption" style="margin-top:var(--sp-3)">Друга частина заголовка йде золотом. На світлому – `em.accent` (темніше золото, читається). На синьому – просто `em`, воно світлішає само.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Рубрика секції</h3>
+    <div class="sg-demo">
+      <p class="rubric" style="margin:0"><span>Наші послуги</span></p>
+    </div>
+    <code class="sg-code">&lt;p class="rubric"&gt;&lt;span&gt;Наші послуги&lt;/span&gt;&lt;/p&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Єдина форма надзаголовка на сайті: золотий капс і лінія до правого краю. Стоїть над кожною секцією. Великий двоколірний h2 отримують лише змістові секції – герой, рівняння, послуги; службові обходяться рубрикою.</p>
   </div>
 
   <div class="sg-block">
@@ -496,6 +515,35 @@
     </div>
     <code class="sg-code">&lt;div class="faq faq--plus"&gt; &lt;details&gt;&lt;summary&gt;…&lt;/summary&gt;&lt;div class="faq-body"&gt;…&lt;/div&gt;&lt;/details&gt; &lt;/div&gt;</code>
     <p class="text-caption" style="margin-top:var(--sp-3)">Плюс повертається на 45° у хрестик і синіє. Без модифікатора `faq--plus` знак – звичайна стрілка.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Табки центрів</h3>
+    <div class="skysection" style="padding:clamp(1.5rem,1rem+3vw,3rem);border-radius:var(--r-xl)">
+      <div class="ctabs" role="tablist" style="margin-top:0">
+        <button class="ctab" role="tab" aria-selected="true" type="button">Луцьк</button>
+        <button class="ctab" role="tab" aria-selected="false" type="button">Рівне</button>
+        <button class="ctab" role="tab" aria-selected="false" type="button">Ковель</button>
+        <button class="ctab" role="tab" aria-selected="false" type="button">Житомир</button>
+      </div>
+      <div class="cpanel is-on">
+        <div>
+          <h3 class="cpanel__city">Луцьк</h3>
+          <p class="cpanel__addr">просп. Молоді, 12В</p>
+          <span class="cpanel__now">Зараз працює, до 22:00</span>
+        </div>
+        <div><span class="cpanel__label">Обладнання</span><p class="cpanel__kit">МРТ 3 Т Siemens<br>МРТ 1,5 Т<br>Комп'ютерний томограф</p></div>
+        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
+      </div>
+    </div>
+    <code class="sg-code">&lt;div class="ctabs" role="tablist"&gt;&lt;button class="ctab" data-city="lutsk"&gt;…&lt;/button&gt;&lt;/div&gt; + &lt;div class="cpanel" id="lutsk"&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Інформація про шість центрів одночасно нікому не потрібна – людині потрібен її власний. Активна табка темно-синя, панель показує адресу, обладнання, графік і живий рядок «зараз працює». Табки ходять стрілками, на телефоні гортаються вбік.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Група послуг</h3>
+    <code class="sg-code">&lt;div class="svcgroup"&gt;&lt;div class="svcgroup__head"&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt;&lt;div class="scards"&gt;…&lt;/div&gt;&lt;/div&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">МРТ і КТ живуть в одній секції під спільним заголовком «Що ми досліджуємо»: кожна група має підзаголовок з описом і свої картки. Підзаголовок стоїть у першій колонці сітки карток, опис – з другої. Групи розділяє лінія, а не зміна кольору.</p>
   </div>
 
   <div class="sg-block">
@@ -1166,7 +1214,7 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
     <div class="footer-bottom">
       <span>© 2026 МРТ ПЛЮС</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Сторінка стилів, збірка 0.34</span>
+      <span class="tnum">Сторінка стилів, збірка 0.43</span>
     </div>
   </div>
 </footer>

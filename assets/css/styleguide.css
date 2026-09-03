@@ -112,14 +112,14 @@
 }
 
 .sg-blue {
-  background: var(--grad-blue);
+  background: var(--c-blue-panel);
   color: var(--c-white);
   border-radius: var(--r-xl);
   padding: clamp(1.5rem, 1rem + 3vw, 3rem);
 }
 
 .sg-blue--alt {
-  background: var(--grad-blue-alt);
+  border-top: 1px solid rgba(185, 151, 91, 0.35);
 }
 
 .sg-blue h2,

@@ -25,19 +25,16 @@
     <a class="logo" href="/" aria-label="МРТ ПЛЮС – на головну"><svg viewBox="14 14 388 89" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></a>
 
     <nav class="site-nav" aria-label="Головне меню">
-      <a href="#navishcho">Навіщо</a>
-      <a href="#mrt">МРТ</a>
-      <a href="#kt">КТ</a>
-      <a href="#pidhotovka">Підготовка</a>
+      <a href="#posluhy">Послуги</a>
+      <a href="#tsentry">Центри</a>
+      <a href="#shliakh">Як це відбувається</a>
+      <a href="#pytannia">Питання</a>
       <a href="#kontakty">Контакти</a>
     </nav>
 
     <div class="header-actions">
-      <a class="header-phone" href="tel:0800311058">
-        <span class="num">0 800 311 058</span>
-        <span class="cap">безкоштовно по Україні</span>
-      </a>
-      <a class="btn btn-primary btn-sm" href="#zapys">Записатися</a>
+      <a class="header-phone" href="tel:0800311058"><span class="num phone">0&#160;800&#160;311&#160;058</span></a>
+      <a class="btn btn-primary btn-sm" href="#zapys">Результати</a>
       <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
         <span></span>
         <span class="visually-hidden">Меню</span>
@@ -66,7 +63,7 @@
   <section class="bluehero" id="chomu">
     <div class="container bluehero__grid">
       <div>
-        <p class="dot-eyebrow"><span class="dot" aria-hidden="true"></span>Мережа діагностичних центрів «МРТ ПЛЮС»</p>
+        <p class="rubric"><span>Мережа діагностичних центрів «МРТ ПЛЮС»</span></p>
         <h1>Впевненість починається <em>з ясності</em></h1>
         <hr class="bluehero__rule">
         <div class="triad">
@@ -90,7 +87,7 @@
   <!-- Навіщо обстежуватись зараз: одне рівняння на весь екран. -->
   <section class="statement" id="navishcho">
     <div class="container statement__inner">
-      <p class="statement__q">Навіщо обстежуватись зараз?</p>
+      <p class="rubric statement__q"><span>Навіщо обстежуватись зараз?</span></p>
       <p class="statement__a">Бо очікування <em class="accent">не входить у план лікування</em></p>
       <p class="statement__d"><b>Можливість</b> виявити відхилення задовго до того, як симптоми стануть важкими, дозволяє <b>впевнено</b> приймати рішення і <b>спокійно</b> рухатися далі.</p>
       <div class="btn-row">
@@ -101,83 +98,159 @@
     </div>
   </section>
 
-  <section class="bluesection" id="mrt">
-    <div class="container bluesection__split">
-      <div class="bluesection__intro">
-        <p class="dot-eyebrow"><span class="dot" aria-hidden="true"></span>МРТ</p>
-        <h2>Магнітно-резонансна <em>томографія</em></h2>
-        <hr class="bluehero__rule">
-        <p>Без рентгенівського випромінювання. М'які тканини, головний і спинний мозок, суглоби, судини. Томографи 1,5 і 3 Тесла.</p>
+  <section class="skysection" id="tsentry">
+    <div class="container">
+      <p class="rubric"><span>Де нас шукати</span></p>
+      <div class="ctabs" role="tablist">
+        <button class="ctab" role="tab" aria-selected="true" data-city="lutsk" type="button">Луцьк</button>
+        <button class="ctab" role="tab" aria-selected="false" data-city="rivne" type="button">Рівне</button>
+        <button class="ctab" role="tab" aria-selected="false" data-city="kovel" type="button">Ковель</button>
+        <button class="ctab" role="tab" aria-selected="false" data-city="zhytomyr" type="button">Житомир</button>
+        <button class="ctab" role="tab" aria-selected="false" data-city="kyiv" type="button">Київ</button>
+        <button class="ctab" role="tab" aria-selected="false" data-city="sheptytskyi" type="button">Шептицький</button>
       </div>
-      <div class="scards">
+
+      <div class="cpanel is-on" id="lutsk" role="tabpanel">
+        <div>
+          <h3 class="cpanel__city">Луцьк</h3>
+          <p class="cpanel__addr">просп. Молоді, 12В</p>
+          <span class="cpanel__now">Зараз працює, до 22:00</span>
+        </div>
+        <div><span class="cpanel__label">Обладнання</span><p class="cpanel__kit">МРТ 3 Т Siemens<br>МРТ 1,5 Т<br>Комп'ютерний томограф</p></div>
+        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
+        <div class="cpanel__go"><a class="btn btn-primary" href="#">Записатися в Луцьку</a><a class="btn btn-outline" href="#">Ціни і підготовка</a></div>
+      </div>
+
+      <div class="cpanel" id="rivne" role="tabpanel">
+        <div>
+          <h3 class="cpanel__city">Рівне</h3>
+          <p class="cpanel__addr">вул. Карнаухова, 2А</p>
+          <span class="cpanel__now">Зараз працює, до 21:00</span>
+        </div>
+        <div><span class="cpanel__label">Обладнання</span><p class="cpanel__kit">МРТ 1,5 Т<br>Комп'ютерний томограф</p></div>
+        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–21:00</dd><dt>Сб</dt><dd>9:00–17:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
+        <div class="cpanel__go"><a class="btn btn-primary" href="#">Записатися в Рівному</a><a class="btn btn-outline" href="#">Ціни і підготовка</a></div>
+      </div>
+
+      <div class="cpanel" id="kyiv" role="tabpanel">
+        <div>
+          <h3 class="cpanel__city">Київ</h3>
+          <p class="cpanel__addr">вул. Композитора Мейтуса, 5<br>TOP Clinic DENIS</p>
+          <span class="cpanel__now is-shut">Сьогодні з 8:00</span>
+        </div>
+        <div><span class="cpanel__label">Обладнання</span><p class="cpanel__kit">Siemens Magnetom Skyra 3 Т</p></div>
+        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Сб</dt><dd>8:00–20:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
+        <div class="cpanel__go"><a class="btn btn-primary" href="#">Записатися в Києві</a><a class="btn btn-outline" href="#">Ціни і підготовка</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Наші послуги: МРТ і КТ в одній секції, дві групи карток. -->
+  <section class="skysection" id="posluhy">
+    <div class="container">
+      <p class="rubric"><span>Наші послуги</span></p>
+      <h2>Що ми <em>досліджуємо</em></h2>
+
+      <div class="svcgroup">
+        <div class="svcgroup__head">
+          <h3>Магнітно-резонансна томографія</h3>
+          <p>Головний і спинний мозок, суглоби, хрящі, зв'язки, м'язи, органи малого таза, печінка і жовчні протоки, судини. Запалення, пухлини, грижі диска, розриви зв'язок і хрящів, демієлінізуючі процеси. Ціни без контрастного підсилення; з контрастом – дорожче.</p>
+        </div>
+        <div class="scards">
           <a class="scard" href="#">
             <span class="scard__top"><span class="scard__name">МРТ голови</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Головний мозок, судини, гіпофіз, орбіти, пазухи, внутрішнє вухо</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 3 600 грн</span>
+            <span class="scard__desc">Головний мозок, гіпофіз, орбіти й зорові нерви, навколоносові синуси, мостомозочковий кут і внутрішнє вухо, МР-ангіографія артерій і вен</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 3&#160;600 грн</span>
           </a>
           <a class="scard" href="#">
             <span class="scard__top"><span class="scard__name">МРТ хребта</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Шийний, грудний, попереково-крижовий відділи, увесь хребет за один візит</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 3 300 грн</span>
+            <span class="scard__desc">Один, два, три чи чотири відділи, криж і куприк, крижово-клубові сполучення, МР-ангіографія магістральних артерій шиї</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 3&#160;300 грн</span>
           </a>
           <a class="scard" href="#">
             <span class="scard__top"><span class="scard__name">МРТ суглобів</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Колінний, плечовий, кульшовий, ліктьовий, кисть, стопа</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 3 600 грн</span>
+            <span class="scard__desc">Плечовий, ліктьовий, колінний, гомілковоступневий з плесном, кульшові, променево-зап'ястковий, скронево-нижньощелепні, стопа, кисть</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 3&#160;600 грн</span>
           </a>
           <a class="scard" href="#">
             <span class="scard__top"><span class="scard__name">МРТ черевної порожнини</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Печінка, підшлункова, селезінка, нирки, жовчні протоки</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 6 800 грн</span>
+            <span class="scard__desc">Печінка, підшлункова залоза, селезінка, нирки, надниркові залози, жовчовивідні протоки й холангіопанкреатографія</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 6&#160;800 грн</span>
           </a>
           <a class="scard" href="#">
             <span class="scard__top"><span class="scard__name">МРТ малого таза</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Жіночий і чоловічий малий таз, пряма кишка, сечовий міхур</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 6 800 грн</span>
+            <span class="scard__desc">Жіночий і чоловічий малий таз, пряма кишка, статевий член, яєчка й калитка</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 6&#160;800 грн</span>
           </a>
           <a class="scard" href="#">
-            <span class="scard__top"><span class="scard__name">МРТ м'яких тканин</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Шия, гомілка, стегно, плече, передпліччя, ахіллове сухожилля</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 5 700 грн</span>
+            <span class="scard__top"><span class="scard__name">МРТ м'яких тканин і окремих областей</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Шия, стегно, гомілка, плече, передпліччя, середостіння, ахіллове сухожилля, кістки таза, одна анатомічна область</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 5&#160;000 грн</span>
           </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">МРТ молочних залоз</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">З контрастуванням, разом з імплантами; виконується на томографі 3 Тесла</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 9&#160;700 грн</span>
+          </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">МРТ при демієлінізуючих процесах</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Головний мозок, шийний і грудний відділи спинного мозку окремо або разом; виконується на 3 Тесла</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 4&#160;200 грн</span>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="bluesection bluesection--alt" id="kt">
-    <div class="container bluesection__split">
-      <div class="bluesection__intro">
-        <p class="dot-eyebrow"><span class="dot" aria-hidden="true"></span>КТ</p>
-        <h2>Комп'ютерна <em>томографія</em></h2>
-        <hr class="bluehero__rule">
-        <p>Швидке дослідження кісток, легень, приносових пазух, судин з контрастом. Луцьк, Рівне, Ковель.</p>
-      </div>
-      <div class="scards">
+      <div class="svcgroup">
+        <div class="svcgroup__head">
+          <h3>Компʼютерна томографія</h3>
+          <p>Мультиспіральна КТ. Переломи і травми, легені та середостіння, приносові пазухи, камені в нирках. Крововиливи і гематоми, тромби й тромбоемболія, аневризми та розшарування аорти. Ціни без контрастного підсилення; з контрастом – дорожче.</p>
+        </div>
+        <div class="scards">
           <a class="scard" href="#">
             <span class="scard__top"><span class="scard__name">КТ голови</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Головний мозок, приносові пазухи, скроневі кістки, орбіти</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 2 500 грн</span>
+            <span class="scard__desc">Головний мозок, приносові пазухи, носоглотка, орбіти, скроневі кістки, щелепи, скронево-нижньощелепні суглоби, лицевий скелет і основа черепа</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 2&#160;500 грн</span>
           </a>
           <a class="scard" href="#">
-            <span class="scard__top"><span class="scard__name">КТ грудної клітки</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Легені, середостіння, з контрастом і без</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 2 500 грн</span>
+            <span class="scard__top"><span class="scard__name">КТ шиї</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Орбіти, пазухи, турецьке сідло, щелепи, глотка, гортань, щитоподібна залоза, верхнє середостіння; тільки з контрастуванням</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 4&#160;000 грн</span>
           </a>
           <a class="scard" href="#">
-            <span class="scard__top"><span class="scard__name">КТ хребта і суглобів</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Відділи хребта, кістки таза, великі суглоби</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 2 200 грн</span>
+            <span class="scard__top"><span class="scard__name">КТ грудної клітки й черевної порожнини</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Легені й середостіння, органи черевної порожнини, малий таз і заочеревинний простір, разом або окремо</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 2&#160;500 грн</span>
+          </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">КТ хребта</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Шийний, грудний, поперековий відділи, крижово-куприковий сегмент, два або всі відділи, кістки таза</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 2&#160;200 грн</span>
+          </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">КТ суглобів</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Плечовий, ліктьовий, колінний, гомілково-ступневий, стопа, кисть, один сегмент кінцівки з двома суглобами</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 2&#160;600 грн</span>
           </a>
           <a class="scard" href="#">
             <span class="scard__top"><span class="scard__name">КТ-ангіографія</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            <span class="scard__desc">Грудна та черевна аорта, судини кінцівок</span>
-            <span class="scard__price price price--lg price--gold"><small>від</small> 5 800 грн</span>
+            <span class="scard__desc">Грудна та черевна аорта, судини верхніх і нижніх кінцівок; тільки з контрастуванням</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 5&#160;800 грн</span>
           </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">КТ за протоколом «Політравма»</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Чотири зони одним скануванням: головний мозок, хребет, грудна клітка, черевна порожнина, кістки таза</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 5&#160;500 грн</span>
+          </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">Онкоскринінг</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Три або чотири зони з контрастуванням: шия, грудна клітка, черевна порожнина, головний мозок</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 7&#160;200 грн</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Відгуки -->
   <section class="section" id="vidhuky">
     <div class="container">
       <div class="section-head" style="text-align:center">
@@ -315,7 +388,7 @@
     <div class="footer-bottom">
       <span>© 2026 ТОВ «МРТ ПЛЮС»</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Збірка 0.42</span>
+      <span class="tnum">Збірка 0.43</span>
     </div>
   </div>
 </footer>

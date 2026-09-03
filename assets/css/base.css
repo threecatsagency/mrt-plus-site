@@ -21,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--grad-page);
+  background: var(--c-ink-050);
   background-attachment: fixed;
   color: var(--c-ink-800);
   font-family: var(--font-ui);

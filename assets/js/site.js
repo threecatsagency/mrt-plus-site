@@ -321,6 +321,37 @@
      Копіювання значення токена – зручність сторінки стилів
      ------------------------------------------------------------------ */
 
+  // Табки центрів: одна панель на місто. Інформація про шість центрів
+  // одночасно нікому не потрібна – людині потрібен її власний.
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll(".ctab"));
+    if (!tabs.length) return;
+
+    function show(city) {
+      tabs.forEach(function (t) {
+        t.setAttribute("aria-selected", String(t.dataset.city === city));
+      });
+      document.querySelectorAll(".cpanel").forEach(function (panel) {
+        panel.classList.toggle("is-on", panel.id === city);
+      });
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () {
+        show(tab.dataset.city);
+      });
+      // Роль tablist вимагає ходіння стрілками, а не лише табуляцією.
+      tab.addEventListener("keydown", function (e) {
+        var step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        var next = tabs[(i + step + tabs.length) % tabs.length];
+        next.focus();
+        show(next.dataset.city);
+      });
+    });
+  })();
+
   document.querySelectorAll("[data-copy]").forEach(function (el) {
     el.addEventListener("click", function () {
       var value = el.getAttribute("data-copy");
