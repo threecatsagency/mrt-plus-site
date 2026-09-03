@@ -1863,6 +1863,45 @@ h2 em.accent {
   color: rgba(255, 255, 255, 0.82);
 }
 
+/* Світлий варіант колонок: та сама сітка на тлі сторінки. */
+.whycols--light .wcol__tag {
+  color: var(--c-gold-600);
+}
+
+.whycols--light .wcol h3 {
+  color: var(--c-ink-900);
+}
+
+.whycols--light .wcol p:last-child {
+  color: var(--c-ink-800);
+}
+
+/* Примітка світлої секції – сестра bluesection__note. */
+.section-note {
+  margin: clamp(2rem, 1.5rem + 2.5vw, 4rem) 0 0;
+  padding-top: var(--sp-6);
+  border-top: var(--border);
+  font-family: var(--font-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-text);
+  color: var(--c-ink-800);
+  max-width: 64ch;
+}
+
+/* Способи запису: пояснення і дві кнопки після доводів. */
+.signup-ways {
+  margin-top: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+}
+
+.signup-ways p {
+  margin: 0 0 var(--sp-5);
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-text);
+  color: var(--c-ink-900);
+  max-width: 52ch;
+}
+
 .bluesection__note {
   margin: clamp(2rem, 1.5rem + 2.5vw, 4rem) 0 0;
   padding-top: var(--sp-6);
@@ -2130,6 +2169,16 @@ h2 em.accent {
   .triad__item + .triad__item {
     padding-top: var(--sp-6);
     border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .whycols--light .wcol + .wcol {
+    border-top-color: var(--c-ink-200);
+  }
+
+  /* Кнопки способів запису – на всю ширину, як усі дії на телефоні. */
+  .signup-ways .btn-row {
+    display: grid;
+    gap: var(--sp-3);
   }
 }
 
