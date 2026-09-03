@@ -1928,6 +1928,60 @@ h2 em.accent {
   margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
 }
 
+/* Блакитний варіант центрального рівняння. */
+.statement--sky {
+  background: var(--c-accent-100);
+}
+
+/* Місце під відео замовника. Поки заглушка з кнопкою; коли з'явиться
+   ролик, сюди стане плеєр – розмітка не зміниться. */
+.vplayer {
+  position: relative;
+  width: min(100%, 900px);
+  margin: clamp(2rem, 1.5rem + 2.5vw, 3.5rem) auto 0;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: radial-gradient(70% 70% at 50% 40%, rgba(42, 77, 163, 0.5), transparent 70%),
+    var(--c-navy-900);
+  display: grid;
+  place-items: center;
+}
+
+.vplayer__btn {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background: var(--c-gold-500);
+  color: var(--c-navy-900);
+  display: grid;
+  place-items: center;
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+
+.vplayer__btn svg {
+  width: 34px;
+  height: 34px;
+  margin-left: 4px;
+}
+
+.vplayer__btn:hover {
+  transform: scale(1.06);
+  background: var(--c-gold-300);
+}
+
+.vplayer__cap {
+  position: absolute;
+  left: var(--sp-5);
+  bottom: var(--sp-5);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .statement__note {
   margin: var(--sp-5) auto 0;
   max-width: 52ch;
