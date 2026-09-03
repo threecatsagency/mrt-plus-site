@@ -2162,6 +2162,19 @@ p.rubric {
   opacity: 0.3;
 }
 
+/* У центрованій секції рубрика тримає лінії з двох боків. */
+.statement .rubric {
+  justify-content: center;
+}
+
+.statement .rubric::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
 /* =====================================================================
    18. Центри: табки міст і панель одного центру
    Інформація про шість центрів одночасно нікому не потрібна – людині
@@ -2316,10 +2329,13 @@ p.rubric {
   margin-top: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
 }
 
+/* Роздільник і кольори успадковуються від площини: та сама група
+   працює і на темному, і на блакитному. */
 .svcgroup + .svcgroup {
   margin-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
   padding-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
-  border-top: 1px solid rgba(14, 29, 58, 0.14);
+  border-top: 1px solid currentColor;
+  border-top-color: color-mix(in srgb, currentColor 16%, transparent);
 }
 
 .svcgroup__head {
@@ -2331,7 +2347,7 @@ p.rubric {
 .svcgroup__head h3 {
   margin: 0;
   font-size: var(--fs-h3);
-  color: var(--c-ink-900);
+  color: inherit;
 }
 
 .svcgroup__head p {
@@ -2340,7 +2356,8 @@ p.rubric {
   font-family: var(--font-text);
   font-size: var(--fs-small);
   line-height: var(--lh-text);
-  color: var(--c-ink-800);
+  color: inherit;
+  opacity: 0.82;
 }
 
 @media (min-width: 64em) {
