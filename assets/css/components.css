@@ -1690,28 +1690,28 @@ h2 em.accent {
   color: rgba(255, 255, 255, 0.88);
 }
 
-/* Знімок у героя: DTI-трактографія, петля на десктопі, постер без руху.
-   Постер і відео лежать локально: assets/img/hero-dti.webp,
-   assets/video/hero-dti.{webm,mp4}. Джерела підключає скрипт – лише на
-   широких екранах і лише коли система не просить менше руху. */
+/* Трактографія в героя: змодельовані волокна на канвасі
+   (assets/js/hero-fibers.js). Колір волокна – за напрямком, як у
+   справжній DTI: вертикальні сині, поперечні червоні, поздовжні
+   зелені. Малюється лише на широких екранах; коли система просить
+   менше руху – один нерухомий кадр. */
 .bluehero__photo {
   position: relative;
   overflow: hidden;
   min-height: min(46vh, 460px);
   border-radius: var(--r-xl);
   background:
-    radial-gradient(60% 55% at 50% 45%, rgba(255, 255, 255, 0.28) 0%, transparent 70%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+    radial-gradient(70% 60% at 50% 40%, rgba(42, 77, 163, 0.55) 0%, transparent 75%),
+    linear-gradient(160deg, #0b1730, #060d1d);
   outline: 1px solid rgba(255, 255, 255, 0.18);
   outline-offset: -1px;
 }
 
-.bluehero__photo video {
+.bluehero__photo canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
 }
 
