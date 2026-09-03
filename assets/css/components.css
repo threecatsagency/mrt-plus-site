@@ -2276,11 +2276,29 @@ p.rubric {
   color: var(--c-gold-600);
 }
 
+/* Апарат: модель рядком, під нею тунель і вантажопідйомність –
+   те, що насправді вирішує, чи людина потрапить у цей томограф. */
 .cpanel__kit {
+  display: grid;
+  gap: var(--sp-3);
   margin: 0;
   font-size: var(--fs-small);
-  line-height: 1.75;
   color: var(--c-ink-900);
+}
+
+.cpanel__kit .kit {
+  display: grid;
+  gap: 2px;
+}
+
+.cpanel__kit b {
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+}
+
+.cpanel__kit small {
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
 }
 
 .cpanel__hours {
