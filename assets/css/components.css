@@ -1611,6 +1611,9 @@ h2 em.accent {
   border-radius: 50%;
   border: 1px solid currentColor;
   position: relative;
+  /* Капс сидить на ~0.09em вище оптичного центру рядка – кружечок
+     піднімається слідом, інакше висить нижче тексту. */
+  transform: translateY(-0.08em);
 }
 
 .dot-eyebrow .dot::after {
@@ -1646,7 +1649,39 @@ h2 em.accent {
 
 /* Перший екран. */
 .bluehero {
+  position: relative;
+  overflow: hidden;
   padding-top: var(--sp-10);
+}
+
+/* Проба: знімок ДТІ фоном. Чорне тло зникає через screen-блендінг,
+   маска м'яко гасить краї, текст лишається на чистому синьому. */
+.bluehero::before {
+  content: "";
+  position: absolute;
+  top: -6%;
+  right: -34%;
+  width: 120vw;
+  aspect-ratio: 1;
+  background: url("../img/hero-dti-still.webp") center / contain no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(65% 65% at 60% 42%, #000 25%, transparent 72%);
+  mask-image: radial-gradient(65% 65% at 60% 42%, #000 25%, transparent 72%);
+  pointer-events: none;
+}
+
+@media (min-width: 64em) {
+  .bluehero::before {
+    top: -12%;
+    right: -4%;
+    width: min(54vw, 860px);
+    opacity: 0.55;
+  }
+}
+
+.bluehero__grid {
+  position: relative;
 }
 
 .bluehero__grid {
