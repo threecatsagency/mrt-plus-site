@@ -31,7 +31,7 @@
     (root || document)
       .querySelectorAll(
       ".btn, .btn-ticket, .badge, .chip, .city-switch, .price, " +
-        ".scard__price, .bluehero__facts b, .big-phone"
+        ".scard__price, .bluehero__facts b, .phone"
     )
       .forEach(function (el) {
         var text = (el.textContent || "").trim();
@@ -320,6 +320,30 @@
   /* ------------------------------------------------------------------
      Копіювання значення токена – зручність сторінки стилів
      ------------------------------------------------------------------ */
+
+  // Петля в першому екрані: вмикається лише на широких екранах і лише
+  // коли система не просить менше руху. Інакше стоїть постер.
+  (function () {
+    var video = document.querySelector("[data-hero-video]");
+    if (!video) return;
+    var wide = window.matchMedia("(min-width: 64em)");
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function start() {
+      if (!wide.matches || still.matches || video.dataset.started) return;
+      video.dataset.started = "1";
+      ["webm", "mp4"].forEach(function (kind) {
+        var source = document.createElement("source");
+        source.src = video.dataset[kind];
+        source.type = "video/" + kind;
+        video.appendChild(source);
+      });
+      video.load();
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    }
+    start();
+    wide.addEventListener("change", start);
+  })();
 
   document.querySelectorAll("[data-copy]").forEach(function (el) {
     el.addEventListener("click", function () {

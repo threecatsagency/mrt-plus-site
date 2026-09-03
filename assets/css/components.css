@@ -83,6 +83,20 @@
   box-shadow: 0 6px 16px -8px rgba(14, 29, 58, 0.9);
 }
 
+/* Контурна кнопка на темному тлі: підвал, темні панелі. Була
+   інлайновими стилями в розмітці – і в двох файлах різними. */
+.btn-onnavy {
+  background: transparent;
+  border: 1px solid var(--c-gold-500);
+  color: var(--c-gold-300);
+}
+
+.btn-onnavy:hover {
+  background: rgba(217, 198, 156, 0.12);
+  border-color: var(--c-gold-300);
+  color: var(--c-white);
+}
+
 .btn-sm {
   height: 38px;
   padding-inline: var(--sp-4);
@@ -834,6 +848,27 @@
    Одна розмітка: на телефоні – рядки-картки, на десктопі – таблиця.
    ===================================================================== */
 
+/* Номер телефону – один компонент. Табличні цифри ставлять розряди
+   рівно, nowrap не дає номеру розірватися між рядками. Нерозривні
+   пробіли всередині номера ставляться в розмітці. */
+.phone {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Великий номер: золота панель запису, згодом – контакти центру. */
+.phone--big {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: clamp(2.25rem, 1rem + 6vw, 5.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: inherit;
+  text-decoration: none;
+  margin: var(--sp-4) 0 var(--sp-6);
+}
+
 /* Ціна – один компонент на весь сайт. Число завжди Fixel Display з
    табличними цифрами: у стовпці таблиці розряди стають один під одним,
    на картці число читається як число, а не як частина фрази.
@@ -1372,19 +1407,11 @@
   );
 }
 
-.panel-gold .big-phone {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: clamp(2.25rem, 1rem + 6vw, 5.5rem);
-  letter-spacing: -0.03em;
-  line-height: 1;
+.panel-gold .phone--big {
   color: var(--c-navy-900);
-  text-decoration: none;
-  margin: var(--sp-4) 0 var(--sp-6);
 }
 
-.panel-gold .big-phone:hover {
+.panel-gold .phone--big:hover {
   color: var(--c-white);
 }
 
@@ -1663,8 +1690,13 @@ h2 em.accent {
   color: rgba(255, 255, 255, 0.88);
 }
 
-/* Місце під фото: людина праворуч, за нею світіння. */
+/* Знімок у героя: DTI-трактографія, петля на десктопі, постер без руху.
+   Постер і відео лежать локально: assets/img/hero-dti.webp,
+   assets/video/hero-dti.{webm,mp4}. Джерела підключає скрипт – лише на
+   широких екранах і лише коли система не просить менше руху. */
 .bluehero__photo {
+  position: relative;
+  overflow: hidden;
   min-height: min(46vh, 460px);
   border-radius: var(--r-xl);
   background:
@@ -1672,6 +1704,15 @@ h2 em.accent {
     linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
   outline: 1px solid rgba(255, 255, 255, 0.18);
   outline-offset: -1px;
+}
+
+.bluehero__photo video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Кнопка-квиток: білий контур, стрілка їде вправо при наведенні. */
@@ -1987,8 +2028,8 @@ h2 em.accent {
   padding-top: 0.27em;
 }
 
-/* Великий номер на золотій панелі: зсув менший, бо кегль великий. */
-.big-phone.is-caps {
+/* Великий номер: зсув менший, бо кегль великий. */
+.phone--big.is-caps {
   padding-top: 0.1em;
 }
 
