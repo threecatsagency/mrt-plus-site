@@ -111,6 +111,22 @@
   padding: 0;
 }
 
+.sg-blue {
+  background: var(--grad-blue);
+  color: var(--c-white);
+  border-radius: var(--r-xl);
+  padding: clamp(1.5rem, 1rem + 3vw, 3rem);
+}
+
+.sg-blue--alt {
+  background: var(--grad-blue-alt);
+}
+
+.sg-blue h2,
+.sg-blue h3 {
+  color: var(--c-white);
+}
+
 .sg-demo--dark {
   background: var(--c-ink-900);
   border-color: var(--c-ink-900);

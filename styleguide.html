@@ -62,20 +62,16 @@
 </header>
 
 <main id="main">
-  <!-- Перший екран сторінки стилів. -->
-  <section class="hero">
-    <div class="scanlines" aria-hidden="true"></div>
-    <div class="container hero__inner">
-      <ol class="crumbs">
-        <li><a href="#">Головна</a></li>
-        <li>Сторінка стилів</li>
-      </ol>
-      <h1>Сторінка стилів сайту МРТ ПЛЮС</h1>
-      <p class="lead">Один набір кольорів, шрифтів і компонентів для всіх сторінок мережі. <a href="index.html">Головна</a> зібрана з цих самих елементів. Кожен елемент нижче – робочий, звідси його беруть у верстку без правок.</p>
-      <div class="btn-row">
-        <span class="sg-build">Збірка 0.30</span>
-        <span class="badge">01.09.2026</span>
-        <span class="badge badge-contrast">Дані на сторінці демонстраційні</span>
+  <!-- Перший екран сторінки стилів – у чинній синій мові. -->
+  <section class="bluesection">
+    <div class="container">
+      <p class="dot-eyebrow"><span class="dot" aria-hidden="true"></span>Службова сторінка</p>
+      <h2>Сторінка стилів <em>МРТ ПЛЮС</em></h2>
+      <hr class="bluehero__rule">
+      <p class="bluesection__note" style="border:0;padding:0;margin-top:0">Один набір кольорів, шрифтів і компонентів для всіх сторінок мережі. <a href="index.html" style="color:var(--c-gold-300)">Головна</a> зібрана з цих самих елементів: усе, що нижче, – робочий компонент, а не картинка. Якщо елемента тут немає, його ще не існує – спершу він з\'являється тут, потім на сторінці.</p>
+      <div class="btn-row" style="margin-top:var(--sp-8)">
+        <a class="btn-ticket" href="#blue">Синя мова <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a class="btn-ticket" href="index.html">Головна <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
@@ -90,6 +86,7 @@
           <li><a href="#color">Колір</a></li>
           <li><a href="#type">Шрифти і текст</a></li>
           <li><a href="#space">Простір і сітка</a></li>
+          <li><a href="#blue">Синя мова</a></li>
           <li><a href="#actions">Кнопки</a></li>
           <li><a href="#forms">Форми</a></li>
           <li><a href="#marks">Позначки</a></li>
@@ -187,12 +184,14 @@
   <div class="sg-block">
     <h3>Градієнти</h3>
     <div class="sg-swatches" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
-      <button class="sg-swatch" type="button" data-copy="var(--grad-sand)" data-label="пісок" style="background:var(--grad-sand)"><b>grad-sand</b><code data-copy-hint>перший екран, плитки</code></button>
-      <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--grad-navy)" data-label="темно-синій" style="background:var(--grad-navy)"><b>grad-navy</b><code data-copy-hint>МРТ, апарат, підвал</code></button>
-      <button class="sg-swatch" type="button" data-copy="var(--grad-sky)" data-label="небо" style="background:var(--grad-sky)"><b>grad-sky</b><code data-copy-hint>КТ, плитки</code></button>
-      <button class="sg-swatch" type="button" data-copy="var(--grad-gold)" data-label="золото" style="background:var(--grad-gold)"><b>grad-gold</b><code data-copy-hint>смуга запису</code></button>
+      <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--grad-blue)" data-label="синя площина" style="background:var(--grad-blue)"><b>grad-blue</b><code data-copy-hint>сині секції сторінки</code></button>
+      <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--grad-blue-alt)" data-label="синя площина, варіант" style="background:var(--grad-blue-alt)"><b>grad-blue-alt</b><code data-copy-hint>сусідня синя секція</code></button>
+      <button class="sg-swatch" type="button" data-copy="var(--grad-gold)" data-label="золото" style="background:var(--grad-gold)"><b>grad-gold</b><code data-copy-hint>панель запису</code></button>
+      <button class="sg-swatch sg-swatch--light" type="button" data-copy="var(--grad-navy)" data-label="темно-синій" style="background:var(--grad-navy)"><b>grad-navy</b><code data-copy-hint>підвал</code></button>
+      <button class="sg-swatch" type="button" data-copy="var(--grad-sand)" data-label="пісок" style="background:var(--grad-sand)"><b>grad-sand</b><code data-copy-hint>крок шляху 1</code></button>
+      <button class="sg-swatch" type="button" data-copy="var(--grad-sky)" data-label="небо" style="background:var(--grad-sky)"><b>grad-sky</b><code data-copy-hint>крок шляху 2</code></button>
     </div>
-    <p class="text-caption" style="margin-top:var(--sp-3)">Кут один на весь сайт – 150 градусів, світло падає зверху зліва. Поверх темної панелі лежить тепле кутове світло, поверх золотої – біле: це дає глибину, не змінюючи гами. Градієнт застосовується тільки до великих площин; кнопки, бейджі й поля лишаються рівними, інакше сторінка починає мерехтіти.</p>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Кут один на весь сайт – 150 градусів, світло падає зверху зліва. `grad-blue` несе всі сині секції; коли дві такі секції стоять поруч, друга бере `grad-blue-alt` – він темніший і світиться з іншого боку. Градієнт застосовується тільки до великих площин; кнопки, бейджі й поля лишаються рівними, інакше сторінка починає мерехтіти.</p>
   </div>
 
   <div class="sg-block">
@@ -248,7 +247,7 @@
       </div>
       <div class="sg-type-row">
         <span class="sg-type-name">--fs-price</span>
-        <span class="sg-type-sample tnum" style="font-family:var(--font-display);font-size:var(--fs-price);font-weight:600">2 400 грн</span>
+        <span class="sg-type-sample price price--lg">2 400 грн</span>
       </div>
     </div>
   </div>
@@ -309,6 +308,199 @@
         </tbody>
       </table>
     </div>
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<section class="sg-section" id="blue">
+  <h2>Синя мова</h2>
+  <p class="sg-about">Основна мова сайту. Сторінка збирається не з карток у рамках, а з синіх площин на всю ширину, між якими лежать світлі секції. Колір несе секцію, повітря дає ритм. Усе, що нижче, стоїть на головній – беріть звідси розмітку без правок.</p>
+
+  <div class="sg-block">
+    <h3>Площина</h3>
+    <div class="sg-blue">
+      <p class="dot-eyebrow"><span class="dot" aria-hidden="true"></span>Мітка секції</p>
+      <h2>Заголовок <em>другою фарбою</em></h2>
+      <hr class="bluehero__rule">
+      <p style="max-width:44ch;font-family:var(--font-text);line-height:1.6;color:rgba(255,255,255,.88);margin:0">Абзац на площині набирається Source Serif 4 з прозорістю 88%: чистий білий на синьому світиться і втомлює.</p>
+    </div>
+    <code class="sg-code">&lt;section class="bluesection"&gt; · &lt;section class="bluesection bluesection--alt"&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Дві сині секції поспіль беруть різні варіанти: `--alt` темніший і світиться з іншого боку. Три сині секції поспіль – заборонено, між ними має бути світла.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Заголовок у дві фарби</h3>
+    <div class="sg-demo">
+      <h2 style="margin:0">Магнітно-резонансна <em class="accent">томографія</em></h2>
+    </div>
+    <code class="sg-code">&lt;h2&gt;Магнітно-резонансна &lt;em class="accent"&gt;томографія&lt;/em&gt;&lt;/h2&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Друга частина заголовка йде золотом. На світлому – `em.accent` (темніше золото, читається). На синьому – просто `em`, воно світлішає само.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Мітка з кружечком</h3>
+    <div class="sg-demo">
+      <p class="dot-eyebrow" style="margin:0"><span class="dot" aria-hidden="true"></span>Ваш шлях</p>
+    </div>
+    <code class="sg-code">&lt;p class="dot-eyebrow"&gt;&lt;span class="dot"&gt;&lt;/span&gt;Ваш шлях&lt;/p&gt; · dot-eyebrow--center</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Стоїть над кожним заголовком секції. Великі літери, розрядка 0,18em. Кружечок золотий у кільці.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Кнопка-квиток</h3>
+    <div class="sg-blue">
+      <div class="btn-row">
+        <a class="btn-ticket" href="#">Записатися <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a class="btn-ticket" href="#">0&#160;800&#160;311&#160;058 <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <code class="sg-code">&lt;a class="btn-ticket"&gt;Текст &lt;svg class="i-arrow"&gt;…&lt;/svg&gt;&lt;/a&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Живе тільки на синьому. Стрілка їде вправо при наведенні, фон стає білим. На телефоні розтягується на всю ширину.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Картки досліджень</h3>
+    <div class="sg-blue">
+      <div class="scards">
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">МРТ голови</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Головний мозок, судини, гіпофіз, орбіти, пазухи, внутрішнє вухо</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 3 600 грн</span>
+          </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">МРТ хребта</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Шийний, грудний, попереково-крижовий відділи</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 3 300 грн</span>
+          </a>
+          <a class="scard" href="#">
+            <span class="scard__top"><span class="scard__name">МРТ суглобів</span><svg class="i-upright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            <span class="scard__desc">Колінний, плечовий, кульшовий, ліктьовий, кисть, стопа</span>
+            <span class="scard__price price price--lg price--gold"><small>від</small> 3 600 грн</span>
+          </a>
+      </div>
+    </div>
+    <code class="sg-code">&lt;div class="scards"&gt; &lt;a class="scard"&gt;…&lt;/a&gt; &lt;/div&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Білі картки на синьому: три в ряд на десктопі, дві на планшеті, на телефоні – горизонтальна стрічка з визирком наступної. Стрілка ↗ означає перехід на сторінку дослідження, ціна – завжди «від».</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Колонки доводів</h3>
+    <div class="sg-blue sg-blue--alt">
+      <div class="whycols" style="margin-top:0">
+        <div class="wcol">
+          <p class="wcol__tag">Можливості</p>
+          <h3>Виявити проблему рано</h3>
+          <p>Що раніше виявлено проблему, то кращі варіанти лікування.</p>
+        </div>
+        <div class="wcol">
+          <p class="wcol__tag">Ясність</p>
+          <h3>Відповіді без здогадок</h3>
+          <p>Детальні зображення дають лікарю точну картину.</p>
+        </div>
+        <div class="wcol">
+          <p class="wcol__tag">Впевненість</p>
+          <h3>Спокійно рухатися далі</h3>
+          <p>Обстеження дає ясність, з якою можна приймати рішення.</p>
+        </div>
+      </div>
+      <p class="bluesection__note">Примітка секції: дрібніший текст під роздільною лінією. Сюди йде застереження або пояснення, яке не вміщається в колонку.</p>
+    </div>
+    <code class="sg-code">&lt;div class="whycols"&gt; &lt;div class="wcol"&gt;&lt;p class="wcol__tag"&gt;…&lt;/p&gt;&lt;h3&gt;…&lt;/h3&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt; &lt;/div&gt;</code>
+  </div>
+
+  <div class="sg-block">
+    <h3>Факти першого екрана</h3>
+    <div class="sg-blue">
+      <div class="bluehero__facts" style="border-top:0;padding-top:0">
+        <span><b>30</b> лікарів-рентгенологів</span>
+        <span><b>20&#160;000</b> обстежень за рік</span>
+        <span class="bluehero__logo"><img src="assets/img/siemens-healthineers.svg" alt="Siemens Healthineers" width="576" height="144"></span>
+      </div>
+    </div>
+    <code class="sg-code">&lt;div class="bluehero__facts"&gt;&lt;span&gt;&lt;b&gt;30&lt;/b&gt; підпис&lt;/span&gt;…&lt;/div&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Числа – Fixel Display золотом. Логотип виробника інвертується в білий. На телефоні числа стають у два стовпці, логотип іде під ними окремим рядком.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Шлях пацієнта</h3>
+    <div class="sg-demo">
+      <div class="journey">
+        <div class="journey__item">
+          <div class="journey__photo journey__photo--1" aria-hidden="true"></div>
+          <div class="journey__num" aria-hidden="true">1</div>
+          <h3>Реєстрація</h3>
+          <p>Зареєструйтесь на рецепції – вас зустріне наша команда.</p>
+        </div>
+        <div class="journey__item">
+          <div class="journey__photo journey__photo--2" aria-hidden="true"></div>
+          <div class="journey__num" aria-hidden="true">2</div>
+          <h3>Дослідження</h3>
+          <p>Лаборант пояснить, чого очікувати, і відповість на запитання.</p>
+        </div>
+        <div class="journey__item">
+          <div class="journey__photo journey__photo--3" aria-hidden="true"></div>
+          <div class="journey__num" aria-hidden="true">3</div>
+          <h3>Наступні кроки</h3>
+          <p>Лікар-рентгенолог перегляне знімки й підготує опис.</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Кольорові кола – місце під фото; поки фото немає, вони працюють як плями кольору. На телефоні кожен крок стає рядком: коло 56 px з номером усередині ліворуч, текст праворуч.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Голоси пацієнтів</h3>
+    <div class="sg-demo">
+      <div class="voices">
+        <figure class="voice">
+          <blockquote>Демонстраційний відгук: тут стане справжній текст пацієнта.</blockquote>
+          <figcaption>Ім\'я, Луцьк</figcaption>
+        </figure>
+        <figure class="voice">
+          <blockquote>Демонстраційний відгук: тут стане справжній текст пацієнта.</blockquote>
+          <figcaption>Ім\'я, Рівне</figcaption>
+        </figure>
+        <figure class="voice">
+          <blockquote>Демонстраційний відгук: тут стане справжній текст пацієнта.</blockquote>
+          <figcaption>Ім\'я, Київ</figcaption>
+        </figure>
+      </div>
+    </div>
+    <code class="sg-code">&lt;div class="voices"&gt; &lt;figure class="voice"&gt;…&lt;/figure&gt; &lt;/div&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Коротка цитата на головній. Повний відгук з оцінкою – окремий компонент, у розділі «Відгуки». На телефоні – горизонтальна стрічка.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Питання з плюсом</h3>
+    <div class="sg-demo">
+      <div class="faq faq--plus">
+        <details>
+          <summary>Чи потрібне направлення лікаря?</summary>
+          <div class="faq-body"><p>Направлення бажане: у ньому вказана ділянка обстеження і діагноз, з якими опис буде точнішим.</p></div>
+        </details>
+        <details>
+          <summary>Коли буде готовий опис?</summary>
+          <div class="faq-body"><p>Знімки ви отримуєте одразу після дослідження, опис лікаря-рентгенолога – згодом.</p></div>
+        </details>
+      </div>
+    </div>
+    <code class="sg-code">&lt;div class="faq faq--plus"&gt; &lt;details&gt;&lt;summary&gt;…&lt;/summary&gt;&lt;div class="faq-body"&gt;…&lt;/div&gt;&lt;/details&gt; &lt;/div&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Плюс повертається на 45° у хрестик і синіє. Без модифікатора `faq--plus` знак – звичайна стрілка.</p>
+  </div>
+
+  <div class="sg-block">
+    <h3>Золота панель запису</h3>
+    <div class="panel panel-gold">
+      <h2>Записатися</h2>
+      <a class="big-phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+      <p class="lead" style="color:var(--c-navy-800)">Безкоштовно по Україні. Підберемо центр і час, порахуємо вартість.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#">Передзвоніть мені</a>
+        <a class="btn btn-outline btn-lg" href="#">Instagram</a>
+      </div>
+    </div>
+    <code class="sg-code">&lt;div class="panel panel-gold"&gt;…&lt;a class="big-phone"&gt;…&lt;/a&gt;…&lt;/div&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Одна на сторінку, завжди перед підвалом. Золото тут – матеріал, а не попередження, тому текст на ній темно-синій.</p>
   </div>
 </section>
 
@@ -595,6 +787,7 @@
 <!-- ================================================================= -->
 <section class="sg-section" id="content">
   <h2>Картки вмісту</h2>
+  <p class="sg-about" style="color:var(--c-warn-600)">Компоненти внутрішніх сторінок. Вони з першої мови сайту – білі картки в рамках – і на синю ще не переведені. Перед першою внутрішньою сторінкою їх треба перевести або лишити свідомо: світлі сторінки як противага синій головній.</p>
   <p class="sg-about">Три типи карток: центр, група досліджень, апарат. Інших не заводимо – зайві типи роблять сторінки схожими на каталог техніки.</p>
 
   <div class="sg-block">
@@ -636,17 +829,17 @@
       <div class="card card-group">
         <h3 class="card-title"><a href="#">МРТ хребта</a></h3>
         <p class="text-small text-muted" style="margin:0">Шийний, грудний, попереково-крижовий відділи, а також усі три за один візит.</p>
-        <p class="from tnum" style="margin:0">від 1 800 грн <small>8 досліджень</small></p>
+        <p class="price price--lg" style="margin:0">від 1 800 грн <small>8 досліджень</small></p>
       </div>
       <div class="card card-group">
         <h3 class="card-title"><a href="#">МРТ голови та шиї</a></h3>
         <p class="text-small text-muted" style="margin:0">Головний мозок, судини, гіпофіз, орбіти, приносові пазухи.</p>
-        <p class="from tnum" style="margin:0">від 2 000 грн <small>11 досліджень</small></p>
+        <p class="price price--lg" style="margin:0">від 2 000 грн <small>11 досліджень</small></p>
       </div>
       <div class="card card-group">
         <h3 class="card-title"><a href="#">КТ легень</a></h3>
         <p class="text-small text-muted" style="margin:0">Органи грудної порожнини, у тому числі з внутрішньовенним контрастом.</p>
-        <p class="from tnum" style="margin:0">від 1 500 грн <small>4 дослідження</small></p>
+        <p class="price price--lg" style="margin:0">від 1 500 грн <small>4 дослідження</small></p>
       </div>
     </div>
     <p class="text-caption" style="margin-top:var(--sp-3)">Ціни в прикладах умовні. Живі значення приходять з прайсу, а не пишуться в розмітці.</p>
@@ -683,7 +876,18 @@
 <!-- ================================================================= -->
 <section class="sg-section" id="prices">
   <h2>Ціни</h2>
-  <p class="sg-about">Одна розмітка на всі екрани: на телефоні рядки складаються в дві колонки, від 768 px стають таблицею. Назви послуг – повні, без скорочень.</p>
+  <p class="sg-about">Таблиця цін лишається світлою: це довгий перелік для читання, синя площина під ним стомлює. Одна розмітка на всі екрани: на телефоні рядки складаються в дві колонки, від 768 px стають таблицею. Назви послуг – повні, без скорочень.</p>
+
+  <div class="sg-block">
+    <h3>Число ціни</h3>
+    <div class="sg-demo">
+      <p style="margin:0 0 var(--sp-4)"><span class="price price--lg price--gold"><small>від</small> 3&#160;600 грн</span> <span class="text-caption">картка дослідження</span></p>
+      <p style="margin:0 0 var(--sp-4)"><span class="price price--lg">від 1&#160;800 грн <small>8 досліджень</small></span> <span class="text-caption">картка групи</span></p>
+      <p style="margin:0"><span class="price">4&#160;200 грн<s>5&#160;400 грн</s></span> <span class="text-caption">рядок таблиці</span></p>
+    </div>
+    <code class="sg-code">&lt;span class="price price--lg price--gold"&gt;&lt;small&gt;від&lt;/small&gt; 3 600 грн&lt;/span&gt;</code>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Ціна – один компонент на весь сайт. `price` дає Fixel Display, вагу 600 і табличні цифри; `--lg` піднімає кегль до `--fs-price`; `--gold` фарбує золотом там, де ціна – головна цифра блока. Окремий `tnum` цінам не потрібен, табличні цифри вже в базі. Слово «від» і кількість досліджень ідуть у `small`, стара ціна – в `s`.</p>
+  </div>
 
   <div class="sg-demo">
     <div class="price-group">
@@ -695,19 +899,19 @@
         <tbody>
           <tr>
             <td class="name">Магнітно-резонансна томографія шийного відділу хребта<span class="note-inline">20–25 хвилин</span></td>
-            <td class="price tnum">1 800 грн</td>
+            <td class="price">1 800 грн</td>
           </tr>
           <tr>
             <td class="name">Магнітно-резонансна томографія грудного відділу хребта<span class="note-inline">20–25 хвилин</span></td>
-            <td class="price tnum">1 800 грн</td>
+            <td class="price">1 800 грн</td>
           </tr>
           <tr>
             <td class="name">Магнітно-резонансна томографія попереково-крижового відділу хребта<span class="note-inline">20–25 хвилин</span></td>
-            <td class="price tnum">1 800 грн</td>
+            <td class="price">1 800 грн</td>
           </tr>
           <tr>
             <td class="name">Магнітно-резонансна томографія трьох відділів хребта<span class="note-inline">50–60 хвилин, за один візит</span></td>
-            <td class="price tnum">4 200 грн<s>5 400 грн</s></td>
+            <td class="price">4 200 грн<s>5 400 грн</s></td>
           </tr>
         </tbody>
       </table>
@@ -722,11 +926,11 @@
         <tbody>
           <tr>
             <td class="name">Внутрішньовенне контрастування<span class="note-inline">доза розраховується за вагою пацієнта</span></td>
-            <td class="price tnum">від 1 200 грн</td>
+            <td class="price">від 1 200 грн</td>
           </tr>
           <tr>
             <td class="name">Запис дослідження на диск</td>
-            <td class="price tnum">100 грн</td>
+            <td class="price">100 грн</td>
           </tr>
         </tbody>
       </table>
@@ -813,7 +1017,7 @@
 <!-- ================================================================= -->
 <section class="sg-section" id="booking">
   <h2>Запис</h2>
-  <p class="sg-about">До появи бази запис веде на телефон центру і форму зворотного дзвінка. Коли з'являться вільні слоти, ця сама смуга поведе у вибір часу – розмітка не зміниться.</p>
+  <p class="sg-about">Основний блок запису – золота панель, вона в розділі «Синя мова» і стоїть на головній перед підвалом. Нижче – компактний варіант для внутрішніх сторінок, де золота панель була б завелика. До появи бази обидва ведуть на телефон і форму зворотного дзвінка; коли з'являться вільні слоти, розмітка не зміниться.</p>
 
   <div class="cta-band">
     <h2>Записатися на дослідження</h2>
@@ -915,7 +1119,7 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
     <div class="footer-bottom">
       <span>© 2026 МРТ ПЛЮС</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Сторінка стилів, збірка 0.30</span>
+      <span class="tnum">Сторінка стилів, збірка 0.33</span>
     </div>
   </div>
 </footer>

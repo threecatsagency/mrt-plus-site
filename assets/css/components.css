@@ -698,139 +698,7 @@
 }
 
 /* =====================================================================
-   6. Перший екран
-   Декор – горизонтальні риски різної щільності: шкала зрізів на плівці.
-   Використовується один раз на сторінку.
-   ===================================================================== */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  background: var(--c-white);
-  border-bottom: var(--border);
-  padding-block: clamp(2rem, 1rem + 4vw, 4rem);
-}
-
-.hero__inner {
-  position: relative;
-  z-index: 1;
-}
-
-.hero .crumbs {
-  padding-top: 0;
-  margin-bottom: var(--sp-8);
-}
-
-.hero h1 {
-  max-width: 18ch;
-  margin-bottom: var(--sp-6);
-}
-
-.hero .lead {
-  margin-bottom: var(--sp-10);
-}
-
-.hero__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-4) var(--sp-6);
-  margin-bottom: var(--sp-6);
-  font-size: var(--fs-small);
-  color: var(--c-ink-600);
-}
-
-.hero__meta b {
-  display: block;
-  color: var(--c-ink-900);
-  font-weight: var(--fw-bold);
-}
-
-.scanlines {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: min(46%, 420px);
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    180deg,
-    var(--c-gold-300) 0 1px,
-    transparent 1px 9px
-  );
-  opacity: 0.5;
-  mask-image: linear-gradient(90deg, transparent, #000 45%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%, transparent);
-}
-
-/* Темний перший екран головної: тут золото в повну силу. */
-.hero-dark {
-  background: var(--c-navy-900);
-  color: var(--c-white);
-  border-bottom: 0;
-  padding-block: clamp(3rem, 2rem + 5vw, 6rem);
-}
-
-.hero-dark h1 {
-  color: var(--c-white);
-  font-size: var(--fs-display);
-  line-height: var(--lh-tight);
-  max-width: 14ch;
-  margin-bottom: var(--sp-6);
-}
-
-.hero-dark .lead {
-  color: var(--c-gold-100);
-}
-
-.hero-dark .scanlines {
-  opacity: 0.35;
-}
-
-.hero-dark .hero__meta {
-  color: var(--c-gold-300);
-}
-
-.hero-dark .hero__meta b {
-  color: var(--c-white);
-}
-
-.hero-dark .btn-outline {
-  background: transparent;
-  border-color: var(--c-gold-500);
-  color: var(--c-gold-300);
-}
-
-.hero-dark .btn-outline:hover {
-  background: rgba(217, 198, 156, 0.12);
-  border-color: var(--c-gold-300);
-  color: var(--c-white);
-}
-
-.hero-dark .logo-big {
-  display: block;
-  width: min(200px, 48%);
-  height: auto;
-  color: var(--c-gold-500);
-  margin-bottom: var(--sp-8);
-}
-
-/* Коротка золота риска під заголовком секції. */
-.rule-gold::after {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 2px;
-  background: var(--c-gold-500);
-  margin-top: var(--sp-3);
-}
-
-.price-from {
-  font-size: var(--fs-caption);
-  color: var(--c-gold-600);
-  font-weight: var(--fw-semibold);
-  margin-right: var(--sp-1);
-}
-
-/* =====================================================================
-   7. Картки
+   6. Картки
    ===================================================================== */
 
 .card {
@@ -916,20 +784,12 @@
   font-size: var(--fs-h3);
 }
 
-.card-group .from {
+.card-group .price {
   margin-top: auto;
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: var(--fw-bold);
-  color: var(--c-ink-900);
-  font-variant-numeric: tabular-nums;
 }
 
-.card-group .from small {
+.card-group .price small {
   display: block;
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-  color: var(--c-ink-500);
 }
 
 /* Апарат центру. */
@@ -970,9 +830,50 @@
 }
 
 /* =====================================================================
-   8. Ціни
+   7. Ціни
    Одна розмітка: на телефоні – рядки-картки, на десктопі – таблиця.
    ===================================================================== */
+
+/* Ціна – один компонент на весь сайт. Число завжди Fixel Display з
+   табличними цифрами: у стовпці таблиці розряди стають один під одним,
+   на картці число читається як число, а не як частина фрази.
+   Кегль і колір задають модифікатори, база не змінюється ніде. */
+.price {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink-900);
+  white-space: nowrap;
+}
+
+/* Слово «від» і кількість досліджень – службовий текст біля числа.
+   Не переносяться окремим рядком, якщо картка вузька. */
+.price small {
+  font-family: var(--font-ui);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
+  white-space: nowrap;
+}
+
+/* Стара ціна, коли є знижка. */
+.price s {
+  display: block;
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-caption);
+  color: var(--c-ink-400);
+}
+
+/* Велика ціна: картка дослідження, картка групи, перший екран послуги. */
+.price--lg {
+  font-size: var(--fs-price);
+  line-height: 1.1;
+}
+
+/* Ціна золотом – тільки на картці дослідження, де вона головна цифра. */
+.price--gold {
+  color: var(--c-gold-600);
+}
 
 .price-group {
   margin-bottom: var(--sp-8);
@@ -1021,18 +922,7 @@
 }
 
 .price-table .price {
-  font-weight: var(--fw-bold);
-  color: var(--c-ink-900);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
   text-align: right;
-}
-
-.price-table .price s {
-  display: block;
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-caption);
-  color: var(--c-ink-400);
 }
 
 @media (min-width: 48em) {
@@ -1071,7 +961,7 @@
 }
 
 /* =====================================================================
-   9. Підготовка і питання
+   8. Підготовка і питання
    ===================================================================== */
 
 /* Кроки – справжня послідовність, тому нумеровані. */
@@ -1207,7 +1097,7 @@
 }
 
 /* =====================================================================
-   10. Відгуки
+   9. Відгуки
    ===================================================================== */
 
 .review {
@@ -1249,7 +1139,7 @@
 }
 
 /* =====================================================================
-   11. Смуга дії і форма зворотного дзвінка
+   10. Смуга дії і форма зворотного дзвінка
    ===================================================================== */
 
 .cta-band {
@@ -1326,7 +1216,7 @@
 }
 
 /* =====================================================================
-   12. Підвал
+   11. Підвал
    ===================================================================== */
 
 .site-footer {
@@ -1386,7 +1276,7 @@
 }
 
 /* =====================================================================
-   13. Панелі й плитки
+   12. Панелі
    Сторінка збирається з великих кольорових панелей із заокругленням,
    а не з білих карток у рамках. Колір несе секцію, повітря – ритм.
    ===================================================================== */
@@ -1452,87 +1342,12 @@
   color: var(--c-navy-900);
 }
 
-/* Перший екран: світлий, великий, з повітрям. */
-.hero-open {
-  padding-block: clamp(2rem, 1rem + 4vw, 5rem) 0;
-}
-
-.hero-open .panel {
-  position: relative;
-  overflow: hidden;
-  padding-block: clamp(3rem, 2rem + 6vw, 7rem);
-}
-
-.hero-open h1 {
-  font-size: var(--fs-display);
-  line-height: var(--lh-tight);
-  letter-spacing: -0.03em;
-  max-width: 12ch;
-  margin-bottom: var(--sp-6);
-}
-
-.hero-open .lead {
-  max-width: 44ch;
-  margin-bottom: var(--sp-8);
-}
-
-.hero-open .logo-big {
-  width: min(180px, 40%);
-  height: auto;
-  color: var(--c-gold-500);
-  margin-bottom: var(--sp-10);
-}
-
-.hero-open .scanlines {
-  width: min(40%, 380px);
-  opacity: 0.8;
-}
-
-/* Великі факти: число і підпис. */
-.facts {
-  display: grid;
-  gap: var(--sp-6) var(--sp-8);
-  margin-top: var(--sp-12);
-}
-
 @media (min-width: 40em) {
   .facts {
     grid-template-columns: repeat(3, auto);
     justify-content: start;
     gap: var(--sp-6) var(--sp-16);
   }
-}
-
-.fact b {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: var(--fs-h2);
-  line-height: 1;
-  letter-spacing: var(--ls-tight);
-  color: var(--c-navy-900);
-  margin-bottom: var(--sp-2);
-}
-
-.fact span {
-  display: block;
-  max-width: 22ch;
-  font-size: var(--fs-small);
-  color: var(--c-ink-500);
-}
-
-.panel-navy .fact b {
-  color: var(--c-gold-500);
-}
-
-.panel-navy .fact span {
-  color: var(--c-gold-300);
-}
-
-/* Плитки центрів: без рамок, колір замість лінії. */
-.tiles {
-  display: grid;
-  gap: var(--sp-4);
 }
 
 @media (min-width: 40em) {
@@ -1546,159 +1361,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--sp-5);
   }
-}
-
-.tile {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
-  min-height: 240px;
-  padding: var(--sp-6);
-  border-radius: var(--r-lg);
-  background: var(--c-white);
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--t-base), box-shadow var(--t-base);
-}
-
-.tile:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-3);
-  color: inherit;
-}
-
-.tile:nth-child(3n + 1) {
-  background: var(--grad-sand);
-}
-
-.tile:nth-child(3n + 2) {
-  background: var(--grad-sky);
-}
-
-.tile:nth-child(3n) {
-  background: linear-gradient(150deg, #ffffff 0%, #f7f4ed 100%);
-  box-shadow: inset 0 0 0 1px var(--c-ink-200);
-}
-
-.tile h3 {
-  font-size: var(--fs-h3);
-  margin: 0;
-  transition: color var(--t-fast);
-}
-
-.tile:hover h3 {
-  color: var(--c-accent-600);
-}
-
-.tile .addr {
-  margin: 0;
-  color: var(--c-ink-600);
-}
-
-.tile .badge-row {
-  margin-top: auto;
-  padding-top: var(--sp-4);
-}
-
-.tile .arrow {
-  position: absolute;
-}
-
-/* Рядки досліджень: назва зліва, ціна справа, лінія між. */
-.rows {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.rows li {
-  margin: 0;
-}
-
-.rows a {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--sp-2) var(--sp-6);
-  align-items: baseline;
-  padding: var(--sp-5) 0;
-  border-top: 1px solid rgba(217, 198, 156, 0.25);
-  text-decoration: none;
-  color: inherit;
-}
-
-.rows li:first-child a {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.rows a {
-  transition: background-color var(--t-fast);
-}
-
-.rows a:hover {
-  background: rgba(217, 198, 156, 0.07);
-}
-
-.rows a:hover .row-name {
-  color: var(--c-gold-500);
-}
-
-.row-name {
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: var(--fs-h3);
-  letter-spacing: var(--ls-tight);
-  transition: color var(--t-fast);
-}
-
-.row-desc {
-  grid-column: 1;
-  font-size: var(--fs-small);
-  color: var(--c-gold-300);
-  max-width: 52ch;
-}
-
-.row-price {
-  transition: color var(--t-fast);
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: start;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: var(--fs-price);
-  letter-spacing: var(--ls-tight);
-  color: var(--c-gold-500);
-  white-space: nowrap;
-}
-
-.row-price small {
-  display: block;
-  font-family: var(--font-ui);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-caption);
-  color: var(--c-gold-300);
-  letter-spacing: 0;
-}
-
-/* Світла версія рядків – для панелі КТ. */
-.panel-sky .rows a {
-  border-color: rgba(35, 80, 169, 0.18);
-}
-
-.panel-sky .row-desc {
-  color: var(--c-ink-500);
-}
-
-.panel-sky .row-price {
-  color: var(--c-accent-600);
-}
-
-.panel-sky .row-price small {
-  color: var(--c-ink-500);
-}
-
-.panel-sky .rows a:hover .row-name {
-  color: var(--c-accent-600);
 }
 
 /* Золота панель дзвінка: величезний номер. */
@@ -1751,12 +1413,6 @@
   color: var(--c-navy-900);
 }
 
-/* Двоколонка секції: заголовок зліва, вміст справа. */
-.split {
-  display: grid;
-  gap: var(--sp-8);
-}
-
 @media (min-width: 64em) {
   .split {
     grid-template-columns: 5fr 7fr;
@@ -1783,171 +1439,13 @@
   border-bottom: 0;
 }
 
-/* Секція «Навіщо обстежуватись»: три плитки за схемою
-   мітка – заголовок вигодою – пояснення. Тут немає жодного слова
-   про нас: секція продає дію, а не клініку. */
-.whys {
-  display: grid;
-  gap: var(--sp-8);
-}
-
-@media (min-width: 48em) {
-  .whys {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-8);
-  }
-}
-
-.why {
-  padding: var(--sp-6);
-  border-radius: var(--r-lg);
-  background: var(--c-white);
-  box-shadow: var(--shadow-1);
-}
-
-.why__tag {
-  margin: 0 0 var(--sp-3);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  color: var(--c-gold-600);
-}
-
-.why h3 {
-  margin-bottom: var(--sp-3);
-  font-size: var(--fs-h3);
-}
-
-.why p:last-child {
-  margin: 0;
-  font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: var(--lh-text);
-  color: var(--c-ink-600);
-}
-
 /* =====================================================================
-   17. Стилістика Health Images
-   Повноекранний перший екран, шлях пацієнта колом-кроками, велика
-   темна картка з заокругленням 50 px, відгуки, акордеон питань.
-   Шрифти і гама лишаються наші.
+   13. Синя мова
+   Основна мова сайту. Глибокий синій зі світінням на всю ширину,
+   двоколірні заголовки (друга частина золотом через em), мітка з
+   кружечком, кнопки-квитки зі стрілкою, білі картки послуг на синьому,
+   шлях пацієнта кроками, відгуки, акордеон питань з плюсом.
    ===================================================================== */
-
-.fullhero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 100svh;
-  overflow: hidden;
-}
-
-/* Місце під фонове фото. Поки його немає, працює піщаний градієнт
-   із затемненням знизу, щоб білий низ не зливався зі стрічкою. */
-.fullhero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--grad-sand);
-}
-
-.fullhero__bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(180deg, rgba(185, 151, 91, 0.16) 0 1px, transparent 1px 9px),
-    linear-gradient(180deg, transparent 55%, rgba(14, 29, 58, 0.16) 100%);
-}
-
-.fullhero__inner {
-  padding-block: var(--sp-16) clamp(3rem, 2rem + 6vh, 7rem);
-}
-
-.fullhero h1 {
-  margin: 0 0 var(--sp-8);
-  font-size: clamp(2.75rem, 1.2rem + 6.6vw, 6.75rem);
-  line-height: 1;
-  letter-spacing: -0.035em;
-}
-
-/* Вертикальні соцмережі, як у зразку – ліворуч по центру. */
-.fullhero__social {
-  position: absolute;
-  left: var(--sp-6);
-  top: 50%;
-  transform: translateY(-50%);
-  display: none;
-  flex-direction: column;
-  gap: var(--sp-4);
-}
-
-@media (min-width: 64em) {
-  .fullhero__social {
-    display: flex;
-  }
-}
-
-.fullhero__social a {
-  color: var(--c-navy-900);
-  opacity: 0.55;
-  transition: opacity var(--t-fast), transform var(--t-fast);
-}
-
-.fullhero__social a:hover {
-  opacity: 1;
-  transform: translateX(2px);
-}
-
-.fullhero__social svg {
-  width: 22px;
-  height: 22px;
-  display: block;
-}
-
-/* Стрічка фактів унизу першого екрана. */
-.fullhero__strip {
-  border-top: 1px solid rgba(14, 29, 58, 0.14);
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
-}
-
-.strip-facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2) var(--sp-10);
-  align-items: center;
-  padding-block: var(--sp-4);
-  font-size: var(--fs-small);
-  color: var(--c-ink-600);
-}
-
-.strip-facts b {
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: 1.5em;
-  color: var(--c-gold-600);
-  margin-right: 0.25em;
-}
-
-.strip-facts__logo {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-3);
-}
-
-.strip-facts__logo img {
-  width: 150px;
-  height: auto;
-  display: block;
-}
-
-/* Кнопка більшого калібру, як btn-xl у зразку. */
-.btn-xl {
-  height: 64px;
-  padding-inline: var(--sp-8);
-  font-size: var(--fs-lead);
-  border-radius: 20px;
-}
 
 /* Шлях пацієнта: кругле фото, номер у колі, текст по центру. */
 .journey {
@@ -1968,6 +1466,10 @@
   aspect-ratio: 1;
   margin: 0 auto var(--sp-5);
   border-radius: 50%;
+  background: var(--grad-sand);
+}
+
+.journey__photo--1 {
   background: var(--grad-sand);
 }
 
@@ -2009,87 +1511,6 @@
   color: var(--c-ink-600);
 }
 
-/* Велика темна картка з заокругленням 50 px. */
-.navycard {
-  padding: clamp(2.5rem, 1.5rem + 4vw, 6rem);
-  border-radius: 50px;
-  background: var(--grad-navy);
-  color: var(--c-white);
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-}
-
-.navycard::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--glow-gold);
-}
-
-.navycard__eyebrow {
-  margin: 0 0 var(--sp-5);
-  font-size: var(--fs-small);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.33em;
-  text-transform: uppercase;
-  color: var(--c-gold-300);
-}
-
-.navycard h2 {
-  color: var(--c-white);
-  max-width: 20ch;
-  margin-bottom: clamp(2rem, 1.5rem + 2.5vw, 4rem);
-}
-
-.navycard__cols {
-  display: grid;
-  gap: var(--sp-8);
-}
-
-@media (min-width: 48em) {
-  .navycard__cols {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-10);
-  }
-}
-
-.ncol__tag {
-  margin: 0 0 var(--sp-3);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.33em;
-  text-transform: uppercase;
-  color: var(--c-gold-500);
-}
-
-.ncol h3 {
-  color: var(--c-white);
-  font-size: var(--fs-h3);
-  margin-bottom: var(--sp-3);
-}
-
-.ncol p:last-child {
-  margin: 0;
-  font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: var(--lh-text);
-  color: var(--c-gold-100);
-}
-
-.navycard__note {
-  margin: clamp(2rem, 1.5rem + 2.5vw, 4rem) 0 0;
-  padding-top: var(--sp-6);
-  border-top: 1px solid rgba(217, 198, 156, 0.3);
-  font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: var(--lh-text);
-  color: var(--c-gold-300);
-  max-width: 64ch;
-}
-
 /* Відгуки. */
 .voices {
   display: grid;
@@ -2123,12 +1544,6 @@
   font-weight: var(--fw-semibold);
   color: var(--c-gold-600);
 }
-
-/* =====================================================================
-   18. Синя мова Health Images
-   Глибокий синій зі світінням, двоколірні заголовки, мітка з кружечком,
-   кнопки-квитки зі стрілкою, білі картки послуг на синьому.
-   ===================================================================== */
 
 /* Двоколірний заголовок: друга частина золотом. */
 h1 em,
@@ -2189,10 +1604,7 @@ h2 em.accent {
   position: relative;
   isolation: isolate;
   color: var(--c-white);
-  background:
-    radial-gradient(90% 90% at 80% 10%, rgba(74, 111, 192, 0.55) 0%, transparent 55%),
-    radial-gradient(70% 80% at 10% 100%, rgba(14, 29, 58, 0.9) 0%, transparent 60%),
-    linear-gradient(150deg, #2a4da3 0%, #1d3a86 45%, #122654 100%);
+  background: var(--grad-blue);
 }
 
 .bluehero .dot-eyebrow,
@@ -2332,9 +1744,7 @@ h2 em.accent {
 }
 
 .bluesection--alt {
-  background:
-    radial-gradient(90% 90% at 15% 10%, rgba(74, 111, 192, 0.5) 0%, transparent 55%),
-    linear-gradient(150deg, #1d3a86 0%, #16305f 50%, #0e1d3a 100%);
+  background: var(--grad-blue-alt);
 }
 
 .bluesection h2 {
@@ -2488,17 +1898,6 @@ h2 em.accent {
 
 .scard__price {
   margin-top: auto;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: var(--fs-h4);
-  color: var(--c-gold-600);
-}
-
-.scard__price small {
-  font-family: var(--font-ui);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-caption);
-  color: var(--c-ink-500);
 }
 
 /* Питання з плюсом праворуч, як у зразку. */
@@ -2588,89 +1987,9 @@ h2 em.accent {
   padding-top: 0.27em;
 }
 
-/* Великий номер на золотій панелі – окремо, бо там свій рядок. */
-.panel-gold .big-phone {
-  padding-top: 0.06em;
-}
-
-/* =====================================================================
-   15. Перший екран
-   Гасло і докази – одна композиція. Праворуч від гасла два короткі
-   факти словами, під ними два великі числа на всю ширину. Жодних
-   панелей і кнопок: телефон у шапці, дії – в липкій смузі.
-   ===================================================================== */
-
-.eyebrow {
-  margin: 0 0 var(--sp-6);
-  font-size: var(--fs-small);
-  font-weight: var(--fw-semibold);
-  color: var(--c-gold-600);
-}
-
-.hero-open {
-  padding-block: clamp(3rem, 2rem + 5vw, 7rem) clamp(2.5rem, 1.5rem + 4vw, 6rem);
-}
-
-.hero-grid {
-  display: grid;
-  gap: var(--sp-10);
-}
-
-@media (min-width: 64em) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-    gap: var(--sp-16);
-    align-items: end;
-  }
-}
-
-.hero-grid h1 {
-  margin: 0;
-  max-width: 13ch;
-  font-size: clamp(2.5rem, 1.3rem + 5.2vw, 5.5rem);
-  line-height: 1;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
-}
-
-/* Переваги праворуч від гасла: число золотом, підпис під ним,
-   золота риска зліва – як нотатки на полях. */
-.hero-facts {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-6);
-  max-width: 340px;
-}
-
-.hf {
-  padding-left: var(--sp-5);
-  border-left: 2px solid var(--c-gold-500);
-}
-
-.hf b {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: clamp(2.25rem, 1.5rem + 1.6vw, 3rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--c-gold-600);
-  margin-bottom: var(--sp-1);
-}
-
-.hf span {
-  font-size: var(--fs-small);
-  line-height: 1.5;
-  color: var(--c-ink-600);
-  display: block;
-  max-width: 30ch;
-}
-
-.hf--logo img {
-  display: block;
-  width: min(240px, 100%);
-  height: auto;
-  margin-bottom: var(--sp-2);
+/* Великий номер на золотій панелі: зсув менший, бо кегль великий. */
+.big-phone.is-caps {
+  padding-top: 0.1em;
 }
 
 /* Телефон і подібні рядки не переносяться. */
@@ -2678,77 +1997,8 @@ h2 em.accent {
   white-space: nowrap;
 }
 
-/* Стани, які лишалися миттєвими. */
-.card,
-.review,
-.form-card {
-  transition: border-color var(--t-fast), box-shadow var(--t-base);
-}
-
-.card-center:hover,
-.card-group:hover {
-  box-shadow: var(--shadow-2);
-}
-
-.badge,
-.note {
-  transition: background-color var(--t-fast), color var(--t-fast);
-}
-
-.header-phone .num,
-.header-phone .cap {
-  transition: color var(--t-fast);
-}
-
-.header-phone:hover .num {
-  color: var(--c-accent-600);
-}
-
-.site-header {
-  transition: box-shadow var(--t-base);
-}
-
-/* Усе інтерактивне, чому не задано власного переходу, все одно змінюється
-   плавно. Специфічність нульова, тому власні правила компонентів мають вагу. */
-:where(a, button, input, select, textarea, summary, label, [role="button"]) {
-  transition-property: color, background-color, border-color, box-shadow,
-    transform, opacity, outline-color;
-  transition-duration: var(--t-fast);
-  transition-timing-function: var(--ease);
-}
-
 /* =====================================================================
-   14. Оптика вертикального центрування
-   Метрики шрифту центрують рядок по малих літерах: висота 520, центр 260
-   над базовою лінією. Великі літери (700) і цифри (711) вищі, їхній центр
-   стоїть на 350–355, тобто на 0,09em вище. Через це «0 800 311 058» або
-   «МРТ 3 Т» у кнопці візуально злітають угору. Опускаємо їх назад.
-
-   Клас ставиться вручну або сам, скриптом, коли в елементі немає жодної
-   малої літери. Зсув в em, тому працює на всіх кеглях.
-   ===================================================================== */
-
-.is-caps {
-  padding-top: 0.18em; /* половина йде на зсув: контент опускається на 0,09em */
-}
-
-.btn.is-caps {
-  padding-top: 0.18em; /* заміняє базові 0.08em, а не додається до них */
-}
-
-/* Поля телефону й дати завжди містять лише цифри. */
-.input[data-phone],
-.input[data-date] {
-  padding-top: 0.27em;
-}
-
-/* Великий номер на золотій панелі – окремо, бо там свій рядок. */
-.panel-gold .big-phone {
-  padding-top: 0.06em;
-}
-
-/* =====================================================================
-   19. Мобільна композиція
+   15. Мобільна композиція
    На вузькому екрані всі пари колонок схлопуються в одну стрічку, і
    сторінка перетворюється на список однакових блоків. Тут телефон
    отримує власний ритм: порожні місця під фото не займають екран,

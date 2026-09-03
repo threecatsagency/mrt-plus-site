@@ -29,7 +29,10 @@
 
   function opticaCaps(root) {
     (root || document)
-      .querySelectorAll(".btn, .badge, .chip, .city-switch, .row-price, .fact b")
+      .querySelectorAll(
+      ".btn, .btn-ticket, .badge, .chip, .city-switch, .price, " +
+        ".scard__price, .bluehero__facts b, .big-phone"
+    )
       .forEach(function (el) {
         var text = (el.textContent || "").trim();
         if (!text) return;

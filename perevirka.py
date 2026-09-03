@@ -126,12 +126,54 @@ def perevirka_rozmitky():
             problem(path, f"тег <{tag}> з рядка {line} не закритий")
 
 
+def css_tekst():
+    """Увесь CSS одним рядком."""
+    return "".join(
+        path.read_text(encoding="utf-8") for path in files({".css"})
+    )
+
+
+def perevirka_klasiv():
+    """Кожен клас у розмітці має бути описаний у CSS, і навпаки –
+    описаний клас має десь застосовуватися. Інакше стилі й сторінки
+    розходяться мовчки."""
+    css = css_tekst()
+    opysani = set(re.findall(r"\.([a-zA-Z][\w-]*)", css))
+    for path in files({".html"}):
+        vzhyti = set()
+        for group in re.findall(r'class="([^"]*)"', path.read_text(encoding="utf-8")):
+            vzhyti |= set(group.split())
+        for name in sorted(vzhyti - opysani):
+            problem(path, f"клас «{name}» у розмітці не описаний у CSS")
+
+
+def perevirka_tsin():
+    """Ціна набирається одним компонентом. Будь-яка сума в гривнях
+    має нести клас price – інакше вона отримає шрифт від контексту
+    і поруч стануть дві різні ціни."""
+    element = re.compile(
+        r'<(?P<tag>span|td|p|b|div|a)\b(?P<attrs>[^>]*)>(?P<body>(?:(?!</?(?:span|td|p|b|div|a)\b).)*грн)',
+        re.S,
+    )
+    for path in files({".html"}):
+        text = path.read_text(encoding="utf-8")
+        for match in element.finditer(text):
+            attrs = match.group("attrs")
+            klasy = re.search(r'class="([^"]*)"', attrs)
+            if klasy and "price" in klasy.group(1).split():
+                continue
+            row = text[: match.start()].count("\n") + 1
+            problem(path, f"сума в гривнях без класу price у рядку {row}")
+
+
 def main():
     perevirka_tekstu()
     perevirka_zminnyh()
     perevirka_posylan()
     perevirka_json()
     perevirka_rozmitky()
+    perevirka_klasiv()
+    perevirka_tsin()
 
     if PROBLEMS:
         print(f"Знайдено проблем: {len(PROBLEMS)}\n")
