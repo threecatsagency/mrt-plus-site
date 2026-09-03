@@ -1657,13 +1657,6 @@ h2 em.accent {
   padding-block: var(--sp-10);
 }
 
-@media (min-width: 64em) {
-  .bluehero__grid {
-    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-    gap: var(--sp-16);
-  }
-}
-
 .bluehero h1 {
   margin: 0 0 var(--sp-5);
   font-size: clamp(2.5rem, 1.4rem + 4.6vw, 5rem);
@@ -1688,31 +1681,6 @@ h2 em.accent {
   font-size: var(--fs-body);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.88);
-}
-
-/* Трактографія в героя: змодельовані волокна на канвасі
-   (assets/js/hero-fibers.js). Колір волокна – за напрямком, як у
-   справжній DTI: вертикальні сині, поперечні червоні, поздовжні
-   зелені. Малюється лише на широких екранах; коли система просить
-   менше руху – один нерухомий кадр. */
-.bluehero__photo {
-  position: relative;
-  overflow: hidden;
-  min-height: min(46vh, 460px);
-  border-radius: var(--r-xl);
-  background:
-    radial-gradient(70% 60% at 50% 40%, rgba(42, 77, 163, 0.55) 0%, transparent 75%),
-    linear-gradient(160deg, #0b1730, #060d1d);
-  outline: 1px solid rgba(255, 255, 255, 0.18);
-  outline-offset: -1px;
-}
-
-.bluehero__photo canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 /* Кнопка-квиток: білий контур, стрілка їде вправо при наведенні. */
@@ -2047,12 +2015,6 @@ h2 em.accent {
    ===================================================================== */
 
 @media (max-width: 63.99em) {
-  /* Порожній прямокутник під фото не має права займати пів екрана.
-     Повернути, коли замовник надасть знімок. */
-  .bluehero__photo {
-    display: none;
-  }
-
   .bluehero__grid {
     min-height: 0;
     gap: var(--sp-6);
