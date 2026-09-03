@@ -1679,14 +1679,23 @@ h2 em.accent {
   }
 }
 
-/* Перший екран займає вікно повністю за відрахуванням липкої шапки. */
+/* Перший екран тягнеться на вікно, але не примусово: висота – це
+   мінімум, обмежений зверху. На низькому ноуті екран не розтягується
+   до 100svh, бо тоді гасло і тріада злипаються з краями; на телефоні
+   вміст диктує висоту сам. */
 .bluehero__grid {
   position: relative;
   display: grid;
   gap: var(--sp-10);
   align-items: center;
-  min-height: calc(100svh - var(--header-h));
-  padding-block: var(--sp-10);
+  min-height: min(100svh - var(--header-h), 760px);
+  padding-block: clamp(2.5rem, 1.5rem + 4vh, 5rem);
+}
+
+@media (max-width: 63.99em) {
+  .bluehero__grid {
+    min-height: 0;
+  }
 }
 
 .bluehero h1 {
