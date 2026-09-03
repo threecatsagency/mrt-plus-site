@@ -1874,17 +1874,10 @@ h2 em.accent {
 }
 
 .statement__inner {
+  /* Секція – грід, тому вміст без min-width:0 розпирає її під найширшу
+     дитину: горизонтальні стрічки карток тягнули за собою всю сторінку. */
+  min-width: 0;
   text-align: center;
-}
-
-.statement__q {
-  margin: 0 auto var(--sp-6);
-  max-width: none;
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--c-gold-600);
 }
 
 .statement__a em {
@@ -1926,6 +1919,12 @@ h2 em.accent {
 .statement .btn-row {
   justify-content: center;
   margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+/* Відгуки під рівнянням: сітка та сама, текст усередині картки зліва. */
+.statement .voices {
+  margin-top: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  text-align: left;
 }
 
 /* Блакитний варіант центрального рівняння. */
@@ -2204,8 +2203,16 @@ p.rubric {
   color: var(--c-gold-300);
 }
 
+/* На вузькому екрані довга рубрика переноситься: nowrap розпирав
+   сторінку і тягнув за собою горизонтальну прокрутку. */
 .rubric span {
-  white-space: nowrap;
+  white-space: normal;
+}
+
+@media (min-width: 48em) {
+  .rubric span {
+    white-space: nowrap;
+  }
 }
 
 .rubric::after {
@@ -2219,6 +2226,7 @@ p.rubric {
 /* У центрованій секції рубрика тримає лінії з двох боків. */
 .statement .rubric {
   justify-content: center;
+  margin-bottom: var(--sp-6);
 }
 
 .statement .rubric::before {
