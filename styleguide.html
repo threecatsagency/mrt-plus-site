@@ -527,18 +527,27 @@
         <button class="ctab" role="tab" aria-selected="false" type="button">Житомир</button>
       </div>
       <div class="cpanel is-on">
-        <div class="cpanel__photo" aria-hidden="true"><span>Фото центру · Луцьк</span></div>
-        <div>
-          <h3 class="cpanel__city">Луцьк</h3>
-          <p class="cpanel__addr">просп. Молоді, 12В</p>
-          <span class="cpanel__now" data-pn-pt="8:00-22:00" data-sb="8:00-18:00"></span>
+        <div class="cpanel__photo">
+          <span class="cpanel__stub" aria-hidden="true">Фото центру</span>
+          <span class="badge-live">Зараз працює, до 22:00</span>
         </div>
-        <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Lumina 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span><span class="kit"><b>Siemens Magnetom Avanto 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span></div></div>
-        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
+        <div class="cpanel__data">
+          <div>
+            <p class="cpanel__addr">місто Луцьк, проспект Молоді, 12-В</p>
+            <div class="geo">
+              <a href="#"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>На карті</a>
+              <a href="#"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-6-3V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/></svg>Маршрут</a>
+            </div>
+          </div>
+          <div class="cpanel__row">
+            <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
+            <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Lumina 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span></div></div>
+          </div>
+        </div>
       </div>
     </div>
     <code class="sg-code">&lt;div class="ctabs" role="tablist"&gt;&lt;button class="ctab" data-city="lutsk"&gt;…&lt;/button&gt;&lt;/div&gt; + &lt;div class="cpanel" id="lutsk"&gt;</code>
-    <p class="text-caption" style="margin-top:var(--sp-3)">Інформація про шість центрів одночасно нікому не потрібна – людині потрібен її власний. Активна табка темно-синя, панель показує фото центру, адресу, обладнання з тунелем і вантажопідйомністю, графік і живий рядок стану – він рахується скриптом з даних `data-pn-pt` і `data-sb` за київським часом, а не пишеться руками. Табки ходять стрілками, на телефоні гортаються вбік.</p>
+    <p class="text-caption" style="margin-top:var(--sp-3)">Інформація про шість центрів одночасно нікому не потрібна – людині потрібен її власний. Активна табка темно-синя, панель показує фото центру з плашкою стану, адресу з переходами на карту й маршрут, графік і обладнання з тунелем та вантажопідйомністю. Стан рахується скриптом з даних `data-pn-pt` і `data-sb` за київським часом, а не пишеться руками; колір несе крапка, а не текст, щоб плашка не читалась як кнопка. Табки ходять стрілками, на телефоні гортаються вбік.</p>
   </div>
 
   <div class="sg-block">
@@ -1217,7 +1226,7 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
     <div class="footer-bottom">
       <span>© 2026 МРТ ПЛЮС</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Сторінка стилів, збірка 0.69</span>
+      <span class="tnum">Сторінка стилів, збірка 0.70</span>
     </div>
   </div>
 </footer>

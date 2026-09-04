@@ -100,7 +100,7 @@
 
   <section class="skysection" id="tsentry">
     <div class="container">
-      <p class="rubric"><span>Оберіть свій центр</span></p>
+      <p class="rubric"><span>Оберіть свій діагностичний центр</span></p>
       <div class="ctabs" role="tablist">
         <button class="ctab" role="tab" aria-selected="true" data-city="lutsk" type="button">Луцьк</button>
         <button class="ctab" role="tab" aria-selected="false" data-city="rivne" type="button">Рівне</button>
@@ -111,70 +111,178 @@
       </div>
 
       <div class="cpanel is-on" id="lutsk" role="tabpanel">
-        <div class="cpanel__photo" aria-hidden="true"><span>Фото центру · Луцьк</span></div>
-        <div>
-          <h3 class="cpanel__city">Луцьк</h3>
-          <p class="cpanel__addr">просп. Молоді, 12В</p>
-          <span class="cpanel__now" data-pn-pt="8:00-22:00" data-sb="8:00-18:00"></span>
+        <div class="cpanel__photo">
+          <span class="cpanel__stub" aria-hidden="true">Фото центру</span>
+          <span class="badge-live" data-pn-pt="8:00-22:00" data-sb="8:00-18:00"></span>
         </div>
-        <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Lumina 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span><span class="kit"><b>Siemens Magnetom Avanto 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span><span class="kit"><b>Siemens SOMATOM go.Up (КТ)</b><small>тунель 70 см, вага до 250 кг</small></span></div></div>
-        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
-        <div class="cpanel__go"><a class="btn btn-primary" href="#zapys">Записатися в Луцьку</a><a class="btn btn-outline" href="#posluhy">Ціни і підготовка</a></div>
+        <div class="cpanel__data">
+          <div>
+            <p class="cpanel__addr">місто Луцьк, проспект Молоді, 12-В</p>
+            <div class="geo">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Луцьк,+проспект+Молоді,+12-В" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>На карті</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Луцьк,+проспект+Молоді,+12-В" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-6-3V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/></svg>Маршрут</a>
+            </div>
+          </div>
+          <div class="cpanel__row">
+            <div>
+              <span class="cpanel__label">Графік</span>
+              <dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl>
+            </div>
+            <div>
+              <span class="cpanel__label">Обладнання</span>
+              <div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Lumina 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span><span class="kit"><b>Siemens Magnetom Avanto 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span><span class="kit"><b>Siemens SOMATOM go.Up (КТ)</b><small>тунель 70 см, вага до 250 кг</small></span></div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#zapys">Записатися в Луцьку</a>
+            <a class="btn btn-outline" href="#posluhy">Ціни</a>
+          </div>
+        </div>
       </div>
       <div class="cpanel" id="rivne" role="tabpanel">
-        <div class="cpanel__photo" aria-hidden="true"><span>Фото центру · Рівне</span></div>
-        <div>
-          <h3 class="cpanel__city">Рівне</h3>
-          <p class="cpanel__addr">вул. Карнаухова, 2А</p>
-          <span class="cpanel__now" data-pn-pt="8:00-21:00" data-sb="9:00-17:00"></span>
+        <div class="cpanel__photo">
+          <span class="cpanel__stub" aria-hidden="true">Фото центру</span>
+          <span class="badge-live" data-pn-pt="8:00-21:00" data-sb="9:00-17:00"></span>
         </div>
-        <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Sempra 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span><span class="kit"><b>Siemens SOMATOM go.Up (КТ)</b><small>тунель 70 см, вага до 250 кг</small></span></div></div>
-        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–21:00</dd><dt>Сб</dt><dd>9:00–17:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
-        <div class="cpanel__go"><a class="btn btn-primary" href="#zapys">Записатися в Рівне</a><a class="btn btn-outline" href="#posluhy">Ціни і підготовка</a></div>
+        <div class="cpanel__data">
+          <div>
+            <p class="cpanel__addr">місто Рівне, вулиця Карнаухова, 2-А</p>
+            <div class="geo">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Рівне,+вулиця+Карнаухова,+2-А" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>На карті</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Рівне,+вулиця+Карнаухова,+2-А" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-6-3V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/></svg>Маршрут</a>
+            </div>
+          </div>
+          <div class="cpanel__row">
+            <div>
+              <span class="cpanel__label">Графік</span>
+              <dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–21:00</dd><dt>Сб</dt><dd>9:00–17:00</dd><dt>Нд</dt><dd>вихідний</dd></dl>
+            </div>
+            <div>
+              <span class="cpanel__label">Обладнання</span>
+              <div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Sempra 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span><span class="kit"><b>Siemens SOMATOM go.Up (КТ)</b><small>тунель 70 см, вага до 250 кг</small></span></div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#zapys">Записатися в Рівному</a>
+            <a class="btn btn-outline" href="#posluhy">Ціни</a>
+          </div>
+        </div>
       </div>
       <div class="cpanel" id="kovel" role="tabpanel">
-        <div class="cpanel__photo" aria-hidden="true"><span>Фото центру · Ковель</span></div>
-        <div>
-          <h3 class="cpanel__city">Ковель</h3>
-          <p class="cpanel__addr">вул. Олени Пчілки, 4 · Ковельське МТМО</p>
-          <span class="cpanel__now" data-pn-pt="8:00-20:00" data-sb="9:00-15:00"></span>
+        <div class="cpanel__photo">
+          <span class="cpanel__stub" aria-hidden="true">Фото центру</span>
+          <span class="badge-live" data-pn-pt="8:00-20:00" data-sb="9:00-15:00"></span>
         </div>
-        <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Avanto 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span><span class="kit"><b>Siemens SOMATOM Emotion 16 (КТ)</b><small>тунель 70 см, вага до 250 кг</small></span></div></div>
-        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–20:00</dd><dt>Сб</dt><dd>9:00–15:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
-        <div class="cpanel__go"><a class="btn btn-primary" href="#zapys">Записатися в Ковель</a><a class="btn btn-outline" href="#posluhy">Ціни і підготовка</a></div>
+        <div class="cpanel__data">
+          <div>
+            <p class="cpanel__addr">місто Ковель, вулиця Олени Пчілки, 4<small>(Ковельське МТМО)</small></p>
+            <div class="geo">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Ковель,+вулиця+Олени+Пчілки,+4" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>На карті</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ковель,+вулиця+Олени+Пчілки,+4" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-6-3V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/></svg>Маршрут</a>
+            </div>
+          </div>
+          <div class="cpanel__row">
+            <div>
+              <span class="cpanel__label">Графік</span>
+              <dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–20:00</dd><dt>Сб</dt><dd>9:00–15:00</dd><dt>Нд</dt><dd>вихідний</dd></dl>
+            </div>
+            <div>
+              <span class="cpanel__label">Обладнання</span>
+              <div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Avanto 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span><span class="kit"><b>Siemens SOMATOM Emotion 16 (КТ)</b><small>тунель 70 см, вага до 250 кг</small></span></div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#zapys">Записатися в Ковелі</a>
+            <a class="btn btn-outline" href="#posluhy">Ціни</a>
+          </div>
+        </div>
       </div>
       <div class="cpanel" id="zhytomyr" role="tabpanel">
-        <div class="cpanel__photo" aria-hidden="true"><span>Фото центру · Житомир</span></div>
-        <div>
-          <h3 class="cpanel__city">Житомир</h3>
-          <p class="cpanel__addr">вул. Вокзальна, 12</p>
-          <span class="cpanel__now" data-pn-pt="8:00-21:00" data-sb="9:00-17:00"></span>
+        <div class="cpanel__photo">
+          <span class="cpanel__stub" aria-hidden="true">Фото центру</span>
+          <span class="badge-live" data-pn-pt="8:00-21:00" data-sb="9:00-17:00"></span>
         </div>
-        <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Prisma 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span></div></div>
-        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–21:00</dd><dt>Сб</dt><dd>9:00–17:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
-        <div class="cpanel__go"><a class="btn btn-primary" href="#zapys">Записатися в Житомир</a><a class="btn btn-outline" href="#posluhy">Ціни і підготовка</a></div>
+        <div class="cpanel__data">
+          <div>
+            <p class="cpanel__addr">місто Житомир, вулиця Вокзальна, 12</p>
+            <div class="geo">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Житомир,+вулиця+Вокзальна,+12" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>На карті</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Житомир,+вулиця+Вокзальна,+12" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-6-3V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/></svg>Маршрут</a>
+            </div>
+          </div>
+          <div class="cpanel__row">
+            <div>
+              <span class="cpanel__label">Графік</span>
+              <dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–21:00</dd><dt>Сб</dt><dd>9:00–17:00</dd><dt>Нд</dt><dd>вихідний</dd></dl>
+            </div>
+            <div>
+              <span class="cpanel__label">Обладнання</span>
+              <div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Prisma 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span></div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#zapys">Записатися в Житомирі</a>
+            <a class="btn btn-outline" href="#posluhy">Ціни</a>
+          </div>
+        </div>
       </div>
       <div class="cpanel" id="kyiv" role="tabpanel">
-        <div class="cpanel__photo" aria-hidden="true"><span>Фото центру · Київ</span></div>
-        <div>
-          <h3 class="cpanel__city">Київ</h3>
-          <p class="cpanel__addr">вул. Композитора Мейтуса, 5 · TOP Clinic DENIS</p>
-          <span class="cpanel__now" data-pn-pt="8:00-20:00" data-sb="8:00-20:00"></span>
+        <div class="cpanel__photo">
+          <span class="cpanel__stub" aria-hidden="true">Фото центру</span>
+          <span class="badge-live" data-pn-pt="8:00-20:00" data-sb="8:00-20:00"></span>
         </div>
-        <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Skyra 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span></div></div>
-        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Сб</dt><dd>8:00–20:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
-        <div class="cpanel__go"><a class="btn btn-primary" href="#zapys">Записатися в Київ</a><a class="btn btn-outline" href="#posluhy">Ціни і підготовка</a></div>
+        <div class="cpanel__data">
+          <div>
+            <p class="cpanel__addr">місто Київ, вулиця Композитора Мейтуса, 5<small>(TOP Clinic DENIS)</small></p>
+            <div class="geo">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Київ,+вулиця+Композитора+Мейтуса,+5" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>На карті</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Київ,+вулиця+Композитора+Мейтуса,+5" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-6-3V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/></svg>Маршрут</a>
+            </div>
+          </div>
+          <div class="cpanel__row">
+            <div>
+              <span class="cpanel__label">Графік</span>
+              <dl class="cpanel__hours"><dt>Пн–Сб</dt><dd>8:00–20:00</dd><dt>Нд</dt><dd>вихідний</dd></dl>
+            </div>
+            <div>
+              <span class="cpanel__label">Обладнання</span>
+              <div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Skyra 3 Т</b><small>тунель 70 см, вага до 250 кг</small></span></div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#zapys">Записатися в Києві</a>
+            <a class="btn btn-outline" href="#posluhy">Ціни</a>
+          </div>
+        </div>
       </div>
       <div class="cpanel" id="sheptytskyi" role="tabpanel">
-        <div class="cpanel__photo" aria-hidden="true"><span>Фото центру · Шептицький</span></div>
-        <div>
-          <h3 class="cpanel__city">Шептицький</h3>
-          <p class="cpanel__addr">вул. Івасюка, 2</p>
-          <span class="cpanel__now" data-pn-pt="8:00-19:00" data-sb="9:00-14:00"></span>
+        <div class="cpanel__photo">
+          <span class="cpanel__stub" aria-hidden="true">Фото центру</span>
+          <span class="badge-live" data-pn-pt="8:00-19:00" data-sb="9:00-14:00"></span>
         </div>
-        <div><span class="cpanel__label">Обладнання</span><div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Sempra 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span></div></div>
-        <div><span class="cpanel__label">Графік</span><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–19:00</dd><dt>Сб</dt><dd>9:00–14:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div>
-        <div class="cpanel__go"><a class="btn btn-primary" href="#zapys">Записатися в Шептицький</a><a class="btn btn-outline" href="#posluhy">Ціни і підготовка</a></div>
+        <div class="cpanel__data">
+          <div>
+            <p class="cpanel__addr">місто Шептицький, вулиця Івасюка, 2</p>
+            <div class="geo">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Шептицький,+вулиця+Івасюка,+2" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>На карті</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Шептицький,+вулиця+Івасюка,+2" target="_blank" rel="noopener"><svg class="i-geo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-6-3V4l6 3m0 13l6-3m-6 3V7m6 10l6 3V7l-6-3m0 13V4"/></svg>Маршрут</a>
+            </div>
+          </div>
+          <div class="cpanel__row">
+            <div>
+              <span class="cpanel__label">Графік</span>
+              <dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>8:00–19:00</dd><dt>Сб</dt><dd>9:00–14:00</dd><dt>Нд</dt><dd>вихідний</dd></dl>
+            </div>
+            <div>
+              <span class="cpanel__label">Обладнання</span>
+              <div class="cpanel__kit"><span class="kit"><b>Siemens Magnetom Sempra 1,5 Т</b><small>тунель 60 см, вага до 130 кг</small></span></div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#zapys">Записатися в Шептицькому</a>
+            <a class="btn btn-outline" href="#posluhy">Ціни</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -406,7 +514,7 @@
     <div class="footer-bottom">
       <span>© 2026 ТОВ «МРТ ПЛЮС»</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Збірка 0.69</span>
+      <span class="tnum">Збірка 0.70</span>
     </div>
   </div>
 </footer>

@@ -2360,16 +2360,30 @@ p.rubric {
   border-top: 1px solid rgba(14, 29, 58, 0.14);
 }
 
+/* Панель центру: фото ліворуч, дані праворуч трьома поверхами –
+   адреса з картою, графік і обладнання, дії. */
 .cpanel.is-on {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   gap: var(--sp-8);
   align-items: start;
+}
+
+.cpanel__data {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+.cpanel__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-6);
 }
 
 /* Місце під фото будівлі. Плейсхолдер живе, поки немає зйомки:
    пропорції задані, тому поява знімка не зрушить сітку. */
 .cpanel__photo {
+  position: relative;
   aspect-ratio: 4 / 3;
   border-radius: var(--r-lg);
   overflow: hidden;
@@ -2380,11 +2394,75 @@ p.rubric {
   outline-offset: -1px;
 }
 
-.cpanel__photo span {
+.cpanel__stub {
   font-size: var(--fs-caption);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--c-ink-500);
+}
+
+/* Стан роботи – плашкою на знімку: це не властивість розкладу, а те,
+   що відбувається зараз. Колір несе крапка, не текст. */
+.badge-live {
+  position: absolute;
+  left: var(--sp-4);
+  bottom: var(--sp-4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  font-size: var(--fs-caption);
+  color: var(--c-ink-900);
+}
+
+.badge-live::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--c-ok-600);
+  box-shadow: 0 0 0 3px rgba(23, 105, 63, 0.18);
+}
+
+.badge-live.is-shut::before {
+  background: var(--c-ink-400);
+  box-shadow: 0 0 0 3px rgba(138, 152, 156, 0.2);
+}
+
+/* Карта і маршрут: та сама мова, що табки міст. */
+.geo {
+  display: flex;
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.geo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(14, 29, 58, 0.2);
+  font-size: var(--fs-caption);
+  color: var(--c-ink-800);
+  text-decoration: none;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+.geo a:hover {
+  border-color: var(--c-gold-500);
+  color: var(--c-ink-900);
+}
+
+.i-geo {
+  width: 15px;
+  height: 15px;
+  flex: none;
 }
 
 .cpanel__photo img {
@@ -2394,33 +2472,17 @@ p.rubric {
   display: block;
 }
 
-.cpanel__city {
+.cpanel__addr {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.75rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-family: var(--font-text);
+  font-size: var(--fs-lead);
+  line-height: 1.5;
   color: var(--c-ink-900);
 }
 
-.cpanel__addr {
-  margin: var(--sp-3) 0 0;
-  font-family: var(--font-text);
+.cpanel__addr small {
+  display: block;
   font-size: var(--fs-small);
-  line-height: 1.55;
-  color: var(--c-ink-800);
-}
-
-/* Живий рядок графіка: рахується зі значень центру, не пишеться руками. */
-.cpanel__now {
-  display: inline-block;
-  margin-top: var(--sp-4);
-  font-size: var(--fs-caption);
-  color: var(--c-accent-600);
-}
-
-.cpanel__now.is-shut {
   color: var(--c-ink-500);
 }
 
@@ -2487,6 +2549,10 @@ p.rubric {
   .cpanel.is-on {
     grid-template-columns: 1fr;
     gap: var(--sp-6);
+  }
+
+  .cpanel__row {
+    grid-template-columns: 1fr;
   }
 
   .cpanel__photo {
