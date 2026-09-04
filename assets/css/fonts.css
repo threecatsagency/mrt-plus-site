@@ -1,11 +1,3 @@
-/* МРТ ПЛЮС – шрифти, локально.
-   Fixel (MacPaw, Україна, OFL): Display – заголовки, Text – інтерфейс.
-   Source Serif 4 (Adobe, OFL): довгі медичні тексти.
-   Підмножина Latin + Cyrillic, woff2. Нова версія файлу – нове ім'я.
-   У файлах Fixel вертикальні метрики вирівняно (770/-230, USE_TYPO_METRICS):
-   Windows, macOS і Linux центрують текст однаково. Вихідні файли MacPaw
-   мали різні значення hhea і usWin, від чого кнопки виглядали по-різному. */
-
 @font-face {
   font-family: "Fixel Display";
   font-weight: 700;
@@ -62,26 +54,3 @@
   src: url("../fonts/fixel-text-bold.woff2") format("woff2");
 }
 
-@font-face {
-  font-family: "Source Serif 4";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/source-serif-4-regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Source Serif 4";
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-  src: url("../fonts/source-serif-4-it.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Source Serif 4";
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/source-serif-4-semibold.woff2") format("woff2");
-}

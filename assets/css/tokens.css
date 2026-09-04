@@ -79,10 +79,13 @@
 
   /* ---- Шрифти ------------------------------------------------------
      Fixel Display – заголовки й ціни, Fixel Text – інтерфейс (MacPaw,
-     українська кирилиця). Source Serif 4 – довгі медичні тексти. */
+     українська кирилиця): Display для заголовків і чисел, Text для
+     всього набору. Серифа на сайті немає – тонкі засічки на темних
+     площинах з'їдаються згладжуванням, а кирилиця в екранних серифах
+     майже завжди адаптована, а не рідна. */
   --font-display: "Fixel Display", "Fixel Text", system-ui, sans-serif;
   --font-ui: "Fixel Text", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-text: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-text: "Fixel Text", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --fw-regular: 400;
   --fw-medium: 500;
