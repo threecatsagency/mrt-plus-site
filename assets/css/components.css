@@ -2824,7 +2824,7 @@ p.rubric {
   align-items: center;
   gap: var(--sp-4);
   width: fit-content;
-  margin: var(--sp-10) auto 0;
+  margin: var(--sp-6) auto 0;
   color: rgba(255, 255, 255, 0.72);
   font-size: var(--fs-small);
   text-decoration: none;
@@ -2863,6 +2863,21 @@ p.rubric {
    верхня межа 760px і скид на телефоні тут не діють. */
 .bluehero--nav .bluehero__grid {
   min-height: calc(100svh - var(--header-h));
+  align-items: stretch;
+  /* На низьких екранах повітря згори з'їдається першим, тому відступи
+     секції тут менші за типові для героя. */
+  padding-block: clamp(1.5rem, 0.5rem + 3vh, 3.5rem);
+}
+
+/* Перехід до наступної секції притискається до низу екрана,
+   а не висить одразу під плашками. */
+.hero-col {
+  display: flex;
+  flex-direction: column;
+}
+.hero-col .godown {
+  margin-top: auto;
+  padding-top: var(--sp-6);
 }
 
 /* Знімок ДТІ притишений: він тепер сусідить із плитками, а не з порожнечею. */
