@@ -2871,8 +2871,11 @@ p.rubric {
 /* Секції на головній коротші за типові: три блоки поспіль,
    тому повітря між ними зайве. */
 .section--accent { background: var(--c-accent-100); }
-.section--accent,
-.statement { padding-block: clamp(2.5rem, 1.5rem + 3vw, 4rem); }
+.section--accent { padding-block: clamp(3.5rem, 2rem + 6.5vw, 8rem); }
+.statement {
+  padding-top: clamp(3.5rem, 2rem + 6.5vw, 8rem);
+  padding-bottom: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+}
 .why__slogan { margin-bottom: var(--sp-8); }
 .statement .panel { margin-top: clamp(1.75rem, 1rem + 2vw, 2.5rem); }
 
