@@ -2362,9 +2362,36 @@ p.rubric {
 
 .cpanel.is-on {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--sp-8);
   align-items: start;
+}
+
+/* Місце під фото будівлі. Плейсхолдер живе, поки немає зйомки:
+   пропорції задані, тому поява знімка не зрушить сітку. */
+.cpanel__photo {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(150deg, rgba(14, 29, 58, 0.1), rgba(14, 29, 58, 0.04));
+  outline: 1px solid rgba(14, 29, 58, 0.12);
+  outline-offset: -1px;
+}
+
+.cpanel__photo span {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-ink-500);
+}
+
+.cpanel__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .cpanel__city {
@@ -2460,6 +2487,10 @@ p.rubric {
   .cpanel.is-on {
     grid-template-columns: 1fr;
     gap: var(--sp-6);
+  }
+
+  .cpanel__photo {
+    aspect-ratio: 16 / 9;
   }
 
   .cpanel__go {
