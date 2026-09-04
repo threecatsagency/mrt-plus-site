@@ -1886,8 +1886,9 @@ h2 em.accent {
 
 /* Повний екран лишається тільки першому рівнянню. Решта – за вмістом:
    відео, відгуки і питання не заслуговують окремого екрана. */
-.statement--sky,
-#vidhuky.statement {
+#shliakh.statement,
+#vidhuky.statement,
+#pytannia.statement {
   min-height: 0;
 }
 
