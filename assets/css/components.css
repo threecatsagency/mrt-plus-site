@@ -2263,6 +2263,20 @@ p.rubric {
   color: var(--c-ink-500);
 }
 
+/* Графік належить класу апарата, а не центру: у Луцьку, Рівному й Ковелі
+   МРТ і КТ працюють у різні години. */
+.hours-set {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.hours__kind {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  color: var(--c-ink-900);
+}
+
 .cpanel__hours {
   display: grid;
   grid-template-columns: auto 1fr;
