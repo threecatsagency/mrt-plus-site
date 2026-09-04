@@ -12,12 +12,77 @@
   var burger = document.querySelector("[data-menu-toggle]");
   var menu = document.getElementById("mobile-menu");
 
+  // Рівні мобільного меню: другий заїжджає на місце першого.
+  function riven(name) {
+    if (!menu) return;
+    menu.querySelectorAll(".mlvl").forEach(function (lvl) {
+      lvl.classList.toggle("is-on", lvl.dataset.lvl === name);
+    });
+  }
+
   if (burger && menu) {
     burger.addEventListener("click", function () {
       var open = menu.classList.toggle("is-open");
       burger.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) riven("root"); // закрили меню – наступного разу відкриється згори
+    });
+
+    menu.querySelectorAll("[data-lvl-open]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        riven(btn.dataset.lvlOpen);
+      });
+    });
+
+    menu.querySelectorAll("[data-lvl-back]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        riven("root");
+      });
     });
   }
+
+  /* ------------------------------------------------------------------
+     Панелі верхнього меню
+     Відкриваються наведенням і фокусом з клавіатури. Сам пункт лишається
+     посиланням на свій розділ: панель – скорочення, а не єдиний шлях.
+     ------------------------------------------------------------------ */
+
+  (function () {
+    var items = [].slice.call(document.querySelectorAll(".nav-item"));
+    if (!items.length) return;
+
+    function stan(item, open) {
+      item.classList.toggle("is-open", open);
+      var link = item.querySelector("a[aria-expanded]");
+      if (link) link.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    function zakrytyVsi() {
+      items.forEach(function (item) {
+        stan(item, false);
+      });
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener("mouseenter", function () {
+        zakrytyVsi();
+        stan(item, true);
+      });
+      item.addEventListener("mouseleave", function () {
+        stan(item, false);
+      });
+      item.addEventListener("focusin", function () {
+        zakrytyVsi();
+        stan(item, true);
+      });
+      item.addEventListener("focusout", function (e) {
+        if (!item.contains(e.relatedTarget)) stan(item, false);
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") zakrytyVsi();
+    });
+  })();
 
   /* ------------------------------------------------------------------
      Оптика: елементи без жодної малої літери сидять вище центру,

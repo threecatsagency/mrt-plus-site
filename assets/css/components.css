@@ -626,6 +626,197 @@
   font-weight: var(--fw-medium);
 }
 
+/* Пункт меню з панеллю. Панель – короткий список посилань під пунктом,
+   не мега-меню: великі площі шапці не потрібні. Прозорий відступ згори
+   належить самій панелі, щоб миша не провалювалась між пунктом і списком. */
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item > a::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 7px;
+  vertical-align: 2px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  rotate: 45deg;
+  opacity: 0.55;
+  transition: rotate var(--t-fast), opacity var(--t-fast);
+}
+
+.nav-item.is-open > a::after {
+  rotate: -135deg;
+  opacity: 1;
+}
+
+.nav-item.is-open > a {
+  color: var(--c-accent-600);
+}
+
+.drop {
+  position: absolute;
+  top: 100%;
+  left: calc(var(--sp-5) * -1);
+  z-index: 40;
+  padding-top: 10px;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -4px;
+  transition: opacity var(--t-fast), translate var(--t-base),
+    visibility var(--t-base);
+}
+
+.drop--end {
+  left: auto;
+  right: calc(var(--sp-5) * -1);
+}
+
+.nav-item.is-open .drop {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+
+.drop__inner {
+  position: relative;
+  min-width: 260px;
+  padding: var(--sp-5);
+  border: var(--border);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  box-shadow: 0 20px 44px rgba(14, 29, 58, 0.14);
+}
+
+.drop__inner::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: var(--sp-6);
+  width: 12px;
+  height: 12px;
+  rotate: 45deg;
+  background: var(--c-white);
+  border-left: var(--border);
+  border-top: var(--border);
+}
+
+.drop--end .drop__inner::before {
+  left: auto;
+  right: var(--sp-6);
+}
+
+.drop a {
+  display: block;
+  padding: 9px 0;
+  color: var(--c-ink-900);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.drop a + a {
+  border-top: var(--border);
+}
+
+.drop a:hover {
+  color: var(--c-accent-600);
+}
+
+.drop__all {
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-4);
+  border-top: var(--border);
+  color: var(--c-gold-600);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+}
+
+.drop a.drop__all:hover {
+  color: var(--c-gold-600);
+}
+
+/* Мобільне меню: другий рівень заїжджає на місце першого, а не
+   розсуває список. Екран малий, вкладеність видно по заголовку. */
+.mlvl {
+  display: none;
+}
+
+.mlvl.is-on {
+  display: block;
+}
+
+.mitem {
+  display: block;
+  width: 100%;
+  padding: var(--sp-3) 0;
+  border: 0;
+  border-top: var(--border);
+  background: none;
+  text-align: left;
+  text-decoration: none;
+  color: var(--c-ink-800);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+}
+
+.mitem--more::after {
+  content: "";
+  float: right;
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  border-top: 1.5px solid var(--c-gold-600);
+  border-right: 1.5px solid var(--c-gold-600);
+  rotate: 45deg;
+}
+
+.mback {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  width: 100%;
+  padding: var(--sp-3) 0;
+  border: 0;
+  border-bottom: var(--border);
+  background: none;
+  color: var(--c-gold-600);
+  font-family: inherit;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.mback::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid currentColor;
+  border-left: 1.5px solid currentColor;
+  rotate: -45deg;
+}
+
+.mlvl .mitem:first-of-type {
+  border-top: 0;
+}
+
+.mitem__note {
+  display: block;
+  margin-top: 2px;
+  color: var(--c-ink-500);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-regular);
+}
+
 @media (min-width: 64em) {
   .site-nav {
     display: flex;

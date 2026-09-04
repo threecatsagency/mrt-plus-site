@@ -25,11 +25,49 @@
     <a class="logo" href="/" aria-label="МРТ ПЛЮС – на головну"><svg viewBox="14 14 388 89" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></a>
 
     <nav class="site-nav" aria-label="Головне меню">
-      <a href="#posluhy">Послуги</a>
-      <a href="#tsentry">Центри</a>
-      <a href="#shliakh">Як це відбувається</a>
-      <a href="#pytannia">Питання</a>
-      <a href="#kontakty">Контакти</a>
+      <div class="nav-item">
+        <a href="#posluhy" aria-expanded="false" aria-controls="drop-posluhy">Послуги</a>
+        <div class="drop" id="drop-posluhy">
+          <div class="drop__inner">
+            <a href="#">МРТ</a>
+            <a href="#">КТ</a>
+            <a href="#">З контрастуванням</a>
+            <a href="#">Дітям</a>
+            <a href="#">Із седацією</a>
+            <a href="#">Широкий тунель</a>
+            <a class="drop__all" href="#posluhy">Усі дослідження →</a>
+          </div>
+        </div>
+      </div>
+      <a href="#">Ціни</a>
+      <div class="nav-item">
+        <a href="#" aria-expanded="false" aria-controls="drop-patsiyentam">Пацієнтам</a>
+        <div class="drop" id="drop-patsiyentam">
+          <div class="drop__inner">
+            <a href="#">Підготовка до МРТ</a>
+            <a href="#">Підготовка до КТ</a>
+            <a href="#">Протипоказання</a>
+            <a href="#">Обстеження з контрастом</a>
+            <a href="#">Дитині</a>
+            <a href="#">Як отримати результати</a>
+            <a href="#pytannia">Часті питання</a>
+            <a href="#vidhuky">Відгуки</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#tsentry" aria-expanded="false" aria-controls="drop-tsentry">Центри</a>
+        <div class="drop drop--end" id="drop-tsentry">
+          <div class="drop__inner">
+            <a href="#">Луцьк</a>
+            <a href="#">Рівне</a>
+            <a href="#">Ковель</a>
+            <a href="#">Житомир</a>
+            <a href="#">Київ</a>
+            <a href="#">Шептицький</a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="header-actions">
@@ -45,12 +83,46 @@
   <div class="container">
     <div class="mobile-menu" id="mobile-menu">
       <div class="mobile-menu__inner">
-        <a href="#navishcho">Навіщо</a>
-        <a href="#mrt">МРТ</a>
-        <a href="#kt">КТ</a>
-        <a href="#pidhotovka">Підготовка</a>
-        <a href="#kontakty">Контакти</a>
-        <a href="tel:0800311058">0 800 311 058</a>
+        <div class="mlvl is-on" data-lvl="root">
+          <button class="mitem mitem--more" type="button" data-lvl-open="posluhy">Послуги</button>
+          <a class="mitem" href="#">Ціни</a>
+          <button class="mitem mitem--more" type="button" data-lvl-open="patsiyentam">Пацієнтам</button>
+          <button class="mitem mitem--more" type="button" data-lvl-open="tsentry">Центри</button>
+          <a class="mitem" href="tel:0800311058">0 800 311 058</a>
+        </div>
+
+        <div class="mlvl" data-lvl="posluhy">
+          <button class="mback" type="button" data-lvl-back>Назад · Послуги</button>
+          <a class="mitem" href="#">МРТ</a>
+          <a class="mitem" href="#">КТ</a>
+          <a class="mitem" href="#">З контрастуванням</a>
+          <a class="mitem" href="#">Дітям</a>
+          <a class="mitem" href="#">Із седацією</a>
+          <a class="mitem" href="#">Широкий тунель</a>
+          <a class="mitem" href="#posluhy">Усі дослідження</a>
+        </div>
+
+        <div class="mlvl" data-lvl="patsiyentam">
+          <button class="mback" type="button" data-lvl-back>Назад · Пацієнтам</button>
+          <a class="mitem" href="#">Підготовка до МРТ</a>
+          <a class="mitem" href="#">Підготовка до КТ</a>
+          <a class="mitem" href="#">Протипоказання</a>
+          <a class="mitem" href="#">Обстеження з контрастом</a>
+          <a class="mitem" href="#">Дитині</a>
+          <a class="mitem" href="#">Як отримати результати</a>
+          <a class="mitem" href="#pytannia">Часті питання</a>
+          <a class="mitem" href="#vidhuky">Відгуки</a>
+        </div>
+
+        <div class="mlvl" data-lvl="tsentry">
+          <button class="mback" type="button" data-lvl-back>Назад · Центри</button>
+          <a class="mitem" href="#">Луцьк<span class="mitem__note">просп. Молоді, 12В</span></a>
+          <a class="mitem" href="#">Рівне<span class="mitem__note">вул. Карнаухова, 2А</span></a>
+          <a class="mitem" href="#">Ковель<span class="mitem__note">вул. Олени Пчілки, 4</span></a>
+          <a class="mitem" href="#">Житомир<span class="mitem__note">вул. Вокзальна, 12</span></a>
+          <a class="mitem" href="#">Київ<span class="mitem__note">вул. Композитора Мейтуса, 5</span></a>
+          <a class="mitem" href="#">Шептицький<span class="mitem__note">вул. Івасюка, 2</span></a>
+        </div>
       </div>
     </div>
   </div>
@@ -514,7 +586,7 @@
     <div class="footer-bottom">
       <span>© 2026 ТОВ «МРТ ПЛЮС»</span>
       <a href="#">Політика конфіденційності</a>
-      <span class="tnum">Збірка 0.74</span>
+      <span class="tnum">Збірка 0.75</span>
     </div>
   </div>
 </footer>
