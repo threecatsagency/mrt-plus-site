@@ -127,11 +127,6 @@
   color: var(--c-white);
 }
 
-.sg-demo--dark {
-  background: var(--c-ink-900);
-  border-color: var(--c-ink-900);
-}
-
 .sg-code {
   display: block;
   overflow-x: auto;
@@ -274,14 +269,148 @@
   text-transform: none;
 }
 
-.sg-build {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2);
-  padding: 2px var(--sp-2);
-  border-radius: var(--r-sm);
-  background: var(--c-ink-100);
-  color: var(--c-ink-500);
-  font-size: var(--fs-caption);
-  font-variant-numeric: tabular-nums;
+/* =====================================================================
+   Демонстраційні обгортки
+   Компоненти в стайл-ґайді мають виглядати рівно так, як на сайті,
+   тому інлайнові стилі на них заборонені. Усе, що потрібно для показу –
+   скидання зовнішніх відступів, рамка навколо площини, розміри плиток –
+   живе тут, у класах оболонки.
+   ===================================================================== */
+
+/* Компонент у демо не тягне за собою власні поля: він показується
+   всередині sg-demo, а не в потоці сторінки. */
+.sg-demo > *:first-child,
+.sg-blue > *:first-child,
+.sg-plate > *:first-child {
+  margin-top: 0;
+}
+
+.sg-demo > *:last-child:not(.rubric),
+.sg-blue > *:last-child:not(.rubric),
+.sg-plate > *:last-child:not(.rubric) {
+  margin-bottom: 0;
+}
+
+/* Площина сайту, показана як зразок: та сама заливка, але в рамці. */
+.sg-plate {
+  padding: clamp(1.5rem, 1rem + 3vw, 3rem);
+  border-radius: var(--r-xl);
+}
+
+/* Дії в демо стоять по центру, як у центрованих секціях. */
+.sg-demo .btn-row {
+  justify-content: center;
+}
+
+/* Плитки шкали відступів. */
+.sg-space {
+  height: 24px;
+  background: var(--c-accent-600);
+  border-radius: 2px;
+}
+
+.sg-space--1 { width: 4px; }
+.sg-space--2 { width: 8px; }
+.sg-space--3 { width: 12px; }
+.sg-space--4 { width: 16px; }
+.sg-space--5 { width: 24px; }
+.sg-space--6 { width: 32px; }
+.sg-space--8 { width: 48px; }
+.sg-space--10 { width: 64px; }
+
+/* Зразки кеглів набираються тими самими токенами, що сайт. */
+.sg-type-sample--display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-heading);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.sg-type-sample--h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-heading);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.sg-type-sample--h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-heading);
+  letter-spacing: -0.02em;
+}
+
+.sg-type-sample--h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-heading);
+}
+
+.sg-swatches--wide {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.sg-form-demo {
+  max-width: 520px;
+}
+
+/* Відступи в описах: замість інлайну – короткі утиліти. */
+.sg-note { margin: var(--sp-3) 0 0; }
+.sg-note--tight { margin: var(--sp-2) 0 0; }
+.sg-note--wide { margin: var(--sp-4) 0 0; }
+.sg-lead-in { margin: 0 0 var(--sp-4); }
+.sg-lead-in--tight { margin: 0 0 var(--sp-3); }
+
+/* Абзац-приклад на площині: та сама типографія, що на сайті. */
+.sg-sample-text {
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--font-text);
+  line-height: var(--lh-text);
+}
+
+.sg-blue .sg-sample-text,
+.sg-plate.bluesection .sg-sample-text { color: rgba(255, 255, 255, 0.9); }
+.sg-plate.skysection .sg-sample-text { color: var(--c-ink-800); max-width: 52ch; margin-top: var(--sp-4); }
+
+.sg-warn { color: var(--c-warn-600); }
+.sg-on-gold { color: var(--c-navy-800); }
+
+/* Плитки палітри беруть колір із токена, а не з хекса в розмітці:
+   інакше плитка бреше, щойно токен змінюється. */
+.sg-swatch--accent-050 { background: var(--c-accent-050); }
+.sg-swatch--accent-100 { background: var(--c-accent-100); }
+.sg-swatch--accent-500 { background: var(--c-accent-500); }
+.sg-swatch--accent-600 { background: var(--c-accent-600); }
+.sg-swatch--accent-700 { background: var(--c-accent-700); }
+.sg-swatch--blue-panel { background: var(--c-blue-panel); }
+.sg-swatch--danger-600 { background: var(--c-danger-600); }
+.sg-swatch--gold-100 { background: var(--c-gold-100); }
+.sg-swatch--gold-300 { background: var(--c-gold-300); }
+.sg-swatch--gold-500 { background: var(--c-gold-500); }
+.sg-swatch--gold-600 { background: var(--c-gold-600); }
+.sg-swatch--ink-050 { background: var(--c-ink-050); }
+.sg-swatch--ink-100 { background: var(--c-ink-100); }
+.sg-swatch--ink-200 { background: var(--c-ink-200); }
+.sg-swatch--ink-400 { background: var(--c-ink-400); }
+.sg-swatch--ink-500 { background: var(--c-ink-500); }
+.sg-swatch--ink-800 { background: var(--c-ink-800); }
+.sg-swatch--ink-900 { background: var(--c-ink-900); }
+.sg-swatch--navy-700 { background: var(--c-navy-700); }
+.sg-swatch--navy-800 { background: var(--c-navy-800); }
+.sg-swatch--ok-600 { background: var(--c-ok-600); }
+.sg-swatch--warn-600 { background: var(--c-warn-600); }
+.sg-swatch--grad-sand { background: var(--grad-sand); }
+.sg-swatch--grad-sky { background: var(--grad-sky); }
+.sg-swatch--grad-gold { background: var(--grad-gold); }
+.sg-swatch--grad-navy { background: var(--grad-navy); }
+.sg-swatch--blue-panel { background: var(--c-blue-panel); }
+
+/* Секція-зразок у рамці не тягне повний екран. */
+.statement.sg-plate {
+  min-height: 0;
+  padding: clamp(1.5rem, 1rem + 3vw, 3rem);
+  background: var(--c-ink-050);
 }

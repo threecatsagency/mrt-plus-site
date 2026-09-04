@@ -130,13 +130,7 @@
   align-items: center;
 }
 
-.btn .icon {
-  width: 18px;
-  height: 18px;
-  flex: none;
-}
-
-/* =====================================================================
+.btn /* =====================================================================
    2. Форми
    Підпис тихий, значення темне – як і в системі записів.
    ===================================================================== */
@@ -1336,38 +1330,6 @@
   pointer-events: none;
 }
 
-.panel-sand {
-  background: var(--grad-sand);
-}
-
-.panel-sand::after {
-  background: var(--glow-blue);
-  opacity: 0.5;
-}
-
-.panel-sky {
-  background: var(--grad-sky);
-}
-
-.panel-navy {
-  background: var(--grad-navy);
-  color: var(--c-white);
-}
-
-.panel-navy::after {
-  background: var(--glow-gold);
-}
-
-.panel-navy h2,
-.panel-navy h3 {
-  color: var(--c-white);
-}
-
-.panel-navy .lead,
-.panel-navy .text-muted {
-  color: var(--c-gold-300);
-}
-
 .panel-gold {
   background: var(--grad-gold);
   color: var(--c-navy-900);
@@ -1375,27 +1337,6 @@
 
 .panel-gold h2 {
   color: var(--c-navy-900);
-}
-
-@media (min-width: 40em) {
-  .facts {
-    grid-template-columns: repeat(3, auto);
-    justify-content: start;
-    gap: var(--sp-6) var(--sp-16);
-  }
-}
-
-@media (min-width: 40em) {
-  .tiles {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 64em) {
-  .tiles {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-5);
-  }
 }
 
 /* Золота панель дзвінка: величезний номер. */
@@ -1440,26 +1381,6 @@
   color: var(--c-navy-900);
 }
 
-@media (min-width: 64em) {
-  .split {
-    grid-template-columns: 5fr 7fr;
-    gap: var(--sp-16);
-  }
-  .split > :first-child {
-    position: sticky;
-    top: calc(var(--header-h) + var(--sp-8));
-    align-self: start;
-  }
-}
-
-.section-head {
-  margin-bottom: var(--sp-10);
-}
-
-.section-head .lead {
-  margin-top: var(--sp-4);
-}
-
 /* Шапка над світлою сторінкою без рамки знизу. */
 .site-header--open {
   background: var(--c-ink-050);
@@ -1473,70 +1394,6 @@
    кружечком, кнопки-квитки зі стрілкою, білі картки послуг на синьому,
    шлях пацієнта кроками, відгуки, акордеон питань з плюсом.
    ===================================================================== */
-
-/* Шлях пацієнта: кругле фото, номер у колі, текст по центру. */
-.journey {
-  display: grid;
-  gap: var(--sp-10);
-  text-align: center;
-}
-
-@media (min-width: 48em) {
-  .journey {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-8);
-  }
-}
-
-.journey__photo {
-  width: min(240px, 70%);
-  aspect-ratio: 1;
-  margin: 0 auto var(--sp-5);
-  border-radius: 50%;
-  background: var(--grad-sand);
-}
-
-.journey__photo--1 {
-  background: var(--grad-sand);
-}
-
-.journey__photo--2 {
-  background: var(--grad-sky);
-}
-
-.journey__photo--3 {
-  background: var(--grad-gold);
-}
-
-.journey__num {
-  width: 44px;
-  height: 44px;
-  margin: 0 auto var(--sp-4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--c-accent-600);
-  border-radius: 50%;
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: var(--fs-h4);
-  color: var(--c-accent-600);
-  padding-bottom: 0.12em;
-}
-
-.journey__item h3 {
-  margin-bottom: var(--sp-3);
-  font-size: var(--fs-h3);
-}
-
-.journey__item p {
-  margin: 0 auto;
-  max-width: 34ch;
-  font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: var(--lh-text);
-  color: var(--c-ink-600);
-}
 
 /* Відгуки. */
 .voices {
@@ -1588,46 +1445,6 @@ h2 em.accent {
   color: var(--c-gold-300);
 }
 
-/* Мітка з кружечком. */
-.dot-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  margin: 0 0 var(--sp-5);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.dot-eyebrow--center {
-  justify-content: center;
-}
-
-.dot-eyebrow .dot {
-  flex: none;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1px solid currentColor;
-  position: relative;
-  /* Капс сидить на ~0.09em вище оптичного центру рядка – кружечок
-     піднімається слідом, інакше висить нижче тексту. */
-  transform: translateY(-0.08em);
-}
-
-.dot-eyebrow .dot::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background: var(--c-gold-500);
-}
-
-.section .dot-eyebrow {
-  color: var(--c-ink-500);
-}
-
 /* Глибокий синій фон зі світінням – спільний для hero і секцій. */
 .bluehero,
 .bluesection {
@@ -1635,11 +1452,6 @@ h2 em.accent {
   isolation: isolate;
   color: var(--c-white);
   background: var(--c-blue-panel);
-}
-
-.bluehero .dot-eyebrow,
-.bluesection .dot-eyebrow {
-  color: var(--c-gold-300);
 }
 
 .bluehero h1,
@@ -1751,15 +1563,6 @@ h2 em.accent {
   }
 }
 
-.bluehero__lead {
-  margin: 0 0 var(--sp-8);
-  max-width: 44ch;
-  font-family: var(--font-text);
-  font-size: var(--fs-body);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.88);
-}
-
 /* Кнопка-квиток: білий контур, стрілка їде вправо при наведенні. */
 .btn-ticket {
   display: inline-flex;
@@ -1811,68 +1614,6 @@ h2 em.accent {
 .skysection h2 {
   max-width: 18ch;
   margin: 0 0 var(--sp-6) -0.075em;
-}
-
-.bluesection__split {
-  display: grid;
-  gap: var(--sp-10);
-}
-
-@media (min-width: 64em) {
-  .bluesection__split {
-    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-    gap: var(--sp-16);
-    align-items: start;
-  }
-  .bluesection__intro {
-    position: sticky;
-    top: calc(var(--header-h) + var(--sp-8));
-  }
-}
-
-.bluesection__intro p:last-child {
-  margin: 0;
-  max-width: 38ch;
-  font-family: var(--font-text);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* Колонки «навіщо». */
-.whycols {
-  display: grid;
-  gap: var(--sp-8);
-  margin-top: var(--sp-10);
-}
-
-@media (min-width: 48em) {
-  .whycols {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-10);
-  }
-}
-
-.wcol__tag {
-  margin: 0 0 var(--sp-3) -0.05em;
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.33em;
-  text-transform: uppercase;
-  color: var(--c-gold-500);
-}
-
-.wcol h3 {
-  color: var(--c-white);
-  font-size: var(--fs-h3);
-  margin-bottom: var(--sp-3);
-}
-
-.wcol p:last-child {
-  margin: 0;
-  font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: var(--lh-text);
-  color: rgba(255, 255, 255, 0.82);
 }
 
 /* Центральне рівняння: питання – відповідь – розшифровка – дія.
@@ -2155,11 +1896,6 @@ h2 em.accent {
 .faq--plus details[open] summary::after {
   transform: rotate(45deg);
   color: var(--c-accent-600);
-}
-
-/* Телефон і подібні рядки не переносяться. */
-.nowrap {
-  white-space: nowrap;
 }
 
 /* Стани, які лишалися миттєвими. */
@@ -2544,14 +2280,6 @@ p.rubric {
   margin: 0;
 }
 
-.cpanel__go {
-  grid-column: 1 / -1;
-  display: flex;
-  gap: var(--sp-3);
-  flex-wrap: wrap;
-  margin-top: var(--sp-4);
-}
-
 @media (max-width: 63.99em) {
   .cpanel.is-on {
     grid-template-columns: 1fr;
@@ -2566,9 +2294,6 @@ p.rubric {
     aspect-ratio: 16 / 9;
   }
 
-  .cpanel__go {
-    display: grid;
-  }
 }
 
 /* =====================================================================
@@ -2671,11 +2396,6 @@ p.rubric {
   padding-top: 0.1em;
 }
 
-/* Телефон і подібні рядки не переносяться. */
-.nowrap {
-  white-space: nowrap;
-}
-
 /* =====================================================================
    15. Мобільна композиція
    На вузькому екрані всі пари колонок схлопуються в одну стрічку, і
@@ -2698,63 +2418,6 @@ p.rubric {
   }
 
 @media (max-width: 47.99em) {
-  /* Факти першого екрана – плакат, а не рядок дрібним. Два числа
-     поруч, логотип під ними окремим рядком. */
-          /* Шлях пацієнта: рядок замість трьох великих кіл одне під одним. */
-  .journey {
-    gap: var(--sp-6);
-    text-align: left;
-  }
-
-  .journey__item {
-    display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
-    column-gap: var(--sp-4);
-    align-items: start;
-  }
-
-  .journey__item + .journey__item {
-    padding-top: var(--sp-6);
-    border-top: var(--border);
-  }
-
-  /* Кольорове коло і номер займають одну комірку: номер лягає на коло. */
-  .journey__photo {
-    grid-column: 1;
-    grid-row: 1;
-    width: 56px;
-    margin: 0;
-  }
-
-  .journey__num {
-    grid-column: 1;
-    grid-row: 1;
-    width: 56px;
-    height: 56px;
-    margin: 0;
-    border: 0;
-    color: var(--c-navy-900);
-  }
-
-  .journey__item h3 {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0 0 var(--sp-2);
-    padding-top: 0.35em;
-  }
-
-  .journey__item p {
-    grid-column: 2;
-    grid-row: 2;
-    margin: 0;
-    max-width: none;
-  }
-
-  /* Колонки «навіщо» без роздільників зливаються в суцільний текст. */
-  .whycols {
-    gap: var(--sp-6);
-    margin-top: var(--sp-8);
-  }
 
   .wcol + .wcol,
   .triad__item + .triad__item {
@@ -2807,4 +2470,37 @@ p.rubric {
   .header-actions .btn-primary {
     display: none;
   }
+}
+
+/* =====================================================================
+   20. Дрібні ролі
+   Класи замість інлайнових стилів у розмітці: інлайн неможливо
+   перевірити валідатором і неможливо показати в стайл-ґайді.
+   ===================================================================== */
+
+/* Секція, що продовжує попередню без розриву. */
+.section--joined {
+  padding-top: 0;
+}
+
+/* Лід на золотій панелі: темно-синій замість чорнильного. */
+.panel-gold .lead {
+  color: var(--c-navy-800);
+}
+
+/* Логотип у підвалі. */
+.site-footer .logo {
+  color: var(--c-gold-500);
+  margin-bottom: var(--sp-4);
+}
+
+/* Абзац підвалу з описом мережі. */
+.footer-about {
+  margin-bottom: var(--sp-4);
+}
+
+/* Знак логотипа фіксованої ширини – у підписі підвалу. */
+.logo-mark {
+  display: inline-block;
+  width: 110px;
 }

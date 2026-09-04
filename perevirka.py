@@ -221,6 +221,17 @@ def perevirka_tsentriv():
             problem(path, "перелік центрів у підвалі не збігається з еталонним")
 
 
+def perevirka_inline():
+    """Інлайнові стилі заборонені: їх не видно у стайл-ґайді, вони не
+    перевіряються і саме через них головна починає розходитися зі
+    сторінкою стилів. Усе оформлення живе в класах."""
+    for path in files({".html"}):
+        text = path.read_text(encoding="utf-8")
+        for match in re.finditer(r'style="([^"]*)"', text):
+            row = text[: match.start()].count("\n") + 1
+            problem(path, f"інлайновий стиль у рядку {row}: {match.group(1)[:60]}")
+
+
 def main():
     perevirka_tekstu()
     perevirka_zminnyh()
@@ -229,6 +240,7 @@ def main():
     perevirka_rozmitky()
     perevirka_klasiv()
     perevirka_tsin()
+    perevirka_inline()
     perevirka_telefonu()
     perevirka_tsentriv()
 
