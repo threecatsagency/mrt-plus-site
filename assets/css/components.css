@@ -2497,12 +2497,22 @@ p.rubric {
 
 .svcgroup__head p {
   margin: 0;
-  max-width: 62ch;
+  max-width: 56ch;
   font-family: var(--font-text);
-  font-size: var(--fs-small);
-  line-height: var(--lh-text);
+  font-size: var(--fs-body);
+  line-height: 1.65;
   color: inherit;
-  opacity: 0.82;
+  opacity: 0.9;
+}
+
+/* Світле на темному оптично худне: тонкі штрихи «з'їдаються» тлом,
+   і дрібний набір злипається. На темних площинах набір іде вагою 500
+   і майже без прозорості. */
+.bluesection .svcgroup__head p,
+.bluehero .triad__item p:not(.triad__name),
+.bluesection__note {
+  font-weight: var(--fw-medium);
+  opacity: 0.92;
 }
 
 @media (min-width: 64em) {
