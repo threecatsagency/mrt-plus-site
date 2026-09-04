@@ -386,6 +386,36 @@
     });
   })();
 
+  // Відео про обстеження вантажиться лише після кліку: сам файл важить
+  // мегабайти, а дивиться його меншість відвідувачів.
+  (function () {
+    var box = document.querySelector("[data-video]");
+    if (!box) return;
+    var btn = box.querySelector(".vplayer__btn");
+    if (!btn) return;
+
+    btn.addEventListener("click", function () {
+      var video = document.createElement("video");
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.setAttribute("poster", "assets/img/video-poster.webp");
+
+      // Вузький екран отримує легший файл.
+      var vuzko = window.matchMedia("(max-width: 47.99em)").matches;
+      var source = document.createElement("source");
+      source.src = vuzko ? "assets/video/hero-480.mp4" : "assets/video/hero-720.mp4";
+      source.type = "video/mp4";
+      video.appendChild(source);
+
+      box.appendChild(video);
+      box.classList.add("is-on");
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    });
+  })();
+
   document.querySelectorAll("[data-copy]").forEach(function (el) {
     el.addEventListener("click", function () {
       var value = el.getAttribute("data-copy");

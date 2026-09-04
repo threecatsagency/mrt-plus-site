@@ -1943,8 +1943,8 @@ h2 em.accent {
   background: var(--c-accent-100);
 }
 
-/* Місце під відео замовника. Поки заглушка з кнопкою; коли з'явиться
-   ролик, сюди стане плеєр – розмітка не зміниться. */
+/* Відео про обстеження. До кліку показується постер: сам файл важить
+   мегабайти, і тягнути його при кожному відкритті сторінки не можна. */
 .vplayer {
   position: relative;
   width: min(100%, 900px);
@@ -1959,6 +1959,7 @@ h2 em.accent {
 }
 
 .vplayer__btn {
+  box-shadow: 0 8px 24px rgba(14, 29, 58, 0.35);
   width: 76px;
   height: 76px;
   border-radius: 50%;
@@ -1982,14 +1983,40 @@ h2 em.accent {
   background: var(--c-gold-300);
 }
 
+.vplayer__poster,
+.vplayer video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vplayer__btn {
+  position: relative;
+  z-index: 1;
+}
+
+.vplayer.is-on .vplayer__btn,
+.vplayer.is-on .vplayer__poster,
+.vplayer.is-on .vplayer__cap {
+  display: none;
+}
+
 .vplayer__cap {
   position: absolute;
+  z-index: 1;
   left: var(--sp-5);
-  bottom: var(--sp-5);
+  top: var(--sp-5);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(14, 29, 58, 0.55);
+  backdrop-filter: blur(4px);
   font-size: var(--fs-caption);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--c-white);
 }
 
 .statement__note {
