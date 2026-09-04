@@ -2410,11 +2410,14 @@ p.rubric {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 13px;
+  /* Верхній відступ більший: рядкові літери сидять вище оптичного
+     центру рядка, і однакові падінги дають перекіс угору. */
+  padding: 8px 14px 7px;
   border-radius: var(--r-pill);
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(4px);
   font-size: var(--fs-caption);
+  line-height: 1;
   color: var(--c-ink-900);
 }
 
@@ -2424,6 +2427,8 @@ p.rubric {
   height: 8px;
   border-radius: 50%;
   flex: none;
+  /* Крапка стає на оптичну середину рядка, а не на геометричну. */
+  margin-top: 1px;
   background: var(--c-ok-600);
   box-shadow: 0 0 0 3px rgba(23, 105, 63, 0.18);
 }
