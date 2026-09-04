@@ -2891,34 +2891,24 @@ p.rubric {
   padding-top: clamp(3.5rem, 2rem + 6.5vw, 8rem);
   padding-bottom: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
 }
-.why__slogan { margin-bottom: var(--sp-8); }
+#chomu .statement__a { margin-bottom: var(--sp-10); }
 .statement .panel { margin-top: clamp(1.75rem, 1rem + 2vw, 2.5rem); }
 
-/* Другий блок: гасло тримає всю секцію, під ним три колонки.
-   Заголовка секції немає – гасло і є заголовок. */
-.why__slogan {
+/* Модифікатор наявного заголовка, а не другий заголовок:
+   коробка по ширині найдовшого рядка стоїть по центру секції,
+   набір усередині лишається лівим. Рядки задані вручну через span –
+   автоперенос дав би коробку ширшу за видимий текст. */
+.statement__a--left {
   width: max-content;
   max-width: 100%;
-  margin: 0 auto var(--sp-10);
-  font-family: var(--font-display);
-  font-weight: var(--fw-heading);
-  font-size: clamp(2.25rem, 1.2rem + 4.4vw, 4.5rem);
-  line-height: 1.06;
-  letter-spacing: -0.03em;
-  color: var(--c-ink-900);
-  text-wrap: balance;
+  text-align: left;
 }
-.why__slogan span { display: block; }
+.statement__a--left span { display: block; }
 
 /* Вузький екран не тримає рядок «починається з ясності» цілком,
    тому там гасло йде в три рядки, а з 64em – у два. */
 @media (min-width: 64em) {
-  .why__slogan .ln { display: inline; }
-}
-
-.why__slogan em {
-  font-style: normal;
-  color: var(--c-accent-600);
+  .statement__a--left .ln { display: inline; }
 }
 
 .why {
