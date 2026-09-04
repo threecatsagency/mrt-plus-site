@@ -1884,8 +1884,10 @@ h2 em.accent {
   padding-block: var(--section-y);
 }
 
-/* Секція з відео живе за розміром вмісту: повний екран під неї – перебір. */
-.statement--sky {
+/* Повний екран лишається тільки першому рівнянню. Решта – за вмістом:
+   відео, відгуки і питання не заслуговують окремого екрана. */
+.statement--sky,
+#vidhuky.statement {
   min-height: 0;
 }
 
@@ -1935,6 +1937,13 @@ h2 em.accent {
 .statement .btn-row {
   justify-content: center;
   margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+/* Питання під рівнянням: акордеон лишається лівобічним. */
+.statement .faq {
+  margin: clamp(2rem, 1.5rem + 2.5vw, 3.5rem) auto 0;
+  max-width: 68ch;
+  text-align: left;
 }
 
 /* Відгуки під рівнянням: сітка та сама, текст усередині картки зліва. */
