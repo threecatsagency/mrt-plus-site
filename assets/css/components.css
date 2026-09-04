@@ -1926,11 +1926,14 @@ h2 em.accent {
 }
 
 /* Три слова-опори в розшифровці – капсом кольору матеріалу. */
+/* Слова-опори всередині рядка: розрядка менша за мітки секцій – тут
+   капс стоїть у потоці тексту, а не окремим рядком, і 0,12em розриває
+   слово на літери. */
 .statement__d b {
   font-family: var(--font-ui);
   font-weight: var(--fw-semibold);
   font-size: 0.86em;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-gold-600);
 }
