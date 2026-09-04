@@ -87,11 +87,13 @@
   --font-ui: "Fixel Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-text: "Fixel Text", system-ui, -apple-system, "Segoe UI", sans-serif;
 
+  /* Три ваги на весь сайт – це три файли шрифту замість семи.
+     700 не використовуємо: на 600 акцент уже читається, а різницю
+     між 600 і 700 в екранному наборі майже не видно. */
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
-  --fw-bold: 700;
-  --fw-heading: 600; /* так набирає Fixel сам MacPaw: 500–600, не 800 */
+  --fw-heading: 600;
 
   /* Шкала. База 17 px на телефоні, 18 на десктопі. Заголовки масивні
      й напівжирні: контраст дає розмір, а не вага. */

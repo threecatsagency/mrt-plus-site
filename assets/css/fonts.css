@@ -1,18 +1,4 @@
-@font-face {
-  font-family: "Fixel Display";
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/fixel-display-bold.woff2") format("woff2");
-}
 
-@font-face {
-  font-family: "Fixel Display";
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/fixel-display-medium.woff2") format("woff2");
-}
 
 @font-face {
   font-family: "Fixel Display";
@@ -44,13 +30,5 @@
   font-style: normal;
   font-display: swap;
   src: url("../fonts/fixel-text-semibold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Fixel Text";
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/fixel-text-bold.woff2") format("woff2");
 }
 
