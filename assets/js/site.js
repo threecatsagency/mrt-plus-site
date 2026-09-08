@@ -509,4 +509,20 @@
       });
     });
   });
+
+  /* ------------------------------------------------------------------
+     Кнопка «вгору»: показується, коли прокрутили більше за екран.
+     ------------------------------------------------------------------ */
+  (function () {
+    var btn = document.querySelector("[data-to-top]");
+    if (!btn) return;
+    function onovyty() {
+      btn.classList.toggle("is-on", window.scrollY > window.innerHeight);
+    }
+    window.addEventListener("scroll", onovyty, { passive: true });
+    onovyty();
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  })();
 })();
