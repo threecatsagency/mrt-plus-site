@@ -998,12 +998,21 @@
 /* Апарат центру. */
 .device-card {
   display: grid;
-  grid-template-rows: auto 1fr;
-  background: var(--c-white);
-  color: var(--c-ink-900);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  box-shadow: 0 12px 28px rgba(14, 29, 58, 0.08);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--sp-8);
+  align-items: start;
+  padding-block: var(--sp-8);
+  border-top: 1px solid rgba(14, 29, 58, 0.14);
+}
+
+.device-card:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* Парні поверхи: фото праворуч, текст ліворуч. */
+.device-card:nth-of-type(even) .device-card__photo {
+  order: 2;
 }
 
 /* Фото апарата: пропорція задана, поява знімка не зрушить сітку. */
@@ -1012,8 +1021,12 @@
   aspect-ratio: 4 / 3;
   display: grid;
   place-items: center;
-  background: var(--c-ink-100);
-  border-bottom: var(--border);
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--c-white);
+  outline: 1px solid rgba(14, 29, 58, 0.12);
+  outline-offset: -1px;
 }
 
 .device-card__photo img {
@@ -1021,10 +1034,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.device-card__body {
-  padding: var(--sp-5) var(--sp-6) var(--sp-6);
 }
 
 .device-card h3 {
@@ -1038,6 +1047,17 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--c-gold-600);
+}
+
+/* Тіло картки апарата: тип, назва, текст, характеристики. */
+.device-card__body {
+  min-width: 0;
+}
+
+.device-card__text {
+  max-width: 58ch;
+  margin: 0 0 var(--sp-5);
+  color: var(--c-ink-600);
 }
 
 .device-card dl {
@@ -1057,6 +1077,24 @@
   color: var(--c-ink-900);
   font-weight: var(--fw-medium);
   font-variant-numeric: tabular-nums;
+}
+
+/* Застереження під характеристиками: заміри тіла при великій вазі. */
+.device-card__note {
+  max-width: 58ch;
+  margin: var(--sp-5) 0 0;
+  padding-left: var(--sp-4);
+  border-left: 2px solid var(--c-gold-500);
+  font-size: var(--fs-small);
+  color: var(--c-ink-600);
+}
+
+@media (max-width: 47.99em) {
+  .device-card {
+    grid-template-columns: 1fr;
+    gap: var(--sp-5);
+  }
+  .device-card:nth-of-type(even) .device-card__photo { order: 0; }
 }
 
 /* =====================================================================
@@ -2311,16 +2349,10 @@ p.rubric {
   color: var(--c-white);
 }
 
+/* Картка центру: фото ліворуч, дані праворуч поверхами – адреса з
+   картою, графік, дії. Самостійний компонент; таби міст, якщо
+   знадобляться, обгортають картку зовні. */
 .cpanel {
-  display: none;
-  margin-top: var(--sp-6);
-  padding-top: var(--sp-6);
-  border-top: 1px solid rgba(14, 29, 58, 0.14);
-}
-
-/* Панель центру: фото ліворуч, дані праворуч трьома поверхами –
-   адреса з картою, графік і обладнання, дії. */
-.cpanel.is-on {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   gap: var(--sp-8);
