@@ -3152,7 +3152,8 @@ p.rubric {
 
 /* Сторінка контактів. */
 .contacts-row {
-  margin-top: var(--sp-6);
+  margin-top: var(--sp-8);
+  gap: var(--sp-4);
 }
 
 .btn-social svg {
