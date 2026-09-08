@@ -866,6 +866,45 @@
   color: var(--c-accent-600);
 }
 
+/* Пігулка міста в шапці – той самий nav-item, тільки з кнопкою замість
+   посилання і панеллю, що відкривається кліком (працює і на телефоні). */
+.nav-item--city .city-switch::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 2px;
+  vertical-align: 2px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  rotate: 45deg;
+  opacity: 0.55;
+  transition: rotate var(--t-fast), opacity var(--t-fast);
+}
+
+.nav-item--city.is-open .city-switch::after {
+  rotate: -135deg;
+  opacity: 1;
+}
+
+.nav-item--city.is-open .city-switch {
+  border-color: var(--c-accent-500);
+  color: var(--c-accent-700);
+}
+
+.nav-item--city .drop {
+  left: 0;
+}
+
+.nav-item--city .drop__inner {
+  min-width: 200px;
+}
+
+.nav-item--city .drop a[aria-current="page"] {
+  color: var(--c-accent-700);
+  font-weight: var(--fw-semibold);
+}
+
 /* Хлібні крихти. */
 .crumbs {
   display: flex;

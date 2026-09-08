@@ -52,7 +52,7 @@
 
     function stan(item, open) {
       item.classList.toggle("is-open", open);
-      var link = item.querySelector("a[aria-expanded]");
+      var link = item.querySelector("[aria-expanded]");
       if (link) link.setAttribute("aria-expanded", open ? "true" : "false");
     }
 
@@ -77,6 +77,19 @@
       item.addEventListener("focusout", function (e) {
         if (!item.contains(e.relatedTarget)) stan(item, false);
       });
+      // Кнопка (пігулка міста): клік перемикає панель – потрібне на
+      // телефоні, де наведення немає.
+      var btn = item.querySelector("button[aria-expanded]");
+      if (btn) {
+        btn.addEventListener("click", function () {
+          zakrytyVsi();
+          stan(item, true); // закривається кліком поза панеллю або Escape
+        });
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav-item")) zakrytyVsi();
     });
 
     document.addEventListener("keydown", function (e) {
