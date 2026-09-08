@@ -1118,10 +1118,10 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Застереження під характеристиками: заміри тіла при великій вазі. */
-.device-card__note {
+/* Застереження про заміри тіла при великій вазі – один раз під усіма апаратами. */
+.devices__note {
   max-width: 58ch;
-  margin: var(--sp-5) 0 0;
+  margin: var(--sp-8) 0 0;
   padding-left: var(--sp-4);
   border-left: 2px solid var(--c-gold-500);
   font-size: var(--fs-small);
