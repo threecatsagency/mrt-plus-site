@@ -997,21 +997,47 @@
 
 /* Апарат центру. */
 .device-card {
-  background: var(--grad-navy);
-  color: var(--c-gold-100);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--c-white);
+  color: var(--c-ink-900);
   border-radius: var(--r-lg);
-  padding: var(--sp-6);
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(14, 29, 58, 0.08);
+}
+
+/* Фото апарата: пропорція задана, поява знімка не зрушить сітку. */
+.device-card__photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  background: var(--c-ink-100);
+  border-bottom: var(--border);
+}
+
+.device-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.device-card__body {
+  padding: var(--sp-5) var(--sp-6) var(--sp-6);
 }
 
 .device-card h3 {
-  color: var(--c-white);
-  margin-bottom: var(--sp-2);
+  color: var(--c-ink-900);
+  margin-bottom: var(--sp-4);
 }
 
 .device-card .device-kind {
+  margin: 0 0 var(--sp-2) -0.05em;
   font-size: var(--fs-caption);
-  color: var(--c-gold-300);
-  margin-bottom: var(--sp-4);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-gold-600);
 }
 
 .device-card dl {
@@ -1023,13 +1049,14 @@
 }
 
 .device-card dt {
-  color: var(--c-gold-300);
+  color: var(--c-ink-500);
 }
 
 .device-card dd {
   margin: 0;
-  color: var(--c-white);
+  color: var(--c-ink-900);
   font-weight: var(--fw-medium);
+  font-variant-numeric: tabular-nums;
 }
 
 /* =====================================================================
@@ -2960,3 +2987,84 @@ p.rubric {
   color: var(--c-gold-600);
 }
 .why__text b.brand { font-size: 0.92em; letter-spacing: 0.04em; }
+
+/* Перший екран сторінки центру: градієнт замість знімка ДТІ. Заголовок
+   довгий – повна назва дослідження і адреса, тому кегль нижчий за гасло
+   головної, а місто з адресою йдуть окремим рядком. */
+.bluehero--grad {
+  background: var(--grad-navy);
+}
+
+.bluehero--grad::before { display: none; }
+
+.bluehero--grad .bluehero__grid {
+  min-height: min(100svh - var(--header-h), 760px);
+  align-items: end;
+}
+
+.bluehero--grad .hero-col {
+  max-width: none;
+  margin-inline: 0;
+}
+
+.bluehero--grad h1 {
+  max-width: 34ch;
+  font-size: clamp(2rem, 1.1rem + 3.2vw, 3.75rem);
+}
+
+.bluehero--grad h1 em {
+  display: block;
+}
+
+.bluehero__desc {
+  max-width: 58ch;
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Панель центру без табів: графік займає рядок цілком. */
+.cpanel__row--wide {
+  grid-template-columns: 1fr;
+}
+
+.cpanel__row--wide .hours-set {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Кадри центру під панеллю. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.gallery__item {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--c-ink-100);
+  outline: 1px solid rgba(14, 29, 58, 0.12);
+  outline-offset: -1px;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 47.99em) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery__item:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .cpanel__row--wide .hours-set { grid-template-columns: 1fr; }
+}
