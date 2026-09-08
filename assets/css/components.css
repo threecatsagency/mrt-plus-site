@@ -3183,7 +3183,13 @@ p.rubric {
   margin: 0 0 var(--sp-2);
 }
 
-/* Карта замість фото: те саме місце і пропорція, iframe на всю площу. */
+/* Ліва колонка картки на контактах: фото зверху, карта під ним. */
+.cpanel__visual {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+/* Карта: те саме місце і пропорція, що у фото, iframe на всю площу. */
 .cpanel__map iframe {
   position: absolute;
   inset: 0;
