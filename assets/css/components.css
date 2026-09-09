@@ -510,6 +510,87 @@
   margin-left: auto;
 }
 
+/* Соцмережі в шапці: лише на десктопі, на телефоні – у меню. */
+.header-social {
+  display: none;
+  gap: var(--sp-1);
+}
+
+.header-social a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--c-ink-600);
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.header-social a:hover {
+  color: var(--c-accent-700);
+  background: var(--c-accent-050);
+}
+
+.header-social svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Дії в мобільному меню: підпис, телефон на всю ширину, під ним пари
+   кнопок по центру. */
+.mactions {
+  display: grid;
+  gap: var(--sp-3);
+  justify-items: center;
+  padding-top: var(--sp-5);
+  margin-top: var(--sp-3);
+  border-top: var(--border);
+}
+
+.mactions__label {
+  margin: var(--sp-2) 0 0;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-ink-500);
+}
+
+.mactions__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+
+/* Кнопки в меню – кнопки, а не пункти: перебиваємо блокові правила
+   посилань мобільного меню. */
+.mobile-menu .mactions a {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 0 var(--sp-4);
+  border-top-width: 1px;
+  white-space: nowrap;
+}
+
+.mobile-menu .mactions .btn-primary {
+  width: 100%;
+  justify-content: center;
+  color: var(--c-white);
+}
+
+.btn-social svg {
+  width: 18px;
+  height: 18px;
+  margin-right: var(--sp-2);
+  flex: none;
+}
+
+/* Підвал: телефон і соцмережі в ряд. */
+.footer-actions {
+  margin-top: var(--sp-5);
+}
+
 .header-phone {
   display: none;
   flex-direction: column;
@@ -825,6 +906,10 @@
   .site-nav {
     display: flex;
   }
+  .header-social {
+    display: flex;
+  }
+
   .header-phone {
     display: flex;
   }
@@ -1728,11 +1813,12 @@
   color: var(--c-gold-600);
 }
 
-/* Двоколірний заголовок: друга частина золотом. */
+/* Двоколірний заголовок: виділена частина блакитним; на темних площинах
+   і в першому екрані – золотом. */
 h1 em,
 h2 em {
   font-style: normal;
-  color: var(--c-gold-500);
+  color: var(--c-accent-600);
 }
 
 h2 em.accent {
@@ -3140,13 +3226,6 @@ h2 em.accent {
 .contacts-row {
   margin-top: var(--sp-8);
   gap: var(--sp-4);
-}
-
-.btn-social svg {
-  width: 18px;
-  height: 18px;
-  margin-right: var(--sp-2);
-  flex: none;
 }
 
 .contacts-note {
