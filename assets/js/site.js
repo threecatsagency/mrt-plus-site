@@ -478,12 +478,12 @@
       video.autoplay = true;
       video.playsInline = true;
       video.preload = "auto";
-      video.setAttribute("poster", "assets/img/video-poster.webp");
+      video.setAttribute("poster", "/assets/img/video-poster.webp");
 
       // Вузький екран отримує легший файл.
       var vuzko = window.matchMedia("(max-width: 47.99em)").matches;
       var source = document.createElement("source");
-      source.src = vuzko ? "assets/video/hero-480.mp4" : "assets/video/hero-720.mp4";
+      source.src = vuzko ? "/assets/video/hero-480.mp4" : "/assets/video/hero-720.mp4";
       source.type = "video/mp4";
       video.appendChild(source);
 
@@ -491,6 +491,14 @@
       box.classList.add("is-on");
       var playing = video.play();
       if (playing && playing.catch) playing.catch(function () {});
+
+      // Одразу на весь екран: на iPhone – власний плеєр, деінде – Fullscreen API.
+      if (video.webkitEnterFullscreen) {
+        video.addEventListener("loadedmetadata", function () { video.webkitEnterFullscreen(); }, { once: true });
+      } else if (video.requestFullscreen) {
+        var fs = video.requestFullscreen();
+        if (fs && fs.catch) fs.catch(function () {});
+      }
     });
   })();
 
