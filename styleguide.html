@@ -328,7 +328,6 @@
   <div class="sg-block">
     <h3>Блакитна площина</h3>
     <div class="skysection sg-plate">
-      <p class="rubric"><span>Службова секція</span></p>
       <h2>Заголовок <em>другою фарбою</em></h2>
       <p class="sg-sample-text">Третій тон між темно-синім і піском. На ньому живуть центри й послуги: текст темний, картки лишаються білими, друга фарба заголовка – синя, а не золота.</p>
     </div>
@@ -344,24 +343,6 @@
     <code class="sg-code">&lt;h2&gt;Магнітно-резонансна &lt;em class="accent"&gt;томографія&lt;/em&gt;&lt;/h2&gt;</code>
     <p class="text-caption sg-note">Друга частина заголовка йде золотом. На світлому – `em.accent` (темніше золото, читається). На синьому – просто `em`, воно світлішає само.</p>
   </div>
-
-  <div class="sg-block">
-    <h3>Рубрика секції</h3>
-    <div class="sg-demo">
-      <p class="rubric"><span>На світлій площині</span></p>
-    </div>
-    <div class="bluesection sg-plate sg-note--wide">
-      <p class="rubric"><span>На темній площині</span></p>
-    </div>
-    <div class="statement sg-plate sg-note--wide">
-      <div class="statement__inner">
-        <p class="rubric"><span>У центрованій секції</span></p>
-      </div>
-    </div>
-    <code class="sg-code">&lt;p class="rubric"&gt;&lt;span&gt;Наші послуги&lt;/span&gt;&lt;/p&gt;</code>
-    <p class="text-caption sg-note">Єдина форма надзаголовка на сайті: золотий капс і лінія до правого краю. Стоїть над кожною секцією; у центрованій секції лінія йде з двох боків, а на першому екрані її немає зовсім – там вона перетинала б знімок. Оптичне вирівнювання лівого краю: капс із розрядкою зсунутий на 0,05em, великі заголовки Fixel Display – на 0,075em, підзаголовки груп – на 0,05em. Без цього рядки стоять правіше за текст під ними; перевіряти треба по краю фарби, а не по боксу.</p>
-  </div>
-
   <div class="sg-block">
     <h3>Кнопка-квиток</h3>
     <div class="sg-blue">
@@ -1075,7 +1056,6 @@
     <p class="text-caption sg-lead-in">Модель секції, а не окремий заголовок. Порядок частин завжди той самий: рубрика, відповідь великим кеглем, вміст секції, дія. Будь-яку частину, крім перших двох, можна пропустити – але не можна замінити чимось іншим.</p>
     <div class="statement sg-plate">
       <div class="statement__inner">
-        <p class="rubric"><span>Рубрика секції</span></p>
         <p class="statement__a">Відповідь <em class="accent">великим кеглем</em></p>
         <p class="statement__d">Розшифровка з <b>трьома</b> словами-опорами. Необовʼязкова: замість неї може стояти відео, картки відгуків або будь-який інший вміст секції.</p>
         <div class="btn-row">
@@ -1085,8 +1065,7 @@
         <p class="statement__note">Тихий рядок під дією – теж необовʼязковий.</p>
       </div>
     </div>
-    <code class="sg-code">&lt;section class="statement"&gt;&lt;div class="container statement__inner"&gt;&lt;p class="rubric"&gt;…&lt;/p&gt;&lt;p class="statement__a"&gt;…&lt;/p&gt;…&lt;/div&gt;&lt;/section&gt;</code>
-    <p class="text-caption sg-note">Надзаголовок – та сама `rubric`, що в решті секцій; окремого елемента для нього не існує. У рівнянні вона центрується і бере лінії з двох боків. Модифікатор `statement--sky` ставить рівняння на блакитну площину.</p>
+    <code class="sg-code">&lt;section class="statement"&gt;&lt;div class="container statement__inner"&gt;&lt;p class="statement__a"&gt;…&lt;/p&gt;…&lt;/div&gt;&lt;/section&gt;</code>
     <p class="text-caption sg-note--tight">На головній три рівняння: «Навіщо обстежуватись зараз» – розшифровка і дія; «Що вас очікує» – відео і дія; «Голоси пацієнтів» – картки відгуків; «Найчастіше запитують» – акордеон. Повний екран займає тільки перше; решта живе за розміром вмісту.</p>
   </div>
 

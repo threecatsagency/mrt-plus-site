@@ -2257,9 +2257,6 @@ h2 em.accent {
   font-style: normal;
 }
 
-.skysection p.rubric {
-  color: var(--c-gold-600);
-}
 
 .skysection .bluehero__rule {
   border-color: rgba(14, 29, 58, 0.16);
@@ -2275,70 +2272,18 @@ h2 em.accent {
    Великий двоколірний h2 лишається лише змістовим секціям.
    ===================================================================== */
 
-/* Розрядка додає порожнечу після останньої літери, тому капс зсунутий
-   праворуч від краю колонки. Компенсуємо від'ємним відступом. */
-h2.rubric,
-p.rubric {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-5);
-  max-width: none;
-  /* Розрядка капсу додає повітря після кожної літери, тому рядок стоїть
-     трохи правіше за текст під ним. Компенсуємо оптично. */
-  margin: 0 0 var(--sp-6) -0.05em;
-  font-family: var(--font-ui);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--c-gold-600);
-}
 
-.bluesection h2.rubric,
-.bluesection p.rubric,
-.bluehero p.rubric {
-  color: var(--c-gold-300);
-}
 
 /* На вузькому екрані довга рубрика переноситься: nowrap розпирав
    сторінку і тягнув за собою горизонтальну прокрутку. */
-.rubric span {
-  white-space: normal;
-}
 
-@media (min-width: 48em) {
-  .rubric span {
-    white-space: nowrap;
-  }
-}
 
-.rubric::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.3;
-}
 
 /* На першому екрані лінія рубрики йшла б через знімок і різала його –
    там рубрика лишається без лінії. */
-.bluehero .rubric::after {
-  display: none;
-}
 
 /* У центрованій секції рубрика тримає лінії з двох боків. */
-.statement .rubric {
-  justify-content: center;
-  margin-bottom: var(--sp-6);
-}
 
-.statement .rubric::before {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.3;
-}
 
 /* =====================================================================
    18. Центри: табки міст і панель одного центру
@@ -3070,7 +3015,7 @@ p.rubric {
 
 .bluehero--grad .bluehero__grid {
   min-height: 0;
-  padding-block: var(--sp-10);
+  padding-block: var(--section-y);
   align-items: start;
 }
 

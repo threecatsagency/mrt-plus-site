@@ -285,9 +285,9 @@
   margin-top: 0;
 }
 
-.sg-demo > *:last-child:not(.rubric),
-.sg-blue > *:last-child:not(.rubric),
-.sg-plate > *:last-child:not(.rubric) {
+.sg-demo > *:last-child,
+.sg-blue > *:last-child,
+.sg-plate > *:last-child {
   margin-bottom: 0;
 }
 
