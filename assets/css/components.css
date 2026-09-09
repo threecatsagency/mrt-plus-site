@@ -3080,6 +3080,12 @@ h2 em.accent {
   display: block;
 }
 
+/* Кнопка «Усі ціни» під групами послуг: відступ від карток, по центру. */
+.bluesection .svcgroup + .btn-row {
+  margin-top: var(--sp-10);
+  justify-content: center;
+}
+
 /* Підпис кадру – така сама плашка, як «зараз працює» на фото центру. */
 .gallery__cap {
   position: absolute;
