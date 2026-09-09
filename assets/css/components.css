@@ -3099,9 +3099,23 @@ h2 em.accent {
   aspect-ratio: auto;
 }
 
+/* На телефоні галерея – карусель: кадри в ряд, гортаються пальцем,
+   зупиняються по одному. */
 @media (max-width: 47.99em) {
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .gallery__item:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .gallery {
+    display: flex;
+    gap: var(--sp-3);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery__item {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
 
   .cpanel__row--wide .hours-set { grid-template-columns: 1fr; }
 }
