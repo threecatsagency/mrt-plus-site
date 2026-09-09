@@ -3080,9 +3080,34 @@ h2 em.accent {
   display: block;
 }
 
+/* Галерея зі змішаними кадрами: горизонтальні у своїй пропорції один
+   під одним, вертикальний – на висоту обох. Фото не кадруються. */
+.gallery--mix {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-auto-rows: minmax(0, 1fr);
+}
+
+.gallery--mix .gallery__item {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.gallery--mix .gallery__item--tall {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+/* Фото апарата з камери може бути ширшим за 4:3 – площина йде за кадром. */
+.device-card__photo:has(img) {
+  aspect-ratio: auto;
+}
+
 @media (max-width: 47.99em) {
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gallery__item:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .gallery--mix { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .gallery--mix .gallery__item, .gallery--mix .gallery__item--tall { grid-column: 1; grid-row: auto; aspect-ratio: auto; height: auto; }
+  .gallery--mix .gallery__item--tall { aspect-ratio: 4 / 5; }
   .cpanel__row--wide .hours-set { grid-template-columns: 1fr; }
 }
 
