@@ -3069,8 +3069,9 @@ p.rubric {
 .bluehero--grad::before { display: none; }
 
 .bluehero--grad .bluehero__grid {
-  min-height: min(100svh - var(--header-h), 760px);
-  align-items: end;
+  min-height: 0;
+  padding-block: var(--sp-10);
+  align-items: start;
 }
 
 .bluehero--grad .hero-col {
