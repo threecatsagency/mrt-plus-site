@@ -3113,8 +3113,8 @@ h2 em.accent {
   }
   .gallery::-webkit-scrollbar { display: none; }
   .gallery__item {
-    flex: 0 0 85%;
-    scroll-snap-align: start;
+    flex: 0 0 78%;
+    scroll-snap-align: center;
   }
 
   .cpanel__row--wide .hours-set { grid-template-columns: 1fr; }
