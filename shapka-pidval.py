@@ -39,6 +39,8 @@ STORINKY = {
     "arkhiv-sektsii.html": ("nema", None),
     "kontakty/index.html": ("neviodme", None),
     "styleguide.html": ("neviodme", None),
+    "pidhotovka-mrt/index.html": ("neviodme", None),
+    "pidhotovka-kt/index.html": ("neviodme", None),
 }
 for slug in MISTA:
     STORINKY[f"{slug}/index.html"] = ("misto", slug)
