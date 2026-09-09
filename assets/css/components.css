@@ -568,7 +568,7 @@
   display: inline-flex;
   align-items: center;
   flex: 0 0 auto;
-  padding: 0 var(--sp-4);
+  padding: 0.08em var(--sp-4) 0; /* той самий підйом рядка, що в .btn */
   border-top-width: 1px;
   white-space: nowrap;
 }
