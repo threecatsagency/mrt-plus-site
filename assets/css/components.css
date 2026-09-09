@@ -562,22 +562,10 @@
   gap: var(--sp-3);
 }
 
-/* Кнопки в меню – кнопки, а не пункти: перебиваємо блокові правила
-   посилань мобільного меню. */
-.mobile-menu .mactions a {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  padding: 0.08em var(--sp-4) 0; /* той самий підйом рядка, що в .btn */
-  border-top-width: 1px;
-  white-space: nowrap;
+.mactions > .btn {
+  width: 100%;
 }
 
-.mobile-menu .mactions .btn-primary {
-  width: 100%;
-  justify-content: center;
-  color: var(--c-white);
-}
 
 .btn-social svg {
   width: 18px;
@@ -702,7 +690,7 @@
   padding-block: var(--sp-2) var(--sp-6);
 }
 
-.mobile-menu a {
+.mobile-menu a:not(.btn) {
   display: block;
   padding: var(--sp-3) 0;
   border-top: var(--border);
@@ -2463,7 +2451,9 @@ h2 em.accent {
 
 /* Стан роботи – плашкою на знімку: це не властивість розкладу, а те,
    що відбувається зараз. Колір несе крапка, не текст. */
-.badge-live {
+/* Плашка на фото: стан «зараз працює» і підпис кадру – один компонент. */
+.badge-live,
+.gallery__cap {
   position: absolute;
   left: var(--sp-4);
   bottom: var(--sp-4);
@@ -3172,19 +3162,6 @@ h2 em.accent {
   justify-content: center;
 }
 
-/* Підпис кадру – така сама плашка, як «зараз працює» на фото центру. */
-.gallery__cap {
-  position: absolute;
-  left: var(--sp-4);
-  bottom: var(--sp-4);
-  padding: 9px 14px 8px;
-  border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(4px);
-  font-size: var(--fs-caption);
-  line-height: 1;
-  color: var(--c-ink-900);
-}
 
 /* Фото апарата з камери може бути ширшим за 4:3 – площина йде за кадром. */
 .device-card__photo:has(img) {
