@@ -414,3 +414,10 @@
   padding: clamp(1.5rem, 1rem + 3vw, 3rem);
   background: var(--c-ink-050);
 }
+
+/* Демо-площини не випускають назовні стрічки з від'ємними полями. */
+.sg-demo,
+.sg-blue,
+.sg-plate {
+  overflow-x: clip;
+}

@@ -22,24 +22,67 @@
 <a class="skip-link" href="#main">Перейти до змісту</a>
 
 <!-- ШАПКА: жива, не приклад. Той самий компонент, що піде на сайт. -->
-<header class="site-header">
+<header class="site-header site-header--open">
   <div class="container site-header__inner">
-    <a class="logo" href="index.html" aria-label="МРТ ПЛЮС – на головну"><svg viewBox="14 14 388 89" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></a>
+    <a class="logo" href="/" aria-label="МРТ ПЛЮС – на головну"><svg viewBox="14 14 388 89" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></a>
+
+    <!-- Місто сторінки: індикатор із перемиканням. На головній його немає –
+         вибір міста робить перший екран. -->
+    <div class="nav-item nav-item--city">
+      <button class="city-switch city-switch--none" type="button" aria-expanded="false" aria-controls="drop-city"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Оберіть місто</button>
+      <div class="drop" id="drop-city">
+        <div class="drop__inner">
+            <a href="/kyiv/">Київ</a>
+            <a href="/zhytomyr/">Житомир</a>
+            <a href="/rivne/">Рівне</a>
+            <a href="/lutsk/">Луцьк</a>
+            <a href="/kovel/">Ковель</a>
+            <a href="/sheptytskyi/">Шептицький</a>
+        </div>
+      </div>
+    </div>
 
     <nav class="site-nav" aria-label="Головне меню">
-      <a href="#color">Колір</a>
-      <a href="#type">Шрифти</a>
-      <a href="#actions">Кнопки</a>
-      <a href="#forms">Форми</a>
-      <a href="#content">Вміст</a>
+      <div class="nav-item">
+        <a href="#posluhy" aria-expanded="false" aria-controls="drop-posluhy">Послуги</a>
+        <div class="drop" id="drop-posluhy">
+          <div class="drop__inner">
+            <a href="#">МРТ</a>
+            <a href="#">КТ</a>
+            <a href="#">З контрастуванням</a>
+            <a href="#">Дітям</a>
+            <a href="#">Із седацією</a>
+            <a href="#">Широкий тунель</a>
+            <a class="drop__all" href="#posluhy">Усі дослідження →</a>
+          </div>
+        </div>
+      </div>
+      <a href="#">Ціни</a>
+      <a href="#">Оплата</a>
+      <div class="nav-item">
+        <a href="#" aria-expanded="false" aria-controls="drop-patsiyentam">Пацієнтам</a>
+        <div class="drop" id="drop-patsiyentam">
+          <div class="drop__inner">
+            <a href="#">Підготовка до МРТ</a>
+            <a href="#">Підготовка до КТ</a>
+            <a href="#">Протипоказання</a>
+            <a href="#">Обстеження з контрастом</a>
+            <a href="#">Дитині</a>
+            <a href="#">Як отримати результати</a>
+            <a href="#pytannia">Часті питання</a>
+            <a href="#vidhuky">Відгуки</a>
+          </div>
+        </div>
+      </div>
+      <a href="/kontakty/">Контакти</a>
     </nav>
 
     <div class="header-actions">
-      <a class="header-phone" href="tel:0800311058">
-        <span class="num">0 800 311 058</span>
-        <span class="cap">безкоштовно, 7:30–21:00</span>
-      </a>
-      <a class="btn btn-primary btn-sm" href="#booking">Записатися</a>
+      <div class="header-social">
+        <a href="https://www.instagram.com/mrt.plus.diagnostics/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com/mrt.plus.diagnostics/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      </div>
+      <a class="header-phone" href="tel:0800311058"><span class="num phone">0&#160;800&#160;311&#160;058</span></a>
       <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
         <span></span>
         <span class="visually-hidden">Меню</span>
@@ -50,12 +93,50 @@
   <div class="container">
     <div class="mobile-menu" id="mobile-menu">
       <div class="mobile-menu__inner">
-        <a href="#color">Колір</a>
-        <a href="#type">Шрифти і текст</a>
-        <a href="#actions">Кнопки</a>
-        <a href="#forms">Форми</a>
-        <a href="#content">Вміст сторінок</a>
-        <a href="tel:0800311058">0 800 311 058</a>
+        <div class="mlvl is-on" data-lvl="root">
+          <button class="mitem mitem--more" type="button" data-lvl-open="posluhy">Послуги</button>
+          <a class="mitem" href="#">Ціни</a>
+          <a class="mitem" href="#">Оплата</a>
+          <button class="mitem mitem--more" type="button" data-lvl-open="patsiyentam">Пацієнтам</button>
+          <a class="mitem" href="/kontakty/">Контакти</a>
+          <div class="mactions">
+            <p class="mactions__label">Консультація і запис</p>
+            <a class="btn btn-primary btn-sm phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+            <div class="mactions__row">
+              <a class="btn btn-outline btn-sm" href="#zapys">Запис онлайн</a>
+              <a class="btn btn-outline btn-sm" href="#">Отримати результати</a>
+            </div>
+            <p class="mactions__label">Ми в соціальних мережах</p>
+            <div class="mactions__row">
+              <a class="btn btn-outline btn-sm btn-social" href="https://www.instagram.com/mrt.plus.diagnostics/" target="_blank" rel="noopener">Instagram</a>
+              <a class="btn btn-outline btn-sm btn-social" href="https://www.facebook.com/mrt.plus.diagnostics/" target="_blank" rel="noopener">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mlvl" data-lvl="posluhy">
+          <button class="mback" type="button" data-lvl-back>Назад · Послуги</button>
+          <a class="mitem" href="#">МРТ</a>
+          <a class="mitem" href="#">КТ</a>
+          <a class="mitem" href="#">З контрастуванням</a>
+          <a class="mitem" href="#">Дітям</a>
+          <a class="mitem" href="#">Із седацією</a>
+          <a class="mitem" href="#">Широкий тунель</a>
+          <a class="mitem" href="#posluhy">Усі дослідження</a>
+        </div>
+
+        <div class="mlvl" data-lvl="patsiyentam">
+          <button class="mback" type="button" data-lvl-back>Назад · Пацієнтам</button>
+          <a class="mitem" href="#">Підготовка до МРТ</a>
+          <a class="mitem" href="#">Підготовка до КТ</a>
+          <a class="mitem" href="#">Протипоказання</a>
+          <a class="mitem" href="#">Обстеження з контрастом</a>
+          <a class="mitem" href="#">Дитині</a>
+          <a class="mitem" href="#">Як отримати результати</a>
+          <a class="mitem" href="#pytannia">Часті питання</a>
+          <a class="mitem" href="#vidhuky">Відгуки</a>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1147,13 +1228,17 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
 </main>
 
 <!-- ПІДВАЛ: живий компонент -->
-<footer class="site-footer">
+<footer class="site-footer" id="kontakty">
   <div class="container">
     <div class="footer-cols">
       <div>
-        <h4>МРТ ПЛЮС</h4>
-        <p class="sg-lead-in">Мережа центрів магнітно-резонансної та комп'ютерної томографії.</p>
-        <a class="btn btn-outline btn-sm btn-onnavy phone" href="tel:0800311058">0 800 311 058</a>
+        <div class="logo"><span class="logo-mark"><svg viewBox="14 14 388 89" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 92.589844 14.40625 L 70.535156 93.984375 L 48.480469 14.40625 L 14.691406 14.40625 L 14.691406 101.875 L 33.4375 101.875 L 33.4375 22.523438 L 55.429688 101.875 L 85.042969 101.875 L 107.035156 22.523438 L 107.035156 101.875 L 125.777344 101.875 L 125.777344 14.40625 Z M 92.589844 14.40625  M 229.390625 14.40625 L 229.390625 31.402344 L 262.253906 31.402344 L 262.253906 101.875 L 279.75 101.875 L 279.75 31.402344 L 311.714844 31.402344 L 311.714844 14.40625 Z M 229.390625 14.40625  M 195.003906 51.644531 L 165.390625 51.644531 L 165.390625 31.273438 L 195.003906 31.273438 C 201.503906 31.273438 205.875 35.273438 205.875 41.398438 C 205.875 47.644531 201.503906 51.644531 195.003906 51.644531 M 195.003906 14.40625 L 147.898438 14.40625 L 147.898438 101.875 L 165.390625 101.875 L 165.390625 68.511719 L 195.003906 68.511719 C 212.125 68.511719 223.871094 57.640625 223.871094 41.398438 C 223.871094 25.277344 212.125 14.40625 195.003906 14.40625  M 399.308594 49.644531 L 364.320312 49.644531 L 364.320312 14.40625 L 346.828125 14.40625 L 346.828125 49.644531 L 311.839844 49.644531 L 311.839844 66.636719 L 346.828125 66.636719 L 346.828125 101.875 L 364.320312 101.875 L 364.320312 66.636719 L 399.308594 66.636719 Z M 399.308594 49.644531 "/></svg></span></div>
+        <p class="footer-about">Мережа центрів магнітно-резонансної та комп'ютерної томографії. ТОВ «МРТ ПЛЮС», ліцензія МОЗ України, наказ від 09.10.2019 №2054.</p>
+        <div class="btn-row footer-actions">
+          <a class="btn btn-outline btn-sm btn-onnavy phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+          <a class="btn btn-outline btn-sm btn-onnavy btn-social" href="https://www.instagram.com/mrt.plus.diagnostics/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn btn-outline btn-sm btn-onnavy btn-social" href="https://www.facebook.com/mrt.plus.diagnostics/" target="_blank" rel="noopener">Facebook</a>
+        </div>
       </div>
       <div>
         <h4>Центри</h4>
@@ -1169,16 +1254,16 @@ https://mrtplus.ua/posluhy/mrt-golovnogo-mozku/</code>
       <div>
         <h4>Розділи</h4>
         <ul class="footer-list">
-          <li><a href="#">Дослідження</a></li>
+          <li><a href="#mrt">МРТ</a></li>
+          <li><a href="#kt">КТ</a></li>
+          <li><a href="#pidhotovka">Підготовка</a></li>
           <li><a href="#">Ціни</a></li>
-          <li><a href="#">Підготовка</a></li>
           <li><a href="#">Відгуки</a></li>
-          <li><a href="#">Контакти</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 МРТ ПЛЮС</span>
+      <span>© 2026 ТОВ «МРТ ПЛЮС»</span>
       <a href="#">Політика конфіденційності</a>
     </div>
   </div>
