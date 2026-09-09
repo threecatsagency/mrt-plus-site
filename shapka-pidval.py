@@ -97,7 +97,13 @@ def main():
         a, b = vyrizaty(s, "header")
         s = s[:a] + header + s[b:]
         a, b = vyrizaty(s, "footer")
-        s = s[:a] + footer_et + s[b:]
+        footer = footer_et
+        # Номер збірки живе лише в підвалі головної – переносимо його з
+        # поточного підвалу сторінки, еталон його не має.
+        nomer = re.search(r'\n\s*<span class="tnum">Збірка [^<]*</span>', s[a:b])
+        if nomer:
+            footer = footer.replace('<a href="#">Політика конфіденційності</a>', '<a href="#">Політика конфіденційності</a>' + nomer.group(0), 1)
+        s = s[:a] + footer + s[b:]
         p.write_text(s, encoding="utf-8")
         print(f"оновлено: {shliakh}")
 
