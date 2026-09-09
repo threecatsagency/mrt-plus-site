@@ -2487,10 +2487,12 @@ h2 em.accent {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 14px;
+  height: 32px;
+  padding: 0.08em 14px 0; /* той самий підйом рядка, що в .btn і .chip */
   border-radius: var(--r-pill);
   border: 1px solid rgba(14, 29, 58, 0.2);
   font-size: var(--fs-caption);
+  line-height: 1;
   color: var(--c-ink-800);
   text-decoration: none;
   transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
