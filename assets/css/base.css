@@ -109,7 +109,7 @@ small,
 .text-caption {
   font-size: var(--fs-caption);
   color: var(--c-ink-500);
-  line-height: 1.45;
+  line-height: var(--lh-compact);
 }
 
 .text-muted {

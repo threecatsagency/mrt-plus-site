@@ -1,0 +1,777 @@
+/* =====================================================================
+   Сторінки підготовки: побудова за макетом.
+   Секції: перший екран, що показує, перед записом, що взяти, як
+   проходить, контраст, підготовка, тунель, після, питання, панель.
+   Кольори – з tokens.css; локальні відтінки площин описані тут.
+   ===================================================================== */
+
+.pk {
+  --pk-card: var(--c-white);
+  --pk-band: #eef2f8;
+  --pk-rose: #f7e3dc;
+  --pk-rose-card: #fdf5f2;
+  --pk-red: #b4432f;
+  --pk-line: #dfe5ee;
+}
+
+/* Іконка зі спрайта ikony-mrt.svg: дві заливки, колір через змінні. */
+.ik {
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  color: var(--c-accent-600);
+}
+
+/* Іконка на круглій підкладці. */
+.ik-box {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  flex: none;
+  border-radius: 50%;
+  background: #e7eefa;
+}
+
+.ik-box .ik { width: 1.75rem; height: 1.75rem; }
+.ik-box--rose { background: #f7ded6; }
+.ik-box--rose .ik { color: var(--pk-red); }
+.ik-box--white { background: var(--c-white); }
+
+/* --- Перший екран: фото фоном на всю ширину, текст на світлому боці --- */
+.pk-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #eef3f9;
+}
+
+.pk-hero__foto {
+  position: absolute;
+  inset: 0 0 0 50%;
+  z-index: -2;
+  margin: 0;
+  /* Ліворуч фото розчиняється у площині, тому шва не видно. */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 18%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 18%);
+}
+
+.pk-hero__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  display: block;
+}
+
+/* Градієнт від тексту до фото: ліворуч суцільна площина, праворуч чисте фото. */
+.pk-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    #eef3f9 0%,
+    #eef3f9 50%,
+    rgba(238, 243, 249, 0.45) 57%,
+    rgba(238, 243, 249, 0) 64%
+  );
+}
+
+.pk-hero__grid {
+  display: block;
+  max-width: 620px;
+  padding-block: clamp(3rem, 2rem + 4vw, 5rem);
+}
+
+.pk-hero h1 { margin: 0; }
+
+.pk-hero__desc { margin: var(--sp-5) 0 0; }
+
+/* Три факти в один рядок: іконка в тонкому колі, назва і уточнення. */
+.pk-marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+  max-width: none;
+  margin: var(--sp-8) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-marks li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin: 0;
+}
+
+/* Іконка піднята на два пікселі: у рядку тексту знизу лишається місце
+   під виносні елементи, тому оптичний центр вищий за геометричний. */
+.pk-marks .ik {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: 2px;
+}
+
+.pk-marks b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-heading);
+  color: var(--c-ink-900);
+  white-space: nowrap;
+}
+
+.pk-marks span span {
+  display: block;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-heading);
+  color: var(--c-ink-500);
+  white-space: nowrap;
+}
+
+.pk-hero .btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-8);
+}
+
+/* --- Спільне для секцій --- */
+.pk-sec {
+  padding-block: clamp(3rem, 2rem + 3.5vw, 5rem);
+  background: var(--c-ink-050);
+}
+.pk-sec--band { background: var(--pk-band); }
+.pk-sec--rose { background: var(--pk-rose); }
+.pk-sec--tight { padding-top: 0; }
+
+.pk-sec h2 { margin: 0; }
+
+/* Відступи в секції – два значення на всю сторінку:
+   16 px між заголовком і вступним абзацом, 32 px до вмісту й між блоками. */
+.pk-sec .container > h2 + * { margin-top: var(--sp-8); }
+.pk-sec .container > h2 + .lead { margin-top: var(--sp-4); }
+.pk-sec .container > .lead + * { margin-top: var(--sp-8); }
+
+.pk-sec--rose h2,
+.pk-sec--rose h2 em { color: var(--pk-red); }
+
+.pk-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--sp-6);
+  align-items: end;
+}
+
+.pk-head + * { margin-top: var(--sp-8); }
+
+.pk-head p { margin: var(--sp-4) 0 0; }
+
+.pk-head .pk-note .ik {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--pk-red);
+}
+
+/* Примітка про безпеку: власна плашка, темніша за площину. */
+.pk-head .pk-note {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  max-width: 38ch;
+  margin: 0;
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--r-lg);
+  background: #f2d8d0;
+  font-size: var(--fs-caption);
+  color: var(--pk-red);
+}
+
+/* --- Сітка карток: іконка ліворуч, назва, опис --- */
+.pk-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.pk-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-3) var(--sp-5);
+  align-items: center;
+  padding: var(--sp-6);
+  background: var(--pk-card);
+  border: var(--border);
+  border-radius: var(--r-lg);
+}
+
+.pk-card .ik {
+  grid-row: span 2;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.pk-card h3 {
+  margin: 0;
+  font-size: var(--fs-h4);
+}
+
+.pk-card h3 + p {
+  margin: 0;
+}
+
+.pk-card p {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-600);
+}
+
+.pk-sec--rose .pk-card { background: var(--pk-rose-card); }
+.pk-sec--rose .pk-card .ik { color: var(--pk-red); }
+.pk-card--wide {
+  grid-column: 1 / -1;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-2) var(--sp-5);
+}
+
+
+.pk-card--wide p { max-width: 92ch; }
+
+/* --- Дві колонки: текст ліворуч, фото з підказкою праворуч --- */
+.pk-two {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  align-items: center;
+}
+
+/* Перелік підпор вирівняний по верху фото, а не по центру. */
+.pk-two > .pk-props { align-self: stretch; }
+
+/* Коли поруч зі списком стоїть фото – воно тягнеться на його висоту,
+   щоб колонки збігалися верхом і низом. */
+.pk-two:has(> .pk-props) { align-items: stretch; }
+
+.pk-two:has(> .pk-props) .pk-two__media img {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.pk-two--rev .pk-two__media { order: -1; }
+
+.pk-two__media {
+  position: relative;
+  margin: 0;
+}
+
+.pk-two__media img {
+  width: 100%;
+  border-radius: var(--r-lg);
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Підказка, що лежить на фото. */
+.pk-tip {
+  position: absolute;
+  right: var(--sp-5);
+  bottom: var(--sp-5);
+  left: var(--sp-10);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  box-shadow: var(--shadow-3);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-600);
+}
+
+.pk-tip .ik {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--c-accent-600);
+}
+
+/* Чекліст із квадратними позначками. */
+.pk-check {
+  display: grid;
+  gap: var(--sp-5);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-check li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 0 var(--sp-4);
+  align-items: start;
+  margin: 0;
+}
+
+ /* Квадрат стоїть по центру першого рядка, а не по центру всього пункту. */
+.pk-check .ik-mark {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0;
+  border-radius: var(--r-sm);
+  background: var(--c-accent-600);
+}
+
+.pk-check .ik-mark .ik {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--c-white);
+}
+
+/* Пункти без пояснення стоять на висоті свого квадрата. */
+.pk-check li:not(:has(span)) .ik-mark { grid-row: span 1; }
+
+.pk-check b {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  color: var(--c-ink-900);
+}
+
+.pk-check span {
+  font-size: var(--fs-small);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-500);
+}
+
+/* Пояснення в кінці чекліста. */
+
+/* Рядки з галочкою в колі. */
+ /* Перелік із галочками – на власній світлій плашці, як у макеті. */
+.pk-ticks {
+  display: grid;
+  gap: var(--sp-4);
+  max-width: none;
+  margin: var(--sp-6) 0 0;
+  padding: var(--sp-5) var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--pk-band);
+  list-style: none;
+}
+
+.pk-ticks li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: var(--sp-4);
+  align-items: center;
+  margin: 0;
+  color: var(--c-ink-800);
+}
+
+.pk-ticks .ik {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--c-accent-600);
+}
+
+/* --- Кроки: шість колонок з вертикальними лініями --- */
+.pk-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-steps li {
+  margin: 0;
+  padding: 0 var(--sp-5);
+  border-left: 1px solid var(--pk-line);
+}
+
+.pk-steps li:first-child { padding-left: 0; border-left: 0; }
+
+.pk-steps__num {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #dde6f4;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-small);
+  color: var(--c-accent-600);
+  font-variant-numeric: tabular-nums;
+}
+
+.pk-steps .ik {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: var(--sp-5) auto;
+}
+
+.pk-steps h3 {
+  margin: 0;
+  text-align: center;
+  font-size: var(--fs-h4);
+}
+
+.pk-steps time {
+  display: block;
+  margin: var(--sp-1) 0 0;
+  text-align: center;
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.pk-steps p {
+  margin: var(--sp-4) 0 0;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-600);
+}
+
+/* Програвач у секції кроків: ширина колонки тексту, відступ зверху. */
+.pk-sec .vplayer {
+  max-width: 860px;
+  margin: var(--sp-8) auto 0;
+}
+
+/* Смуга-пояснення під блоком: іконка ліворуч, текст на всю ширину. */
+.pk-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  max-width: none;
+  margin: var(--sp-8) 0 0;
+  padding: var(--sp-5) var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  font-size: var(--fs-small);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-600);
+}
+
+.pk-strip .ik {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--c-accent-600);
+}
+
+/* --- Підготовка: вибір дослідження і панель --- */
+ /* Табки дослідження: усі види видно одразу, одним рядком. */
+.pk-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-tabs li {
+  margin: 0;
+  list-style: none;
+}
+
+.pk-tabs .chip.is-active {
+  background: var(--c-accent-600);
+  border-color: var(--c-accent-600);
+  color: var(--c-white);
+}
+
+
+.pk-panel[hidden] { display: none; }
+
+.pk-tabs + .pk-panel { margin-top: var(--sp-8); }
+
+.pk-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--sp-8);
+  align-items: center;
+  padding: var(--sp-6) var(--sp-8);
+  background: var(--c-white);
+  border-radius: var(--r-lg);
+}
+
+.pk-panel__name {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.pk-panel h3 {
+  margin: 0;
+  font-size: var(--fs-h4);
+}
+
+.pk-dots {
+  display: grid;
+  gap: var(--sp-3);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-dots li {
+  position: relative;
+  margin: 0;
+  padding-left: 1.6em;
+  color: var(--c-ink-800);
+}
+
+.pk-dots li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--c-accent-600);
+}
+
+/* --- Тунель: чотири підпори в рядок і фото з кружком --- */
+ /* Чотири підпори одним стовпцем: разом займають висоту фото. */
+.pk-props {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: var(--sp-4);
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-props li {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: var(--sp-5);
+  align-items: center;
+  margin: 0;
+  padding: var(--sp-5) var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  font-size: var(--fs-small);
+  color: var(--c-ink-600);
+}
+
+ /* Коло піднято на пікселі: у рядка знизу лишається місце під виносні
+   елементи, тому оптичний центр тексту вищий за геометричний. */
+.pk-props .ik-box {
+  width: 4rem;
+  height: 4rem;
+}
+.pk-props .ik-box .ik { width: 2.25rem; height: 2.25rem; color: var(--c-accent-600); }
+
+.pk-props b {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  color: var(--c-ink-900);
+  text-wrap: nowrap;
+}
+
+.pk-badge {
+  position: absolute;
+  top: var(--sp-5);
+  right: var(--sp-5);
+  display: grid;
+  place-items: center;
+  width: 8.75rem;
+  height: 8.75rem;
+  margin: 0;
+  /* Поля вужчі за найдовше слово, інакше рядок вилазить праворуч. */
+  padding: var(--sp-2);
+  border-radius: 50%;
+  background: var(--c-navy-900);
+  color: var(--c-white);
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  text-align: center;
+}
+
+/* Рядки центруються в самому колі, а не в коробці за розміром слова. */
+.pk-badge span {
+  display: block;
+  width: 100%;
+}
+
+/* --- Після обстеження: три пункти в рядок --- */
+.pk-after {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-6);
+  max-width: none;
+  margin: var(--sp-8) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-after li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  margin: 0;
+}
+
+.pk-after b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  color: var(--c-navy-900);
+}
+
+.pk-after span {
+  display: block;
+  margin-top: var(--sp-1);
+  font-size: var(--fs-small);
+  color: var(--c-ink-600);
+}
+
+/* --- Питання: акордеон і картка збоку --- */
+.pk-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: var(--sp-6);
+  align-items: start;
+}
+
+.pk-faq details {
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--pk-line);
+  border-radius: var(--r-md);
+  background: var(--c-white);
+}
+
+.pk-faq details + details { margin-top: var(--sp-3); }
+
+.pk-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--c-navy-900);
+}
+
+.pk-faq summary::-webkit-details-marker { display: none; }
+
+.pk-faq summary::after {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  flex: none;
+  border-right: 2px solid var(--c-ink-400);
+  border-bottom: 2px solid var(--c-ink-400);
+  transform: rotate(45deg);
+  transition: transform var(--t-base);
+}
+
+.pk-faq details[open] summary::after { transform: rotate(-135deg); }
+
+.pk-faq details p {
+  margin: var(--sp-3) 0 0;
+  font-size: var(--fs-small);
+  color: var(--c-ink-600);
+}
+
+.pk-ask {
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--pk-band);
+}
+
+.pk-ask h3 {
+  margin: 0;
+  font-size: var(--fs-h4);
+}
+
+.pk-ask p {
+  margin: var(--sp-3) 0 var(--sp-5);
+  font-size: var(--fs-small);
+  color: var(--c-ink-600);
+}
+
+/* --- Панель запису --- */
+.pk-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--sp-6);
+  align-items: center;
+  padding: var(--sp-8) var(--sp-8);
+  border-radius: var(--r-lg);
+  background: var(--pk-band);
+}
+
+.pk-cta__lead {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-caption);
+  color: var(--c-accent-600);
+}
+
+.pk-cta h2 { margin: 0; font-size: var(--fs-h3); }
+
+.pk-cta p {
+  margin: var(--sp-2) 0 0;
+  font-size: var(--fs-small);
+  color: var(--c-ink-600);
+}
+
+/* --- Вузькі екрани --- */
+@media (max-width: 63.99em) {
+  .pk-two,
+  .pk-faq,
+  .pk-panel { grid-template-columns: 1fr; }
+
+  .pk-two--rev .pk-two__media { order: 0; }
+  .pk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pk-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6) 0; }
+  .pk-after { grid-template-columns: 1fr; gap: var(--sp-4); }
+  .pk-head { grid-template-columns: 1fr; align-items: start; }
+  .pk-badge { width: 8rem; height: 8rem; }
+  .pk-hero__grid { max-width: none; }
+  .pk-hero::before { background: linear-gradient(180deg, rgba(238, 243, 249, 0.96) 55%, rgba(238, 243, 249, 0.8) 100%); }
+  .pk-hero__foto { inset: 0; -webkit-mask-image: none; mask-image: none; }
+}
+
+@media (max-width: 47.99em) {
+  .pk-cards,
+  .pk-cta { grid-template-columns: 1fr; }
+
+  .pk-props { grid-template-rows: none; height: auto; }
+
+  /* На вузькому екрані назва переноситься, інакше плашка вилазить за край. */
+  .pk-props b { text-wrap: wrap; }
+
+  .pk-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pk-steps li { padding-left: var(--sp-4); }
+  .pk-steps li:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .pk-tip { position: static; margin-top: var(--sp-3); left: auto; }
+  .pk-badge { position: static; margin: var(--sp-4) 0 0; width: 100%; height: auto; border-radius: var(--r-lg); }
+  .pk-cta { text-align: left; }
+}
+

@@ -133,6 +133,36 @@ def perevirka_rozmitky():
             problem(path, f"тег <{tag}> з рядка {line} не закритий")
 
 
+def perevirka_stayl_gaydu():
+    """Стилі окремих сторінок не перевизначають систему.
+
+    Кегль, інтерліньяж, колір, товщину і сім'ю шрифту задає стайл-ґайд –
+    у сторінкових файлах ці властивості пишуться лише змінною з
+    tokens.css. Числове чи словесне значення означає, що сторінка
+    поїхала повз систему і завтра розійдеться з рештою сайту.
+    """
+    systemni = {"tokens.css", "base.css", "components.css", "fonts.css", "styleguide.css"}
+    vlastyvosti = ("font-size", "line-height", "color", "font-weight", "font-family")
+    dozvoleni = {"inherit", "currentcolor", "transparent", "0", "unset", "initial"}
+    deklaratsiia = re.compile(
+        r"\b(" + "|".join(vlastyvosti) + r")\s*:\s*([^;{}]+)", re.I
+    )
+    for path in files({".css"}):
+        if path.name in systemni:
+            continue
+        for nomer, ryadok in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            chysta = ryadok.split("/*")[0]
+            for imia, znachennia in deklaratsiia.findall(chysta):
+                znachennia = znachennia.strip().lower()
+                if "var(--" in znachennia or znachennia in dozvoleni:
+                    continue
+                problem(
+                    path,
+                    f"рядок {nomer}: «{imia.lower()}: {znachennia}» повз стайл-ґайд, "
+                    f"треба змінну з tokens.css",
+                )
+
+
 def css_tekst():
     """Увесь CSS одним рядком."""
     return "".join(
@@ -239,6 +269,7 @@ def main():
     perevirka_json()
     perevirka_rozmitky()
     perevirka_klasiv()
+    perevirka_stayl_gaydu()
     perevirka_tsin()
     perevirka_inline()
     perevirka_telefonu()

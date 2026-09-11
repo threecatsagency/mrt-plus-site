@@ -533,4 +533,29 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   })();
+
+  /* ------------------------------------------------------------------
+     Підготовка до окремих досліджень: табки перемикають панелі.
+     ------------------------------------------------------------------ */
+  document.querySelectorAll("[data-tabs]").forEach(function (root) {
+    var chips = root.querySelectorAll("[data-tab]");
+    var panels = root.querySelectorAll("[data-panel]");
+
+    function pokazaty(kod) {
+      chips.forEach(function (chip) {
+        chip.classList.toggle("is-active", chip.getAttribute("data-tab") === kod);
+      });
+      panels.forEach(function (panel) {
+        panel.hidden = panel.getAttribute("data-panel") !== kod;
+      });
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        pokazaty(chip.getAttribute("data-tab"));
+      });
+    });
+
+    if (chips[0]) pokazaty(chips[0].getAttribute("data-tab"));
+  });
 })();
