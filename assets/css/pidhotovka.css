@@ -448,6 +448,14 @@
   margin: var(--sp-8) auto 0;
 }
 
+/* Тихий рядок-застереження під секцією. */
+.pk-note-line {
+  max-width: none;
+  margin: var(--sp-6) 0 0;
+  font-size: var(--fs-small);
+  color: var(--c-ink-500);
+}
+
 /* Смуга-пояснення під блоком: іконка ліворуч, текст на всю ширину. */
 .pk-strip {
   display: flex;
@@ -617,36 +625,36 @@
   width: 100%;
 }
 
-/* --- Після обстеження: три пункти в рядок --- */
-.pk-after {
+ /* --- Після обстеження: три кроки в рядок, між ними стрілки --- */
+.pk-flow {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--sp-6);
-  max-width: none;
-  margin: var(--sp-8) 0 0;
-  padding: 0;
-  list-style: none;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: var(--sp-5);
+  align-items: center;
 }
 
-.pk-after li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--sp-4);
-  margin: 0;
-}
-
-.pk-after b {
+.pk-flow__step b {
   display: block;
+  margin-bottom: var(--sp-2);
   font-family: var(--font-display);
+  font-weight: var(--fw-heading);
   font-size: var(--fs-h4);
-  color: var(--c-navy-900);
+  line-height: var(--lh-heading);
+  color: var(--c-ink-900);
+  text-wrap: nowrap;
 }
 
-.pk-after span {
+.pk-flow__step span {
   display: block;
-  margin-top: var(--sp-1);
   font-size: var(--fs-small);
-  color: var(--c-ink-600);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-500);
+}
+
+.pk-flow__arrow .ik {
+  width: 3rem;
+  height: 1.5rem;
+  color: var(--c-accent-600);
 }
 
 /* --- Питання: акордеон і картка збоку --- */
@@ -673,9 +681,9 @@
   gap: var(--sp-4);
   cursor: pointer;
   list-style: none;
-  font-size: var(--fs-small);
-  font-weight: var(--fw-medium);
-  color: var(--c-navy-900);
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  color: var(--c-ink-900);
 }
 
 .pk-faq summary::-webkit-details-marker { display: none; }
@@ -696,6 +704,7 @@
 .pk-faq details p {
   margin: var(--sp-3) 0 0;
   font-size: var(--fs-small);
+  line-height: var(--lh-compact);
   color: var(--c-ink-600);
 }
 
@@ -750,7 +759,9 @@
   .pk-two--rev .pk-two__media { order: 0; }
   .pk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pk-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6) 0; }
-  .pk-after { grid-template-columns: 1fr; gap: var(--sp-4); }
+  .pk-flow { grid-template-columns: 1fr; gap: var(--sp-4); justify-items: start; }
+  .pk-flow__arrow .ik { transform: rotate(90deg); }
+  .pk-flow__step b { text-wrap: wrap; }
   .pk-head { grid-template-columns: 1fr; align-items: start; }
   .pk-badge { width: 8rem; height: 8rem; }
   .pk-hero__grid { max-width: none; }
