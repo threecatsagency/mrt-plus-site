@@ -482,7 +482,7 @@
 .pk-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-2);
+  gap: var(--sp-3);
   max-width: none;
   margin: 0;
   padding: 0;
@@ -629,13 +629,13 @@
 .pk-flow {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr;
-  gap: var(--sp-5);
+  gap: var(--sp-10);
   align-items: center;
 }
 
 .pk-flow__step b {
   display: block;
-  margin-bottom: var(--sp-2);
+  margin-bottom: var(--sp-3);
   font-family: var(--font-display);
   font-weight: var(--fw-heading);
   font-size: var(--fs-h4);
