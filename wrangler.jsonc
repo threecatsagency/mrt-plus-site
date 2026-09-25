@@ -1,15 +1,30 @@
 {
   // Сайт МРТ ПЛЮС – Worker зі статичними файлами.
-  // Коду немає: воркер тільки віддає вміст репозиторію.
-  // Динаміка (форма зворотного дзвінка, згодом вільні слоти) додається
-  // сюди ж полем "main", окремий воркер для цього не потрібен.
+  // Статику Cloudflare віддає сам, без коду. Код воркера (worker/index.js)
+  // запускається лише на /api/* і за розкладом: приймач довідників з ІС.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mrt-plus-site",
+  "main": "worker/index.js",
   "compatibility_date": "2026-09-01",
   "assets": {
     "directory": "./",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  // Знімок довідників з ІС. ID не секретний.
+  "kv_namespaces": [
+    { "binding": "DOVIDNYKY", "id": "960368af21e94cae9299d5a4168ebdf5" }
+  ],
+  // Адреса ІС. Секрет SITE_WEBHOOK_SECRET – не тут, а в дашборді
+  // (Settings → Variables and Secrets, тип Secret).
+  "vars": {
+    "IS_API_BASE": "https://is.mrtplus.ua"
+  },
+  // Страховка: раз на годину перевірити версію довідників.
+  "triggers": {
+    "crons": ["0 * * * *"]
   },
   "observability": {
     "enabled": true

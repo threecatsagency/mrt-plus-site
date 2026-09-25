@@ -11,3 +11,5 @@ perevirka.py
 shapka-pidval.py
 docs
 data
+worker/
+.wrangler
