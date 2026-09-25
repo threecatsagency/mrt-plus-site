@@ -13,13 +13,24 @@
 //   GET /api/is-sync – службовий стан: яка версія довідників збережена.
 //   Щогодини – страховка: якщо кнопку в ІС забули, воркер сам питає версію.
 //
+// Підстановка даних у сторінки (план ІС, 4.3, п. 5): на сторінках центрів
+// і контактів графіки, плашка «Зараз працює» і характеристики апаратів
+// беруться зі знімка в KV. Місця позначені в HTML атрибутами data-is-*.
+// Знімка немає або він зламаний – сторінка йде як є, із зашитими даними.
+//
 // Доступу до бази ІС у сайту немає: лише публічний API.
+
+import { hoursSetHtml, badgeHours, machineFields } from './render.js';
 
 const KEY_SNAPSHOT = 'snapshot';   // повний знімок довідників (JSON-текст)
 const KEY_META = 'meta';           // {version, changedAt, savedAt, source}
 const MAX_AGE_SEC = 300;           // сигнал, старший за 5 хвилин, відкидаємо
 const MAX_BODY = 2048;             // тіло сигналу – кілька байтів
 const IS_TIMEOUT_MS = 15000;
+const MEMO_MS = 60000;             // знімок у пам'яті воркера – хвилину
+
+// Сторінки з даними з ІС. Той самий список – у run_worker_first (wrangler.jsonc).
+const DATA_PAGES = /^\/(kyiv|zhytomyr|rivne|lutsk|kovel|sheptytskyi|kontakty)\/$/;
 
 export default {
   async fetch(request, env) {
@@ -29,7 +40,9 @@ export default {
       if (request.method === 'GET') return syncStatus(env);
       return json({ error: 'method_not_allowed' }, 405, { Allow: 'GET, POST' });
     }
-    return env.ASSETS.fetch(request);
+    const res = await env.ASSETS.fetch(request);
+    if (DATA_PAGES.test(url.pathname)) return withIsData(res, env);
+    return res;
   },
 
   async scheduled(event, env, ctx) {
@@ -127,6 +140,70 @@ function isFetch(env, path, headers) {
     headers: { 'User-Agent': 'mrt-plus-site/1', ...headers },
     signal: AbortSignal.timeout(IS_TIMEOUT_MS),
   });
+}
+
+// ---------- підстановка в сторінки ----------
+
+let memo = { at: 0, snap: null };
+
+async function loadSnapshot(env) {
+  if (memo.snap && Date.now() - memo.at < MEMO_MS) return memo.snap;
+  try {
+    const snap = await env.DOVIDNYKY.get(KEY_SNAPSHOT, { type: 'json', cacheTtl: 60 });
+    memo = { at: Date.now(), snap: snap && Array.isArray(snap.centers) ? snap : null };
+  } catch {
+    memo = { at: Date.now(), snap: null };
+  }
+  return memo.snap;
+}
+
+async function withIsData(res, env) {
+  const type = res.headers.get('Content-Type') || '';
+  if (res.status !== 200 || !type.includes('text/html')) return res;
+  const snap = await loadSnapshot(env);
+  if (!snap) return res;
+
+  const bySlug = new Map(snap.centers.map((c) => [c.slug, c]));
+  const center = (el, attr) => bySlug.get(el.getAttribute(attr));
+  let card = null;
+
+  return new HTMLRewriter()
+    .on('[data-is-hours]', {
+      element(el) {
+        const c = center(el, 'data-is-hours');
+        if (c && c.machines.length) el.setInnerContent(hoursSetHtml(c), { html: true });
+      },
+    })
+    .on('[data-is-badge]', {
+      element(el) {
+        const c = center(el, 'data-is-badge');
+        if (!c || !c.machines.length) return;
+        const h = badgeHours(c);
+        const set = (name, v) => (v ? el.setAttribute(name, v) : el.removeAttribute(name));
+        set('data-pn-pt', h.mon_fri);
+        set('data-sb', h.sat);
+        set('data-nd', h.sun);
+      },
+    })
+    // Картка апарата: data-is-machine="slug:CLASS" на <article>, поля – dd
+    // з data-is-f усередині. HTMLRewriter іде документом по черзі, тож поле
+    // належить останній відкритій картці. Стан – свій для кожного запиту.
+    .on('[data-is-machine]', {
+      element(el) {
+        const [slug, cls] = (el.getAttribute('data-is-machine') || '').split(':');
+        const c = bySlug.get(slug);
+        const m = c && c.machines.find((x) => x.class === cls);
+        card = m ? machineFields(m) : null;
+        el.onEndTag(() => { card = null; });
+      },
+    })
+    .on('[data-is-f]', {
+      element(el) {
+        const v = card && card[el.getAttribute('data-is-f')];
+        if (v) el.setInnerContent(v);
+      },
+    })
+    .transform(res);
 }
 
 // ---------- службовий стан ----------

@@ -155,7 +155,7 @@
       <div class="cpanel">
         <div class="cpanel__photo">
           <img src="/assets/img/lutsk-budivlia-800.webp" sizes="(min-width: 48em) 45vw, 100vw" width="800" height="600" alt="Будівля центру МРТ ПЛЮС у Луцьку, проспект Молоді, 12-В" loading="lazy">
-          <span class="badge-live" data-pn-pt="7:00-22:00" data-sb="8:00-18:00"></span>
+          <span class="badge-live" data-is-badge="lutsk" data-pn-pt="7:00-22:00" data-sb="8:00-18:00"></span>
         </div>
         <div class="cpanel__data">
           <div>
@@ -168,7 +168,7 @@
           <div class="cpanel__row cpanel__row--wide">
             <div>
               <span class="cpanel__label">Графік роботи</span>
-              <div class="hours-set"><div class="hours"><p class="hours__kind">МРТ</p><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>7:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div><div class="hours"><p class="hours__kind">КТ</p><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>7:30–21:00</dd><dt>Сб</dt><dd>9:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div></div>
+              <div class="hours-set" data-is-hours="lutsk"><div class="hours"><p class="hours__kind">МРТ</p><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>7:00–22:00</dd><dt>Сб</dt><dd>8:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div><div class="hours"><p class="hours__kind">КТ</p><dl class="cpanel__hours"><dt>Пн–Пт</dt><dd>7:30–21:00</dd><dt>Сб</dt><dd>9:00–18:00</dd><dt>Нд</dt><dd>вихідний</dd></dl></div></div>
             </div>
           </div>
           <div class="btn-row">
@@ -191,7 +191,7 @@
     <div class="container">
       <h2><em>Три томографи</em> під різні призначення</h2>
       <div class="devices">
-        <article class="device-card">
+        <article class="device-card" data-is-machine="lutsk:MRI3">
           <figure class="device-card__photo"><img src="/assets/img/lutsk-magnetom-lumina-800.webp" srcset="/assets/img/lutsk-magnetom-lumina-800.webp 800w, /assets/img/lutsk-magnetom-lumina-1600.webp 1600w" sizes="(min-width: 48em) 45vw, 100vw" width="800" height="600" alt="Томограф Siemens Magnetom Lumina 3 Тесла в кабінеті МРТ ПЛЮС у Луцьку" loading="lazy"></figure>
           <div class="device-card__body">
             <p class="device-kind">Магнітно-резонансний томограф, 3 Тесла</p>
@@ -199,13 +199,13 @@
             <p class="device-card__text">Найдетальніші знімки: поле 3 Тесла показує дрібні зміни в мозку, судинах, суглобах, які на слабших апаратах не видно. Тунель 70 см – на третину ширший за звичайний, тож легше людям із клаустрофобією і великою вагою. Технологія зниження шуму робить дослідження тихішим, а весь хребет знімається за два кроки, а не за три.</p>
             <dl>
             <dt>Поле</dt><dd>3 Тесла</dd>
-            <dt>Тунель</dt><dd>70 см</dd>
-            <dt>Вага пацієнта</dt><dd>до 250 кг</dd>
-            <dt>Контраст</dt><dd>так</dd>
+            <dt>Тунель</dt><dd data-is-f="bore">70 см</dd>
+            <dt>Вага пацієнта</dt><dd data-is-f="weight">до 250 кг</dd>
+            <dt>Контраст</dt><dd data-is-f="contrast">так</dd>
             </dl>
           </div>
         </article>
-        <article class="device-card">
+        <article class="device-card" data-is-machine="lutsk:MRI15">
           <figure class="device-card__photo"><img src="/assets/img/lutsk-magnetom-avanto-800.webp" srcset="/assets/img/lutsk-magnetom-avanto-800.webp 800w, /assets/img/lutsk-magnetom-avanto-1600.webp 1600w" sizes="(min-width: 48em) 45vw, 100vw" width="800" height="600" alt="Томограф Siemens Magnetom Avanto 1,5 Тесла в кабінеті МРТ ПЛЮС у Луцьку" loading="lazy"></figure>
           <div class="device-card__body">
             <p class="device-kind">Магнітно-резонансний томограф, 1,5 Тесла</p>
@@ -213,22 +213,22 @@
             <p class="device-card__text">Апарат для більшості призначень: хребет, суглоби, органи черевної порожнини і малого таза, судини. Якщо треба обстежити кілька ділянок, це робиться за один сеанс без перекладання – котушки покривають тіло від голови до стоп. Дослідження коротше завдяки паралельному збиранню сигналу, шум знижено до 97&#160;%.</p>
             <dl>
             <dt>Поле</dt><dd>1,5 Тесла</dd>
-            <dt>Тунель</dt><dd>60 см</dd>
-            <dt>Вага пацієнта</dt><dd>до 130 кг</dd>
-            <dt>Контраст</dt><dd>так</dd>
+            <dt>Тунель</dt><dd data-is-f="bore">60 см</dd>
+            <dt>Вага пацієнта</dt><dd data-is-f="weight">до 130 кг</dd>
+            <dt>Контраст</dt><dd data-is-f="contrast">так</dd>
             </dl>
           </div>
         </article>
-        <article class="device-card">
+        <article class="device-card" data-is-machine="lutsk:CT">
           <figure class="device-card__photo"><img src="/assets/img/lutsk-somatom-goup-800.webp" srcset="/assets/img/lutsk-somatom-goup-800.webp 800w, /assets/img/lutsk-somatom-goup-1600.webp 1600w" sizes="(min-width: 48em) 45vw, 100vw" width="800" height="600" alt="Комп'ютерний томограф Siemens SOMATOM go.Up у кабінеті КТ МРТ ПЛЮС у Луцьку" loading="lazy"></figure>
           <div class="device-card__body">
             <p class="device-kind">Комп'ютерний томограф</p>
             <h3>Siemens SOMATOM go.Up</h3>
             <p class="device-card__text">Низька доза: Tin Filter відсікає непотрібне випромінювання, дослідження легень наближається до дози звичайного рентгена. Окремі дитячі протоколи з дозою під вагу дитини. Відкритий отвір 70 см, довгі ділянки скануються за одну затримку дихання; є режим зменшення артефактів від металевих протезів.</p>
             <dl>
-            <dt>Отвір</dt><dd>70 см</dd>
-            <dt>Вага пацієнта</dt><dd>до 227 кг</dd>
-            <dt>Контраст</dt><dd>так</dd>
+            <dt>Отвір</dt><dd data-is-f="bore">70 см</dd>
+            <dt>Вага пацієнта</dt><dd data-is-f="weight">до 227 кг</dd>
+            <dt>Контраст</dt><dd data-is-f="contrast">так</dd>
             </dl>
           </div>
         </article>
