@@ -49,6 +49,11 @@ STORINKY = {
     "styleguide.html": ("neviodme", None),
     "pidhotovka-mrt/index.html": ("neviodme", None),
     "pidhotovka-kt/index.html": ("neviodme", None),
+    "likari/index.html": ("neviodme", None),
+    "likari/zrazok/index.html": ("neviodme", None),
+    "vidhuky/index.html": ("neviodme", None),
+    "statti/index.html": ("neviodme", None),
+    "statti/zrazok/index.html": ("neviodme", None),
 }
 for slug in MISTA:
     STORINKY[f"{slug}/index.html"] = ("misto", slug)
@@ -153,6 +158,8 @@ def main():
         header = pigulka(header_et, rezhym, slug)
         if shliakh == "kontakty/index.html":
             header = header.replace('<a href="/kontakty/">Контакти</a>', '<a href="/kontakty/" aria-current="page">Контакти</a>', 1)
+        if shliakh.startswith("likari/"):
+            header = header.replace('<a href="/likari/">Лікарі</a>', '<a href="/likari/" aria-current="page">Лікарі</a>', 1)
         a, b = vyrizaty(s, "header")
         s = s[:a] + header + s[b:]
         a, b = vyrizaty(s, "footer")

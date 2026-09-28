@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Ціни на МРТ у Києві – МРТ ПЛЮС, вул. Композитора Мейтуса, 5</title>
-<meta name="description" content="Ціни на МРТ у Києві, центр МРТ ПЛЮС: кожне дослідження без контрасту і з контрастом. Вул. Композитора Мейтуса, 5. Запис 0&#160;800&#160;311&#160;058.">
+<title>Відгуки пацієнтів МРТ ПЛЮС – МРТ ПЛЮС</title>
+<meta name="description" content="Дослівні відгуки пацієнтів про центри МРТ ПЛЮС з Google Карт: Київ, Житомир, Рівне, Луцьк, Ковель, Шептицький.">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/assets/img/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/base.css">
 <link rel="stylesheet" href="/assets/css/components.css">
-<link rel="stylesheet" href="/assets/css/tsiny.css">
+<link rel="stylesheet" href="/assets/css/pidhotovka.css">
+<link rel="stylesheet" href="/assets/css/zmist.css">
 </head>
 <body>
 
@@ -28,10 +29,10 @@
     <!-- Місто сторінки: індикатор із перемиканням. На головній його немає –
          вибір міста робить перший екран. -->
     <div class="nav-item nav-item--city">
-      <button class="city-switch" type="button" aria-expanded="false" aria-controls="drop-city"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Київ</button>
+      <button class="city-switch city-switch--none" type="button" aria-expanded="false" aria-controls="drop-city"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Оберіть місто</button>
       <div class="drop" id="drop-city">
         <div class="drop__inner">
-            <a href="/kyiv/" aria-current="page">Київ</a>
+            <a href="/kyiv/">Київ</a>
             <a href="/zhytomyr/">Житомир</a>
             <a href="/rivne/">Рівне</a>
             <a href="/lutsk/">Луцьк</a>
@@ -42,7 +43,7 @@
     </div>
 
     <nav class="site-nav" aria-label="Головне меню">
-      <a href="/kyiv/tsiny/" aria-current="page">Ціни</a>
+      <a href="/lutsk/tsiny/">Ціни</a>
       <a href="/likari/">Лікарі</a>
       <div class="nav-item">
         <a href="/pidhotovka-mrt/" aria-expanded="false" aria-controls="drop-patsiyentam">Пацієнтам</a>
@@ -50,7 +51,7 @@
           <div class="drop__inner">
             <a href="/pidhotovka-mrt/">Що треба знати перед МРТ</a>
             <a href="/pidhotovka-kt/">Що треба знати перед КТ</a>
-            <a href="/kyiv/#pytannia">Часті питання</a>
+            <a href="/pidhotovka-mrt/#pytannia">Часті питання</a>
             <a href="/vidhuky/">Відгуки</a>
             <a href="/statti/">Статті</a>
           </div>
@@ -76,7 +77,7 @@
     <div class="mobile-menu" id="mobile-menu">
       <div class="mobile-menu__inner">
         <div class="mlvl is-on" data-lvl="root">
-          <a class="mitem" href="/kyiv/tsiny/">Ціни</a>
+          <a class="mitem" href="/lutsk/tsiny/">Ціни</a>
           <a class="mitem" href="/likari/">Лікарі</a>
           <button class="mitem mitem--more" type="button" data-lvl-open="patsiyentam">Пацієнтам</button>
           <a class="mitem" href="/kontakty/">Контакти</a>
@@ -84,7 +85,7 @@
             <p class="mactions__label">Консультація і запис</p>
             <a class="btn btn-primary btn-sm phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
             <div class="mactions__row">
-              <a class="btn btn-outline btn-sm" href="/kyiv/#zapys">Запис онлайн</a>
+              <a class="btn btn-outline btn-sm" href="#zapys">Запис онлайн</a>
             </div>
             <p class="mactions__label">Ми в соціальних мережах</p>
             <div class="mactions__row">
@@ -98,7 +99,7 @@
           <button class="mback" type="button" data-lvl-back>Назад · Пацієнтам</button>
           <a class="mitem" href="/pidhotovka-mrt/">Що треба знати перед МРТ</a>
           <a class="mitem" href="/pidhotovka-kt/">Що треба знати перед КТ</a>
-          <a class="mitem" href="/kyiv/#pytannia">Часті питання</a>
+          <a class="mitem" href="/pidhotovka-mrt/#pytannia">Часті питання</a>
           <a class="mitem" href="/vidhuky/">Відгуки</a>
           <a class="mitem" href="/statti/">Статті</a>
         </div>
@@ -108,39 +109,89 @@
   </div>
 </header>
 
-<main id="main">
-
-  <!-- Перший екран: назва сторінки з містом і адреса центру. -->
-  <section class="bluehero bluehero--grad">
-    <div class="container bluehero__grid">
-      <div class="hero-col">
-        <h1>Ціни на МРТ <em>у&#160;Києві</em></h1>
-        <hr class="bluehero__rule">
-        <p class="bluehero__desc">Вулиця Композитора Мейтуса, 5.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Прайс центру. Уміст блоку data-is-pricelist воркер будує зі знімка
-       довідників ІС (worker/render.js, priceListHtml); тут – запасний текст
-       на випадок, коли знімка немає. -->
-  <section class="section tsiny-section" id="tsiny">
+<main id="main" class="pk">
+  <section class="pk-sec zm-head">
     <div class="container">
-      <nav class="tsiny-cities" aria-label="Ціни в інших центрах">
-        <span class="tsiny-cities__label">Ціни в центрах:</span>
-        <a class="chip is-active" href="/kyiv/tsiny/" aria-current="page">Київ</a>
-        <a class="chip" href="/zhytomyr/tsiny/">Житомир</a>
-        <a class="chip" href="/rivne/tsiny/">Рівне</a>
-        <a class="chip" href="/lutsk/tsiny/">Луцьк</a>
-        <a class="chip" href="/kovel/tsiny/">Ковель</a>
-        <a class="chip" href="/sheptytskyi/tsiny/">Шептицький</a>
-      </nav>
-      <div class="tsiny" data-is-pricelist="kyiv">
-        <p class="note note-info tsiny-fallback">Прайс оновлюється. Ціну потрібного дослідження підкажемо за телефоном <a class="phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>.</p>
+      <ol class="crumbs">
+        <li><a href="/">Головна</a></li>
+        <li>Відгуки</li>
+      </ol>
+      <h1>Відгуки <em>пацієнтів</em></h1>
+      <p class="lead">Ми не пишемо відгуки самі й не редагуємо чужі – тут зібрані дослівні відгуки пацієнтів з Google Карт.</p>
+        <ul class="chip-row" aria-label="Відгуки за центром">
+          <li><button class="chip is-active" type="button" data-filter="all" aria-pressed="true">Усі центри</button></li>
+          <li><button class="chip" type="button" data-filter="kyiv" aria-pressed="false">Київ</button></li>
+          <li><button class="chip" type="button" data-filter="zhytomyr" aria-pressed="false">Житомир</button></li>
+          <li><button class="chip" type="button" data-filter="rivne" aria-pressed="false">Рівне</button></li>
+          <li><button class="chip" type="button" data-filter="lutsk" aria-pressed="false">Луцьк</button></li>
+          <li><button class="chip" type="button" data-filter="kovel" aria-pressed="false">Ковель</button></li>
+          <li><button class="chip" type="button" data-filter="sheptytskyi" aria-pressed="false">Шептицький</button></li>
+        </ul>
+    </div>
+  </section>
+  <section class="pk-sec">
+    <div class="container">
+      <div class="rev-grid">
+        <figure class="rev" data-city="lutsk">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">серпень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Луцьк</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="rivne">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">серпень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Рівне</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="kovel">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">липень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Ковель</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="kyiv">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">липень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Київ</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="zhytomyr">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">червень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Житомир</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="sheptytskyi">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">червень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Шептицький</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="lutsk">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">травень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Луцьк</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="rivne">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">травень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Рівне</span><span>Відгук з Google Карт</span></p>
+        </figure>
+        <figure class="rev" data-city="kovel">
+          <figcaption class="rev__head"><span class="rev__name">Ім'я пацієнта</span><span class="rev__date">квітень 2026</span></figcaption>
+          <blockquote>Дослівний текст відгуку з Google Карт. Тексти не пишемо й не редагуємо – беремо з профілю центру як є.</blockquote>
+          <p class="rev__foot"><span>Ковель</span><span>Відгук з Google Карт</span></p>
+        </figure>
       </div>
     </div>
   </section>
-
+  <section class="pk-sec pk-sec--tight" id="zapys">
+    <div class="container">
+      <div class="pk-cta">
+        <div>
+          <p class="pk-cta__lead">Турбота починається з точного діагнозу</p>
+          <h2>Потрібен запис на обстеження?</h2>
+          <p>Залиште заявку – ми підберемо зручний час і відповімо на всі питання.</p>
+        </div>
+        <a class="btn btn-primary btn-lg phone" href="tel:0800311058">0&#160;800&#160;311&#160;058</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer" id="kontakty">
@@ -171,7 +222,7 @@
         <ul class="footer-list">
           <li><a href="/pidhotovka-mrt/">Що треба знати перед МРТ</a></li>
           <li><a href="/pidhotovka-kt/">Що треба знати перед КТ</a></li>
-          <li><a href="/kyiv/tsiny/">Ціни</a></li>
+          <li><a href="/lutsk/tsiny/">Ціни</a></li>
           <li><a href="/likari/">Лікарі</a></li>
           <li><a href="/vidhuky/">Відгуки</a></li>
           <li><a href="/statti/">Статті</a></li>
@@ -186,7 +237,7 @@
 
 <div class="action-bar">
   <a class="btn btn-phone" href="tel:0800311058">Подзвонити</a>
-  <a class="btn btn-primary" href="/kyiv/#zapys">Записатися</a>
+  <a class="btn btn-primary" href="#zapys">Записатися</a>
 </div>
 
 
@@ -195,6 +246,6 @@
 <button class="to-top" type="button" data-to-top aria-label="Вгору"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14l6-6 6 6"/></svg></button>
 
 <script src="/assets/js/site.js"></script>
-<script src="/assets/js/tsiny.js"></script>
+<script src="/assets/js/zmist.js"></script>
 </body>
 </html>

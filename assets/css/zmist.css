@@ -1,0 +1,252 @@
+/* =====================================================================
+   Змістові сторінки: лікарі, лікар, відгуки, статті, стаття.
+   Будуються на секціях сторінок підготовки (pidhotovka.css: pk-sec,
+   pk-cta), тут – лише власні компоненти цих сторінок. Кольори, кеглі й
+   відступи – з tokens.css.
+   ===================================================================== */
+
+/* --- Шапка сторінки: хлібні крихти, заголовок, вступ --- */
+.zm-head { padding-bottom: 0; }
+.zm-head .crumbs { padding: 0; }
+.zm-head h1 { margin: var(--sp-6) 0 0; }
+.zm-head .lead { margin: var(--sp-4) 0 0; max-width: 62ch; }
+.zm-head .chip-row { margin-top: var(--sp-8); }
+
+/* --- Сітки-списки без маркерів і відступів списку --- */
+.doc-grid,
+.art-grid,
+.zm-head .chip-row,
+.pk-sec .chip-row {
+  max-width: none;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+.doc-grid > li,
+.art-grid > li,
+.pk-sec .chip-row > li { margin: 0; }
+
+/* --- Заглушка фото, поки немає знімка --- */
+.ph {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-lg);
+  background: var(--c-ink-100);
+  color: var(--c-ink-500);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.ph--portrait { aspect-ratio: 4 / 5; }
+.ph--wide { aspect-ratio: 16 / 9; }
+
+/* --- Фільтр за містом: плашки-кнопки, прихований елемент зникає --- */
+[data-city][hidden] { display: none; }
+
+/* --- Картки лікарів --- */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-6) var(--sp-4);
+}
+
+.doc-card {
+  display: grid;
+  align-content: start;
+  gap: var(--sp-2);
+  color: inherit;
+  text-decoration: none;
+}
+.doc-card .ph { margin-bottom: var(--sp-2); transition: box-shadow var(--t-base); }
+.doc-card:hover .ph { box-shadow: var(--shadow-2); }
+
+.doc-card__name {
+  margin: 0;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  transition: color var(--t-fast);
+}
+.doc-card:hover .doc-card__name { color: var(--c-accent-600); }
+.doc-card__role { margin: 0; font-size: var(--fs-small); color: var(--c-ink-600); }
+.doc-card__meta { margin: 0; font-size: var(--fs-caption); color: var(--c-ink-500); }
+
+/* --- Сторінка лікаря: фото ліворуч, дані праворуч --- */
+.doc-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  align-items: start;
+  margin-top: var(--sp-8);
+}
+.doc-hero h1 { margin: 0; }
+.doc-hero__role { margin: var(--sp-3) 0 0; font-size: var(--fs-lead); color: var(--c-ink-600); }
+.doc-hero__bio { margin: var(--sp-6) 0 0; max-width: 60ch; }
+.doc-hero .btn-row { margin-top: var(--sp-8); }
+
+.doc-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4);
+  margin: var(--sp-8) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.doc-facts li {
+  margin: 0;
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+}
+.doc-facts b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+}
+.doc-facts span { display: block; margin-top: var(--sp-1); font-size: var(--fs-caption); color: var(--c-ink-500); }
+
+/* Освіта й досвід: рік ліворуч, зміст праворуч. */
+.doc-time {
+  display: grid;
+  gap: var(--sp-4);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.doc-time li {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: var(--sp-5);
+  margin: 0;
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--pk-line);
+}
+.doc-time time { font-size: var(--fs-small); color: var(--c-ink-500); font-variant-numeric: tabular-nums; }
+.doc-time b { display: block; }
+.doc-time span { display: block; margin-top: var(--sp-1); font-size: var(--fs-small); color: var(--c-ink-600); }
+
+.doc-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+}
+.doc-cols h2 { margin: 0 0 var(--sp-8); }
+
+/* --- Відгуки --- */
+.rev-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+.rev {
+  display: grid;
+  gap: var(--sp-4);
+  margin: 0;
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+}
+.rev__head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-3); }
+.rev__name { font-weight: var(--fw-semibold); }
+.rev__date { font-size: var(--fs-caption); color: var(--c-ink-500); white-space: nowrap; }
+.rev blockquote { margin: 0; font-size: var(--fs-small); line-height: var(--lh-text); color: var(--c-ink-800); }
+.rev__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--sp-2) var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--pk-line);
+  font-size: var(--fs-caption);
+  color: var(--c-ink-500);
+}
+
+/* --- Статті: картки списку --- */
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-8) var(--sp-5);
+}
+
+.art-card {
+  display: grid;
+  align-content: start;
+  gap: var(--sp-2);
+  color: inherit;
+  text-decoration: none;
+}
+.art-card .ph { margin-bottom: var(--sp-3); transition: box-shadow var(--t-base); }
+.art-card:hover .ph { box-shadow: var(--shadow-2); }
+.art-card__date { font-size: var(--fs-caption); color: var(--c-ink-500); }
+.art-card__title {
+  margin: 0;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  transition: color var(--t-fast);
+}
+.art-card:hover .art-card__title { color: var(--c-accent-600); }
+.art-card__text { margin: 0; font-size: var(--fs-small); color: var(--c-ink-600); }
+.art-card__author { margin: var(--sp-1) 0 0; font-size: var(--fs-caption); color: var(--c-ink-500); }
+
+/* --- Стаття --- */
+.art {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+.art .crumbs { padding: 0; }
+.art h1 { margin: var(--sp-6) 0 0; }
+.art__meta { margin: var(--sp-4) 0 0; font-size: var(--fs-small); color: var(--c-ink-500); }
+.art > .ph { margin-top: var(--sp-8); }
+
+.art__author {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: center;
+  margin-top: var(--sp-8);
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  color: inherit;
+  text-decoration: none;
+}
+.art__author .ph { aspect-ratio: 1; border-radius: 50%; font-size: 0; }
+.art__author b { display: block; transition: color var(--t-fast); }
+.art__author:hover b { color: var(--c-accent-600); }
+.art__author span { font-size: var(--fs-small); color: var(--c-ink-600); }
+
+/* Текст статті: ритм абзаців і підзаголовків. */
+.prose { margin-top: var(--sp-8); }
+.prose > * + * { margin-top: var(--sp-4); }
+.prose h2 { margin-top: var(--sp-10); font-size: var(--fs-h3); }
+.prose ul { padding-left: var(--sp-5); }
+.prose li + li { margin-top: var(--sp-2); }
+.prose .note { max-width: none; margin-top: var(--sp-6); }
+
+.zm-related > h2 { margin: 0 0 var(--sp-8); }
+
+/* --- Планшет і телефон --- */
+@media (max-width: 63.99em) {
+  .doc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rev-grid,
+  .art-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .doc-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .doc-facts { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 47.99em) {
+  .doc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rev-grid,
+  .art-grid,
+  .doc-cols,
+  .doc-hero { grid-template-columns: 1fr; }
+  .doc-hero .ph { max-width: 20rem; }
+  .doc-time li { grid-template-columns: 1fr; gap: var(--sp-1); }
+}
