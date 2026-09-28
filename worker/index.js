@@ -1,8 +1,8 @@
 // Воркер сайту МРТ ПЛЮС.
 //
 // Статику (сторінки, стилі, фото) віддає Cloudflare напряму, код сюди не
-// потрапляє. Воркер запускається лише на /api/* (див. run_worker_first у
-// wrangler.jsonc) і за розкладом раз на годину.
+// потрапляє. Воркер запускається лише на /api/*, на сторінках з даними з ІС
+// (див. run_worker_first у wrangler.jsonc) і за розкладом раз на годину.
 //
 // Приймач довідників з ІС (план ІС, розділ 4.3):
 //   POST /api/is-sync – сигнал від ІС «є нова версія довідників».
@@ -14,13 +14,14 @@
 //   Щогодини – страховка: якщо кнопку в ІС забули, воркер сам питає версію.
 //
 // Підстановка даних у сторінки (план ІС, 4.3, п. 5): на сторінках центрів
-// і контактів графіки, плашка «Зараз працює» і характеристики апаратів
-// беруться зі знімка в KV. Місця позначені в HTML атрибутами data-is-*.
+// і контактів графіки, плашка «Зараз працює» і характеристики апаратів,
+// на сторінках цін (/<місто>/tsiny/) – увесь прайс центру беруться зі
+// знімка в KV. Місця позначені в HTML атрибутами data-is-*.
 // Знімка немає або він зламаний – сторінка йде як є, із зашитими даними.
 //
 // Доступу до бази ІС у сайту немає: лише публічний API.
 
-import { hoursSetHtml, badgeHours, machineFields } from './render.js';
+import { hoursSetHtml, badgeHours, machineFields, priceListHtml } from './render.js';
 
 const KEY_SNAPSHOT = 'snapshot';   // повний знімок довідників (JSON-текст)
 const KEY_META = 'meta';           // {version, changedAt, savedAt, source}
@@ -30,7 +31,7 @@ const IS_TIMEOUT_MS = 15000;
 const MEMO_MS = 60000;             // знімок у пам'яті воркера – хвилину
 
 // Сторінки з даними з ІС. Той самий список – у run_worker_first (wrangler.jsonc).
-const DATA_PAGES = /^\/(kyiv|zhytomyr|rivne|lutsk|kovel|sheptytskyi|kontakty)\/$/;
+const DATA_PAGES = /^\/(?:(?:kyiv|zhytomyr|rivne|lutsk|kovel|sheptytskyi)\/(?:tsiny\/)?|kontakty\/)$/;
 
 export default {
   async fetch(request, env) {
@@ -172,6 +173,12 @@ async function withIsData(res, env) {
       element(el) {
         const c = center(el, 'data-is-hours');
         if (c && c.machines.length) el.setInnerContent(hoursSetHtml(c), { html: true });
+      },
+    })
+    .on('[data-is-pricelist]', {
+      element(el) {
+        const html = priceListHtml(snap, el.getAttribute('data-is-pricelist'));
+        if (html) el.setInnerContent(html, { html: true });
       },
     })
     .on('[data-is-badge]', {

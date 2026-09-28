@@ -1,0 +1,385 @@
+/* =====================================================================
+   Сторінка цін центру: /<місто>/tsiny/.
+   Прайс будує воркер зі знімка ІС (worker/render.js, priceListHtml).
+   Десктоп: сайдбар категорій ліворуч, пошук і перемикач МРТ / КТ над
+   прайсом. Телефон: пошук, перемикач і плашки категорій прилипають
+   під шапкою. Кольори й відступи – з tokens.css.
+   ===================================================================== */
+
+.tsiny-section {
+  padding-top: var(--sp-8);
+}
+
+/* Перемикач центрів над прайсом. */
+.tsiny-cities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-8);
+}
+
+.tsiny-cities__label {
+  margin-right: var(--sp-2);
+  font-size: var(--fs-small);
+  color: var(--c-ink-500);
+}
+
+.tsiny {
+  display: grid;
+  gap: var(--sp-10);
+}
+
+/* ---------- сайдбар категорій (лише десктоп) ---------- */
+
+.tsiny-nav {
+  display: none;
+}
+
+.tsiny-nav__title {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-gold-600);
+}
+
+.tsiny-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: var(--border);
+}
+
+.tsiny-nav li {
+  margin: 0;
+}
+
+.tsiny-nav li[hidden] {
+  display: none;
+}
+
+.tsiny-nav a {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-left: -1px;
+  padding: var(--sp-2) var(--sp-3) var(--sp-2) var(--sp-4);
+  border-left: 2px solid transparent;
+  font-size: var(--fs-small);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-600);
+  text-decoration: none;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.tsiny-nav a:hover {
+  color: var(--c-accent-700);
+}
+
+.tsiny-nav a.is-active {
+  border-left-color: var(--c-accent-600);
+  color: var(--c-accent-700);
+  font-weight: var(--fw-medium);
+}
+
+.tsiny-nav__n {
+  font-size: var(--fs-caption);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink-400);
+}
+
+/* ---------- пошук, перемикач, плашки категорій ---------- */
+
+.tsiny-bar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-2);
+  margin-inline: calc(-1 * var(--gutter));
+  padding: var(--sp-3) var(--gutter);
+  background: var(--c-ink-050);
+  border-bottom: var(--border);
+}
+
+/* Без перемикача МРТ / КТ пошук займає всю ширину. */
+.tsiny-bar:not(:has(.tsiny-mods)) .tsiny-search {
+  grid-column: 1 / -1;
+}
+
+.tsiny-search {
+  position: relative;
+}
+
+.tsiny-search__icon {
+  position: absolute;
+  top: 50%;
+  left: var(--sp-4);
+  width: 20px;
+  height: 20px;
+  color: var(--c-ink-400);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.tsiny-search .input {
+  padding-left: calc(var(--sp-4) + 20px + var(--sp-3));
+}
+
+.tsiny-search .input-action[hidden] {
+  display: none;
+}
+
+/* Прибрати вбудований хрестик браузера: є свій. */
+.tsiny-search .input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.tsiny-mods {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.tsiny-mods .chip {
+  gap: var(--sp-2);
+  cursor: pointer;
+  font-family: var(--font-ui);
+}
+
+.tsiny-mods .chip span {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+/* Телефон: перемикач поруч із пошуком, без лічильників – щоб липка смуга
+   лишалась у два рядки. */
+@media (max-width: 47.99em) {
+  .tsiny-mods {
+    gap: var(--sp-1);
+  }
+
+  .tsiny-mods .chip {
+    height: var(--tap);
+    padding: 0 var(--sp-3);
+  }
+
+  .tsiny-mods .chip span {
+    display: none;
+  }
+}
+
+/* Плашки категорій – на телефоні й планшеті, гортаються пальцем. */
+.tsiny-cats {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--sp-2);
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tsiny-cats::-webkit-scrollbar {
+  display: none;
+}
+
+.tsiny-cats .chip {
+  flex: none;
+  height: 34px;
+  white-space: nowrap;
+}
+
+.tsiny-cats .chip[hidden] {
+  display: none;
+}
+
+/* ---------- групи й таблиці ---------- */
+
+.tsiny-main {
+  min-width: 0;
+}
+
+.pgroup {
+  margin-top: var(--sp-8);
+  scroll-margin-top: calc(var(--header-h) + var(--sp-16) + var(--sp-10));
+}
+
+.pgroup[hidden] {
+  display: none;
+}
+
+.pgroup__title {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-h3);
+}
+
+.ptable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ptable thead th {
+  padding: var(--sp-2) 0;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  color: var(--c-ink-500);
+  text-align: left;
+  border-bottom: var(--border-strong);
+}
+
+.ptable tbody th {
+  font-weight: var(--fw-regular);
+  text-align: left;
+  color: var(--c-ink-800);
+}
+
+.ptable tr[hidden] {
+  display: none;
+}
+
+.ptable__price {
+  white-space: nowrap;
+}
+
+.ptable__price.is-none {
+  color: var(--c-ink-300);
+}
+
+.ptable mark {
+  padding: 0;
+  background: var(--c-gold-100);
+  color: inherit;
+  border-radius: 2px;
+}
+
+/* Телефон: назва, під нею дві ціни з підписами. */
+@media (max-width: 47.99em) {
+  .ptable thead {
+    display: none;
+  }
+
+  .ptable tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-1) var(--sp-4);
+    padding: var(--sp-3) 0;
+    border-bottom: var(--border);
+  }
+
+  .ptable tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .ptable tbody th {
+    grid-column: 1 / -1;
+    font-size: var(--fs-small);
+    line-height: var(--lh-compact);
+  }
+
+  .ptable__price {
+    font-size: var(--fs-small);
+  }
+
+  .ptable__price::before {
+    content: attr(data-l);
+    display: block;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-regular);
+    color: var(--c-ink-500);
+  }
+
+  .ptable--single tbody tr {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Планшет і десктоп: таблиця, ціни в колонках праворуч. */
+@media (min-width: 48em) {
+  .ptable thead th.ptable__price,
+  .ptable td.ptable__price {
+    width: 9.5rem;
+    text-align: right;
+  }
+
+  .ptable tbody th,
+  .ptable tbody td {
+    padding: var(--sp-3) 0;
+    border-bottom: var(--border);
+    vertical-align: top;
+  }
+
+  .ptable tbody th {
+    padding-right: var(--sp-6);
+    font-size: var(--fs-small);
+  }
+
+  .ptable tbody tr:last-child th,
+  .ptable tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .ptable tbody tr:hover th,
+  .ptable tbody tr:hover td {
+    background: var(--c-white);
+  }
+}
+
+/* Десктоп: сайдбар замість плашок категорій. */
+@media (min-width: 64em) {
+  .tsiny {
+    grid-template-columns: 17rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--sp-12);
+  }
+
+  .tsiny-nav {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-h) + var(--sp-6));
+    max-height: calc(100vh - var(--header-h) - var(--sp-12));
+    overflow-y: auto;
+  }
+
+  .tsiny-cats {
+    display: none;
+  }
+
+  .tsiny-bar {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .pgroup {
+    scroll-margin-top: calc(var(--header-h) + var(--sp-16) + var(--sp-4));
+  }
+}
+
+/* Нічого не знайдено. */
+.tsiny-empty {
+  margin-top: var(--sp-8);
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--c-white);
+  outline: 1px solid rgba(14, 29, 58, 0.08);
+}
+
+.tsiny-empty[hidden] {
+  display: none;
+}
+
+.tsiny-empty p {
+  margin: 0;
+}
+
+.tsiny-empty p + p {
+  margin-top: var(--sp-2);
+  color: var(--c-ink-600);
+}
+
+.tsiny-fallback {
+  grid-column: 1 / -1;
+}

@@ -8,7 +8,12 @@
   • пігулка міста: на сторінках міст – назва міста і позначка aria-current
     у переліку; на контактах і сторінці стилів – тьмяна «Оберіть місто»;
     на головній та в архіві секцій пігулки немає взагалі;
-  • aria-current="page" на пункті «Контакти» для сторінки контактів.
+  • aria-current="page" на пункті «Контакти» для сторінки контактів;
+  • пункт «Ціни» (шапка, мобільне меню, підвал) веде на прайс міста
+    сторінки, на загальних сторінках – на прайс Луцька; на сторінці цін
+    він позначений aria-current;
+  • на сторінках цін (/<місто>/tsiny/) якорі шапки (#posluhy, #zapys…)
+    ведуть на сторінку центру: самих секцій на сторінці цін немає.
 
 Запускати після будь-якої правки шапки чи підвалу в еталоні:
 
@@ -44,6 +49,22 @@ STORINKY = {
 }
 for slug in MISTA:
     STORINKY[f"{slug}/index.html"] = ("misto", slug)
+    STORINKY[f"{slug}/tsiny/index.html"] = ("misto", slug)
+
+TSINY_ZA_ZAMOVCHANNIAM = "lutsk"
+
+
+def tsiny(header, footer, shliakh, slug):
+    """Посилання «Ціни» і якорі для сторінки."""
+    kudy = f"/{slug or TSINY_ZA_ZAMOVCHANNIAM}/tsiny/"
+    tsinova = shliakh.endswith("/tsiny/index.html")
+    header = re.sub(r'<a href="[^"]*"( aria-current="page")?>Ціни</a>',
+                    f'<a href="{kudy}"' + (' aria-current="page"' if tsinova else "") + ">Ціни</a>", header)
+    header = re.sub(r'<a class="mitem" href="[^"]*">Ціни</a>', f'<a class="mitem" href="{kudy}">Ціни</a>', header)
+    footer = re.sub(r'<li><a href="[^"]*">Ціни</a></li>', f'<li><a href="{kudy}">Ціни</a></li>', footer)
+    if tsinova:
+        header = re.sub(r'href="#([a-z][^"]*)"', rf'href="/{slug}/#\1"', header)
+    return header, footer
 
 
 def vyrizaty(text, tag):
@@ -104,6 +125,10 @@ def main():
         if nomer:
             footer = footer.replace('<a href="#">Політика конфіденційності</a>', '<a href="#">Політика конфіденційності</a>' + nomer.group(0), 1)
         s = s[:a] + footer + s[b:]
+        a, b = vyrizaty(s, "header")
+        fa2, fb2 = vyrizaty(s, "footer")
+        h2, f2 = tsiny(s[a:b], s[fa2:fb2], shliakh, slug)
+        s = s[:a] + h2 + s[b:fa2] + f2 + s[fb2:]
         p.write_text(s, encoding="utf-8")
         print(f"оновлено: {shliakh}")
 
@@ -111,6 +136,10 @@ def main():
     s = ETALON.read_text(encoding="utf-8")
     a, b = vyrizaty(s, "header")
     s = s[:a] + pigulka(header_et, "misto", "lutsk") + s[b:]
+    a, b = vyrizaty(s, "header")
+    fa, fb = vyrizaty(s, "footer")
+    h2, f2 = tsiny(s[a:b], s[fa:fb], "lutsk/index.html", "lutsk")
+    s = s[:a] + h2 + s[b:fa] + f2 + s[fb:]
     ETALON.write_text(s, encoding="utf-8")
     print("оновлено: lutsk/index.html (еталон)")
 
