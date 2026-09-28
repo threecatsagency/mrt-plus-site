@@ -13,7 +13,10 @@
     сторінки, на загальних сторінках – на прайс Луцька; на сторінці цін
     він позначений aria-current;
   • на сторінках цін (/<місто>/tsiny/) якорі шапки (#posluhy, #zapys…)
-    ведуть на сторінку центру: самих секцій на сторінці цін немає.
+    ведуть на сторінку центру: самих секцій на сторінці цін немає;
+  • якорі, яких на сторінці немає (#posluhy на контактах, #vidhuky на
+    підготовці…), ведуть туди, де розділ є, або пункт прибирається
+    (YAKIR_KUDY, YAKIR_PRYBRATY).
 
 Запускати після будь-якої правки шапки чи підвалу в еталоні:
 
@@ -64,7 +67,42 @@ def tsiny(header, footer, shliakh, slug):
     footer = re.sub(r'<li><a href="[^"]*">Ціни</a></li>', f'<li><a href="{kudy}">Ціни</a></li>', footer)
     if tsinova:
         header = re.sub(r'href="#([a-z][^"]*)"', rf'href="/{slug}/#\1"', header)
+        footer = re.sub(r'href="#([a-z][^"]*)"', rf'href="/{slug}/#\1"', footer)
     return header, footer
+
+
+# Якорі шапки й підвалу (#posluhy, #vidhuky…), яких немає на сторінці:
+# або ведуть на сторінку, де розділ є, або пункт прибирається, доки
+# розділу чи окремої сторінки немає.
+YAKIR_KUDY = {
+    "posluhy": f"/{TSINY_ZA_ZAMOVCHANNIAM}/tsiny/",
+    "pytannia": "/pidhotovka-mrt/#pytannia",
+}
+YAKIR_PRYBRATY = {"vidhuky", "zapys"}
+
+
+def yakori(blok, idy):
+    """Лагодить якорі блоку під ідентифікатори сторінки idy."""
+    for yakir in set(re.findall(r'href="#([a-z][^"]*)"', blok)):
+        if yakir in idy:
+            continue
+        if yakir in YAKIR_KUDY:
+            blok = blok.replace(f'href="#{yakir}"', f'href="{YAKIR_KUDY[yakir]}"')
+        elif yakir in YAKIR_PRYBRATY:
+            blok = re.sub(rf'\n[ \t]*(?:<li>)?<a[^>]*href="#{yakir}"[^>]*>[^<]*</a>(?:</li>)?(?=\n)', "", blok)
+        else:
+            sys.exit(f"Якір #{yakir} не має куди вести – додати в YAKIR_KUDY або YAKIR_PRYBRATY")
+    return blok
+
+
+def idy_storinky(shliakh, slug, s):
+    """Ідентифікатори, на які можуть вести якорі шапки: для сторінки цін –
+    зі сторінки центру (туди їх переадресовує tsiny())."""
+    if shliakh.endswith("/tsiny/index.html"):
+        s = (KORIN / slug / "index.html").read_text(encoding="utf-8")
+    a, b = vyrizaty(s, "header")
+    fa, fb = vyrizaty(s, "footer")
+    return set(re.findall(r'id="([^"]+)"', s[:a] + s[b:fa] + s[fb:]))
 
 
 def vyrizaty(text, tag):
@@ -123,11 +161,12 @@ def main():
         # поточного підвалу сторінки, еталон його не має.
         nomer = re.search(r'\n\s*<span class="tnum">Збірка [^<]*</span>', s[a:b])
         if nomer:
-            footer = footer.replace('<a href="#">Політика конфіденційності</a>', '<a href="#">Політика конфіденційності</a>' + nomer.group(0), 1)
+            footer = footer.replace('<span>© 2026 ТОВ «МРТ ПЛЮС»</span>', '<span>© 2026 ТОВ «МРТ ПЛЮС»</span>' + nomer.group(0), 1)
         s = s[:a] + footer + s[b:]
         a, b = vyrizaty(s, "header")
         fa2, fb2 = vyrizaty(s, "footer")
-        h2, f2 = tsiny(s[a:b], s[fa2:fb2], shliakh, slug)
+        idy = idy_storinky(shliakh, slug, s)
+        h2, f2 = tsiny(yakori(s[a:b], idy), yakori(s[fa2:fb2], idy), shliakh, slug)
         s = s[:a] + h2 + s[b:fa2] + f2 + s[fb2:]
         p.write_text(s, encoding="utf-8")
         print(f"оновлено: {shliakh}")
@@ -138,7 +177,8 @@ def main():
     s = s[:a] + pigulka(header_et, "misto", "lutsk") + s[b:]
     a, b = vyrizaty(s, "header")
     fa, fb = vyrizaty(s, "footer")
-    h2, f2 = tsiny(s[a:b], s[fa:fb], "lutsk/index.html", "lutsk")
+    idy = idy_storinky("lutsk/index.html", "lutsk", s)
+    h2, f2 = tsiny(yakori(s[a:b], idy), yakori(s[fa:fb], idy), "lutsk/index.html", "lutsk")
     s = s[:a] + h2 + s[b:fa] + f2 + s[fb:]
     ETALON.write_text(s, encoding="utf-8")
     print("оновлено: lutsk/index.html (еталон)")
