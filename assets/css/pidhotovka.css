@@ -448,6 +448,10 @@
   margin: var(--sp-8) auto 0;
 }
 
+/* Кроки обстеження: більше повітря під заголовком і між кроками та відео. */
+.pk-sec .container > h2 + .pk-steps { margin-top: var(--sp-12); }
+.pk-sec .pk-steps + .vplayer { margin-top: var(--sp-12); }
+
 /* Тихий рядок-застереження під секцією. */
 .pk-note-line {
   max-width: none;
