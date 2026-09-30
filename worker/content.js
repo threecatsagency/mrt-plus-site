@@ -255,7 +255,7 @@ function authorOf(snap, a) {
 export function articleCardHtml(snap, a) {
   const d = authorOf(snap, a);
   return `<li><a class="art-card" href="/statti/${esc(a.slug)}/">`
-    + coverImg(a.cover, 'art-card__img', '(max-width: 47.99em) 100vw, (max-width: 63.99em) 50vw, 24rem', false)
+    + `<span class="art-card__cover">${coverImg(a.cover, 'art-card__img', '(max-width: 47.99em) 100vw, (max-width: 63.99em) 50vw, 24rem', false)}</span>`
     + `<time class="art-card__date" datetime="${esc(a.publishedOn)}">${dateDots(a.publishedOn)}</time>`
     + `<h2 class="art-card__title">${esc(a.title)}</h2>`
     + (a.description ? `<p class="art-card__text">${esc(a.description)}</p>` : '')
@@ -289,17 +289,21 @@ export function articlePage(snap, art) {
         : `<span class="ph ph--initials" aria-hidden="true">${esc(initials(d))}</span>`)
       + `<span><b>${esc(fullName(d))}</b><span>${esc(d.position || 'Лікар-рентгенолог')}, автор статті</span></span></a>`
     : '';
-  const cover = art.cover && art.cover.large
-    ? `<figure class="art__cover">${coverImg(art.cover, 'art__cover-img', '(max-width: 47.99em) 100vw, 45rem', true)}</figure>`
-    : '';
+  const cover = `<figure class="art-hero__cover">${coverImg(art.cover, 'art-hero__img', '(max-width: 47.99em) 100vw, 40vw', true)}</figure>`;
 
-  const head = `<section class="pk-sec"><div class="container"><article class="art">`
+  // Перший екран – як у лікаря: обкладинка 4:5 ліворуч, заголовок,
+  // дата, автор і вступ праворуч; текст – під ним.
+  const head = `<section class="pk-sec"><div class="container">`
     + `<ol class="crumbs"><li><a href="/">Головна</a></li><li><a href="/statti/">Статті</a></li><li>${esc(art.title)}</li></ol>`
-    + `<h1>${esc(art.title)}</h1>`
+    + `<div class="art-hero">`
+    + cover
+    + `<div><h1>${esc(art.title)}</h1>`
     + `<p class="art__meta"><time datetime="${esc(art.publishedOn)}">${dateDots(art.publishedOn)}</time>${updated}</p>`
-    + author + cover
-    + `<div class="prose">${art.lead ? `<p class="lead">${esc(art.lead)}</p>` : ''}${art.html || ''}</div>`
-    + `</article></div></section>`;
+    + author
+    + (art.lead ? `<p class="lead">${esc(art.lead)}</p>` : '')
+    + `</div></div>`
+    + `<article class="art"><div class="prose">${art.html || ''}</div></article>`
+    + `</div></section>`;
 
   const related = relatedArticles(snap, art, 3);
   const tail = related.length

@@ -30,7 +30,7 @@
    "medium": "https://files.mrtplus.ua/articles/demo-kt-chy-mrt/5b4a3c2d1e0f-m.webp",
    "alt": "Томограф у кабінеті",
    "width": 1080,
-   "height": 1080
+   "height": 1350
   },
   "author": "demo-melnyk-andrii",
   "categories": [
@@ -52,8 +52,8 @@
    "large": "https://files.mrtplus.ua/articles/demo-mrt-kolinnoho-suhloba/0f1e2d3c4b5a.webp",
    "medium": "https://files.mrtplus.ua/articles/demo-mrt-kolinnoho-suhloba/0f1e2d3c4b5a-m.webp",
    "alt": "Колінний суглоб на МРТ-знімку",
-   "width": 1600,
-   "height": 900
+   "width": 1080,
+   "height": 1350
   },
   "author": "demo-shevchuk-iryna",
   "categories": [

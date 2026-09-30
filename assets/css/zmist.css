@@ -204,16 +204,24 @@
   text-decoration: none;
 }
 .art-card .ph,
-.art-card__img { margin-bottom: var(--sp-3); transition: box-shadow var(--t-base); }
+.art-card__cover { margin-bottom: var(--sp-3); transition: box-shadow var(--t-base); }
 .art-card:hover .ph,
-.art-card:hover .art-card__img { box-shadow: var(--shadow-2); }
-/* Обкладинка – як є (4:5, 1:1, 16:9…), без обрізання. */
-.art-card__img {
+.art-card:hover .art-card__cover { box-shadow: var(--shadow-2); }
+
+/* Обкладинка статті – 4:5, та сама картинка, що в Instagram і Facebook. */
+.art-card__cover,
+.art-hero__cover {
+  display: block;
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.art-card__img,
+.art-hero__img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--r-lg);
-  background: var(--c-ink-100);
+  aspect-ratio: 4 / 5;
 }
 .art-card__date { font-size: var(--fs-caption); color: var(--c-ink-500); }
 .art-card__title {
@@ -226,15 +234,21 @@
 .art-card__text { margin: 0; font-size: var(--fs-small); color: var(--c-ink-600); }
 .art-card__author { margin: var(--sp-1) 0 0; font-size: var(--fs-caption); color: var(--c-ink-500); }
 
-/* --- Стаття --- */
-.art {
-  max-width: var(--container-narrow);
-  margin-inline: auto;
+/* --- Стаття: перший екран – обкладинка 4:5 ліворуч, як фото лікаря --- */
+.pk-sec .crumbs { padding: 0; }
+.art-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  align-items: start;
+  margin-top: var(--sp-8);
 }
-.art .crumbs { padding: 0; }
-.art h1 { margin: var(--sp-6) 0 0; }
+.art-hero h1 { margin: 0; }
+.art-hero .lead { margin: var(--sp-6) 0 0; max-width: 62ch; }
 .art__meta { margin: var(--sp-4) 0 0; font-size: var(--fs-small); color: var(--c-ink-500); }
-.art > .ph { margin-top: var(--sp-8); }
+
+/* Текст статті – під першим екраном, колонкою для читання. */
+.art { max-width: var(--container-narrow); margin-top: var(--sp-12); }
 
 .art__author {
   display: grid;
@@ -260,24 +274,12 @@
   border-radius: 50%;
 }
 
-/* Обкладинка статті – ціла, без обрізання: вертикальна й квадратна
-   обмежені за висотою, горизонтальна – на всю ширину тексту. */
-.art__cover { margin: var(--sp-8) 0 0; }
-.art__cover-img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: min(75vh, 40rem);
-  border-radius: var(--r-lg);
-  background: var(--c-ink-100);
-}
 .art__author b { display: block; transition: color var(--t-fast); }
 .art__author:hover b { color: var(--c-accent-600); }
 .art__author span { font-size: var(--fs-small); color: var(--c-ink-600); }
 
 /* Текст статті: ритм абзаців і підзаголовків. */
-.prose { margin-top: var(--sp-8); }
+.prose > * { margin-top: 0; }
 .prose > * + * { margin-top: var(--sp-4); }
 .prose h2 { margin-top: var(--sp-10); font-size: var(--fs-h3); }
 .prose h3 { margin-top: var(--sp-8); font-size: var(--fs-h4); }
@@ -318,7 +320,8 @@
   .doc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .rev-grid,
   .art-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .doc-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .doc-hero,
+  .art-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .doc-facts { grid-template-columns: 1fr; }
 }
 
@@ -327,7 +330,8 @@
   .rev-grid,
   .art-grid,
   .doc-cols,
-  .doc-hero { grid-template-columns: 1fr; }
+  .doc-hero,
+  .art-hero { grid-template-columns: 1fr; }
   .doc-hero .ph,
   .doc-hero__photo { max-width: 20rem; }
   .doc-time li { grid-template-columns: 1fr; gap: var(--sp-1); }

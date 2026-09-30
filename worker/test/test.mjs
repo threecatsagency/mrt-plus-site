@@ -46,7 +46,8 @@ t('відгуки: місяць', r.b.includes('серпень 2026'));
 r = await get('/statti/');
 const order = [...r.b.matchAll(/href="\/statti\/([^/]+)\/"/g)].map((m) => m[1]);
 t('статті: закріплена перша, далі новіші', order.join() === 'demo-yak-pidhotuvatysia-do-mrt,demo-kt-chy-mrt,demo-mrt-kolinnoho-suhloba', order.join());
-t('статті: розміри обкладинок', r.b.includes('width="1080" height="1350"') && r.b.includes('width="1600" height="900"'));
+t('статті: обкладинки 4:5', count(r.b, /width="1080" height="1350"/g) === 3);
+t('статті: рамки 4:5', count(r.b, /class="art-card__cover"/g) === 3);
 
 // --- сторінка лікаря ---
 r = await get('/likari/demo-kovalenko-oksana/');
@@ -87,7 +88,7 @@ t('стаття: seoTitle', r.b.includes('<title>Підготовка до МР�
 t('стаття: опис', r.b.includes('content="Документи, одяг, їжа і ліки'));
 t('стаття: оновлено', r.b.includes('Оновлено <time datetime="2026-09-28">28.09.2026</time>'));
 t('стаття: автор', r.b.includes('href="/likari/demo-kovalenko-oksana/"') && r.b.includes('завідувачка відділення, автор статті'));
-t('стаття: обкладинка 4:5', r.b.includes('class="art__cover-img"') && r.b.includes('width="1080" height="1350"'));
+t('стаття: обкладинка 4:5', r.b.includes('class="art-hero__img"') && r.b.includes('width="1080" height="1350"'));
 t('стаття: вступ і текст', r.b.includes('<p class="lead">Вступ') && r.b.includes('article-note--warning'));
 const ld = r.b.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
 let j = null; try { j = JSON.parse(ld[1]); } catch {}
