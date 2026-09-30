@@ -18,7 +18,7 @@
       "/kyiv/", "/zhytomyr/", "/rivne/", "/lutsk/", "/kovel/", "/sheptytskyi/",
       "/kontakty/",
       "/kyiv/tsiny/", "/zhytomyr/tsiny/", "/rivne/tsiny/", "/lutsk/tsiny/", "/kovel/tsiny/", "/sheptytskyi/tsiny/",
-      "/likari/", "/likari/*", "/statti/", "/statti/*", "/vidhuky/",
+      "/likari/*", "/statti/*", "/vidhuky/",
       "/sitemap.xml"
     ]
   },
