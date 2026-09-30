@@ -289,20 +289,18 @@ export function articlePage(snap, art) {
         : `<span class="ph ph--initials" aria-hidden="true">${esc(initials(d))}</span>`)
       + `<span><b>${esc(fullName(d))}</b><span>${esc(d.position || 'Лікар-рентгенолог')}, автор статті</span></span></a>`
     : '';
-  const cover = `<figure class="art-hero__cover">${coverImg(art.cover, 'art-hero__img', '(max-width: 47.99em) 100vw, 40vw', true)}</figure>`;
+  const cover = `<figure class="art__cover">${coverImg(art.cover, 'art__cover-img', '(max-width: 47.99em) 100vw, 30rem', true)}</figure>`;
 
-  // Перший екран – як у лікаря: обкладинка 4:5 ліворуч, заголовок,
-  // дата й автор праворуч; текст – під ним. Поле lead з ІС сайт не показує.
-  const head = `<section class="pk-sec"><div class="container">`
+  // Одна колонка по центру: крихти, заголовок, дата, автор, обкладинка, текст.
+  // Поле lead з ІС сайт не показує.
+  const head = `<section class="pk-sec"><div class="container"><article class="art">`
     + `<ol class="crumbs"><li><a href="/">Головна</a></li><li><a href="/statti/">Статті</a></li><li>${esc(art.title)}</li></ol>`
-    + `<div class="art-hero">`
-    + cover
-    + `<div><h1>${esc(art.title)}</h1>`
+    + `<h1>${esc(art.title)}</h1>`
     + `<p class="art__meta"><time datetime="${esc(art.publishedOn)}">${dateDots(art.publishedOn)}</time>${updated}</p>`
     + author
-    + `</div></div>`
-    + `<article class="art"><div class="prose">${art.html || ''}</div></article>`
-    + `</div></section>`;
+    + cover
+    + `<div class="prose">${art.html || ''}</div>`
+    + `</article></div></section>`;
 
   const related = relatedArticles(snap, art, 3);
   const tail = related.length
