@@ -244,7 +244,6 @@
   margin-top: var(--sp-8);
 }
 .art-hero h1 { margin: 0; }
-.art-hero .lead { margin: var(--sp-6) 0 0; max-width: 62ch; }
 .art__meta { margin: var(--sp-4) 0 0; font-size: var(--fs-small); color: var(--c-ink-500); }
 
 /* Текст статті – під першим екраном, колонкою для читання. */

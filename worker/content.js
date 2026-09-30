@@ -292,7 +292,7 @@ export function articlePage(snap, art) {
   const cover = `<figure class="art-hero__cover">${coverImg(art.cover, 'art-hero__img', '(max-width: 47.99em) 100vw, 40vw', true)}</figure>`;
 
   // Перший екран – як у лікаря: обкладинка 4:5 ліворуч, заголовок,
-  // дата, автор і вступ праворуч; текст – під ним.
+  // дата й автор праворуч; текст – під ним. Поле lead з ІС сайт не показує.
   const head = `<section class="pk-sec"><div class="container">`
     + `<ol class="crumbs"><li><a href="/">Головна</a></li><li><a href="/statti/">Статті</a></li><li>${esc(art.title)}</li></ol>`
     + `<div class="art-hero">`
@@ -300,7 +300,6 @@ export function articlePage(snap, art) {
     + `<div><h1>${esc(art.title)}</h1>`
     + `<p class="art__meta"><time datetime="${esc(art.publishedOn)}">${dateDots(art.publishedOn)}</time>${updated}</p>`
     + author
-    + (art.lead ? `<p class="lead">${esc(art.lead)}</p>` : '')
     + `</div></div>`
     + `<article class="art"><div class="prose">${art.html || ''}</div></article>`
     + `</div></section>`;
