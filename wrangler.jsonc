@@ -2,7 +2,8 @@
   // Сайт МРТ ПЛЮС – Worker зі статичними файлами.
   // Статику Cloudflare віддає сам, без коду. Код воркера (worker/index.js)
   // запускається на /api/* (приймач довідників з ІС), на сторінках центрів,
-  // цін і контактів (підстановка даних зі знімка) і за розкладом.
+  // цін і контактів, лікарів, відгуків і статей (дані зі знімка), на
+  // sitemap.xml і за розкладом.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mrt-plus-site",
   "main": "worker/index.js",
@@ -16,7 +17,9 @@
       "/api/*",
       "/kyiv/", "/zhytomyr/", "/rivne/", "/lutsk/", "/kovel/", "/sheptytskyi/",
       "/kontakty/",
-      "/kyiv/tsiny/", "/zhytomyr/tsiny/", "/rivne/tsiny/", "/lutsk/tsiny/", "/kovel/tsiny/", "/sheptytskyi/tsiny/"
+      "/kyiv/tsiny/", "/zhytomyr/tsiny/", "/rivne/tsiny/", "/lutsk/tsiny/", "/kovel/tsiny/", "/sheptytskyi/tsiny/",
+      "/likari/", "/likari/*", "/statti/", "/statti/*", "/vidhuky/",
+      "/sitemap.xml"
     ]
   },
   // Знімок довідників з ІС. ID не секретний.

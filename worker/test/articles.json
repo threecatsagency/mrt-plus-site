@@ -1,0 +1,69 @@
+{
+ "demo-yak-pidhotuvatysia-do-mrt": {
+  "slug": "demo-yak-pidhotuvatysia-do-mrt",
+  "title": "Як підготуватися до МРТ: що взяти і чого не робити (демо)",
+  "description": "Документи, одяг, їжа і ліки перед обстеженням – коротко, з поясненням навіщо.",
+  "cover": {
+   "large": "https://files.mrtplus.ua/articles/demo-yak-pidhotuvatysia-do-mrt/9f8e7d6c5b4a.webp",
+   "medium": "https://files.mrtplus.ua/articles/demo-yak-pidhotuvatysia-do-mrt/9f8e7d6c5b4a-m.webp",
+   "alt": "Пацієнтка готується до МРТ",
+   "width": 1080,
+   "height": 1350
+  },
+  "author": "demo-kovalenko-oksana",
+  "categories": [
+   "71383577-4f9d-55a8-8ac6-fc81ebe016d5"
+  ],
+  "publishedOn": "2026-09-15",
+  "updatedOn": "2026-09-28",
+  "updatedAt": "2026-09-30T10:00:00.000Z",
+  "seoTitle": "Підготовка до МРТ: що взяти, чого не робити",
+  "lead": "Вступ: одна-дві фрази про те, що людина дізнається зі статті і кому вона корисна.",
+  "html": "<h2>Що взяти з собою</h2><p>Направлення лікаря, паспорт і попередні знімки, якщо є. Детальніше – на сторінці <a href=\"/pidhotovka-mrt/\">підготовки до МРТ</a> і в <a href=\"/lutsk/tsiny/\">цінах у Луцьку</a>.</p><ul><li>Направлення з діагнозом.</li><li>Попередні описи і диски.</li><li>Зручний одяг без металу.</li></ul><aside class=\"article-note article-note--tip\"><p>Порада: приходьте за 15 хвилин до часу запису – заповнити анкету.</p></aside><h3>Якщо дослідження з контрастом</h3><ol><li>Не їсти за 4 години.</li><li>Мати свіжий аналіз на креатинін.</li></ol><figure><img src=\"https://files.mrtplus.ua/articles/demo/aa11bb22cc33.webp\" srcset=\"https://files.mrtplus.ua/articles/demo/aa11bb22cc33-m.webp 800w, https://files.mrtplus.ua/articles/demo/aa11bb22cc33.webp 1600w\" sizes=\"(max-width: 47.99em) 100vw, 45rem\" alt=\"Анкета пацієнта\" loading=\"lazy\"><figcaption>Анкету заповнюють перед обстеженням.</figcaption></figure><aside class=\"article-note article-note--warning\"><p>Увага: кардіостимулятор – спершу консультація кардіолога.</p></aside><p>Зовнішнє джерело: <a href=\"https://www.who.int/\" rel=\"noopener\" target=\"_blank\">ВООЗ</a>.</p>"
+ },
+ "demo-kt-chy-mrt": {
+  "slug": "demo-kt-chy-mrt",
+  "title": "КТ чи МРТ: що обрати (демо)",
+  "description": "Чим відрізняються методи і чому дослідження призначає лікар, а не пацієнт.",
+  "cover": {
+   "large": "https://files.mrtplus.ua/articles/demo-kt-chy-mrt/5b4a3c2d1e0f.webp",
+   "medium": "https://files.mrtplus.ua/articles/demo-kt-chy-mrt/5b4a3c2d1e0f-m.webp",
+   "alt": "Томограф у кабінеті",
+   "width": 1080,
+   "height": 1080
+  },
+  "author": "demo-melnyk-andrii",
+  "categories": [
+   "ce120a46-684e-5385-88c7-03a6d7aa6d7b",
+   "71383577-4f9d-55a8-8ac6-fc81ebe016d5"
+  ],
+  "publishedOn": "2026-09-20",
+  "updatedOn": null,
+  "updatedAt": "2026-09-30T10:00:00.000Z",
+  "seoTitle": null,
+  "lead": "Вступ: одна-дві фрази про те, що людина дізнається зі статті і кому вона корисна.",
+  "html": "<h2>Що взяти з собою</h2><p>Направлення лікаря, паспорт і попередні знімки, якщо є. Детальніше – на сторінці <a href=\"/pidhotovka-mrt/\">підготовки до МРТ</a> і в <a href=\"/lutsk/tsiny/\">цінах у Луцьку</a>.</p><ul><li>Направлення з діагнозом.</li><li>Попередні описи і диски.</li><li>Зручний одяг без металу.</li></ul><aside class=\"article-note article-note--tip\"><p>Порада: приходьте за 15 хвилин до часу запису – заповнити анкету.</p></aside><h3>Якщо дослідження з контрастом</h3><ol><li>Не їсти за 4 години.</li><li>Мати свіжий аналіз на креатинін.</li></ol><figure><img src=\"https://files.mrtplus.ua/articles/demo/aa11bb22cc33.webp\" srcset=\"https://files.mrtplus.ua/articles/demo/aa11bb22cc33-m.webp 800w, https://files.mrtplus.ua/articles/demo/aa11bb22cc33.webp 1600w\" sizes=\"(max-width: 47.99em) 100vw, 45rem\" alt=\"Анкета пацієнта\" loading=\"lazy\"><figcaption>Анкету заповнюють перед обстеженням.</figcaption></figure><aside class=\"article-note article-note--warning\"><p>Увага: кардіостимулятор – спершу консультація кардіолога.</p></aside><p>Зовнішнє джерело: <a href=\"https://www.who.int/\" rel=\"noopener\" target=\"_blank\">ВООЗ</a>.</p>"
+ },
+ "demo-mrt-kolinnoho-suhloba": {
+  "slug": "demo-mrt-kolinnoho-suhloba",
+  "title": "МРТ колінного суглоба після травми (демо)",
+  "description": "Коли потрібне обстеження, що воно покаже і скільки чекати після травми.",
+  "cover": {
+   "large": "https://files.mrtplus.ua/articles/demo-mrt-kolinnoho-suhloba/0f1e2d3c4b5a.webp",
+   "medium": "https://files.mrtplus.ua/articles/demo-mrt-kolinnoho-suhloba/0f1e2d3c4b5a-m.webp",
+   "alt": "Колінний суглоб на МРТ-знімку",
+   "width": 1600,
+   "height": 900
+  },
+  "author": "demo-shevchuk-iryna",
+  "categories": [
+   "848834a2-f0a3-5a87-ab35-bbc76045f7fe"
+  ],
+  "publishedOn": "2026-09-10",
+  "updatedOn": null,
+  "updatedAt": "2026-09-30T10:00:00.000Z",
+  "seoTitle": null,
+  "lead": "Вступ: одна-дві фрази про те, що людина дізнається зі статті і кому вона корисна.",
+  "html": "<h2>Що взяти з собою</h2><p>Направлення лікаря, паспорт і попередні знімки, якщо є. Детальніше – на сторінці <a href=\"/pidhotovka-mrt/\">підготовки до МРТ</a> і в <a href=\"/lutsk/tsiny/\">цінах у Луцьку</a>.</p><ul><li>Направлення з діагнозом.</li><li>Попередні описи і диски.</li><li>Зручний одяг без металу.</li></ul><aside class=\"article-note article-note--tip\"><p>Порада: приходьте за 15 хвилин до часу запису – заповнити анкету.</p></aside><h3>Якщо дослідження з контрастом</h3><ol><li>Не їсти за 4 години.</li><li>Мати свіжий аналіз на креатинін.</li></ol><figure><img src=\"https://files.mrtplus.ua/articles/demo/aa11bb22cc33.webp\" srcset=\"https://files.mrtplus.ua/articles/demo/aa11bb22cc33-m.webp 800w, https://files.mrtplus.ua/articles/demo/aa11bb22cc33.webp 1600w\" sizes=\"(max-width: 47.99em) 100vw, 45rem\" alt=\"Анкета пацієнта\" loading=\"lazy\"><figcaption>Анкету заповнюють перед обстеженням.</figcaption></figure><aside class=\"article-note article-note--warning\"><p>Увага: кардіостимулятор – спершу консультація кардіолога.</p></aside><p>Зовнішнє джерело: <a href=\"https://www.who.int/\" rel=\"noopener\" target=\"_blank\">ВООЗ</a>.</p>"
+ }
+}

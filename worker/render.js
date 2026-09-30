@@ -125,7 +125,7 @@ export function priceCategories(snap, slug) {
     let id = slugify(cat.name) || 'katehoriia';
     while (used.has(id)) id += '-2';
     used.add(id);
-    out.push({ id, name: cat.name, mod, extra, rows: [...rows.values()] });
+    out.push({ id, catId: cat.id, name: cat.name, mod, extra, rows: [...rows.values()] });
   }
   return out;
 }

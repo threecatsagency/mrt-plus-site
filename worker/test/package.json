@@ -1,0 +1,8 @@
+{
+  "name": "mrt-plus-site-worker-test",
+  "private": true,
+  "type": "module",
+  "description": "Перевірка воркера сайту на тестовому знімку ІС: npm install && npm test",
+  "scripts": { "test": "node test.mjs" },
+  "devDependencies": { "miniflare": "^4.20260730.0" }
+}

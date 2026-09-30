@@ -1,0 +1,819 @@
+{
+ "version": 42,
+ "changedAt": "2026-09-30T10:00:00.000Z",
+ "centers": [
+  {
+   "slug": "kyiv",
+   "machines": [
+    {
+     "class": "MRI3",
+     "className": "МРТ 3Т",
+     "name": "МРТ 3Т",
+     "model": null,
+     "boreCm": 70,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "07:00",
+       "21:00"
+      ],
+      "sat": [
+       "08:00",
+       "20:00"
+      ],
+      "sun": null
+     }
+    }
+   ]
+  },
+  {
+   "slug": "zhytomyr",
+   "machines": [
+    {
+     "class": "MRI3",
+     "className": "МРТ 3Т",
+     "name": "МРТ 3Т",
+     "model": null,
+     "boreCm": 70,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "08:00",
+       "20:00"
+      ],
+      "sat": [
+       "08:00",
+       "16:00"
+      ],
+      "sun": null
+     }
+    }
+   ]
+  },
+  {
+   "slug": "rivne",
+   "machines": [
+    {
+     "class": "MRI15",
+     "className": "МРТ 1,5Т",
+     "name": "МРТ 1,5Т",
+     "model": null,
+     "boreCm": 70,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "07:00",
+       "23:00"
+      ],
+      "sat": [
+       "08:00",
+       "18:00"
+      ],
+      "sun": null
+     }
+    },
+    {
+     "class": "CT",
+     "className": "КТ",
+     "name": "КТ",
+     "model": null,
+     "boreCm": 78,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "07:30",
+       "21:00"
+      ],
+      "sat": [
+       "09:00",
+       "18:00"
+      ],
+      "sun": null
+     }
+    }
+   ]
+  },
+  {
+   "slug": "lutsk",
+   "machines": [
+    {
+     "class": "MRI3",
+     "className": "МРТ 3Т",
+     "name": "МРТ 3Т",
+     "model": null,
+     "boreCm": 70,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "07:00",
+       "22:00"
+      ],
+      "sat": [
+       "08:00",
+       "18:00"
+      ],
+      "sun": null
+     }
+    },
+    {
+     "class": "MRI15",
+     "className": "МРТ 1,5Т",
+     "name": "МРТ 1,5Т",
+     "model": null,
+     "boreCm": 70,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "07:00",
+       "22:00"
+      ],
+      "sat": [
+       "08:00",
+       "18:00"
+      ],
+      "sun": null
+     }
+    },
+    {
+     "class": "CT",
+     "className": "КТ",
+     "name": "КТ",
+     "model": null,
+     "boreCm": 78,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "07:30",
+       "21:00"
+      ],
+      "sat": [
+       "09:00",
+       "18:00"
+      ],
+      "sun": null
+     }
+    }
+   ]
+  },
+  {
+   "slug": "kovel",
+   "machines": [
+    {
+     "class": "MRI15",
+     "className": "МРТ 1,5Т",
+     "name": "МРТ 1,5Т",
+     "model": null,
+     "boreCm": 70,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "08:00",
+       "20:00"
+      ],
+      "sat": [
+       "08:00",
+       "20:00"
+      ],
+      "sun": null
+     }
+    },
+    {
+     "class": "CT",
+     "className": "КТ",
+     "name": "КТ",
+     "model": null,
+     "boreCm": 78,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "09:00",
+       "17:00"
+      ],
+      "sat": [
+       "10:00",
+       "14:00"
+      ],
+      "sun": null
+     }
+    }
+   ]
+  },
+  {
+   "slug": "sheptytskyi",
+   "machines": [
+    {
+     "class": "MRI15",
+     "className": "МРТ 1,5Т",
+     "name": "МРТ 1,5Т",
+     "model": null,
+     "boreCm": 70,
+     "maxWeightKg": 200,
+     "contrast": true,
+     "schedule": {
+      "mon_fri": [
+       "08:00",
+       "16:00"
+      ],
+      "sat": [
+       "08:00",
+       "14:00"
+      ],
+      "sun": null
+     }
+    }
+   ]
+  }
+ ],
+ "categories": [
+  {
+   "id": "71383577-4f9d-55a8-8ac6-fc81ebe016d5",
+   "name": "МРТ голови",
+   "services": [
+    {
+     "name": "МРТ головного мозку",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 3600,
+      "zhytomyr": 3600,
+      "rivne": 3600,
+      "lutsk": 3600,
+      "kovel": 3600,
+      "sheptytskyi": 3600
+     }
+    },
+    {
+     "name": "МРТ головного мозку",
+     "kind": "study",
+     "withContrast": true,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 6000,
+      "zhytomyr": 6000,
+      "rivne": 6000,
+      "lutsk": 6000,
+      "kovel": 6000,
+      "sheptytskyi": 6000
+     }
+    },
+    {
+     "name": "МРТ гіпофіза",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 3800,
+      "zhytomyr": 3800,
+      "rivne": 3800,
+      "lutsk": 3800,
+      "kovel": 3800,
+      "sheptytskyi": 3800
+     }
+    },
+    {
+     "name": "МРТ гіпофіза",
+     "kind": "study",
+     "withContrast": true,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 6200,
+      "zhytomyr": 6200,
+      "rivne": 6200,
+      "lutsk": 6200,
+      "kovel": 6200,
+      "sheptytskyi": 6200
+     }
+    }
+   ]
+  },
+  {
+   "id": "34aa365e-62cd-5a78-a073-a7d929474a31",
+   "name": "МРТ хребта",
+   "services": [
+    {
+     "name": "МРТ шийного відділу хребта",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 3300,
+      "zhytomyr": 3300,
+      "rivne": 3300,
+      "lutsk": 3300,
+      "kovel": 3300,
+      "sheptytskyi": 3300
+     }
+    },
+    {
+     "name": "МРТ шийного відділу хребта",
+     "kind": "study",
+     "withContrast": true,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 5500,
+      "zhytomyr": 5500,
+      "rivne": 5500,
+      "lutsk": 5500,
+      "kovel": 5500,
+      "sheptytskyi": 5500
+     }
+    },
+    {
+     "name": "МРТ поперекового відділу хребта",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 3300,
+      "zhytomyr": 3300,
+      "rivne": 3300,
+      "lutsk": 3300,
+      "kovel": 3300,
+      "sheptytskyi": 3300
+     }
+    },
+    {
+     "name": "МРТ поперекового відділу хребта",
+     "kind": "study",
+     "withContrast": true,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 5500,
+      "zhytomyr": 5500,
+      "rivne": 5500,
+      "lutsk": 5500,
+      "kovel": 5500,
+      "sheptytskyi": 5500
+     }
+    }
+   ]
+  },
+  {
+   "id": "848834a2-f0a3-5a87-ab35-bbc76045f7fe",
+   "name": "МРТ суглобів",
+   "services": [
+    {
+     "name": "МРТ колінного суглоба",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 3600,
+      "zhytomyr": 3600,
+      "rivne": 3600,
+      "lutsk": 3600,
+      "kovel": 3600,
+      "sheptytskyi": 3600
+     }
+    },
+    {
+     "name": "МРТ кульшових суглобів",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "MRI",
+     "prices": {
+      "kyiv": 4200,
+      "zhytomyr": 4200,
+      "rivne": 4200,
+      "lutsk": 4200,
+      "kovel": 4200,
+      "sheptytskyi": 4200
+     }
+    }
+   ]
+  },
+  {
+   "id": "2e5b7bfc-2f3e-5d3a-ae93-bb20d2fd43d9",
+   "name": "МРТ при демієлінізуючих захворюваннях",
+   "services": [
+    {
+     "name": "МРТ головного мозку при демієлінізуючих захворюваннях",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "MRI",
+     "prices": {
+      "lutsk": 4200,
+      "kyiv": 4200,
+      "zhytomyr": 4200
+     }
+    },
+    {
+     "name": "МРТ головного мозку при демієлінізуючих захворюваннях",
+     "kind": "study",
+     "withContrast": true,
+     "modality": "MRI",
+     "prices": {
+      "lutsk": 7000,
+      "kyiv": 7000,
+      "zhytomyr": 7000
+     }
+    }
+   ]
+  },
+  {
+   "id": "ce120a46-684e-5385-88c7-03a6d7aa6d7b",
+   "name": "КТ голови",
+   "services": [
+    {
+     "name": "КТ головного мозку",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "CT",
+     "prices": {
+      "rivne": 2500,
+      "lutsk": 2500,
+      "kovel": 2500
+     }
+    }
+   ]
+  },
+  {
+   "id": "fea1aca1-1206-5fd8-9e0f-f476567923a6",
+   "name": "КТ органів грудної клітки",
+   "services": [
+    {
+     "name": "КТ органів грудної клітки",
+     "kind": "study",
+     "withContrast": false,
+     "modality": "CT",
+     "prices": {
+      "rivne": 2500,
+      "lutsk": 2500,
+      "kovel": 2500
+     }
+    },
+    {
+     "name": "КТ органів грудної клітки",
+     "kind": "study",
+     "withContrast": true,
+     "modality": "CT",
+     "prices": {
+      "rivne": 4800,
+      "lutsk": 4800,
+      "kovel": 4800
+     }
+    }
+   ]
+  }
+ ],
+ "doctors": [
+  {
+   "slug": "demo-kovalenko-oksana",
+   "lastName": "Коваленко",
+   "firstName": "Оксана",
+   "middleName": "Василівна",
+   "position": "Лікар-рентгенолог, завідувачка відділення",
+   "practiceSince": 2011,
+   "qualificationCategory": "highest",
+   "specialization": "Нейрорадіологія: МРТ головного мозку, хребта і судин, демієлінізуючі захворювання, епілепсія.",
+   "photo": {
+    "large": "https://files.mrtplus.ua/doctors/demo-kovalenko-oksana/1a2b3c4d5e6f.webp",
+    "small": "https://files.mrtplus.ua/doctors/demo-kovalenko-oksana/1a2b3c4d5e6f-s.webp"
+   },
+   "centers": [
+    "rivne",
+    "lutsk"
+   ],
+   "categories": [
+    "71383577-4f9d-55a8-8ac6-fc81ebe016d5",
+    "34aa365e-62cd-5a78-a073-a7d929474a31",
+    "2e5b7bfc-2f3e-5d3a-ae93-bb20d2fd43d9",
+    "ce120a46-684e-5385-88c7-03a6d7aa6d7b"
+   ],
+   "entries": {
+    "education": [
+     {
+      "yearFrom": 2004,
+      "yearTo": 2010,
+      "title": "Львівський національний медичний університет імені Данила Галицького",
+      "detail": "Лікувальна справа"
+     },
+     {
+      "yearFrom": 2010,
+      "yearTo": 2012,
+      "title": "Інтернатура з радіології",
+      "detail": "Львівська обласна клінічна лікарня"
+     }
+    ],
+    "experience": [
+     {
+      "yearFrom": 2019,
+      "yearTo": null,
+      "title": "МРТ ПЛЮС",
+      "detail": "Лікар-рентгенолог, Рівне і Луцьк"
+     },
+     {
+      "yearFrom": 2012,
+      "yearTo": 2019,
+      "title": "Волинська обласна клінічна лікарня",
+      "detail": "Лікар-рентгенолог відділення променевої діагностики"
+     }
+    ],
+    "internship": [
+     {
+      "yearFrom": 2018,
+      "yearTo": 2018,
+      "title": "Відділення нейрорадіології, Університетська клініка Шаріте",
+      "detail": "Берлін, Німеччина"
+     }
+    ],
+    "training": [
+     {
+      "yearFrom": 2024,
+      "yearTo": null,
+      "title": "Курс «МРТ у нейроонкології», Європейська школа радіології (ESOR)",
+      "detail": null
+     },
+     {
+      "yearFrom": 2021,
+      "yearTo": 2021,
+      "title": "МРТ при епілепсії: протоколи й опис",
+      "detail": "Українська асоціація радіологів"
+     }
+    ],
+    "membership": [
+     {
+      "yearFrom": null,
+      "yearTo": null,
+      "title": "Асоціація радіологів України",
+      "detail": null
+     },
+     {
+      "yearFrom": null,
+      "yearTo": null,
+      "title": "Європейське товариство радіології (ESR)",
+      "detail": null
+     }
+    ]
+   },
+   "updatedAt": "2026-09-30T10:00:00.000Z"
+  },
+  {
+   "slug": "demo-melnyk-andrii",
+   "lastName": "Мельник",
+   "firstName": "Андрій",
+   "middleName": "Петрович",
+   "position": "Лікар-рентгенолог",
+   "practiceSince": 2025,
+   "qualificationCategory": "none",
+   "specialization": null,
+   "photo": null,
+   "centers": [
+    "lutsk"
+   ],
+   "categories": [
+    "848834a2-f0a3-5a87-ab35-bbc76045f7fe",
+    "fea1aca1-1206-5fd8-9e0f-f476567923a6"
+   ],
+   "entries": {
+    "education": [
+     {
+      "yearFrom": 2016,
+      "yearTo": 2022,
+      "title": "Буковинський державний медичний університет",
+      "detail": "Медицина"
+     }
+    ],
+    "experience": [],
+    "internship": [],
+    "training": [],
+    "membership": []
+   },
+   "updatedAt": "2026-09-30T10:00:00.000Z"
+  },
+  {
+   "slug": "demo-shevchuk-iryna",
+   "lastName": "Шевчук",
+   "firstName": "Ірина",
+   "middleName": "Олегівна",
+   "position": "Лікар-рентгенолог",
+   "practiceSince": 2004,
+   "qualificationCategory": "first",
+   "specialization": "МРТ суглобів і м'яких тканин, спортивна травма.",
+   "photo": {
+    "large": "https://files.mrtplus.ua/doctors/demo-shevchuk-iryna/7a8b9c0d1e2f.webp",
+    "small": "https://files.mrtplus.ua/doctors/demo-shevchuk-iryna/7a8b9c0d1e2f-s.webp"
+   },
+   "centers": [
+    "kyiv"
+   ],
+   "categories": [
+    "848834a2-f0a3-5a87-ab35-bbc76045f7fe",
+    "34aa365e-62cd-5a78-a073-a7d929474a31"
+   ],
+   "entries": {
+    "education": [],
+    "experience": [
+     {
+      "yearFrom": 2015,
+      "yearTo": null,
+      "title": "МРТ ПЛЮС",
+      "detail": "Лікар-рентгенолог, Київ"
+     }
+    ],
+    "internship": [],
+    "training": [],
+    "membership": []
+   },
+   "updatedAt": "2026-09-30T10:00:00.000Z"
+  },
+  {
+   "slug": "demo-bondar-taras",
+   "lastName": "Бондар",
+   "firstName": "Тарас",
+   "middleName": "Іванович",
+   "position": "Лікар-рентгенолог",
+   "practiceSince": 2014,
+   "qualificationCategory": "second",
+   "specialization": null,
+   "photo": {
+    "large": "https://files.mrtplus.ua/doctors/demo-bondar-taras/3c4d5e6f7a8b.webp",
+    "small": "https://files.mrtplus.ua/doctors/demo-bondar-taras/3c4d5e6f7a8b-s.webp"
+   },
+   "centers": [
+    "zhytomyr",
+    "sheptytskyi",
+    "kovel"
+   ],
+   "categories": [
+    "71383577-4f9d-55a8-8ac6-fc81ebe016d5"
+   ],
+   "entries": {
+    "education": [],
+    "experience": [],
+    "internship": [],
+    "training": [],
+    "membership": []
+   },
+   "updatedAt": "2026-09-30T10:00:00.000Z"
+  }
+ ],
+ "reviews": [
+  {
+   "id": "11443c21-f5b0-5d08-9bbc-843f7985e2c8",
+   "center": "lutsk",
+   "doctor": "demo-kovalenko-oksana",
+   "authorName": "Марія (демо)",
+   "publishedOn": "2026-08-01",
+   "text": "Робила МРТ головного мозку. Все пояснили до обстеження, опис отримала наступного дня. Окреме дякую Оксані Василівні за детальну консультацію.",
+   "source": "google",
+   "sourceUrl": null
+  },
+  {
+   "id": "81e92b83-2273-5a46-b42d-47a23f28e9da",
+   "center": "lutsk",
+   "doctor": null,
+   "authorName": "Олег (демо)",
+   "publishedOn": "2026-07-01",
+   "text": "Записали на зручний час, прийшов – і за пів години вже вийшов. Чисто, ввічливий персонал.",
+   "source": "google",
+   "sourceUrl": null
+  },
+  {
+   "id": "0ca7b02a-b58f-5940-85f5-01c2bdcfb74d",
+   "center": "lutsk",
+   "doctor": null,
+   "authorName": "Наталія (демо)",
+   "publishedOn": "2026-06-01",
+   "text": "Боялася тунелю, але лаборантка весь час говорила зі мною по гучному зв'язку. Дякую за терпіння!",
+   "source": "facebook",
+   "sourceUrl": null
+  },
+  {
+   "id": "0a83d57b-f694-50b3-bcb0-f0e2e219abc5",
+   "center": "lutsk",
+   "doctor": null,
+   "authorName": "Ігор (демо)",
+   "publishedOn": "2026-05-01",
+   "text": "Четвертий відгук Луцька – на сторінці центру його вже не видно.",
+   "source": "google",
+   "sourceUrl": null
+  },
+  {
+   "id": "16586ea1-3aea-5584-b2ae-60d38c90940b",
+   "center": "rivne",
+   "doctor": "demo-kovalenko-oksana",
+   "authorName": "Світлана (демо)",
+   "publishedOn": "2026-08-01",
+   "text": "Дуже уважна лікарка, все розтлумачила по знімках.",
+   "source": "google",
+   "sourceUrl": null
+  },
+  {
+   "id": "7ee68733-eb2b-5485-877b-0e36b5d24380",
+   "center": "kyiv",
+   "doctor": "demo-shevchuk-iryna",
+   "authorName": "Андрій (демо)",
+   "publishedOn": "2026-07-01",
+   "text": "МРТ коліна після травми – швидко і професійно, опис зрозумілий.",
+   "source": "google",
+   "sourceUrl": null
+  },
+  {
+   "id": "3a7e4064-2176-5ba2-bfa5-410fda456800",
+   "center": "zhytomyr",
+   "doctor": null,
+   "authorName": "Галина (демо)",
+   "publishedOn": "2026-06-01",
+   "text": "Сучасний апарат, тихіше, ніж очікувала. Рекомендую.",
+   "source": "google",
+   "sourceUrl": null
+  },
+  {
+   "id": "18b5bac7-31cd-5a1b-9957-19582e0e7391",
+   "center": "kovel",
+   "doctor": null,
+   "authorName": "Петро (демо)",
+   "publishedOn": "2026-05-01",
+   "text": "Все добре, зручне розташування біля вокзалу.",
+   "source": "other",
+   "sourceUrl": null
+  },
+  {
+   "id": "13f85634-9f7e-5db4-81b9-f64c0d7d0957",
+   "center": "sheptytskyi",
+   "doctor": null,
+   "authorName": "Оксана (демо)",
+   "publishedOn": "2026-04-01",
+   "text": "Прийняли вчасно, результати на флешці одразу після обстеження.",
+   "source": "google",
+   "sourceUrl": null
+  }
+ ],
+ "articles": [
+  {
+   "slug": "demo-yak-pidhotuvatysia-do-mrt",
+   "title": "Як підготуватися до МРТ: що взяти і чого не робити (демо)",
+   "description": "Документи, одяг, їжа і ліки перед обстеженням – коротко, з поясненням навіщо.",
+   "cover": {
+    "large": "https://files.mrtplus.ua/articles/demo-yak-pidhotuvatysia-do-mrt/9f8e7d6c5b4a.webp",
+    "medium": "https://files.mrtplus.ua/articles/demo-yak-pidhotuvatysia-do-mrt/9f8e7d6c5b4a-m.webp",
+    "alt": "Пацієнтка готується до МРТ",
+    "width": 1080,
+    "height": 1350
+   },
+   "author": "demo-kovalenko-oksana",
+   "categories": [
+    "71383577-4f9d-55a8-8ac6-fc81ebe016d5"
+   ],
+   "pinned": true,
+   "publishedOn": "2026-09-15",
+   "updatedOn": "2026-09-28",
+   "updatedAt": "2026-09-30T10:00:00.000Z"
+  },
+  {
+   "slug": "demo-kt-chy-mrt",
+   "title": "КТ чи МРТ: що обрати (демо)",
+   "description": "Чим відрізняються методи і чому дослідження призначає лікар, а не пацієнт.",
+   "cover": {
+    "large": "https://files.mrtplus.ua/articles/demo-kt-chy-mrt/5b4a3c2d1e0f.webp",
+    "medium": "https://files.mrtplus.ua/articles/demo-kt-chy-mrt/5b4a3c2d1e0f-m.webp",
+    "alt": "Томограф у кабінеті",
+    "width": 1080,
+    "height": 1080
+   },
+   "author": "demo-melnyk-andrii",
+   "categories": [
+    "ce120a46-684e-5385-88c7-03a6d7aa6d7b",
+    "71383577-4f9d-55a8-8ac6-fc81ebe016d5"
+   ],
+   "pinned": false,
+   "publishedOn": "2026-09-20",
+   "updatedOn": null,
+   "updatedAt": "2026-09-30T10:00:00.000Z"
+  },
+  {
+   "slug": "demo-mrt-kolinnoho-suhloba",
+   "title": "МРТ колінного суглоба після травми (демо)",
+   "description": "Коли потрібне обстеження, що воно покаже і скільки чекати після травми.",
+   "cover": {
+    "large": "https://files.mrtplus.ua/articles/demo-mrt-kolinnoho-suhloba/0f1e2d3c4b5a.webp",
+    "medium": "https://files.mrtplus.ua/articles/demo-mrt-kolinnoho-suhloba/0f1e2d3c4b5a-m.webp",
+    "alt": "Колінний суглоб на МРТ-знімку",
+    "width": 1600,
+    "height": 900
+   },
+   "author": "demo-shevchuk-iryna",
+   "categories": [
+    "848834a2-f0a3-5a87-ab35-bbc76045f7fe"
+   ],
+   "pinned": false,
+   "publishedOn": "2026-09-10",
+   "updatedOn": null,
+   "updatedAt": "2026-09-30T10:00:00.000Z"
+  }
+ ],
+ "articlesArchived": [
+  "demo-znyata-stattia"
+ ]
+}

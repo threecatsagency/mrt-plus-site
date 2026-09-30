@@ -42,6 +42,25 @@
 }
 .ph--portrait { aspect-ratio: 4 / 5; }
 .ph--wide { aspect-ratio: 16 / 9; }
+/* Лікар без фото: ініціали замість знімка. */
+.ph--initials {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h2);
+  letter-spacing: 0;
+}
+
+/* Фото лікаря з ІС – завжди 4:5. */
+.doc-card__photo,
+.doc-hero__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  background: var(--c-ink-100);
+}
 
 /* --- Фільтр за містом: плашки-кнопки, прихований елемент зникає --- */
 [data-city][hidden] { display: none; }
@@ -60,8 +79,10 @@
   color: inherit;
   text-decoration: none;
 }
-.doc-card .ph { margin-bottom: var(--sp-2); transition: box-shadow var(--t-base); }
-.doc-card:hover .ph { box-shadow: var(--shadow-2); }
+.doc-card .ph,
+.doc-card__photo { margin-bottom: var(--sp-2); transition: box-shadow var(--t-base); }
+.doc-card:hover .ph,
+.doc-card:hover .doc-card__photo { box-shadow: var(--shadow-2); }
 
 .doc-card__name {
   margin: 0;
@@ -182,8 +203,18 @@
   color: inherit;
   text-decoration: none;
 }
-.art-card .ph { margin-bottom: var(--sp-3); transition: box-shadow var(--t-base); }
-.art-card:hover .ph { box-shadow: var(--shadow-2); }
+.art-card .ph,
+.art-card__img { margin-bottom: var(--sp-3); transition: box-shadow var(--t-base); }
+.art-card:hover .ph,
+.art-card:hover .art-card__img { box-shadow: var(--shadow-2); }
+/* Обкладинка – як є (4:5, 1:1, 16:9…), без обрізання. */
+.art-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+  background: var(--c-ink-100);
+}
 .art-card__date { font-size: var(--fs-caption); color: var(--c-ink-500); }
 .art-card__title {
   margin: 0;
@@ -218,6 +249,29 @@
   text-decoration: none;
 }
 .art__author .ph { aspect-ratio: 1; border-radius: 50%; font-size: 0; }
+.art__author .ph--initials { font-size: var(--fs-caption); }
+.art__author-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 50%;
+}
+
+/* Обкладинка статті – ціла, без обрізання: вертикальна й квадратна
+   обмежені за висотою, горизонтальна – на всю ширину тексту. */
+.art__cover { margin: var(--sp-8) 0 0; }
+.art__cover-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(75vh, 40rem);
+  border-radius: var(--r-lg);
+  background: var(--c-ink-100);
+}
 .art__author b { display: block; transition: color var(--t-fast); }
 .art__author:hover b { color: var(--c-accent-600); }
 .art__author span { font-size: var(--fs-small); color: var(--c-ink-600); }
@@ -226,9 +280,36 @@
 .prose { margin-top: var(--sp-8); }
 .prose > * + * { margin-top: var(--sp-4); }
 .prose h2 { margin-top: var(--sp-10); font-size: var(--fs-h3); }
-.prose ul { padding-left: var(--sp-5); }
+.prose h3 { margin-top: var(--sp-8); font-size: var(--fs-h4); }
+.prose ul,
+.prose ol { padding-left: var(--sp-5); }
 .prose li + li { margin-top: var(--sp-2); }
 .prose .note { max-width: none; margin-top: var(--sp-6); }
+
+/* Зображення в тексті статті. */
+.prose figure { margin-block: var(--sp-8) 0; margin-inline: 0; }
+.prose figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+}
+.prose figcaption { margin-top: var(--sp-2); font-size: var(--fs-caption); color: var(--c-ink-500); }
+
+/* Виділені блоки статті з ІС («порада», «увага») – як .note-info / .note-warn. */
+.prose .article-note {
+  margin-top: var(--sp-6);
+  padding: var(--sp-4) var(--sp-5);
+  border-left: 3px solid var(--c-accent-600);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: var(--c-accent-050);
+}
+.prose .article-note--warning {
+  border-left-color: var(--c-warn-600);
+  background: var(--c-warn-100);
+}
+.article-note > * { margin: 0; }
+.article-note > * + * { margin-top: var(--sp-3); }
 
 .zm-related > h2 { margin: 0 0 var(--sp-8); }
 
@@ -247,6 +328,7 @@
   .art-grid,
   .doc-cols,
   .doc-hero { grid-template-columns: 1fr; }
-  .doc-hero .ph { max-width: 20rem; }
+  .doc-hero .ph,
+  .doc-hero__photo { max-width: 20rem; }
   .doc-time li { grid-template-columns: 1fr; gap: var(--sp-1); }
 }
