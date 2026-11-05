@@ -3279,3 +3279,32 @@ h2 em.accent {
     bottom: calc(72px + env(safe-area-inset-bottom, 0px));
   }
 }
+
+/* =====================================================================
+   Чат колцентру (Chatwoot, assets/js/chat.js). Кнопка чату – праворуч
+   унизу, 64 px; кнопка «вгору» стає над нею. На телефоні й планшеті
+   кнопка чату піднята над липкою смугою «Подзвонити / Записатися».
+   Класи woot-* – з віджета Chatwoot (sdk.css).
+   ===================================================================== */
+
+body:has(.woot-widget-bubble) .to-top {
+  bottom: calc(var(--sp-5) + 64px + var(--sp-3));
+}
+
+@media (max-width: 63.99em) {
+  body:has(.action-bar) .woot-widget-bubble {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+  body:has(.action-bar):has(.woot-widget-bubble) .to-top {
+    bottom: calc(72px + 64px + var(--sp-3) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Від 667 px Chatwoot відкриває вікно над кнопкою, а не на весь екран –
+   піднімаємо й вікно. */
+@media (min-width: 41.6875em) and (max-width: 63.99em) {
+  body:has(.action-bar) .woot-widget-holder {
+    bottom: calc(72px + 64px + 20px + env(safe-area-inset-bottom, 0px));
+    height: calc(90% - 64px - 92px);
+  }
+}
