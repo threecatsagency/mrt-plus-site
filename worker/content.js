@@ -85,31 +85,41 @@ function cities(slugs) {
 
 // ---------- лікарі ----------
 
-function doctorPhoto(d, cls, sizes, eager) {
+// Пастельний тон заглушки – за порядком лікаря у знімку: сусіди в сітці
+// різні, і той самий лікар скрізь одного кольору.
+const TONES = 7;
+function toneClass(snap, d) {
+  const i = ((snap && snap.doctors) || []).findIndex((x) => x.slug === d.slug);
+  return `ph--tone-${(Math.max(i, 0) % TONES) + 1}`;
+}
+
+function doctorPhoto(snap, d, cls, sizes, eager) {
   if (!d.photo || !d.photo.large) {
-    return `<span class="ph ph--portrait ph--initials" aria-hidden="true">${esc(initials(d))}</span>`;
+    return `<span class="ph ph--portrait ph--initials ${toneClass(snap, d)}" aria-hidden="true">${esc(initials(d))}</span>`;
   }
   const srcset = d.photo.small ? ` srcset="${esc(d.photo.small)} 400w, ${esc(d.photo.large)} 800w" sizes="${sizes}"` : '';
   return `<img class="${cls}" src="${esc(d.photo.large)}"${srcset} width="800" height="1000" alt="${esc(fullName(d))}"${eager ? '' : ' loading="lazy"'}>`;
 }
 
-export function doctorCardHtml(d) {
+export function doctorCardHtml(snap, d) {
   const n = practiceYears(d);
-  // Лікарі – команда мережі без прив'язки до міст (рішення 13.11.2026):
-  // під посадою лише стаж.
-  const meta = n ? `Стаж ${years(n)}` : '';
+  // Лікарі – команда мережі без прив'язки до міст (рішення 13.11.2026).
+  // Стаж – плашкою на фото; ПІБ двома частинами (на десктопі – два рядки).
+  const given = [d.firstName, d.middleName].filter(Boolean).join(' ');
   return `<li><a class="doc-card" href="/likari/${esc(d.slug)}/">`
-    + doctorPhoto(d, 'doc-card__photo', '(max-width: 47.99em) 50vw, (max-width: 63.99em) 33vw, 18rem', false)
-    + `<h3 class="doc-card__name">${esc(fullName(d))}</h3>`
+    + `<span class="doc-card__media">`
+    + doctorPhoto(snap, d, 'doc-card__photo', '(max-width: 47.99em) 50vw, (max-width: 63.99em) 33vw, 18rem', false)
+    + (n ? `<span class="doc-card__badge">Стаж ${years(n)}</span>` : '')
+    + `</span>`
+    + `<h3 class="doc-card__name"><span>${esc(d.lastName)}</span>${given ? ` <span>${esc(given)}</span>` : ''}</h3>`
     + `<p class="doc-card__role">${esc(d.position || 'Лікар-рентгенолог')}</p>`
-    + (meta ? `<p class="doc-card__meta">${meta}</p>` : '')
     + `</a></li>`;
 }
 
 export function doctorListHtml(snap) {
   const list = (snap && snap.doctors) || [];
   if (!list.length) return null;
-  return list.map(doctorCardHtml).join('');
+  return list.map((d) => doctorCardHtml(snap, d)).join('');
 }
 
 // Категорія «Що описує» → адреса на сторінці цін першого центру мережі
@@ -180,7 +190,7 @@ export function doctorPage(snap, slug) {
   const hero = `<section class="pk-sec zm-head"><div class="container">`
     + `<ol class="crumbs"><li><a href="/">Головна</a></li><li><a href="/likari/">Лікарі</a></li><li>${esc(name)}</li></ol>`
     + `<div class="doc-hero">`
-    + doctorPhoto(d, 'doc-hero__photo', '(max-width: 47.99em) 20rem, 40vw', true)
+    + doctorPhoto(snap, d, 'doc-hero__photo', '(max-width: 47.99em) 20rem, 40vw', true)
     + `<div><h1>${esc(name)}</h1>`
     + `<p class="doc-hero__role">${esc(d.position || 'Лікар-рентгенолог')}</p>`
     + (facts ? `<ul class="doc-facts">${facts}</ul>` : '')
@@ -201,10 +211,10 @@ export function doctorPage(snap, slug) {
 
   const body = sections([
     blocks ? { html: `<div class="doc-cols">${blocks}</div>` } : null,
-    chips ? { html: `<h2>Що <em>описує</em></h2><ul class="chip-row">${chips}</ul>` } : null,
+    chips ? { html: `<h2>Що <em>описує</em></h2><ul class="chip-row chip-row--wrap">${chips}</ul>` } : null,
     reviews.length ? { html: `<h2>Відгуки <em>пацієнтів</em></h2><div class="rev-grid">${reviews.map(reviewHtml).join('')}</div>` } : null,
     articles.length ? { cls: 'zm-related', html: `<h2>Статті <em>лікаря</em></h2><ul class="art-grid">${articles.map((a) => articleCardHtml(snap, a)).join('')}</ul>` } : null,
-    others.length ? { cls: 'zm-related', html: `<h2>Інші <em>лікарі</em></h2><ul class="doc-grid">${others.map(doctorCardHtml).join('')}</ul>` } : null,
+    others.length ? { cls: 'zm-related', html: `<h2>Інші <em>лікарі</em></h2><ul class="doc-grid">${others.map((x) => doctorCardHtml(snap, x)).join('')}</ul>` } : null,
   ]);
 
   const role = lowerFirst(d.position || 'Лікар-рентгенолог');
@@ -289,7 +299,7 @@ export function articlePage(snap, art) {
     ? `<a class="art__author" href="/likari/${esc(d.slug)}/">`
       + (d.photo && d.photo.small
         ? `<img class="art__author-photo" src="${esc(d.photo.small)}" width="400" height="500" alt="" loading="lazy">`
-        : `<span class="ph ph--initials" aria-hidden="true">${esc(initials(d))}</span>`)
+        : `<span class="ph ph--initials ${toneClass(snap, d)}" aria-hidden="true">${esc(initials(d))}</span>`)
       + `<span><b>${esc(fullName(d))}</b><span>${esc(d.position || 'Лікар-рентгенолог')}, автор статті</span></span></a>`
     : '';
   const cover = `<figure class="art__cover">${coverImg(art.cover, 'art__cover-img', '(max-width: 47.99em) 100vw, 30rem', true)}</figure>`;

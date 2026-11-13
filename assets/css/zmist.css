@@ -49,6 +49,13 @@
   font-size: var(--fs-h2);
   letter-spacing: 0;
 }
+.ph--tone-1 { background: var(--c-tone-1-bg); color: var(--c-tone-1-ink); }
+.ph--tone-2 { background: var(--c-tone-2-bg); color: var(--c-tone-2-ink); }
+.ph--tone-3 { background: var(--c-tone-3-bg); color: var(--c-tone-3-ink); }
+.ph--tone-4 { background: var(--c-tone-4-bg); color: var(--c-tone-4-ink); }
+.ph--tone-5 { background: var(--c-tone-5-bg); color: var(--c-tone-5-ink); }
+.ph--tone-6 { background: var(--c-tone-6-bg); color: var(--c-tone-6-ink); }
+.ph--tone-7 { background: var(--c-tone-7-bg); color: var(--c-tone-7-ink); }
 
 /* Фото лікаря з ІС – завжди 4:5. */
 .doc-card__photo,
@@ -65,24 +72,53 @@
 /* --- Фільтр за містом: плашки-кнопки, прихований елемент зникає --- */
 [data-city][hidden] { display: none; }
 
-/* --- Картки лікарів --- */
+/* --- Картки лікарів ---
+   Рядки карток вирівняні сабгрідом: фото, ПІБ, посада в усіх картках
+   рядка на одному рівні. Стаж – плашкою в правому нижньому куті фото. */
 .doc-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--sp-6) var(--sp-4);
 }
+.doc-grid > li {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+}
 
 .doc-card {
   display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: var(--sp-2);
   align-content: start;
-  gap: var(--sp-2);
   color: inherit;
   text-decoration: none;
 }
+.doc-card__media {
+  position: relative;
+  display: block;
+  margin-bottom: var(--sp-2);
+}
 .doc-card .ph,
-.doc-card__photo { margin-bottom: var(--sp-2); transition: box-shadow var(--t-base); }
+.doc-card__photo { transition: box-shadow var(--t-base); }
 .doc-card:hover .ph,
 .doc-card:hover .doc-card__photo { box-shadow: var(--shadow-2); }
+.doc-card__badge {
+  position: absolute;
+  right: var(--sp-3);
+  bottom: var(--sp-3);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-pill);
+  background: var(--c-white);
+  box-shadow: var(--shadow-1);
+  color: var(--c-ink-800);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-compact);
+  white-space: nowrap;
+}
 
 .doc-card__name {
   margin: 0;
@@ -90,9 +126,12 @@
   line-height: var(--lh-heading);
   transition: color var(--t-fast);
 }
+/* Десктоп: прізвище – перший рядок, ім'я та по батькові – другий. */
+@media (min-width: 64em) {
+  .doc-card__name > span { display: block; }
+}
 .doc-card:hover .doc-card__name { color: var(--c-accent-600); }
 .doc-card__role { margin: 0; font-size: var(--fs-small); color: var(--c-ink-600); }
-.doc-card__meta { margin: 0; font-size: var(--fs-caption); color: var(--c-ink-500); }
 
 /* --- Сторінка лікаря: фото ліворуч, дані праворуч --- */
 .doc-hero {
@@ -329,4 +368,6 @@
   .doc-hero .ph,
   .doc-hero__photo { max-width: 20rem; }
   .doc-time li { grid-template-columns: 1fr; gap: var(--sp-1); }
+  /* «Що описує»: довга назва – у два рівні рядки, чіп не на всю ширину. */
+  .chip-row--wrap .chip { max-width: 15rem; }
 }
