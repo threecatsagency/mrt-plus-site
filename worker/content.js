@@ -95,8 +95,10 @@ function doctorPhoto(d, cls, sizes, eager) {
 
 export function doctorCardHtml(d) {
   const n = practiceYears(d);
-  const meta = [n ? `Стаж ${years(n)}` : null, cities(d.centers).join(', ') || null].filter(Boolean).join(' · ');
-  return `<li data-city="${esc(d.centers.join(' '))}"><a class="doc-card" href="/likari/${esc(d.slug)}/">`
+  // Лікарі – команда мережі без прив'язки до міст (рішення 13.11.2026):
+  // під посадою лише стаж.
+  const meta = n ? `Стаж ${years(n)}` : '';
+  return `<li><a class="doc-card" href="/likari/${esc(d.slug)}/">`
     + doctorPhoto(d, 'doc-card__photo', '(max-width: 47.99em) 50vw, (max-width: 63.99em) 33vw, 18rem', false)
     + `<h3 class="doc-card__name">${esc(fullName(d))}</h3>`
     + `<p class="doc-card__role">${esc(d.position || 'Лікар-рентгенолог')}</p>`
@@ -110,10 +112,12 @@ export function doctorListHtml(snap) {
   return list.map(doctorCardHtml).join('');
 }
 
-// Категорія «Що описує» → адреса на сторінці цін першого центру лікаря,
-// у прайсі якого вона є.
+// Категорія «Що описує» → адреса на сторінці цін першого центру мережі
+// (у порядку знімка), у прайсі якого вона є. Центри лікаря не враховуються:
+// лікар описує дослідження з усієї мережі.
 function categoryLinks(snap, d) {
   const byId = new Map((snap.categories || []).map((c) => [c.id, c]));
+  const centerSlugs = (snap.centers || []).map((c) => c.slug).filter((s) => CITY[s]);
   const anchors = new Map(); // slug центру → Map(id категорії → якір)
   const anchorFor = (slug) => {
     if (!anchors.has(slug)) {
@@ -124,7 +128,7 @@ function categoryLinks(snap, d) {
   return (d.categories || []).map((id) => {
     const cat = byId.get(id);
     if (!cat) return null;
-    const slug = d.centers.find((s) => anchorFor(s).has(id));
+    const slug = centerSlugs.find((s) => anchorFor(s).has(id));
     return slug
       ? `<li><a class="chip" href="/${slug}/tsiny/#${anchorFor(slug).get(id)}">${esc(cat.name)}</a></li>`
       : `<li><span class="chip">${esc(cat.name)}</span></li>`;
@@ -171,9 +175,6 @@ export function doctorPage(snap, slug) {
   const facts = [
     n ? `<li><b>${years(n)}</b><span>стаж</span></li>` : null,
     CATEGORY[d.qualificationCategory] ? `<li><b>${CATEGORY[d.qualificationCategory]}</b><span>кваліфікаційна категорія</span></li>` : null,
-    d.centers.length
-      ? `<li><b>${d.centers.filter((s) => CITY[s]).map((s) => `<a href="/${s}/">${CITY[s]}</a>`).join(', ')}</b><span>${d.centers.length > 1 ? 'центри' : 'центр'}</span></li>`
-      : null,
   ].filter(Boolean).join('');
 
   const hero = `<section class="pk-sec zm-head"><div class="container">`
@@ -209,17 +210,19 @@ export function doctorPage(snap, slug) {
   const role = lowerFirst(d.position || 'Лікар-рентгенолог');
   return {
     title: `${name}, ${role} – МРТ ПЛЮС`,
-    description: `${name}, ${role} МРТ ПЛЮС${d.centers.length ? ` (${cities(d.centers).join(', ')})` : ''}: освіта, досвід${reviews.length ? ', відгуки пацієнтів' : ''}.`,
+    description: `${name}, ${role} МРТ ПЛЮС: освіта, досвід${reviews.length ? ', відгуки пацієнтів' : ''}.`,
     main: hero + body + CTA,
   };
 }
 
-// Спершу колеги зі спільних центрів, далі решта – у порядку знімка.
+// Наступні за алфавітом колеги (порядок знімка), по колу: кожен лікар
+// отримує посилання з кількох сторінок, а не лише перші в списку.
 function otherDoctors(snap, d, max) {
-  const rest = (snap.doctors || []).filter((x) => x.slug !== d.slug);
-  const near = rest.filter((x) => x.centers.some((s) => d.centers.includes(s)));
-  const far = rest.filter((x) => !near.includes(x));
-  return near.concat(far).slice(0, max);
+  const all = snap.doctors || [];
+  const i = all.findIndex((x) => x.slug === d.slug);
+  const out = [];
+  for (let k = 1; k < all.length && out.length < max; k++) out.push(all[(i + k) % all.length]);
+  return out;
 }
 
 // ---------- відгуки ----------
