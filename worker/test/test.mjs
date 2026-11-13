@@ -21,6 +21,7 @@ async function signal(version) {
 // --- без знімка ---
 let r = await get('/likari/');
 t('без знімка: лікарі – запасний текст', r.s === 200 && r.b.includes('Список оновлюється'));
+t('без знімка: вступ лікарів – текст сторінки', r.b.includes('data-is-lead="doctors">Рентгенологи мережі'));
 r = await get('/statti/');  t('без знімка: статті – запасний текст', r.b.includes('Список оновлюється'));
 r = await get('/vidhuky/'); t('без знімка: відгуки – запасний текст', r.b.includes('Відгуки оновлюються'));
 r = await get('/lutsk/');   t('без знімка: відгуки центру приховані', /data-is-reviews="lutsk" hidden/.test(r.b));
@@ -40,10 +41,9 @@ t('лікарі: без фільтра міст', !r.b.includes('data-city') && 
 const docOrder = [...r.b.matchAll(/href="\/likari\/([^/]+)\/"/g)].map((m) => m[1]);
 t('лікарі: порядок знімка (за прізвищем)', docOrder.join() === 'demo-bondar-taras,demo-kovalenko-oksana,demo-melnyk-andrii,demo-shevchuk-iryna', docOrder.join());
 t('лікарі: без фото – ініціали', r.b.includes('ph--portrait ph--initials ph--tone-3" aria-hidden="true">МА<'));
-t('лікарі: стаж плашкою на фото', r.b.includes('<span class="doc-card__badge">Стаж 1&#160;рік</span></span>'));
-t('лікарі: без стажу – без плашки', count(r.b, /class="doc-card__badge"/g) === 4);
-t('лікарі: ПІБ двома частинами', r.b.includes('<h3 class="doc-card__name"><span>Мельник</span> <span>Андрій Петрович</span></h3>'));
-t('лікарі: міст у картках нема', !r.b.includes('doc-card__meta'));
+t('лікарі: ПІБ на плашці двома рядками', r.b.includes('<h3 class="doc-card__name"><span class="doc-card__last">Мельник</span><span class="doc-card__given">Андрій Петрович</span></h3>'));
+t('лікарі: без стажу, посади й міст', !r.b.includes('doc-card__badge') && !r.b.includes('doc-card__role') && !r.b.includes('doc-card__meta'));
+t('лікарі: вступ з кількістю', r.b.includes('data-is-lead="doctors">У команді 4&#160;лікарі-рентгенологи.'));
 t('лікарі: пастельні тони за порядком', r.b.includes('ph--initials ph--tone-3" aria-hidden="true">МА<'));
 t('лікарі: запасного тексту нема', !r.b.includes('Список оновлюється'));
 r = await get('/vidhuky/'); t('відгуки: 9', count(r.b, /class="rev"/g) === 9);
@@ -74,7 +74,7 @@ t('лікар: КТ голови → Рівне (у Києві й Житомир
 t('лікар: 2 відгуки', count(r.b, /class="rev"/g) === 2);
 t('лікар: статті лікаря', r.b.includes('Статті <em>лікаря</em>') && r.b.includes('/statti/demo-yak-pidhotuvatysia-do-mrt/'));
 const others = [...r.b.split('Інші <em>лікарі</em>')[1].matchAll(/href="\/likari\/([^/]+)\/"/g)].map((m) => m[1]);
-t('лікар: інші – наступні за алфавітом, по колу', others.join() === 'demo-melnyk-andrii,demo-shevchuk-iryna,demo-bondar-taras', others.join());
+t('лікар: інші – троє наступних за алфавітом, по колу', others.join() === 'demo-melnyk-andrii,demo-shevchuk-iryna,demo-bondar-taras', others.join());
 t('лікар: чергування площин', count(r.b, /pk-sec pk-sec--band/g) === 2);
 t('лікар: шапка з шаблону', r.b.includes('class="site-header') && r.b.includes('aria-current="page">Лікарі'));
 t('лікар: без ETag шаблону', !r.h.get('etag'));

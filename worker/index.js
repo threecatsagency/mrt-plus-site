@@ -34,7 +34,7 @@
 
 import { hoursSetHtml, badgeHours, machineFields, priceListHtml } from './render.js';
 import {
-  doctorListHtml, doctorPage, reviewListHtml, centerVoicesHtml,
+  doctorListHtml, doctorsLeadHtml, doctorPage, reviewListHtml, centerVoicesHtml,
   articleListHtml, articlePage, sitemapXml,
 } from './content.js';
 
@@ -271,6 +271,13 @@ async function withIsData(res, env) {
       element(el) {
         const make = lists[el.getAttribute('data-is-list')];
         const html = make && make();
+        if (html) el.setInnerContent(html, { html: true });
+      },
+    })
+    // Вступ /likari/: кількість лікарів зі знімка.
+    .on('[data-is-lead="doctors"]', {
+      element(el) {
+        const html = doctorsLeadHtml(snap);
         if (html) el.setInnerContent(html, { html: true });
       },
     })

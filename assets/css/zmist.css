@@ -72,66 +72,87 @@
 /* --- Фільтр за містом: плашки-кнопки, прихований елемент зникає --- */
 [data-city][hidden] { display: none; }
 
-/* --- Картки лікарів ---
-   Рядки карток вирівняні сабгрідом: фото, ПІБ, посада в усіх картках
-   рядка на одному рівні. Стаж – плашкою в правому нижньому куті фото. */
+/* --- Картки лікарів (рішення 13.11.2026) ---
+   Фото 4:5, ПІБ на плашці внизу фото двома рядками (прізвище / ім'я та по
+   батькові). При наведенні – плавне затемнення фірмовим темно-синім.
+   3 колонки на десктопі, 2 на планшеті, 1 на телефоні. */
 .doc-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--sp-6) var(--sp-4);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 0.5rem + 2.5vw, 3rem);
 }
-.doc-grid > li {
-  display: grid;
-  grid-row: span 3;
-  grid-template-rows: subgrid;
-  row-gap: 0;
-}
-
 .doc-card {
-  display: grid;
-  grid-row: span 3;
-  grid-template-rows: subgrid;
-  row-gap: var(--sp-2);
-  align-content: start;
-  color: inherit;
-  text-decoration: none;
-}
-.doc-card__media {
   position: relative;
   display: block;
-  margin-bottom: var(--sp-2);
+  overflow: hidden;
+  border-radius: var(--r-md);
+  color: inherit;
+  text-decoration: none;
+  isolation: isolate;
 }
 .doc-card .ph,
-.doc-card__photo { transition: box-shadow var(--t-base); }
-.doc-card:hover .ph,
-.doc-card:hover .doc-card__photo { box-shadow: var(--shadow-2); }
-.doc-card__badge {
+.doc-card__photo {
+  width: 100%;
+  border-radius: 0;
+  transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.doc-card .ph--initials { font-size: var(--fs-h2); }
+.doc-card::after {
+  content: "";
   position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(14, 29, 58, 0.15) 0%, rgba(14, 29, 58, 0.55) 100%);
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+.doc-card__name {
+  position: absolute;
+  left: var(--sp-3);
   right: var(--sp-3);
   bottom: var(--sp-3);
-  padding: var(--sp-1) var(--sp-3);
-  border-radius: var(--r-pill);
-  background: var(--c-white);
-  box-shadow: var(--shadow-1);
-  color: var(--c-ink-800);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-compact);
-  white-space: nowrap;
-}
-
-.doc-card__name {
+  z-index: 2;
+  display: grid;
+  gap: var(--sp-1);
   margin: 0;
-  font-size: var(--fs-h4);
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: calc(var(--r-md) - 2px);
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px -10px rgba(14, 29, 58, 0.35);
+}
+.doc-card__last {
+  font-family: var(--font-display);
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-h3);
   line-height: var(--lh-heading);
-  transition: color var(--t-fast);
+  color: var(--c-ink-900);
+  transition: color var(--t-base);
 }
-/* Десктоп: прізвище – перший рядок, ім'я та по батькові – другий. */
-@media (min-width: 64em) {
-  .doc-card__name > span { display: block; }
+.doc-card__given {
+  overflow: hidden;
+  font-family: var(--font-text);
+  font-weight: var(--fw-regular, 400);
+  font-size: var(--fs-body);
+  line-height: var(--lh-compact);
+  color: var(--c-ink-600);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.doc-card:hover .doc-card__name { color: var(--c-accent-600); }
-.doc-card__role { margin: 0; font-size: var(--fs-small); color: var(--c-ink-600); }
+.doc-card:hover::after,
+.doc-card:focus-visible::after { opacity: 1; }
+.doc-card:hover .ph,
+.doc-card:hover .doc-card__photo,
+.doc-card:focus-visible .ph,
+.doc-card:focus-visible .doc-card__photo { transform: scale(1.04); }
+.doc-card:hover .doc-card__last,
+.doc-card:focus-visible .doc-card__last { color: var(--c-accent-600); }
+@media (prefers-reduced-motion: reduce) {
+  .doc-card .ph,
+  .doc-card__photo,
+  .doc-card::after { transition: none; }
+}
 
 /* --- Сторінка лікаря: фото ліворуч, дані праворуч --- */
 .doc-hero {
@@ -352,7 +373,7 @@
 
 /* --- Планшет і телефон --- */
 @media (max-width: 63.99em) {
-  .doc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .doc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rev-grid,
   .art-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .doc-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -360,7 +381,7 @@
 }
 
 @media (max-width: 47.99em) {
-  .doc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .doc-grid { grid-template-columns: minmax(0, 1fr); }
   .rev-grid,
   .art-grid,
   .doc-cols,
@@ -368,6 +389,4 @@
   .doc-hero .ph,
   .doc-hero__photo { max-width: 20rem; }
   .doc-time li { grid-template-columns: 1fr; gap: var(--sp-1); }
-  /* «Що описує»: довга назва – у два рівні рядки, чіп не на всю ширину. */
-  .chip-row--wrap .chip { max-width: 15rem; }
 }

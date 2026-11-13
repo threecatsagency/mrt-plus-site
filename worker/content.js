@@ -101,19 +101,35 @@ function doctorPhoto(snap, d, cls, sizes, eager) {
   return `<img class="${cls}" src="${esc(d.photo.large)}"${srcset} width="800" height="1000" alt="${esc(fullName(d))}"${eager ? '' : ' loading="lazy"'}>`;
 }
 
+// Картка лікаря (рішення 13.11.2026): лише фото й ПІБ. ПІБ – на плашці
+// внизу фото, завжди двома рядками: прізвище, далі ім'я та по батькові.
+// Посади, стажу, міст немає.
 export function doctorCardHtml(snap, d) {
-  const n = practiceYears(d);
-  // Лікарі – команда мережі без прив'язки до міст (рішення 13.11.2026).
-  // Стаж – плашкою на фото; ПІБ двома частинами (на десктопі – два рядки).
   const given = [d.firstName, d.middleName].filter(Boolean).join(' ');
   return `<li><a class="doc-card" href="/likari/${esc(d.slug)}/">`
-    + `<span class="doc-card__media">`
-    + doctorPhoto(snap, d, 'doc-card__photo', '(max-width: 47.99em) 50vw, (max-width: 63.99em) 33vw, 18rem', false)
-    + (n ? `<span class="doc-card__badge">Стаж ${years(n)}</span>` : '')
-    + `</span>`
-    + `<h3 class="doc-card__name"><span>${esc(d.lastName)}</span>${given ? ` <span>${esc(given)}</span>` : ''}</h3>`
-    + `<p class="doc-card__role">${esc(d.position || 'Лікар-рентгенолог')}</p>`
+    + doctorPhoto(snap, d, 'doc-card__photo', '(max-width: 47.99em) 100vw, (max-width: 63.99em) 50vw, 24rem', false)
+    + `<h3 class="doc-card__name"><span class="doc-card__last">${esc(d.lastName)}</span>`
+    + `<span class="doc-card__given">${esc(given)}</span></h3>`
     + `</a></li>`;
+}
+
+// «У команді 26 лікарів-рентгенологів» – 1 лікар-рентгенолог,
+// 2 лікарі-рентгенологи, 5 лікарів-рентгенологів.
+function doctorsWord(n) {
+  const a = n % 10;
+  const b = n % 100;
+  if (a === 1 && b !== 11) return 'лікар-рентгенолог';
+  if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return 'лікарі-рентгенологи';
+  return 'лікарів-рентгенологів';
+}
+
+// Вступ /likari/ з кількістю лікарів зі знімка; немає лікарів – null
+// (лишається текст сторінки).
+export function doctorsLeadHtml(snap) {
+  const n = ((snap && snap.doctors) || []).length;
+  if (!n) return null;
+  return `У команді ${n}&#160;${doctorsWord(n)}. Вони описують понад 60&#160;000 досліджень за рік, `
+    + 'складні знімки дивляться колегіально: висновок не залежить від однієї думки.';
 }
 
 export function doctorListHtml(snap) {
@@ -207,11 +223,11 @@ export function doctorPage(snap, slug) {
   const chips = categoryLinks(snap, d);
   const reviews = (snap.reviews || []).filter((r) => r.doctor === d.slug);
   const articles = (snap.articles || []).filter((a) => a.author === d.slug);
-  const others = otherDoctors(snap, d, 4);
+  const others = otherDoctors(snap, d, 3);
 
   const body = sections([
     blocks ? { html: `<div class="doc-cols">${blocks}</div>` } : null,
-    chips ? { html: `<h2>Що <em>описує</em></h2><ul class="chip-row chip-row--wrap">${chips}</ul>` } : null,
+    chips ? { html: `<h2>Що <em>описує</em></h2><ul class="chip-row">${chips}</ul>` } : null,
     reviews.length ? { html: `<h2>Відгуки <em>пацієнтів</em></h2><div class="rev-grid">${reviews.map(reviewHtml).join('')}</div>` } : null,
     articles.length ? { cls: 'zm-related', html: `<h2>Статті <em>лікаря</em></h2><ul class="art-grid">${articles.map((a) => articleCardHtml(snap, a)).join('')}</ul>` } : null,
     others.length ? { cls: 'zm-related', html: `<h2>Інші <em>лікарі</em></h2><ul class="doc-grid">${others.map((x) => doctorCardHtml(snap, x)).join('')}</ul>` } : null,

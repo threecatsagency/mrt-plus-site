@@ -360,13 +360,12 @@
 .chip {
   display: inline-flex;
   align-items: center;
-  /* Від 38 px: довга назва на вузькому екрані йде у два рівні рядки,
-     а не вилазить за рамку. */
+  /* Від 38 px: назва, що не влазить в екран, переноситься в другий
+     рядок і не вилазить за рамку. */
   min-height: 38px;
   max-width: 100%;
   padding: var(--sp-2) var(--sp-4);
   line-height: var(--lh-compact);
-  text-wrap: balance;
   border: 1px solid var(--c-ink-200);
   border-radius: var(--r-pill);
   background: var(--c-white);
